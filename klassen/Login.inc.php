@@ -16,7 +16,7 @@ class Login
         if (isset($_GET["logout"])) {
             $this->doLogout();
         } elseif (isset($_POST["login"])) {
-            $this->dologin();
+            $this->doLogin();
         }
 
         /*
@@ -32,7 +32,7 @@ class Login
     }
 
 
-    private function dologin()
+    private function doLogin()
     {
 
         if (empty($_POST['email_or_user'])) {
@@ -52,7 +52,7 @@ class Login
 
                 $email_or_user = $this->link->real_escape_string($_POST['email_or_user']);
 
-                $result_of_login_check = DbFunctions::getEmailAndHashByEmailOrUser($this->link, $email_or_user);
+                $result_of_login_check = DbFunctions::getNameEmailHashByEmailOrUser($this->link, $email_or_user);
 
 
                 //wenn email existiert
@@ -64,6 +64,7 @@ class Login
                     if (!empty($_POST['password']) && password_verify($_POST['password'], $result_row->passwort_hash)) {
 
                         //schreibe benutzerdaten in die session
+                        $_SESSION['name'] = $result_row->name;
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
                     } else {
@@ -81,6 +82,7 @@ class Login
     public function doLogout()
     {
         // delete the session of the user
+        session_unset();
         session_destroy();
         // return a little feeedback message
         $this->messages[] = "Du wurdest ausgeloggt";
@@ -89,7 +91,7 @@ class Login
 
     public function isUserLoggedIn()
     {
-        if (isset($_SESSION['user_login_status']) and $_SESSION['user_login_status'] == 1) {
+        if (isset($_SESSION['user_login_status']) && $_SESSION['user_login_status'] == 1) {
             return true;
         }
         return false;

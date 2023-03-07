@@ -4,29 +4,23 @@ require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
 require_once("./klassen/Login.inc.php");
 
+$REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $login = new Login();
 
 
-if (isset($_GET["logout"])) {
-	$smarty->display('not_loggedIn.tpl');
-	die();
-}
 
-
-
-/*
-if (!isset($_POST["login"]) && !isset($_POST["register"])) {
+if ($REQUEST_METHOD == "GET") {
 	if (!isset($_SESSION["csrfToken"])) {
 		$_SESSION["csrfToken"] = bin2hex(random_bytes(64));
+		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 	}
-	$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
-} else if (isset($_POST["login"]) || isset($_POST["register"])) {
+} else {
 	if (!isset($_POST["csrfToken"]) || !isset($_SESSION["csrfToken"]) || $_POST["csrfToken"] != $_SESSION["csrfToken"]) {
 		unset($_SESSION["csrfToken"]);
 		die("CSRF Token ungültig!");
 	}
 }
-*/
+
 
 
 if ($login->isUserLoggedIn()) {
