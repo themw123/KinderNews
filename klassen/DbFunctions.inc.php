@@ -19,13 +19,12 @@ class DbFunctions
 	}
 
 
-	public static function getEmailAndHashByEmail($link, $email)
+	public static function getEmailAndHashByEmailOrUser($link, $email_or_user)
 	{
 		$stmt = $link->prepare(
-			//"SELECT email, password_hash FROM benutzer WHERE email = ? OR user_email = ?;"
-			"SELECT email, passwort_hash FROM benutzer WHERE email = ?;"
+			"SELECT email, passwort_hash FROM benutzer WHERE email = ? or name = ?;"
 		);
-		$stmt->bind_param("s", $email);
+		$stmt->bind_param("ss", $email_or_user, $email_or_user);
 		$stmt->execute();
 		return $stmt->get_result();
 	}

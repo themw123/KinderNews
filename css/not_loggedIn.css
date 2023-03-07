@@ -1,7 +1,7 @@
 body{
     padding-top:4.2rem;
     padding-bottom:4.2rem;
-    background:rgba(0, 0, 0, 0.76);
+    background:rgba(227, 31, 31, 0.76);
 }
 a{
     text-decoration:none !important;
@@ -55,15 +55,12 @@ h1,h2,h3{
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
-form .error {
-    color: #ff0000;
-}
 #second{
     display:none;
 }
 
 .alertcontainer {
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 .alert {
@@ -74,4 +71,17 @@ form .error {
 
 .alert-hidden {
     visibility: hidden;
+}
+
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+.fadeOut {
+    animation: fadeOut 1s;
 }

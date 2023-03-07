@@ -35,11 +35,11 @@ class Login
     private function dologin()
     {
 
-        if (empty($_POST['email'])) {
-            $this->errors[] = "Email darf nicht leer sein";
+        if (empty($_POST['email_or_user'])) {
+            $this->errors[] = "Email bzw. Benutzername darf nicht leer sein";
         } elseif (empty($_POST['password'])) {
             $this->errors[] = "Password darf nicht leer sein";
-        } elseif (!empty($_POST['email']) && !empty($_POST['password'])) {
+        } elseif (!empty($_POST['email_or_user']) && !empty($_POST['password'])) {
 
             //verbindung mit datenbank
             $this->link = DbFunctions::connectWithDatabase();
@@ -50,9 +50,9 @@ class Login
 
             if (!$this->link->connect_errno) {
 
-                $email = $this->link->real_escape_string($_POST['email']);
+                $email_or_user = $this->link->real_escape_string($_POST['email_or_user']);
 
-                $result_of_login_check = DbFunctions::getEmailAndHashByEmail($this->link, $email);
+                $result_of_login_check = DbFunctions::getEmailAndHashByEmailOrUser($this->link, $email_or_user);
 
 
                 //wenn email existiert
@@ -70,7 +70,7 @@ class Login
                         $this->errors[] = "falsches Passwort";
                     }
                 } else {
-                    $this->errors[] = "Die Email existiert nicht";
+                    $this->errors[] = "Die Email bzw. der Benutztername existiert nicht";
                 }
             } else {
                 $this->errors[] = "Problem bei der Verbindung mit der Datenbank";

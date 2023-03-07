@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-07 19:09:21
+/* Smarty version 4.2.0, created on 2023-03-07 23:23:08
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\not_loggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64077dd19d6f16_14051883',
+  'unifunc' => 'content_6407b94cce5717_19592743',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '968f2316061d195e3b19fba59b1ad994e3dd0726' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\not_loggedIn.tpl',
-      1 => 1678212559,
+      1 => 1678227786,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64077dd19d6f16_14051883 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6407b94cce5717_19592743 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
 <head>
 	<title>Anmelden</title>
-	<meta charset="utf-8">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -36,44 +37,42 @@ function content_64077dd19d6f16_14051883 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-	<div class="container alertcontainer">
-		<?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
-			<div class="alert alert-hidden">leer</div>
-		<?php }?>
+	<div class="container logincontainer">
+		<div class="row">
+			<div class="col-md-5 mx-auto">
+				<?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
+					<div class="alert alert-hidden">leer</div>
+				<?php }?>
 
-		<?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
-			<?php
+				<?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
+					<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
 $_smarty_tpl->tpl_vars['error']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) {
 $_smarty_tpl->tpl_vars['error']->do_else = false;
 ?>
-				<?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
-					<div class="alert alert-secondary"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+						<?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
+							<div class="alert alert-dark"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
 </div>
-				<?php }?>
-			<?php
+						<?php }?>
+					<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-		<?php }?>
-		<?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
-			<?php
+				<?php }?>
+				<?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
+					<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value, 'message');
 $_smarty_tpl->tpl_vars['message']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
 $_smarty_tpl->tpl_vars['message']->do_else = false;
 ?>
-				<div class="alert alert-secondary"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
+						<div class="alert alert-dark"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
 </div>
-			<?php
+					<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-		<?php }?>
-	</div>
+				<?php }?>
 
-	<div class="container logincontainer">
-		<div class="row">
-			<div class="col-md-5 mx-auto">
 				<div id="first">
 					<div class="myform form ">
 						<div class="logo mb-3">
@@ -85,13 +84,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
 							<div class="form-group">
-								<label>Email Addresse</label>
-								<input type="email" name="email" class="form-control" id="email"
-									aria-describedby="emailHelp" placeholder="Eingabe Email" required>
+								<label>Email oder Benutzer</label>
+								<input type="text" name="email_or_user" class="form-control" id="email_or_user"
+									aria-describedby="email_or_user_Help" placeholder="Eingabe Email oder Benutzername"
+									required>
 							</div>
 							<div class="form-group">
 								<label>Passwort</label>
-								<input type="password" name="password" id="password" class="form-control"
+								<input type="password" name="password" id="password" minlength="6" class="form-control"
 									aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
 							</div>
 							<div class="col-md-12 text-center ">
@@ -134,13 +134,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label>Passwort</label>
-								<input type="password" name="password" id="password1" class="form-control"
+								<input type="password" name="password" id="password1" minlength="6" class="form-control"
 									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
 							</div>
 							<div class="form-group">
 								<label>Passwort wiederholen</label>
-								<input type="password" name="password_repeat" id="password2" class="form-control"
-									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
+								<input type="password" name="password_repeat" id="password2" minlength="6"
+									class="form-control" aria-describedby="passwordHelp" placeholder="Einagbe Passwort"
+									required>
 							</div>
 							<div class="col-md-12 text-center mb-3">
 								<button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"

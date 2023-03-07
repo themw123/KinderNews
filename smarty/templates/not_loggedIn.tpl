@@ -3,7 +3,8 @@
 
 <head>
 	<title>Anmelden</title>
-	<meta charset="utf-8">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -13,28 +14,26 @@
 
 <body>
 
-	<div class="container alertcontainer">
-		{if !isset($errors) &&!isset($messages)}
-			<div class="alert alert-hidden">leer</div>
-		{/if}
-
-		{if (isset($errors))}
-			{foreach item=error from=$errors}
-				{if ($error != false)}
-					<div class="alert alert-secondary">{$error}</div>
-				{/if}
-			{/foreach}
-		{/if}
-		{if (isset($messages))}
-			{foreach item=message from=$messages}
-				<div class="alert alert-secondary">{$message}</div>
-			{/foreach}
-		{/if}
-	</div>
-
 	<div class="container logincontainer">
 		<div class="row">
 			<div class="col-md-5 mx-auto">
+				{if !isset($errors) &&!isset($messages)}
+					<div class="alert alert-hidden">leer</div>
+				{/if}
+
+				{if (isset($errors))}
+					{foreach item=error from=$errors}
+						{if ($error != false)}
+							<div class="alert alert-dark">{$error}</div>
+						{/if}
+					{/foreach}
+				{/if}
+				{if (isset($messages))}
+					{foreach item=message from=$messages}
+						<div class="alert alert-dark">{$message}</div>
+					{/foreach}
+				{/if}
+
 				<div id="first">
 					<div class="myform form ">
 						<div class="logo mb-3">
@@ -45,13 +44,14 @@
 						<form action="index.php" method="post" name="login">
 							<input type="hidden" name="csrfToken" value="{$csrfToken}" />
 							<div class="form-group">
-								<label>Email Addresse</label>
-								<input type="email" name="email" class="form-control" id="email"
-									aria-describedby="emailHelp" placeholder="Eingabe Email" required>
+								<label>Email oder Benutzer</label>
+								<input type="text" name="email_or_user" class="form-control" id="email_or_user"
+									aria-describedby="email_or_user_Help" placeholder="Eingabe Email oder Benutzername"
+									required>
 							</div>
 							<div class="form-group">
 								<label>Passwort</label>
-								<input type="password" name="password" id="password" class="form-control"
+								<input type="password" name="password" id="password" minlength="6" class="form-control"
 									aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
 							</div>
 							<div class="col-md-12 text-center ">
@@ -93,13 +93,14 @@
 							</div>
 							<div class="form-group">
 								<label>Passwort</label>
-								<input type="password" name="password" id="password1" class="form-control"
+								<input type="password" name="password" id="password1" minlength="6" class="form-control"
 									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
 							</div>
 							<div class="form-group">
 								<label>Passwort wiederholen</label>
-								<input type="password" name="password_repeat" id="password2" class="form-control"
-									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
+								<input type="password" name="password_repeat" id="password2" minlength="6"
+									class="form-control" aria-describedby="passwordHelp" placeholder="Einagbe Passwort"
+									required>
 							</div>
 							<div class="col-md-12 text-center mb-3">
 								<button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"
