@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-07 23:23:08
+/* Smarty version 4.2.0, created on 2023-03-08 12:25:46
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\not_loggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6407b94cce5717_19592743',
+  'unifunc' => 'content_640870ba976708_50021273',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '968f2316061d195e3b19fba59b1ad994e3dd0726' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\not_loggedIn.tpl',
-      1 => 1678227786,
+      1 => 1678274730,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6407b94cce5717_19592743 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640870ba976708_50021273 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -119,7 +119,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								<h1>Registrieren</h1>
 							</div>
 						</div>
-						<form action="#" name="registration">
+						<form action="index.php" method="post" name="registration">
 							<input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
 							<div class="form-group">

@@ -79,7 +79,7 @@
 								<h1>Registrieren</h1>
 							</div>
 						</div>
-						<form action="#" name="registration">
+						<form action="index.php" method="post" name="registration">
 							<input type="hidden" name="csrfToken" value="{$csrfToken}" />
 							<div class="form-group">
 								<label>Benutzername</label>

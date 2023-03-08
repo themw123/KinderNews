@@ -52,7 +52,7 @@ class Login
 
                 $email_or_user = $this->link->real_escape_string($_POST['email_or_user']);
 
-                $result_of_login_check = DbFunctions::getNameEmailHashByEmailOrUser($this->link, $email_or_user);
+                $result_of_login_check = DbFunctions::exists1($this->link, $email_or_user);
 
 
                 //wenn email existiert
@@ -103,5 +103,10 @@ class Login
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }

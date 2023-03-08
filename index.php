@@ -3,6 +3,8 @@ require_once("./config.php");
 require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
 require_once("./klassen/Login.inc.php");
+require_once('./libraries/PHPMailer.php');
+require_once("./klassen/Register.inc.php");
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 
@@ -21,12 +23,39 @@ if ($REQUEST_METHOD == "GET") {
 	}
 }
 
-if ($login->isUserLoggedIn()) {
-	$smarty->display('loggedIn.tpl');
-} else {
-	if ($login->getErrors() != null) {
-		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
-		$smarty->assign('errors', $login->geterrors());
-	}
-	$smarty->display('not_loggedIn.tpl');
+
+
+
+$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
+
+if (isset($_GET["validierung"])) {
+	$token = $_GET['token'];
+	$link = DbFunctions::connectWithDatabase();
+	DbFunctions::activateAccount($link, $token);
+	$smarty->assign('messages', "Dein Konto wurde erfolgreich aktiviert! Logge dich jetzt ein.");
+} else if (isset($_POST["register"])) {
+	$register = new Register();
 }
+
+if (isset($register)) {
+	if ($register->getErrors() != null) {
+		$smarty->assign('errors', $register->getErrors());
+	} else if ($register->getMessages() != null) {
+		$smarty->assign('messages', $register->getMessages());
+	}
+} else if (isset($login)) {
+	if ($login->getErrors() != null) {
+		$smarty->assign('errors', $login->getErrors());
+	} else if ($login->getMessages() != null) {
+		$smarty->assign('messages', $login->getMessages());
+	}
+}
+
+
+
+if ($login->isUserLoggedIn()) {
+	$template = 'loggedIn.tpl';
+} else {
+	$template = 'not_loggedIn.tpl';
+}
+$smarty->display($template);

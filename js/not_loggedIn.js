@@ -12,7 +12,7 @@ $("#signin").click(function () {
 
 setTimeout(function () {
   $(".alert").animate({ opacity: 0 }, 1000, function () {});
-}, 3000);
+}, 5000);
 
 let password = document.getElementById("password1"),
   password_repeat = document.getElementById("password2");
