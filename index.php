@@ -10,7 +10,7 @@ $login = new Login();
 
 
 if ($REQUEST_METHOD == "GET") {
-	if (!isset($_SESSION["csrfToken"])) {
+	if (!isset($_SESSION["csrfToken"]) || count($_SESSION) == 1) {
 		$_SESSION["csrfToken"] = bin2hex(random_bytes(64));
 		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 	}
