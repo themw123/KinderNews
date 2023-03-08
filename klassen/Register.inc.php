@@ -75,12 +75,11 @@ class Register
 
                     $token = bin2hex(openssl_random_pseudo_bytes(32));
 
-                    //deaktivierten account anlegen
-                    DbFunctions::createAccount($this->link, $username, $email, $password_hash, $token);
-
                     $zustand = $this->sendMail($username, $email, $token);
+
                     if ($zustand) {
-                        // if user has been send successfully
+                        //deaktivierten account anlegen
+                        DbFunctions::createAccount($this->link, $username, $email, $password_hash, $token);
                         $this->messages[] = "Es wurde eine Bestätigungsmail an deine Email Adresse gesendet. Bitte aktiviere mit dieser Mail deinen Account.";
                     } else {
                         $this->messages[] = "Registrierung fehlgeschlagen (Es konnte keine Mail an deine Mailadresse gesendet werden.)";

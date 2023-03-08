@@ -18,17 +18,6 @@ class Login
         } elseif (isset($_POST["login"])) {
             $this->doLogin();
         }
-
-        /*
-        // checking if user requested a password reset mail
-        if (isset($_POST["request_password_reset"]) && isset($_POST['email'])) {
-            $this->setPasswordResetDatabaseTokenAndSendMail($_POST['email']);
-        } elseif (isset($_GET["email"]) && isset($_GET["verification_code"])) {
-            $this->checkIfEmailVerificationCodeIsValid($_GET["email"], $_GET["verification_code"]);
-        } elseif (isset($_POST["submit_new_password"])) {
-            $this->editNewPassword($_POST['email'], $_POST['user_password_reset_hash'], $_POST['user_password_new'], $_POST['user_password_repeat']);
-        }
-		*/
     }
 
 
@@ -39,7 +28,7 @@ class Login
             $this->errors[] = "Email bzw. Benutzername darf nicht leer sein";
         } elseif (empty($_POST['password'])) {
             $this->errors[] = "Password darf nicht leer sein";
-        } elseif (!empty($_POST['email_or_user']) && !empty($_POST['password'])) {
+        } else {
 
             //verbindung mit datenbank
             $this->link = DbFunctions::connectWithDatabase();

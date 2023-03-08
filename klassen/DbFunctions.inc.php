@@ -35,8 +35,36 @@ class DbFunctions
 		);
 		$stmt->bind_param("s", $token);
 		$stmt->execute();
+		if ($stmt->affected_rows > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
+	public static function setToken($link, $email, $token)
+	{
+		$stmt = $link->prepare(
+			"UPDATE benutzer set token=? where email=?;"
+		);
+		$stmt->bind_param("ss", $token, $email);
+		$stmt->execute();
+	}
+
+	public static function resetPassword($link, $password_hash, $token)
+	{
+
+		$stmt = $link->prepare(
+			"UPDATE benutzer set passwort_hash=? , token='0' where token=?;"
+		);
+		$stmt->bind_param("ss", $password_hash, $token);
+		$stmt->execute();
+		if ($stmt->affected_rows > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public static function exists1($link, $email_or_user)
 	{
