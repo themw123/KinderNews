@@ -65,6 +65,10 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<p class="text-center">Passwort vergessen? <a href="#" id="reset">Hier zurücksetzten</a>
+								</p>
+							</div>
+							<div class="form-group">
 								<p class="text-center">Noch kein Konto? <a href="#" id="signup">Hier registrieren</a>
 								</p>
 							</div>
@@ -109,6 +113,44 @@
 							<div class="col-md-12 ">
 								<div class="form-group">
 									<p class="text-center"><a href="#" id="signin">Du hast bereits ein Konto?</a></p>
+								</div>
+							</div>
+					</div>
+					</form>
+				</div>
+				<div id="third">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Passwort zurücksetzen</h1>
+							</div>
+						</div>
+						<form action="index.php" method="post" name="reset">
+							<input type="hidden" name="csrfToken" value="{$csrfToken}" />
+							<div class="form-group">
+								<label>Benutzername oder Email</label>
+								<input type="text" name="username" class="form-control" id="username"
+									aria-describedby="usernameHelp" placeholder="Eingabe Benutzername oder Email"
+									required>
+							</div>
+							<div class="form-group">
+								<label>Passwort</label>
+								<input type="password" name="password" id="password1" minlength="6" class="form-control"
+									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
+							</div>
+							<div class="form-group">
+								<label>Passwort wiederholen</label>
+								<input type="password" name="password_repeat" id="password2" minlength="6"
+									class="form-control" aria-describedby="passwordHelp" placeholder="Einagbe Passwort"
+									required>
+							</div>
+							<div class="col-md-12 text-center mb-3">
+								<button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"
+									name="reset">zurücksetzen</button>
+							</div>
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<p class="text-center"><a href="#" id="signin_reset">zurück zum login</a></p>
 								</div>
 							</div>
 					</div>

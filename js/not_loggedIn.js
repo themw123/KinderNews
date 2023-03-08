@@ -9,6 +9,17 @@ $("#signin").click(function () {
     $("#first").fadeIn("fast");
   });
 });
+$("#signin_reset").click(function () {
+  $("#third").fadeOut("fast", function () {
+    $("#first").fadeIn("fast");
+  });
+});
+
+$("#reset").click(function () {
+  $("#first").fadeOut("fast", function () {
+    $("#third").fadeIn("fast");
+  });
+});
 
 setTimeout(function () {
   $(".alert").animate({ opacity: 0 }, 1000, function () {});

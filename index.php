@@ -28,11 +28,13 @@ if ($REQUEST_METHOD == "GET") {
 
 $smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 
-if (isset($_GET["validierung"])) {
+if (isset($_GET["confirm"])) {
 	$token = $_GET['token'];
 	$link = DbFunctions::connectWithDatabase();
 	DbFunctions::activateAccount($link, $token);
 	$smarty->assign('messages', "Dein Konto wurde erfolgreich aktiviert! Logge dich jetzt ein.");
+} else if (isset($_POST["reset"])) {
+	$test = "";
 } else if (isset($_POST["register"])) {
 	$register = new Register();
 }

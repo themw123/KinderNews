@@ -55,7 +55,7 @@ h1,h2,h3{
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
-#second{
+#second, #third{
     display:none;
 }
 

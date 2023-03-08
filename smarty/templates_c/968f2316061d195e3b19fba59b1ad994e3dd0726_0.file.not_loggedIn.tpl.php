@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-08 12:25:46
+/* Smarty version 4.2.0, created on 2023-03-08 16:29:14
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\not_loggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640870ba976708_50021273',
+  'unifunc' => 'content_6408a9ca139125_76396237',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '968f2316061d195e3b19fba59b1ad994e3dd0726' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\not_loggedIn.tpl',
-      1 => 1678274730,
+      1 => 1678289345,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640870ba976708_50021273 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6408a9ca139125_76396237 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -105,6 +105,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								</div>
 							</div>
 							<div class="form-group">
+								<p class="text-center">Passwort vergessen? <a href="#" id="reset">Hier zurücksetzten</a>
+								</p>
+							</div>
+							<div class="form-group">
 								<p class="text-center">Noch kein Konto? <a href="#" id="signup">Hier registrieren</a>
 								</p>
 							</div>
@@ -150,6 +154,45 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<div class="col-md-12 ">
 								<div class="form-group">
 									<p class="text-center"><a href="#" id="signin">Du hast bereits ein Konto?</a></p>
+								</div>
+							</div>
+					</div>
+					</form>
+				</div>
+				<div id="third">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Passwort zurücksetzen</h1>
+							</div>
+						</div>
+						<form action="index.php" method="post" name="reset">
+							<input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
+							<div class="form-group">
+								<label>Benutzername oder Email</label>
+								<input type="text" name="username" class="form-control" id="username"
+									aria-describedby="usernameHelp" placeholder="Eingabe Benutzername oder Email"
+									required>
+							</div>
+							<div class="form-group">
+								<label>Passwort</label>
+								<input type="password" name="password" id="password1" minlength="6" class="form-control"
+									aria-describedby="passwordHelp" placeholder="Einagbe Passwort" required>
+							</div>
+							<div class="form-group">
+								<label>Passwort wiederholen</label>
+								<input type="password" name="password_repeat" id="password2" minlength="6"
+									class="form-control" aria-describedby="passwordHelp" placeholder="Einagbe Passwort"
+									required>
+							</div>
+							<div class="col-md-12 text-center mb-3">
+								<button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"
+									name="reset">zurücksetzen</button>
+							</div>
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<p class="text-center"><a href="#" id="signin_reset">zurück zum login</a></p>
 								</div>
 							</div>
 					</div>
