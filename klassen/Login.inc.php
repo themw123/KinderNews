@@ -4,12 +4,12 @@ class Login
 {
 
     private $link = null;
-    public $errors = array();
-    public $messages = array();
 
 
-    public function __construct()
+    public function __construct($link)
     {
+        $this->link = $link;
+
         //erstelle die session
         session_start();
 
@@ -25,16 +25,13 @@ class Login
     {
 
         if (empty($_POST['email_or_user'])) {
-            $this->errors[] = "Email bzw. Benutzername darf nicht leer sein";
+            Logs::addError("Email bzw. Benutzername darf nicht leer sein");
         } elseif (empty($_POST['password'])) {
-            $this->errors[] = "Password darf nicht leer sein";
+            Logs::addError("Password darf nicht leer sein");
         } else {
 
-            //verbindung mit datenbank
-            $this->link = DbFunctions::connectWithDatabase();
-
             if (!$this->link->set_charset("utf8")) {
-                $this->errors[] = $this->link->error;
+                Logs::addError($this->link->error);
             }
 
             if (!$this->link->connect_errno) {
@@ -58,13 +55,13 @@ class Login
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
                     } else {
-                        $this->errors[] = "falsches Passwort";
+                        Logs::addError("falsches Passwort");
                     }
                 } else {
-                    $this->errors[] = "Die Email bzw. der Benutztername existiert nicht";
+                    Logs::addError("Die Email bzw. der Benutztername existiert nicht");
                 }
             } else {
-                $this->errors[] = "Problem bei der Verbindung mit der Datenbank";
+                Logs::addError("Problem bei der Verbindung mit der Datenbank");
             }
         }
     }
@@ -77,7 +74,7 @@ class Login
         //session_destroy();
 
         // return a little feeedback message
-        $this->messages[] = "Du wurdest ausgeloggt";
+        Logs::addMessage("Du wurdest ausgeloggt");
     }
 
 
@@ -87,15 +84,5 @@ class Login
             return true;
         }
         return false;
-    }
-
-    public function getErrors()
-    {
-        return $this->errors;
-    }
-
-    public function getMessages()
-    {
-        return $this->messages;
     }
 }

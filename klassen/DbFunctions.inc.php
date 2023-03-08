@@ -18,6 +18,15 @@ class DbFunctions
 		return $link;
 	}
 
+	public static function executeQuery($link, $query)
+	{
+		$result = mysqli_query($link, $query);
+		if ($result === false) {
+			return null;
+		}
+		return $result;
+	}
+
 	public static function createAccount($link, $username, $email, $password_hash, $token)
 	{
 		$stmt = $link->prepare(
@@ -84,43 +93,5 @@ class DbFunctions
 		$stmt->bind_param("ss", $email, $username);
 		$stmt->execute();
 		return $stmt->get_result();
-	}
-
-
-
-
-
-
-
-
-
-
-
-	public static function executeQuery($link, $query)
-	{
-		$result = mysqli_query($link, $query);
-		if ($result === false) {
-			return null;
-		}
-		return $result;
-	}
-
-	public static function escape($link, $str)
-	{
-		if (ini_get('magic_quotes_gpc')) {
-			$str = stripslashes($str);
-		}
-		return mysqli_real_escape_string($link, $str);
-	}
-
-	public static function getFirstFieldOfResult($link, $query)
-	{
-		$result = self::executeQuery($link, $query);
-		if (mysqli_num_rows($result) == 0) {
-			return null;
-		}
-		$row = mysqli_fetch_row($result);
-		mysqli_free_result($result);
-		return ($row[0]);
 	}
 }
