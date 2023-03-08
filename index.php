@@ -15,11 +15,9 @@ if ($REQUEST_METHOD == "GET") {
 		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 	}
 } else {
-	if ($login->isUserLoggedIn()) {
-		if (!isset($_POST["csrfToken"]) || !isset($_SESSION["csrfToken"]) || $_POST["csrfToken"] != $_SESSION["csrfToken"]) {
-			unset($_SESSION["csrfToken"]);
-			die("CSRF Token ungültig!");
-		}
+	if (!isset($_POST["csrfToken"]) || !isset($_SESSION["csrfToken"]) || $_POST["csrfToken"] != $_SESSION["csrfToken"]) {
+		unset($_SESSION["csrfToken"]);
+		die("CSRF Token ungültig!");
 	}
 }
 
