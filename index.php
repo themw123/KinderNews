@@ -8,9 +8,9 @@ $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 
 $login = new Login();
 
-
+//loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
 if ($REQUEST_METHOD == "GET") {
-	if (!isset($_SESSION["csrfToken"]) || count($_SESSION) == 1) {
+	if (!isset($_SESSION["csrfToken"]) || isset($_SESSION["loggedOutBefore"])) {
 		$_SESSION["csrfToken"] = bin2hex(random_bytes(64));
 		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 	}

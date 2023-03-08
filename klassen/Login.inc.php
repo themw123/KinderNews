@@ -63,7 +63,8 @@ class Login
                     //password_verify() um zu gucken ob passwort passt
                     if (!empty($_POST['password']) && password_verify($_POST['password'], $result_row->passwort_hash)) {
 
-                        //schreibe benutzerdaten in die session
+                        //schreibe benutzerdaten in die session                 
+                        unset($_SESSION['loggedOutBefore']);
                         $_SESSION['name'] = $result_row->name;
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
@@ -83,6 +84,7 @@ class Login
     {
         // delete the session of the user
         session_unset();
+        $_SESSION["loggedOutBefore"] = true;
         //session_destroy();
 
         // return a little feeedback message
