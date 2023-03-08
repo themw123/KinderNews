@@ -84,6 +84,7 @@ class Login
         // delete the session of the user
         session_unset();
         session_destroy();
+
         // return a little feeedback message
         $this->messages[] = "Du wurdest ausgeloggt";
     }

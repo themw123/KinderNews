@@ -5,11 +5,11 @@ require_once("./klassen/DbFunctions.inc.php");
 require_once("./klassen/Login.inc.php");
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
+
 $login = new Login();
 
 
-
-if ($REQUEST_METHOD == "GET") {
+if ($REQUEST_METHOD == "GET" || !isset($_SESSION["csrfToken"])) {
 	if (!isset($_SESSION["csrfToken"])) {
 		$_SESSION["csrfToken"] = bin2hex(random_bytes(64));
 		$smarty->assign('csrfToken', $_SESSION["csrfToken"]);
@@ -20,8 +20,6 @@ if ($REQUEST_METHOD == "GET") {
 		die("CSRF Token ungültig!");
 	}
 }
-
-
 
 if ($login->isUserLoggedIn()) {
 	$smarty->display('loggedIn.tpl');
