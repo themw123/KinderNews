@@ -12,6 +12,10 @@ class Login
 
         //erstelle die session
         session_start();
+        //session die 30 Tage anhält und somit auch nach erneuten öffnen des Browsers noch gültig ist
+        /*$cookie_lifetime = 30 * 24 * 60 * 60; // 30 Tage
+        session_set_cookie_params($cookie_lifetime);
+        setcookie(session_name(), session_id(), time() + $cookie_lifetime);*/
 
         if (isset($_GET["logout"])) {
             $this->doLogout();
