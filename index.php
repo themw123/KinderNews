@@ -45,7 +45,7 @@ if (Logs::getErrors() != null) {
 
 
 if ($login->isUserLoggedIn()) {
-	$template = 'loggedIn.tpl';
+	$template = 'feed.tpl';
 } else {
 	$template = 'not_loggedIn.tpl';
 }

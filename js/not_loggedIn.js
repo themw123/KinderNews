@@ -30,7 +30,7 @@ $("#reset").click(function () {
 
 $("#signinPassword_reset").click(function () {
   $("#fourth").fadeOut("fast", function () {
-    $(".ohnereset").fadeIn("fast");
+    $(".ohneFourth").fadeIn("fast");
   });
 });
 
