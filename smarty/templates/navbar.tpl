@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="col d-flex align-items-center justify-content-sm-center justify-content-xs-start titlediv">
-                <a class="navbar-brand" href="#">KinderNews</a>
+                <a class="navbar-brand" href="./?home">KinderNews</a>
             </div>
 
             <div class="dropdown col-auto position-relative mt-1 d-none d-sm-block">
@@ -37,7 +37,7 @@
 
 
         </div>
-        <div class="offcanvas offcanvas-start text-bg-dark pl-4 pr-4 pb-4 pt-2" tabindex="-1" id="offcanvasDarkNavbar"
+        <div class="offcanvas offcanvas-start text-bg-dark pl-2 pr-4 pb-4 pt-2" tabindex="-1" id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-sm-none d-block">
+            <div class="d-sm-none d-block pl-2 pr-4 pb-4 pt-2 ">
                 <hr>
                 <div class="dropdown">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"

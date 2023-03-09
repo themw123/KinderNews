@@ -21,15 +21,6 @@
         </div>
 
         <div class="p-2">
-            <div>
-                <p>News!!!!!!!!!!!!!!</p>
-                <p>Willkommen. Du bist eingeloggt</p>
-                <a class="nav-link rounded" href="./authentication.php?logout">Logout</a>
-            </div>
-        </div>
-
-
-        <div class="p-2">
             {foreach $news as $n}
                 <div>{$n}</div>
             {/foreach}

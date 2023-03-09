@@ -63,6 +63,8 @@ if ($login->isUserLoggedIn()) {
 		$template = 'news.tpl';
 	} elseif (isset($_GET["profile"])) {
 		$template = 'profile.tpl';
+	} else {
+		$template = 'home.tpl';
 	}
 } else {
 	$name = "";
