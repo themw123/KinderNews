@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 4.2.0, created on 2023-03-09 16:38:55
-  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\index.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.2.0',
-  'unifunc' => 'content_6409fd8feafd93_23365435',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '518a318de936a7052623f1d368800603cd62a740' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\index.tpl',
-      1 => 1678376335,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_6409fd8feafd93_23365435 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -90,20 +67,13 @@ function content_6409fd8feafd93_23365435 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </nav>
 
-    <?php echo '<script'; ?>
- src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    <?php echo '</script'; ?>
->
-    <?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="js/not_loggedIn.js"><?php echo '</script'; ?>
->
+    </script>
+    </script>
+    <script src="js/not_loggedIn.js"></script>
 
 
 </body>
@@ -111,5 +81,4 @@ function content_6409fd8feafd93_23365435 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-</html><?php }
-}
+</html>

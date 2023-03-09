@@ -1,0 +1,26 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: rgba(227, 31, 31, 0.76);
+}
+
+.row {
+    width: 100%;
+}
+
+
+button:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+}
+
+.navbar-toggler {
+    border-color: transparent !important;
+}
+
+.navbar-toggler:hover {
+    color: aqua;
+}
