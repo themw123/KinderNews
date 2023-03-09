@@ -1,4 +1,28 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 4.2.0, created on 2023-03-09 20:47:00
+  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.0',
+  'unifunc' => 'content_640a37b471a511_76845328',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
+      1 => 1678391218,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:navbar.tpl' => 1,
+  ),
+),false)) {
+function content_640a37b471a511_76845328 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <html>
 
 <head>
@@ -18,34 +42,51 @@
 <body>
 
     <div>
-        {include file="navbar.tpl"}
+        <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
     </div>
     <div class="container logincontainer d-flex justify-content-center align-items-center mt-5 mb-2">
         <div class="row d-flex justify-content-center">
             <div class="col-md-5 mx-auto">
-                {if !isset($errors) &&!isset($messages)}
+                <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
                     <div class="alert alert-hidden">leer</div>
-                {/if}
+                <?php }?>
 
-                {if (isset($errors))}
-                    {foreach item=error from=$errors}
-                        {if ($error != false)}
-                            <div class="alert alert-warning">{$error}</div>
-                        {/if}
-                    {/foreach}
-                {/if}
-                {if (isset($messages))}
-                    {foreach item=message from=$messages}
-                        <div class="alert alert-dark">{$message}</div>
-                    {/foreach}
-                {/if}
+                <?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
+$_smarty_tpl->tpl_vars['error']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) {
+$_smarty_tpl->tpl_vars['error']->do_else = false;
+?>
+                        <?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
+                            <div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</div>
+                        <?php }?>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                <?php }?>
+                <?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value, 'message');
+$_smarty_tpl->tpl_vars['message']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
+$_smarty_tpl->tpl_vars['message']->do_else = false;
+?>
+                        <div class="alert alert-dark"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
+</div>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                <?php }?>
 
 
-                {if isset($resetPassword)}
+                <?php if ((isset($_smarty_tpl->tpl_vars['resetPassword']->value))) {?>
                     <div class="ohneFourth" style="display: none;">
-                    {else}
+                    <?php } else { ?>
                         <div class="ohneFourth">
-                        {/if}
+                        <?php }?>
                         <div id="first">
                             <div class="myform form ">
                                 <div class="logo mb-3">
@@ -54,7 +95,8 @@
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="login">
-                                    <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                    <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                     <div class="form-group">
                                         <label>Email oder Benutzer</label>
                                         <input type="text" name="email_or_user" class="form-control" id="email_or_user"
@@ -99,7 +141,8 @@
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="registration">
-                                    <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                    <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                     <div class="form-group">
                                         <label>Benutzername</label>
                                         <input type="text" name="username" class="form-control" id="username"
@@ -144,7 +187,8 @@
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="resetMail">
-                                    <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                    <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control" id="email"
@@ -166,11 +210,11 @@
                             </form>
                         </div>
                     </div>
-                    {if isset($resetPassword) && isset($token)}
+                    <?php if ((isset($_smarty_tpl->tpl_vars['resetPassword']->value)) && (isset($_smarty_tpl->tpl_vars['token']->value))) {?>
                         <div id="fourth">
-                        {else}
+                        <?php } else { ?>
                             <div id="fourth" style="display: none;">
-                            {/if}
+                            <?php }?>
                             <div class="myform form ">
                                 <div class="logo mb-3">
                                     <div class="col-md-12 text-center">
@@ -178,8 +222,10 @@
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="resetPassword">
-                                    <input type="hidden" name="token" value="{$token}" />
-                                    <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                    <input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+" />
+                                    <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                     <div class="form-group">
                                         <label>Passwort neu</label>
                                         <input type="password" name="password" id="passwordReset1" minlength="6"
@@ -217,13 +263,21 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-    <script src="js/navbar.js"></script>
-    <script src="js/notLoggedIn.js"></script>
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/navbar.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/notLoggedIn.js"><?php echo '</script'; ?>
+>
 
 
 </body>
@@ -231,4 +285,5 @@
 
 
 
-</html>
+</html><?php }
+}

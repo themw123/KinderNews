@@ -37,6 +37,10 @@ $("#signinPassword_reset").click(function () {
 setTimeout(function () {
   $(".alert").animate({ opacity: 0 }, 1000, function () {});
 }, 5000);
+setTimeout(function () {
+  $(".alert").css("display", "none")
+  ;
+}, 6000);
 
 let password1, password2;
 

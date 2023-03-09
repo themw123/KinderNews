@@ -45,7 +45,9 @@ if (Logs::getErrors() != null) {
 
 
 if ($login->isUserLoggedIn()) {
-	$template = 'feed.tpl';
+	if (isset($_GET["news"])) {
+		$template = 'news.tpl';
+	}
 } else {
 	$template = 'notloggedIn.tpl';
 }

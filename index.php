@@ -5,13 +5,15 @@ $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 if ($REQUEST_METHOD == "GET") {
 	if (isset($_GET["home"])) {
 		$template = 'home.tpl';
-	} else if (isset($_GET["news"])) {
-		$template = 'news.tpl';
-	} else {
+	}
+	/*
+	else if (isset($_GET["news"])) {
+		//nicht erlaubt. Route erfolgt über authentication.php
+		//$template = 'news.tpl';
+	} */ else {
 		$template = 'home.tpl';
 	}
 } else {
 }
-
 
 $smarty->display($template);

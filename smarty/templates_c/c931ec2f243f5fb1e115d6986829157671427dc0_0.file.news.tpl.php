@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-09 17:50:50
+/* Smarty version 4.2.0, created on 2023-03-09 18:51:46
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a0e6af2e146_25843826',
+  'unifunc' => 'content_640a1cb231ca75_23869514',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1678380650,
+      1 => 1678384299,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a0e6af2e146_25843826 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640a1cb231ca75_23869514 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -44,6 +44,8 @@ function content_640a0e6af2e146_25843826 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="p-2">
             <p>News!!!!!!!!!!!!!!</p>
+            <p>Willkommen. Du bist eingeloggt</p>
+            <a class="nav-link rounded" href="./authentication.php?logout">Logout</a>
         </div>
     </div>
 
@@ -57,8 +59,6 @@ function content_640a0e6af2e146_25843826 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    <?php echo '</script'; ?>
->
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>

@@ -19,6 +19,8 @@
         </div>
         <div class="p-2">
             <p>News!!!!!!!!!!!!!!</p>
+            <p>Willkommen. Du bist eingeloggt</p>
+            <a class="nav-link rounded" href="./authentication.php?logout">Logout</a>
         </div>
     </div>
 
@@ -29,7 +31,6 @@
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
     </script>
     <script src="js/navbar.js"></script>
     <script src="js/news.js"></script>
