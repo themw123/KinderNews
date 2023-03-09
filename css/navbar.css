@@ -1,3 +1,7 @@
+/*
+navbar
+*/
+
 html {
     height: 100%;
 }
@@ -21,6 +25,6 @@ button:focus:not(:focus-visible) {
     border-color: transparent !important;
 }
 
-.navbar-toggler:hover {
-    color: aqua;
+.nav-link {
+    font-size: 20px;
 }
