@@ -140,7 +140,7 @@
                             <div class="myform form ">
                                 <div class="logo mb-3">
                                     <div class="col-md-12 text-center">
-                                        <h1>Passwort zurücksetzen</h1>
+                                        <h1 class="resetpassword">Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="resetMail">

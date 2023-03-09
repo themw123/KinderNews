@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-09 20:47:00
+/* Smarty version 4.2.0, created on 2023-03-09 20:59:49
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a37b471a511_76845328',
+  'unifunc' => 'content_640a3ab58fe4e8_91249476',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
-      1 => 1678391218,
+      1 => 1678391989,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a37b471a511_76845328 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640a3ab58fe4e8_91249476 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -183,7 +183,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="myform form ">
                                 <div class="logo mb-3">
                                     <div class="col-md-12 text-center">
-                                        <h1>Passwort zurücksetzen</h1>
+                                        <h1 class="resetpassword">Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
                                 <form action="./authentication.php?news" method="post" name="resetMail">

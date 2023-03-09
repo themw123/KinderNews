@@ -99,3 +99,7 @@ h3 {
 .fadeOut {
     animation: fadeOut 1s;
 }
+
+.resetpassword {
+    font-size: 35px;
+}
