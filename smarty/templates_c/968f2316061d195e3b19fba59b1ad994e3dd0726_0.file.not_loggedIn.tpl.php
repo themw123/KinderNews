@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-09 12:42:33
+/* Smarty version 4.2.0, created on 2023-03-09 13:10:17
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\not_loggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6409c629074b48_61081806',
+  'unifunc' => 'content_6409cca974e360_45057447',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '968f2316061d195e3b19fba59b1ad994e3dd0726' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\not_loggedIn.tpl',
-      1 => 1678362146,
+      1 => 1678363813,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6409c629074b48_61081806 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6409cca974e360_45057447 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -53,7 +53,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) 
 $_smarty_tpl->tpl_vars['error']->do_else = false;
 ?>
                         <?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
-                            <div class="alert alert-dark"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+                            <div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
 </div>
                         <?php }?>
                     <?php

@@ -25,7 +25,7 @@
                 {if (isset($errors))}
                     {foreach item=error from=$errors}
                         {if ($error != false)}
-                            <div class="alert alert-dark">{$error}</div>
+                            <div class="alert alert-warning">{$error}</div>
                         {/if}
                     {/foreach}
                 {/if}
