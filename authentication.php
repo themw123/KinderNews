@@ -44,11 +44,35 @@ if (Logs::getErrors() != null) {
 }
 
 
+
 if ($login->isUserLoggedIn()) {
+	$name = $_SESSION["name"];
+	$login_or_logout = "Logout";
+	$login_or_logout_link = "./authentication.php?logout";
+	$profile = "./authentication.php?profile";
 	if (isset($_GET["news"])) {
+		//mockdaten
+		$news = array(
+			"Neue Studie zeigt: Impfung gegen COVID-19 schützt auch vor schweren Verläufen",
+			"Forschungserfolg: Wissenschaftler*innen entwickeln künstliche Haut, die Schmerzen empfinden kann",
+			"EU-Kommission plant Gesetz zur Eindämmung von Desinformation im Internet",
+			"Tesla kündigt Bau von Gigafactory in Deutschland an",
+			"Neueröffnung: Berliner Flughafen BER nimmt Betrieb auf"
+		);
+		$smarty->assign('news', $news);
 		$template = 'news.tpl';
+	} elseif (isset($_GET["profile"])) {
+		$template = 'profile.tpl';
 	}
 } else {
+	$name = "";
+	$login_or_logout = "Login";
+	$login_or_logout_link = "./authentication.php";
+	$profile = "./authentication.php";
 	$template = 'notloggedIn.tpl';
 }
+$smarty->assign("name", $name);
+$smarty->assign("login_or_logout", $login_or_logout);
+$smarty->assign("login_or_logout_link", $login_or_logout_link);
+$smarty->assign("profile", $profile);
 $smarty->display($template);

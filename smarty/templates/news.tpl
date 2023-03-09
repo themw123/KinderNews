@@ -2,8 +2,10 @@
 <html>
 
 <head>
-    <title>Startseite</title>
+    <title>News</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
@@ -13,15 +15,26 @@
 
 <body>
 
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column mb-3">
         <div class="p-4">
             {include file="navbar.tpl"}
         </div>
+
         <div class="p-2">
-            <p>News!!!!!!!!!!!!!!</p>
-            <p>Willkommen. Du bist eingeloggt</p>
-            <a class="nav-link rounded" href="./authentication.php?logout">Logout</a>
+            <div>
+                <p>News!!!!!!!!!!!!!!</p>
+                <p>Willkommen. Du bist eingeloggt</p>
+                <a class="nav-link rounded" href="./authentication.php?logout">Logout</a>
+            </div>
         </div>
+
+
+        <div class="p-2">
+            {foreach $news as $n}
+                <div>{$n}</div>
+            {/foreach}
+        </div>
+
     </div>
 
 

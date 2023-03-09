@@ -28,7 +28,3 @@ button:focus:not(:focus-visible) {
 .nav-link {
     font-size: 20px;
 }
-
-.titlediv {
-    margin-right: 75px;
-}
