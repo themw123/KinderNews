@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-10 00:50:30
+/* Smarty version 4.2.0, created on 2023-03-10 01:25:33
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a70c6565642_87558760',
+  'unifunc' => 'content_640a78fd6d5b55_69530409',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d3efd03712da657eb63eb537e721c15cc3ff35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\navbar.tpl',
-      1 => 1678405829,
+      1 => 1678407927,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640a70c6565642_87558760 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640a78fd6d5b55_69530409 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid ">
         <div class="row">
@@ -77,7 +77,7 @@ function content_640a70c6565642_87558760 (Smarty_Internal_Template $_smarty_tpl)
                         <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-news" href="./authentication.php?news">News</a>
+                        <a class="nav-link" id="nav-news" href="./?news">News</a>
                     </li>
                 </ul>
             </div>

@@ -50,7 +50,7 @@
                         <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-news" href="./authentication.php?news">News</a>
+                        <a class="nav-link" id="nav-news" href="./?news">News</a>
                     </li>
                 </ul>
             </div>

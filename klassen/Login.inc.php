@@ -17,7 +17,7 @@ class Login
         session_set_cookie_params($cookie_lifetime);
         setcookie(session_name(), session_id(), time() + $cookie_lifetime);*/
 
-        if (isset($_GET["logout"])) {
+        if (isset($_GET["logout"]) && !isset($_SESSION["loggedOutBefore"])) {
             $this->doLogout();
         } elseif (isset($_POST["login"])) {
             $this->doLogin();
@@ -74,8 +74,8 @@ class Login
     {
         // delete the session of the user
         session_unset();
-        $_SESSION["loggedOutBefore"] = true;
         //session_destroy();
+        $_SESSION["loggedOutBefore"] = true;
 
         // return a little feeedback message
         Logs::addMessage("Du wurdest ausgeloggt");
