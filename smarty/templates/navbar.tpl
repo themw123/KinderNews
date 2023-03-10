@@ -40,14 +40,14 @@
         <div class="offcanvas offcanvas-start text-bg-dark pl-2 pr-4 pb-4 pt-2" tabindex="-1" id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navigationsleiste</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Home</a>
+                        <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Startseite</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="nav-news" href="./?news">News</a>

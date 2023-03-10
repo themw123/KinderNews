@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-10 01:25:33
+/* Smarty version 4.2.0, created on 2023-03-10 13:09:03
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a78fd6d5b55_69530409',
+  'unifunc' => 'content_640b1ddfe12828_35994200',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d3efd03712da657eb63eb537e721c15cc3ff35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\navbar.tpl',
-      1 => 1678407927,
+      1 => 1678450139,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640a78fd6d5b55_69530409 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640b1ddfe12828_35994200 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid ">
         <div class="row">
@@ -67,14 +67,14 @@ function content_640a78fd6d5b55_69530409 (Smarty_Internal_Template $_smarty_tpl)
         <div class="offcanvas offcanvas-start text-bg-dark pl-2 pr-4 pb-4 pt-2" tabindex="-1" id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navigationsleiste</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Home</a>
+                        <a class="nav-link" id="nav-home" aria-current="page" href="./?home">Startseite</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="nav-news" href="./?news">News</a>
