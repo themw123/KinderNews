@@ -66,3 +66,17 @@ function validatePassword() {
     password2.setCustomValidity("");
   }
 }
+
+
+  //urlParams von navbar.js
+  if(!urlParams.has('backToLogin')) {
+    if(urlParams.has('resetPassword')) {
+      $("#ohneFourth").css("display", "none");
+      $("#fourth").css("display", "block");
+    }else {
+      $("#ohneFourth").css("display", "block");
+      $("#fourth").css("display", "none");
+    }
+  }
+
+

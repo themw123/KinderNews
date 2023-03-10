@@ -18,8 +18,8 @@ $register = new Register($link);
 $reset = new Reset($link);
 
 if (isset($_GET["resetPassword"])) {
-	$smarty->assign("resetPassword", "resetPassword");
 	$token = Reset::resetPasswordFrontend();
+	$smarty->assign("resetPassword", "resetPassword");
 	$smarty->assign("token", $token);
 }
 
