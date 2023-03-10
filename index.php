@@ -13,16 +13,18 @@ require_once("./klassen/Reset.inc.php");
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $link = DbFunctions::connectWithDatabase();
 
+//session wird in login erzeugt bzw wiederaufgenommen
+//die komplette Login logik inklusive register und password reset wird mittels folgender klassen erledigt
 $login = new Login($link);
 $register = new Register($link);
 $reset = new Reset($link);
 
+//wenn passwort reset link geöffnet wurde
 if (isset($_GET["resetPassword"])) {
-	$token = Reset::resetPasswordFrontend();
-	$smarty->assign("resetPassword", "resetPassword");
-	$smarty->assign("token", $token);
+	$smarty->assign("token", $reset->getToken());
 }
 
+//csrf validierung
 //loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
 if ($REQUEST_METHOD == "GET") {
 	if (!isset($_SESSION["csrfToken"]) || isset($_SESSION["loggedOutBefore"])) {
@@ -35,14 +37,14 @@ if ($REQUEST_METHOD == "GET") {
 	}
 }
 
-
+//error bzw messages anzeigen
 if (Logs::getErrors() != null) {
 	$smarty->assign('errors', Logs::getErrors());
 } else if (Logs::getMessages() != null) {
 	$smarty->assign('messages', Logs::getMessages());
 }
 
-
+//route logik
 if ($login->isUserLoggedIn()) {
 	$name = $_SESSION["name"];
 	$login_or_logout = "Logout";
@@ -71,6 +73,7 @@ if ($login->isUserLoggedIn()) {
 	$profile = "./?profile";
 	$template = 'notloggedIn.tpl';
 }
+
 
 if (isset($_GET["home"])) {
 	$template = 'home.tpl';

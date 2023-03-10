@@ -5,6 +5,7 @@ class Reset
 {
 
     private $link = null;
+    private $token = null;
 
     public function __construct($link)
     {
@@ -14,16 +15,19 @@ class Reset
         } else if (isset($_POST["resetPassword"])) {
             $this->resetPassword();
         } else if (isset($_GET["resetPassword"])) {
-            $this->resetPasswordFrontend();
+            $this->setToken();
         }
     }
 
 
-    public static function resetPasswordFrontend()
+    private function setToken()
     {
-        $link = DbFunctions::connectWithDatabase();
-        $token = $link->real_escape_string(strip_tags($_GET['token'], ENT_QUOTES));
-        return $token;
+        $this->token = $this->link->real_escape_string(strip_tags($_GET['token'], ENT_QUOTES));
+    }
+
+    public function getToken()
+    {
+        return $this->token;
     }
 
 
