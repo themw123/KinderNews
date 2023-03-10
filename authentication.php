@@ -70,7 +70,7 @@ if ($login->isUserLoggedIn()) {
 	$name = "";
 	$login_or_logout = "Login";
 	$login_or_logout_link = "./authentication.php";
-	$profile = "./authentication.php";
+	$profile = "./authentication.php?profile";
 	$template = 'notloggedIn.tpl';
 }
 $smarty->assign("name", $name);

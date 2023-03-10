@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-10 00:42:59
+/* Smarty version 4.2.0, created on 2023-03-10 01:03:31
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a6f03a9c559_87882685',
+  'unifunc' => 'content_640a73d3a72b15_12077345',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
-      1 => 1678405279,
+      1 => 1678406611,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a6f03a9c559_87882685 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640a73d3a72b15_12077345 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -94,7 +94,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         <h1>Anmelden</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="login">
+                                <form action="" method="post" name="login">
                                     <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
                                     <div class="form-group">
@@ -140,7 +140,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         <h1>Registrieren</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="registration">
+                                <form action="" method="post" name="registration">
                                     <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
                                     <div class="form-group">
@@ -186,7 +186,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         <h1 class="resetpassword">Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="resetMail">
+                                <form action="" method="post" name="resetMail">
                                     <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
                                     <div class="form-group">
@@ -221,7 +221,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         <h1>Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="resetPassword">
+                                <form action="" method="post" name="resetPassword">
                                     <input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
 " />
                                     <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>

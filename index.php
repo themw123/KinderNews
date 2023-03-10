@@ -32,7 +32,7 @@ if ($login->isUserLoggedIn()) {
 	$name = "";
 	$login_or_logout = "Login";
 	$login_or_logout_link = "./authentication.php";
-	$profile = "./authentication.php";
+	$profile = "./authentication.php?profile";
 }
 $smarty->assign("name", $name);
 $smarty->assign("login_or_logout", $login_or_logout);

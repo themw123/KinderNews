@@ -53,7 +53,7 @@
                                         <h1>Anmelden</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="login">
+                                <form action="" method="post" name="login">
                                     <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                                     <div class="form-group">
                                         <label>Email oder Benutzer</label>
@@ -98,7 +98,7 @@
                                         <h1>Registrieren</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="registration">
+                                <form action="" method="post" name="registration">
                                     <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                                     <div class="form-group">
                                         <label>Benutzername</label>
@@ -143,7 +143,7 @@
                                         <h1 class="resetpassword">Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="resetMail">
+                                <form action="" method="post" name="resetMail">
                                     <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                                     <div class="form-group">
                                         <label>Email</label>
@@ -177,7 +177,7 @@
                                         <h1>Passwort zurücksetzen</h1>
                                     </div>
                                 </div>
-                                <form action="./authentication.php?news" method="post" name="resetPassword">
+                                <form action="" method="post" name="resetPassword">
                                     <input type="hidden" name="token" value="{$token}" />
                                     <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                                     <div class="form-group">
