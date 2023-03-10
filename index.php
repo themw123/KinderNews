@@ -19,11 +19,6 @@ $login = new Login($link);
 $register = new Register($link);
 $reset = new Reset($link);
 
-//wenn passwort reset link geöffnet wurde
-if (isset($_GET["resetPassword"])) {
-	$smarty->assign("token", $reset->getToken());
-}
-
 //csrf validierung
 //loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
 if ($REQUEST_METHOD == "GET") {
@@ -83,6 +78,7 @@ if (isset($_GET["home"])) {
 	$template = 'home.tpl';
 }
 
+$smarty->assign("token", $reset->getToken());
 $smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 $smarty->assign("name", $name);
 $smarty->assign("login_or_logout", $login_or_logout);

@@ -5,7 +5,7 @@ class Reset
 {
 
     private $link = null;
-    private $token = null;
+    private $token = "";
 
     public function __construct($link)
     {
