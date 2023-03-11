@@ -15,14 +15,18 @@
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            {include file="navbar.tpl"}
-        </div>
-        <div class="p-2">
-            <p>Profile!!!!!!</p>
+    {include file="navbar.tpl"}
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="card text-bg-light sizeCard">
+            <div class="card-header">Profiel</div>
+            <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
         </div>
     </div>
+
 
 
 

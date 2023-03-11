@@ -15,13 +15,8 @@
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            {include file="navbar.tpl"}
-        </div>
-        <div class="p-2">
-            <p>Home!!!!!!</p>
-        </div>
+    {include file="navbar.tpl"}
+    <p>Home!!!!!!</p>
     </div>
 
 

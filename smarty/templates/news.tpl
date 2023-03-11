@@ -15,16 +15,11 @@
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            {include file="navbar.tpl"}
-        </div>
+    {include file="navbar.tpl"}
 
-        <div class="p-2">
-            {foreach $news as $n}
-                <div>{$n}</div>
-            {/foreach}
-        </div>
+    {foreach $news as $n}
+        <div>{$n}</div>
+    {/foreach}
 
     </div>
 

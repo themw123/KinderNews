@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-09 23:44:28
+/* Smarty version 4.2.0, created on 2023-03-11 13:58:15
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a614c9c3df5_40249884',
+  'unifunc' => 'content_640c7ae7e87e31_91649086',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e9ca37f772a7c9ef0f093b18e6023fdc88994221' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\home.tpl',
-      1 => 1678401868,
+      1 => 1678539495,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a614c9c3df5_40249884 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640c7ae7e87e31_91649086 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -39,14 +39,9 @@ function content_640a614c9c3df5_40249884 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-        </div>
-        <div class="p-2">
-            <p>Home!!!!!!</p>
-        </div>
+    <p>Home!!!!!!</p>
     </div>
 
 

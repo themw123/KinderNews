@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-10 01:39:41
+/* Smarty version 4.2.0, created on 2023-03-11 13:58:45
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a7c4d0cb6c8_36531819',
+  'unifunc' => 'content_640c7b05d86653_26855525',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1678407927,
+      1 => 1678539522,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a7c4d0cb6c8_36531819 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640c7b05d86653_26855525 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -39,25 +39,20 @@ function content_640a7c4d0cb6c8_36531819 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-        </div>
 
-        <div class="p-2">
-            <?php
+    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['news']->value, 'n');
 $_smarty_tpl->tpl_vars['n']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['n']->value) {
 $_smarty_tpl->tpl_vars['n']->do_else = false;
 ?>
-                <div><?php echo $_smarty_tpl->tpl_vars['n']->value;?>
+        <div><?php echo $_smarty_tpl->tpl_vars['n']->value;?>
 </div>
-            <?php
+    <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        </div>
 
     </div>
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-10 01:40:03
+/* Smarty version 4.2.0, created on 2023-03-11 14:21:57
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640a7c63915af0_77490030',
+  'unifunc' => 'content_640c8075b91ce1_63905955',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbbb72dbffa42d90d96bb9e4200c8fc6fa2cadd8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\profile.tpl',
-      1 => 1678407926,
+      1 => 1678540917,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640a7c63915af0_77490030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640c8075b91ce1_63905955 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -39,15 +39,19 @@ function content_640a7c63915af0_77490030 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-    <div class="d-flex flex-column mb-3">
-        <div class="p-4">
-            <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-        </div>
-        <div class="p-2">
-            <p>Profile!!!!!!</p>
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="card text-bg-light sizeCard">
+            <div class="card-header">Profiel</div>
+            <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
         </div>
     </div>
+
 
 
 
