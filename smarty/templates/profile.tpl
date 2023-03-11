@@ -17,7 +17,7 @@
 
     {include file="navbar.tpl"}
     <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="card text-bg-light sizeCard">
+        <div class="card text-bg-light sizeCard ">
             <div class="card-header">Profiel</div>
             <div class="card-body">
                 <h5 class="card-title">Light card title</h5>
