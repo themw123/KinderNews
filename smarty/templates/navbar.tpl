@@ -1,5 +1,5 @@
 <div class="mb-customNav">
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-dark bg-custom fixed-top">
         <div class="container-fluid ">
             <div class="row">
                 <div class="col-auto">
@@ -38,7 +38,7 @@
 
 
             </div>
-            <div class="offcanvas offcanvas-start text-bg-dark pl-2 pr-4 pb-4 pt-2" tabindex="-1"
+            <div class="offcanvas offcanvas-start text-bg-custom pl-2 pr-4 pb-4 pt-2" tabindex="-1"
                 id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navigationsleiste</h5>

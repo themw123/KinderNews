@@ -1,0 +1,36 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: rgba(227, 31, 31, 0.76);
+}
+
+.btn {
+    border-color: #45423e !important;
+    background-color: #2e2c2a !important;
+}
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem #59554f !important;
+}
+input:focus {
+    box-shadow: 0 0 0 0.2rem #59554f !important;
+    border-color: #45423e !important;
+}
+
+a {
+    color:#8f8578;
+}
+a:hover {
+    color:#d1c1ab;
+}
+
+
+.dropdown-item:hover {
+    background-color: #45423e; 
+}
+.dropdown-item:focus {
+    background-color: #524e49; 
+
+}
