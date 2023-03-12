@@ -82,6 +82,12 @@ h3 {
     display: none;
 }
 
+.alert-custom {
+    color: white;
+    background-color: #2e2c2a;
+    opacity: 0.7;
+}
+
 @keyframes fadeOut {
     from {
         opacity: 1;

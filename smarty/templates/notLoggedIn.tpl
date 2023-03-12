@@ -36,7 +36,7 @@
             {/if}
             {if (isset($messages))}
                 {foreach item=message from=$messages}
-                    <div class="alert alert-dark">{$message}</div>
+                    <div class="alert alert-custom">{$message}</div>
                 {/foreach}
             {/if}
 
