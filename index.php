@@ -57,6 +57,20 @@ if ($login->isUserLoggedIn()) {
 		$smarty->assign('news', $news);
 		$template = 'news.tpl';
 	} elseif (isset($_GET["profile"])) {
+		$name = $_SESSION["name"];
+		$email = $_SESSION["email"];
+		$admin = $_SESSION["admin"];
+		if ($admin == 1) {
+			$admin = "Administrator";
+			$buttonState = "";
+		} else {
+			$admin = "Standardbenutzer";
+			$buttonState = "disabled";
+		}
+		$smarty->assign("name", $name);
+		$smarty->assign('email', $email);
+		$smarty->assign("admin", $admin);
+		$smarty->assign("buttonState", $buttonState);
 		$template = 'profile.tpl';
 	} else {
 		$template = 'home.tpl';

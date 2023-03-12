@@ -30,8 +30,8 @@ class DbFunctions
 	public static function createAccount($link, $username, $email, $password_hash, $token)
 	{
 		$stmt = $link->prepare(
-			"INSERT INTO benutzer (name, email, passwort_hash, activated, token)
-			VALUES(?, ?, ?, 0, ?);"
+			"INSERT INTO benutzer (name, email, passwort_hash, admin, activated, token)
+			VALUES(?, ?, ?, 0, 0, ?);"
 		);
 		$stmt->bind_param("ssss", $username, $email, $password_hash, $token);
 		$stmt->execute();
@@ -78,7 +78,7 @@ class DbFunctions
 	public static function exists1($link, $email_or_user)
 	{
 		$stmt = $link->prepare(
-			"SELECT name, email, passwort_hash, activated FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
+			"SELECT name, email, passwort_hash, admin, activated FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
 		);
 		$stmt->bind_param("ss", $email_or_user, $email_or_user);
 		$stmt->execute();

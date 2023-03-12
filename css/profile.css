@@ -1,6 +1,55 @@
 .sizeCard {
-    width: 60%;
-    height: 60%;
     border-radius: 30px;
+}
 
+@media (max-width: 270px) {
+    .sizeCard {
+        width: 100%;
+    }
+}
+
+@media (min-width: 271px) {
+    .sizeCard {
+        width: 90%;
+    }
+}
+
+@media (min-width: 576px) {
+    .sizeCard {
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) {
+    .sizeCard {
+        width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .sizeCard {
+        width: 40%;
+    }
+}
+@media (min-width: 1200px) {
+    .sizeCard {
+        width: 30%;
+    }
+}
+@media (min-width: 1201px) {
+    .sizeCard {
+        width: 25%;
+    }
+}
+
+
+.buttonSpinner {
+    display: none;
+}
+
+.buttonText {
+    display: inline-block;
+}
+
+.customFontSize {
+    font-size: 15px;
 }

@@ -57,6 +57,7 @@ class Login
                         unset($_SESSION['loggedOutBefore']);
                         $_SESSION['name'] = $result_row->name;
                         $_SESSION['email'] = $result_row->email;
+                        $_SESSION['admin'] = $result_row->admin;
                         $_SESSION['user_login_status'] = 1;
                     } else {
                         Logs::addError("falsches Passwort");

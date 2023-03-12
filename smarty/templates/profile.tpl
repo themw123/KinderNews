@@ -17,12 +17,41 @@
 
     {include file="navbar.tpl"}
     <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="card text-bg-light sizeCard ">
-            <div class="card-header">Profiel</div>
-            <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+        <div class="card text-bg-light sizeCard">
+            <div class="card-header fs-5 fw-bold">Profil</div>
+            <div class="card-body d-flex flex-column">
+                <div>
+                    <div class="d-flex flex-row align-items-center">
+                        <p class="customFontSize pe-3 fw-bold">Benutzername: </p>
+                        <p class="customFontSize">{$name}</p>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <p class="customFontSize pe-3 fw-bold">Email: </p>
+                        <p class="customFontSize">{$email}</p>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <p class="customFontSize pe-3 fw-bold">Rolle: </p>
+                        <p class="customFontSize">{$admin}</p>
+                    </div>
+
+
+                    <div class="card text-bg-light">
+                        <div class="card-header">News aktualisieren</div>
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
+                                anschließend
+                                übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern</p>
+                            <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
+                                <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
+                                    aria-hidden="true"></span>
+                                <div class="buttonText">aktualisieren</div>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
         </div>
     </div>
