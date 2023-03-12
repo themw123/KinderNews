@@ -21,7 +21,7 @@
         {include file="navbar.tpl"}
     </div>
     <div class="container d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-5 mx-auto mb-5">
+        <div class="col-md-5 mx-auto mb-5 mt-5">
             {if !isset($errors) &&!isset($messages)}
                 <div class="alert alert-hidden">leer</div>
             {/if}
@@ -42,7 +42,7 @@
 
             <div id="ohneFourth">
                 <div id="first">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1>Anmelden</h1>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div id="second">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1>Registrieren</h1>
@@ -131,7 +131,7 @@
                     </form>
                 </div>
                 <div id="third">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1 class="resetpassword">Passwort zurücksetzen</h1>
@@ -162,7 +162,7 @@
             </div>
 
             <div id="fourth" style="display: none;">
-                <div class="myform form ">
+                <div class="myform form custom-shadow">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
                             <h1>Passwort zurücksetzen</h1>
@@ -198,6 +198,7 @@
                 </div>
                 </form>
             </div>
+
         </div>
     </div>
 

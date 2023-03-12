@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-12 20:56:35
+/* Smarty version 4.2.0, created on 2023-03-12 21:45:53
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640e2e739a34f2_05509779',
+  'unifunc' => 'content_640e3a01e18308_80433978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
-      1 => 1678650994,
+      1 => 1678653951,
       2 => 'file',
     ),
   ),
@@ -21,12 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640e2e739a34f2_05509779 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640e3a01e18308_80433978 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Anmelden</title>
+    <title>KinderNews</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- 4.0.0 zusätzlich nötig, da wir login frontend mit 4.0.0 gemacht haben-->
@@ -46,7 +46,7 @@ function content_640e2e739a34f2_05509779 (Smarty_Internal_Template $_smarty_tpl)
 ?>
     </div>
     <div class="container d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-5 mx-auto mb-5">
+        <div class="col-md-5 mx-auto mb-5 mt-5">
             <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
                 <div class="alert alert-hidden">leer</div>
             <?php }?>
@@ -83,7 +83,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
             <div id="ohneFourth">
                 <div id="first">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1>Anmelden</h1>
@@ -128,7 +128,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </div>
                 </div>
                 <div id="second">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1>Registrieren</h1>
@@ -174,7 +174,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </form>
                 </div>
                 <div id="third">
-                    <div class="myform form ">
+                    <div class="myform form custom-shadow">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h1 class="resetpassword">Passwort zurücksetzen</h1>
@@ -206,7 +206,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </div>
 
             <div id="fourth" style="display: none;">
-                <div class="myform form ">
+                <div class="myform form custom-shadow">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
                             <h1>Passwort zurücksetzen</h1>
@@ -244,6 +244,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
                 </form>
             </div>
+
         </div>
     </div>
 

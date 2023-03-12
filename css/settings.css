@@ -27,19 +27,15 @@
 }
 @media (min-width: 992px) {
     .sizeCard {
-        width: 40%;
+        width: 45%;
     }
 }
 @media (min-width: 1200px) {
     .sizeCard {
-        width: 30%;
+        width: 40%;
     }
 }
-@media (min-width: 1201px) {
-    .sizeCard {
-        width: 25%;
-    }
-}
+
 
 
 .buttonSpinner {

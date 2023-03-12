@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-12 21:01:41
+/* Smarty version 4.2.0, created on 2023-03-12 21:23:48
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640e2fa5383c40_12095612',
+  'unifunc' => 'content_640e34d40ff818_94125950',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1678651300,
+      1 => 1678652627,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640e2fa5383c40_12095612 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640e34d40ff818_94125950 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -42,7 +42,8 @@ function content_640e2fa5383c40_12095612 (Smarty_Internal_Template $_smarty_tpl)
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="card text-bg-light mb-5 sizeCard">
+
+        <div class="card text-bg-light mb-5 custom-shadow sizeCard">
             <div class="card-header fs-5 fw-bold">Einstellungen</div>
             <div class="card-body d-flex flex-column">
                 <div>

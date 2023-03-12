@@ -17,7 +17,8 @@
 
     {include file="navbar.tpl"}
     <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="card text-bg-light mb-5 sizeCard">
+
+        <div class="card text-bg-light mb-5 custom-shadow sizeCard">
             <div class="card-header fs-5 fw-bold">Einstellungen</div>
             <div class="card-body d-flex flex-column">
                 <div>
