@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-11 13:45:24
+/* Smarty version 4.2.0, created on 2023-03-12 18:40:18
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640c77e42597f2_79445646',
+  'unifunc' => 'content_640e0e82181769_97700023',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d3efd03712da657eb63eb537e721c15cc3ff35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\navbar.tpl',
-      1 => 1678538723,
+      1 => 1678642817,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_640c77e42597f2_79445646 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640e0e82181769_97700023 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="mb-customNav">
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid ">
@@ -52,8 +52,8 @@ function content_640c77e42597f2_79445646 (Smarty_Internal_Template $_smarty_tpl)
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                         style="position: absolute; inset: auto auto auto -30px; margin: 0px;"
                         data-popper-placement="bottom-start">
-                        <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value;?>
-">Profile</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['settings']->value;?>
+">Einstellungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -99,8 +99,8 @@ function content_640c77e42597f2_79445646 (Smarty_Internal_Template $_smarty_tpl)
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                             style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -33.6px, 0px);"
                             data-popper-placement="top-end">
-                            <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['profile']->value;?>
-">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['settings']->value;?>
+">Einstellungen</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

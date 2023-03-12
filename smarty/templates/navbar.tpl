@@ -28,7 +28,7 @@
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                         style="position: absolute; inset: auto auto auto -30px; margin: 0px;"
                         data-popper-placement="bottom-start">
-                        <li><a class="dropdown-item" href="{$profile}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{$settings}">Einstellungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -71,7 +71,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                             style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -33.6px, 0px);"
                             data-popper-placement="top-end">
-                            <li><a class="dropdown-item" href="{$profile}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{$settings}">Einstellungen</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

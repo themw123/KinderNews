@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/profile.css" rel="stylesheet" type="text/css">
+    <link href="css/settings.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -18,7 +18,7 @@
     {include file="navbar.tpl"}
     <div class="d-flex justify-content-center align-items-center h-100">
         <div class="card text-bg-light sizeCard">
-            <div class="card-header fs-5 fw-bold">Profil</div>
+            <div class="card-header fs-5 fw-bold">Einstellungen</div>
             <div class="card-body d-flex flex-column">
                 <div>
                     <div class="d-flex flex-row align-items-center">
@@ -66,7 +66,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js"></script>
-    <script src="js/profile.js"></script>
+    <script src="js/settings.js"></script>
 
 
 </body>

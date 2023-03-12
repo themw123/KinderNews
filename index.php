@@ -44,7 +44,7 @@ if ($login->isUserLoggedIn()) {
 	$name = $_SESSION["name"];
 	$login_or_logout = "Logout";
 	$login_or_logout_link = "./?logout";
-	$profile = "./?profile";
+	$settings = "./?settings";
 	if (isset($_GET["news"])) {
 		//mockdaten
 		$news = array(
@@ -56,7 +56,7 @@ if ($login->isUserLoggedIn()) {
 		);
 		$smarty->assign('news', $news);
 		$template = 'news.tpl';
-	} elseif (isset($_GET["profile"])) {
+	} elseif (isset($_GET["settings"])) {
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];
 		$admin = $_SESSION["admin"];
@@ -71,7 +71,7 @@ if ($login->isUserLoggedIn()) {
 		$smarty->assign('email', $email);
 		$smarty->assign("admin", $admin);
 		$smarty->assign("buttonState", $buttonState);
-		$template = 'profile.tpl';
+		$template = 'settings.tpl';
 	} else {
 		$template = 'home.tpl';
 	}
@@ -79,7 +79,7 @@ if ($login->isUserLoggedIn()) {
 	$name = "";
 	$login_or_logout = "Login";
 	$login_or_logout_link = "./?login";
-	$profile = "./?profile";
+	$settings = "./?settings";
 	$template = 'notloggedIn.tpl';
 }
 
@@ -97,7 +97,7 @@ $smarty->assign('csrfToken', $_SESSION["csrfToken"]);
 $smarty->assign("name", $name);
 $smarty->assign("login_or_logout", $login_or_logout);
 $smarty->assign("login_or_logout_link", $login_or_logout_link);
-$smarty->assign("profile", $profile);
+$smarty->assign("settings", $settings);
 
 
 
