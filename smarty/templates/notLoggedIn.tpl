@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Anmelden</title>
+    <title>KinderNews</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- 4.0.0 zusätzlich nötig, da wir login frontend mit 4.0.0 gemacht haben-->
