@@ -6,14 +6,7 @@ class DbFunctions
 	public static function connectWithDatabase()
 	{
 		$link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-		$query = "use benutzer";
-		self::executeQuery($link, $query);
-		return $link;
-	}
-
-	public static function useDatabase($link, $database)
-	{
-		$query = "use " . $database;
+		$query = "use kindernews";
 		self::executeQuery($link, $query);
 		return $link;
 	}
@@ -96,11 +89,47 @@ class DbFunctions
 	}
 
 
-	public static function setNewsDb($link)
+	public static function setNewsDb($link, $news, $newsTranslated)
 	{
+
+		//alte news holen:
+		$stmt = $link->prepare("SELECT id FROM news");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$ids = $result->fetch_all(MYSQLI_ASSOC);
+
+
+		//neue news setzten
+		$stmt = $link->prepare(
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text)
+			VALUES(?, ?, ?, ?);"
+		);
+		foreach ($news as $key => $value) {
+			$original_title = $value['title'];
+			$original_text = $value['text'];
+			$translated_title = $newsTranslated[$key]['title'];
+			$translated_text = $newsTranslated[$key]['text'];
+			$stmt->bind_param("ssss", $original_title, $original_text, $translated_title, $translated_text);
+			$stmt->execute();
+		}
+
+
+		//alte news löschen
+		if (!empty($ids)) {
+			$idList = array_column($ids, 'id');
+			$idList = implode(',', $idList);
+			$stmt = $link->prepare("DELETE FROM news WHERE id IN ({$idList})");
+			$stmt->execute();
+		}
 	}
 
 	public static function getNewsDb($link)
 	{
+		$stmt = $link->prepare(
+			"Select * from news;"
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
 	}
 }

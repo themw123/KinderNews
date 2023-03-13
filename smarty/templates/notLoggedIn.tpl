@@ -18,9 +18,7 @@
 
 <body>
 
-    <div>
-        {include file="navbar.tpl"}
-    </div>
+    {include file="navbar.tpl"}
     <div class="container d-flex justify-content-center align-items-center h-100">
         <div class="col-md-5 mx-auto mb-5 mt-5">
             {if !isset($errors) &&!isset($messages)}
@@ -203,8 +201,6 @@
         </div>
     </div>
 
-    </div>
-    </div>
 
 
 

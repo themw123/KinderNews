@@ -17,42 +17,48 @@
 <body>
 
     {include file="navbar.tpl"}
-    <div class="d-flex justify-content-center align-items-center h-100">
-
-        <div class="card text-bg-light mb-5 custom-shadow sizeCard">
-            <div class="card-header fs-5 fw-bold">Einstellungen</div>
-            <div class="card-body d-flex flex-column">
-                <div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Benutzername: </p>
-                        <p class="customFontSize">{$name}</p>
-                    </div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Email: </p>
-                        <p class="customFontSize">{$email}</p>
-                    </div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Rolle: </p>
-                        <p class="customFontSize">{$admin}</p>
-                    </div>
+    <div class="container d-flex justify-content-center align-items-center h-100">
 
 
-                    <div class="card text-bg-light">
-                        <div class="card-header">News aktualisieren</div>
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                            <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
-                                anschließend
-                                übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern</p>
-                            <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
-                                <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
-                                    aria-hidden="true"></span>
-                                <div class="buttonText">aktualisieren</div>
-                            </button>
+        <div class="col-md-5 mx-auto mb-5 mt-5">
+            <div class="alert alert-hidden">leer</div>
+
+            <div class="card text-bg-light custom-shadow sizeCard">
+                <div class="card-header fs-5 fw-bold">Einstellungen</div>
+                <div class="card-body d-flex flex-column">
+                    <div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Benutzername: </p>
+                            <p class="customFontSize">{$name}</p>
                         </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Email: </p>
+                            <p class="customFontSize">{$email}</p>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Rolle: </p>
+                            <p class="customFontSize">{$admin}</p>
+                        </div>
+
+
+                        <div class="card text-bg-light">
+                            <div class="card-header">News aktualisieren</div>
+                            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
+                                    anschließend
+                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern
+                                </p>
+                                <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
+                                    <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
+                                        aria-hidden="true"></span>
+                                    <div class="buttonText">aktualisieren</div>
+                                </button>
+                            </div>
+                        </div>
+
+
+
                     </div>
-
-
-
                 </div>
             </div>
         </div>

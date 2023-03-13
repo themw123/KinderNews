@@ -2,42 +2,6 @@
     border-radius: 30px;
 }
 
-@media (max-width: 270px) {
-    .sizeCard {
-        width: 100%;
-    }
-}
-
-@media (min-width: 271px) {
-    .sizeCard {
-        width: 90%;
-    }
-}
-
-@media (min-width: 576px) {
-    .sizeCard {
-        width: 60%;
-    }
-}
-
-@media (min-width: 768px) {
-    .sizeCard {
-        width: 50%;
-    }
-}
-@media (min-width: 992px) {
-    .sizeCard {
-        width: 45%;
-    }
-}
-@media (min-width: 1200px) {
-    .sizeCard {
-        width: 40%;
-    }
-}
-
-
-
 .buttonSpinner {
     display: none;
 }

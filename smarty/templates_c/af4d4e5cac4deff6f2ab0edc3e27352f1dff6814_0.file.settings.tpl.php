@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-12 23:44:16
+/* Smarty version 4.2.0, created on 2023-03-13 18:38:18
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640e55c00e4d55_01744596',
+  'unifunc' => 'content_640f5f8a801274_73176978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1678661044,
+      1 => 1678729079,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640e55c00e4d55_01744596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_640f5f8a801274_73176978 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -42,46 +42,52 @@ function content_640e55c00e4d55_01744596 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <div class="d-flex justify-content-center align-items-center h-100">
-
-        <div class="card text-bg-light mb-5 custom-shadow sizeCard">
-            <div class="card-header fs-5 fw-bold">Einstellungen</div>
-            <div class="card-body d-flex flex-column">
-                <div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Benutzername: </p>
-                        <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-</p>
-                    </div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Email: </p>
-                        <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['email']->value;?>
-</p>
-                    </div>
-                    <div class="d-flex flex-row align-items-center">
-                        <p class="customFontSize pe-3 fw-bold">Rolle: </p>
-                        <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['admin']->value;?>
-</p>
-                    </div>
+    <div class="container d-flex justify-content-center align-items-center h-100">
 
 
-                    <div class="card text-bg-light">
-                        <div class="card-header">News aktualisieren</div>
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                            <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
-                                anschließend
-                                übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern</p>
-                            <button class="btn btn-dark loadingButton" type="button" <?php echo $_smarty_tpl->tpl_vars['buttonState']->value;?>
->
-                                <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
-                                    aria-hidden="true"></span>
-                                <div class="buttonText">aktualisieren</div>
-                            </button>
+        <div class="col-md-5 mx-auto mb-5 mt-5">
+            <div class="alert alert-hidden">leer</div>
+
+            <div class="card text-bg-light custom-shadow sizeCard">
+                <div class="card-header fs-5 fw-bold">Einstellungen</div>
+                <div class="card-body d-flex flex-column">
+                    <div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Benutzername: </p>
+                            <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</p>
                         </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Email: </p>
+                            <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+</p>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="customFontSize pe-3 fw-bold">Rolle: </p>
+                            <p class="customFontSize"><?php echo $_smarty_tpl->tpl_vars['admin']->value;?>
+</p>
+                        </div>
+
+
+                        <div class="card text-bg-light">
+                            <div class="card-header">News aktualisieren</div>
+                            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
+                                    anschließend
+                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern
+                                </p>
+                                <button class="btn btn-dark loadingButton" type="button" <?php echo $_smarty_tpl->tpl_vars['buttonState']->value;?>
+>
+                                    <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
+                                        aria-hidden="true"></span>
+                                    <div class="buttonText">aktualisieren</div>
+                                </button>
+                            </div>
+                        </div>
+
+
+
                     </div>
-
-
-
                 </div>
             </div>
         </div>
