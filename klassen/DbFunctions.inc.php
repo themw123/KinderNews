@@ -94,4 +94,13 @@ class DbFunctions
 		$stmt->execute();
 		return $stmt->get_result();
 	}
+
+
+	public static function setNewsDb($link)
+	{
+	}
+
+	public static function getNewsDb($link)
+	{
+	}
 }

@@ -8,16 +8,19 @@ require_once('./libraries/PHPMailer.php');
 require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");
+require_once("./klassen/News.inc.php");
 
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $link = DbFunctions::connectWithDatabase();
 
 //session wird in login erzeugt bzw wiederaufgenommen
-//die komplette Login logik inklusive register und password reset wird mittels folgender klassen erledigt
+//die komplette Login logik inklusive register und password reset wird mittels folgender drei klassen erledigt
 $login = new Login($link);
 $register = new Register($link);
 $reset = new Reset($link);
+
+$news = new News($link);
 
 //csrf validierung
 //loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
@@ -54,6 +57,9 @@ if ($login->isUserLoggedIn()) {
 			"Tesla kündigt Bau von Gigafactory in Deutschland an",
 			"Neueröffnung: Berliner Flughafen BER nimmt Betrieb auf"
 		);
+		//in echt dann.
+		//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
+		//$news = DbFunctions::getNewsDb($link);
 		$smarty->assign('news', $news);
 		$template = 'news.tpl';
 	} elseif (isset($_GET["settings"])) {
