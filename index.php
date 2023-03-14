@@ -20,7 +20,7 @@ $login = new Login($link);
 $register = new Register($link);
 $reset = new Reset($link);
 
-$news = new News($link);
+$news = new News($link, $login);
 
 //csrf validierung
 //loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
@@ -49,18 +49,9 @@ if ($login->isUserLoggedIn()) {
 	$login_or_logout_link = "./?logout";
 	$settings = "./?settings";
 	if (isset($_GET["news"])) {
-		//mockdaten
-		$news = array(
-			"Neue Studie zeigt: Impfung gegen COVID-19 schützt auch vor schweren Verläufen",
-			"Forschungserfolg: Wissenschaftler*innen entwickeln künstliche Haut, die Schmerzen empfinden kann",
-			"EU-Kommission plant Gesetz zur Eindämmung von Desinformation im Internet",
-			"Tesla kündigt Bau von Gigafactory in Deutschland an",
-			"Neueröffnung: Berliner Flughafen BER nimmt Betrieb auf"
-		);
-		//in echt dann.
 		//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
-		//$news = DbFunctions::getNewsDb($link);
-		$smarty->assign('news', $news);
+		$newsArray = DbFunctions::getNewsDb($link);
+		$smarty->assign('news', $newsArray);
 		$template = 'news.tpl';
 	} elseif (isset($_GET["settings"])) {
 		$name = $_SESSION["name"];
@@ -104,8 +95,6 @@ $smarty->assign("name", $name);
 $smarty->assign("login_or_logout", $login_or_logout);
 $smarty->assign("login_or_logout_link", $login_or_logout_link);
 $smarty->assign("settings", $settings);
-
-
 
 
 $smarty->display($template);

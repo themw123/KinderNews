@@ -101,15 +101,29 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text)
-			VALUES(?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3)
+			VALUES(?, ?, ?, ?, ?, ?, ?);"
 		);
 		foreach ($news as $key => $value) {
 			$original_title = $value['title'];
 			$original_text = $value['text'];
-			$translated_title = $newsTranslated[$key]['title'];
-			$translated_text = $newsTranslated[$key]['text'];
-			$stmt->bind_param("ssss", $original_title, $original_text, $translated_title, $translated_text);
+
+			//nur wenn chatgpt übersetzt hat
+			if (isset($newsTranslated[$key]['title'])) {
+				$translated_title = $newsTranslated[$key]['title'];
+				$translated_text = $newsTranslated[$key]['text'];
+				$question1 = $newsTranslated[$key]['question1'];
+				$question2 = $newsTranslated[$key]['question2'];
+				$question3 = $newsTranslated[$key]['question3'];
+			} else {
+				$translated_title = "error";
+				$translated_text = "error";
+				$question1 = "error";
+				$question2 = "error";
+				$question3 = "error";
+				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
+			}
+			$stmt->bind_param("sssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3);
 			$stmt->execute();
 		}
 

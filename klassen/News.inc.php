@@ -4,14 +4,16 @@ class News
 {
 
     private $link = null;
+    private $login = null;
     private $news = null;
     private $newsTranslated = null;
 
-    public function __construct($link)
+    public function __construct($link, $login)
     {
-
+        $this->login = $login;
         $this->news = array();
         $this->newsTranslated = array();
+
 
         /*
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
@@ -26,6 +28,7 @@ class News
             )
         );
 
+        
         $this->newsTranslated = array(
             array(
                 'title' => "Russland hat mehr Einkommen als Ausgaben im Handel",
@@ -36,14 +39,19 @@ class News
                 'text' => "Das Nördlinger Basketball-Team, das im Schnitt nur 19 Jahre alt ist, hat sich in Vilsbiburg gut geschlagen. Obwohl sie gegen einen starken Gegner angetreten sind, haben sie über drei Viertel des Spiels gleichauf gespielt. Am Ende haben sie leider mit 60:79 verloren. Trainer Mohammed Hajjar hat viele junge Spieler aus dem eigenen Jugendprogramm aufgestellt, die normalerweise weniger Einsatzzeit bekommen. Zum Beispiel haben die Brüder Max und Jakob Scherer ihre ersten Spielminuten in der 1. Regionalliga bekommen. Auch die beiden Jüngsten, 16-jährige Lukas Hahn und 15-jährige Felix Stoll, durften spielen."
             )
         );
+
+        $success = true;
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
         */
 
         $this->link = $link;
-        if (isset($_GET["getNews"])) {
-            $this->getNews();
-            $this->translateNews();
-            DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+        if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
+            $success = $this->getNews();
+            if ($success) {
+                $this->translateNews();
+                DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+            }
+            Logs::jsonLogs();
         }
     }
 
@@ -66,19 +74,19 @@ class News
 
         if ($response === false) {
             Logs::addError("Fehler beim holen der News. Request nicht erfolgreich.");
-            Logs::jsonLogs();
+            return false;
         }
 
         $json = json_decode($response);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             Logs::addError("Fehler beim holen der News. Response Json enthält Fehler.");
-            Logs::jsonLogs();
+            return false;
         }
 
         if ($json->{'status'} !== "success") {
             Logs::addError("Fehler beim holen der News. Response Json status != success.");
-            Logs::jsonLogs();
+            return false;
         }
 
         $count = 0;
@@ -95,7 +103,6 @@ class News
             $count++;
         }
 
-
         curl_close($curl);
         return true;
     }
@@ -105,12 +112,18 @@ class News
     {
         $curl = curl_init();
 
+        $counter = 1;
         foreach ($this->news as $article) {
             $apikey = CHATGPTAPIKEY;
             $title = $article['title'];
             $text = $article['text'];
-            $prompt = "Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Es sollen selbst 10 jährige Kinder den Text verstehen können. Du sollst mir auschließlich im json format antworten. Die json antwort soll so aussehen: {%title%: %Hier der umgeschriebene Titel von dir%, %text%: %Hier der umgeschriebene Text von dir%}. Das ist der Titel den du umschreiben sollst: $title  Das ist der Text den du umschreiben sollst: $text ";
+            //wenn zu groß, dann kürzen. Eingabe Text zählt auch zu Tokens. es dürfen maximal 4097 Tokens sein.
+            $maxLength = 12000;
+            if (strlen($text) > $maxLength) {
+                $text = substr($text, 0, $maxLength);
+            }
 
+            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Es sollen selbst 10 jährige Kinder den Text verstehen können. Der neue Text soll von der Länge nicht viel kürzer sein als der ursprüngliche, BEACHTE DAS BITTE!!!!. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Begriffe aus dem Text beziehen, die sie nicht verstehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein. WICHTIG, du sollst mir auschließlich im json format antworten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage"}. Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '||';
             $data = new stdClass();
             $data->model = "gpt-3.5-turbo";
 
@@ -142,42 +155,72 @@ class News
             $response = curl_exec($curl);
 
             if ($response === false) {
-                Logs::addError("Fehler beim übersetzten der News. Request nicht erfolgreich.");
-                Logs::jsonLogs();
+                Logs::addError("Fehler beim übersetzten der $counter. News. Request nicht erfolgreich.");
+                break;
             }
 
             $json = json_decode($response);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
-                Logs::addError("Fehler beim übersetzten der News. Response Json enthält Fehler.");
-                Logs::jsonLogs();
+                Logs::addError("Fehler beim übersetzten der $counter. News. Response Json enthält Fehler.");
+                break;
             }
 
             if (isset($json->error) && !empty($json->error)) {
-                Logs::addError("Fehler beim übersetzten der News. Response Json enthält Fehler.");
-                Logs::jsonLogs();
+                Logs::addError("Fehler beim übersetzten der $counter. News. Response Json enthält Fehler.");
+                break;
             }
 
             $responseText = $json->{"choices"}[0]->{"message"}->{"content"};
             $responseText = trim($responseText);
-            $responseText = str_replace("$", "\"", $responseText);
 
+            /*
+            //falls chatgpt die antwort früher abbricht und deshalb kein } ans ende fügt.
+            // Überprüfen, ob das letzte Zeichen ein } ist
+            $lastCharIndex = strlen($responseText) - 1;
+            if (substr($responseText, $lastCharIndex, 1) != "}") {
+                if (substr($responseText, $lastCharIndex, 1) != "'") {
+                    $responseText = $responseText . "'}";
+                } else {
+                    $responseText = $responseText . "}";
+                }
+            }
+            */
 
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                Logs::addError("Fehler beim übersetzten der News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
-                Logs::jsonLogs();
+                Logs::addError("Fehler beim übersetzten der $counter. News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
+                break;
             }
             $translatedTitle = $myJson->{"title"};
             $translatedText = $myJson->{"text"};
+            if (isset($myJson->{"question1"})) {
+                $question1 = $myJson->{"question1"};
+            } else {
+                $question1 = "error";
+            }
+            if (isset($myJson->{"question2"})) {
+                $question2 = $myJson->{"question2"};
+            } else {
+                $question2 = "error";
+            }
+            if (isset($myJson->{"question3"})) {
+                $question3 = $myJson->{"question3"};
+            } else {
+                $question3 = "error";
+            }
 
             $this->newsTranslated[] = array(
                 'title' => $translatedTitle,
-                'text' => $translatedText
+                'text' => $translatedText,
+                'question1' => $question1,
+                'question2' => $question2,
+                'question3' => $question3
             );
+
+            $counter++;
         }
 
         curl_close($curl);
-        return true;
     }
 }

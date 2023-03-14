@@ -21,12 +21,8 @@ button:focus:not(:focus-visible) {
     font-size: 20px;
 }
 
-.mb-customNav{
+.mb-customNav {
     margin-bottom: 56px;
-}
-
-.custom-shadow {
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.6);
 }
 
 

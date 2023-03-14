@@ -20,10 +20,10 @@
     <div class="container d-flex justify-content-center align-items-center h-100">
 
 
-        <div class="col-md-5 mx-auto mb-5 mt-5">
+        <div class="col-md-5 mx-auto mt-5">
             <div class="alert alert-hidden">leer</div>
 
-            <div class="card text-bg-light custom-shadow sizeCard">
+            <div class="card text-bg-light custom-shadow rounded-4 mb-4">
                 <div class="card-header fs-5 fw-bold">Einstellungen</div>
                 <div class="card-body d-flex flex-column">
                     <div>
@@ -46,7 +46,8 @@
                             <div class="card-body d-flex flex-column justify-content-center align-items-center">
                                 <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
                                     anschließend
-                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann länger dauern
+                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann mehrere Minuten
+                                    dauern.
                                 </p>
                                 <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
                                     <span class="spinner-border spinner-border-sm buttonSpinner" role="status"

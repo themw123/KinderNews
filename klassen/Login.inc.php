@@ -90,4 +90,11 @@ class Login
         }
         return false;
     }
+    public function isUserAdmin()
+    {
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+            return true;
+        }
+        return false;
+    }
 }

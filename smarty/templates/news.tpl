@@ -19,7 +19,7 @@
     {include file="navbar.tpl"}
 
     {foreach $news as $n}
-        <div>{$n}</div>
+        <div>{$n["uebersetzter_titel"]}</div>
     {/foreach}
 
     </div>

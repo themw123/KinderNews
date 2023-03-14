@@ -45,12 +45,15 @@ class Logs
                     $text = $text . $message;
                 }
             }
-            $response = array(
-                "art" => $art,
-                "text" => $text
-            );
-            $json_response = json_encode($response);
+        } else {
+            $art = "success";
+            $text = "Es wurden die neusten News geholt und jede kinderfreundlich übersetzt!";
         }
+        $response = array(
+            "art" => $art,
+            "text" => $text
+        );
+        $json_response = json_encode($response);
 
         echo $json_response;
         //wichtig, da sonnst über index.php gegangen wird und der zusätztlich zur response das html drangehangen wird

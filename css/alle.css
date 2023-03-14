@@ -59,4 +59,9 @@ a:hover {
 .alert-custom {
     color: white;
     background-color: #2e2c2a;
+    opacity: 0.7;
+}
+
+.custom-shadow {
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
 }
