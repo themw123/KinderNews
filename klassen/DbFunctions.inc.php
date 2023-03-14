@@ -101,12 +101,13 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3)
-			VALUES(?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, bild_url)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 		foreach ($news as $key => $value) {
 			$original_title = $value['title'];
 			$original_text = $value['text'];
+			$image_url = $value['image'];
 
 			//nur wenn chatgpt übersetzt hat
 			if (isset($newsTranslated[$key]['title'])) {
@@ -123,7 +124,7 @@ class DbFunctions
 				$question3 = "error";
 				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
 			}
-			$stmt->bind_param("sssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3);
+			$stmt->bind_param("ssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $image_url);
 			$stmt->execute();
 		}
 

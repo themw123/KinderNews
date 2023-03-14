@@ -17,7 +17,7 @@ class News
         $this->newsTranslated = array();
 
 
-        /*
+
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
         $this->news = array(
             array(
@@ -51,15 +51,17 @@ class News
 
         $success = true;
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
-        */
+
+
 
 
         $this->link = $link;
         if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
-            $success = $this->getNews();
+            sleep(10);
+            //$success = $this->getNews();
             if ($success) {
-                $this->translateNews();
-                DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+                //$this->translateNews();
+                //DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
             }
             Logs::jsonLogs();
         }
@@ -133,9 +135,11 @@ class News
             if (!empty($content) && $content != "None" && $content != "none" && $content != "null" && $content != "NULL" && $content != "Null") {
                 $title = $result->{"title"};
                 $text = $result->{"content"};
+                $image = $result->{"image_url"};
                 $this->news[] = array(
                     'title' => $title,
-                    'text' => $text
+                    'text' => $text,
+                    'image' => $image,
                 );
             }
         }
@@ -165,7 +169,7 @@ class News
                 $text = substr($text, 0, $maxLength);
             }
 
-            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Begriffe aus dem Text beziehen, die sie nicht verstehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein. WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2 und question3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage"} . Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '||';
+            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Begriffe aus dem Text beziehen, die sie nicht verstehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein. WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2 und question3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage"} . Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DORT FÜR SOFERN ES NICHT DER FALL IST. ';
 
             $data = new stdClass();
             $data->model = "gpt-3.5-turbo";

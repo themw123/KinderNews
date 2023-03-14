@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-14 02:01:17
+/* Smarty version 4.2.0, created on 2023-03-14 17:52:06
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640fc75dd06299_64998652',
+  'unifunc' => 'content_6410a6362c4e20_57459685',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1678755674,
+      1 => 1678811576,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640fc75dd06299_64998652 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6410a6362c4e20_57459685 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -44,12 +44,21 @@ function content_640fc75dd06299_64998652 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['news']->value, 'n');
-$_smarty_tpl->tpl_vars['n']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['n']->value) {
-$_smarty_tpl->tpl_vars['n']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['news']->value, 'article');
+$_smarty_tpl->tpl_vars['article']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
+$_smarty_tpl->tpl_vars['article']->do_else = false;
 ?>
-        <div><?php echo $_smarty_tpl->tpl_vars['n']->value["uebersetzter_titel"];?>
+        <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzter_titel"];?>
 </div>
     <?php
 }
