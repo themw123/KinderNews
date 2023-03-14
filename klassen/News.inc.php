@@ -1,5 +1,8 @@
 <?php
 
+use Spatie\Async\Pool;
+
+
 class News
 {
 
@@ -57,14 +60,39 @@ class News
 
         $this->link = $link;
         if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
-            sleep(10);
+
+
+            $pool = Pool::create();
+            $pool->add(function () {
+                $this->backgroundTask();
+            })->then(function ($output) {
+                // Handle success
+            })->catch(function (Throwable $exception) {
+                // Handle exception
+            });
+
+            $pool->wait();
+
+
+
             //$success = $this->getNews();
+
             if ($success) {
                 //$this->translateNews();
                 //DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
             }
             Logs::jsonLogs();
         }
+    }
+
+
+    private function backgroundTask()
+    {
+        print "hi1";
+        echo "hi1";
+        sleep(10);
+        echo "hi2";
+        print "hi2";
     }
 
 
