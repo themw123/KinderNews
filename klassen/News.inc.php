@@ -8,6 +8,8 @@ class News
     private $news = null;
     private $newsTranslated = null;
 
+    private $page = null;
+
     public function __construct($link, $login)
     {
         $this->login = $login;
@@ -55,12 +57,38 @@ class News
         }
     }
 
+
     private function getNews()
     {
+        //hole solange news(pro Request 10) bis es 10 Stück mit content gibt
+        //maximal 10 Runden/Requests
+        $success = true;
+        $counter = 0;
+        while ($success && count($this->news) < 10 && $counter < 10) {
+            $success = $this->getNews10();
+            $counter++;
+        }
+
+        //lösche wenn mehr als 10
+        if (count($this->news) > 10) {
+            $this->news = array_slice($this->news, 0, 10);
+        }
+
+        return $success;
+    }
+
+    private function getNews10()
+    {
+
+        if ($this->page != null) {
+            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top&page=' . $this->page;
+        } else {
+            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top';
+        }
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top',
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -89,18 +117,18 @@ class News
             return false;
         }
 
-        $count = 0;
+        $this->page = $json->{"nextPage"};
+
         foreach ($json->{"results"} as $result) {
-            if ($count >= 10) {
-                break;
+            //nur news aufnehmen die einen content also text haben
+            if ($result->{"content"} != null) {
+                $title = $result->{"title"};
+                $text = $result->{"content"};
+                $this->news[] = array(
+                    'title' => $title,
+                    'text' => $text
+                );
             }
-            $title = $result->{"title"};
-            $text = $result->{"content"};
-            $this->news[] = array(
-                'title' => $title,
-                'text' => $text
-            );
-            $count++;
         }
 
         curl_close($curl);
