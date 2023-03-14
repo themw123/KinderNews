@@ -117,8 +117,13 @@ class News
             $apikey = CHATGPTAPIKEY;
             $title = $article['title'];
             $text = $article['text'];
-            //wenn zu groß, dann kürzen. Eingabe Text zählt auch zu Tokens. es dürfen maximal 4097 Tokens sein.
-            $maxLength = 12000;
+
+            //als eingabe ungefähr 1 1/2 Word Seiten, also 7366 Zeichen (≈2800 Token) und als Ausgabe ungefähr 3/4 Word Seite = 3159 Zeichen (≈1200 Token)
+            //mit 1 1/2 Word Seiten als Eingabe und 3/4 Word Seite als Ausgabe, sind es dann 4000 Token 
+            //quelle https://platform.openai.com/tokenizer
+
+            //wenn zu groß, dann kürzen.
+            $maxLength = 7366;
             if (strlen($text) > $maxLength) {
                 $text = substr($text, 0, $maxLength);
             }
