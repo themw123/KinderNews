@@ -49,7 +49,6 @@ class Logs
             self::$success = array_slice(self::$success, -1);
         }
 
-
         if (self::$errors != null || self::$messages != null || self::$success != null) {
             if (self::$errors != null) {
                 $art = "error";

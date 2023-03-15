@@ -284,7 +284,8 @@ class News
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 Logs::addError("Fehler beim übersetzten der $counter. News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
-                break;
+                continue;
+                //nicht breaken, nächste kann ja wieder richtig sein
             }
             $translatedTitle = $myJson->{"title"};
             $translatedText = $myJson->{"text"};
