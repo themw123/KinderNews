@@ -1,4 +1,6 @@
 <?php
+//damit script nicht abgebrochen wird wenn request länger dauert. Ungefähr 8 minuten jetzt möglich, gebraucht werden so 3 Minuten.
+set_time_limit(500);
 
 class News
 {
@@ -63,6 +65,7 @@ class News
             session_write_close();
             $success = $this->getNews();
             if ($success) {
+                $this->onlyNewNews();
                 $this->translateNews();
                 DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
             }
@@ -154,12 +157,40 @@ class News
     }
 
 
+    private function onlyNewNews()
+    {
+
+        $newsOld = DbFunctions::getNewsDb($this->link);
+
+        foreach ($newsOld as $old) {
+            $oldTitles[] = $old['originaler_titel'];
+        }
+
+        foreach ($this->news as $new) {
+            $newTitles[] = $new['title'];
+        }
+
+        $diffTitles = array_diff($oldTitles, $newTitles);
+
+        //nur die News wo title noch nicht vorhanden
+        $diffNews = array();
+        foreach ($this->news as $new) {
+            if (in_array($new['title'], $diffTitles)) {
+                $diffNews[] = $new;
+            }
+        }
+
+        $this->news = $diffNews;
+    }
+
     private function translateNews()
     {
+
         $curl = curl_init();
 
         $counter = 1;
         foreach ($this->news as $article) {
+
             $apikey = CHATGPTAPIKEY;
             $title = $article['title'];
             $text = $article['text'];
@@ -175,7 +206,7 @@ class News
                 $text = substr($text, 0, $maxLength);
             }
 
-            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Begriffe aus dem Text beziehen, die sie nicht verstehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein. WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2 und question3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage"} . Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DORT FÜR SOFERN ES NICHT DER FALL IST. ';
+            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Fragen zu Begriffen aus dem Text beziehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2, question3, answer1, answer2 und answer3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage","answer1":"Hier deine Antwort zur 1. Frage","answer2":"Hier deine Antwort zur 2. Frage","answer3":"Hier deine Antwort zur 3. Frage"} . Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DAFÜR SOFERN ES NICHT DER FALL IST!!!!! ';
 
             $data = new stdClass();
             $data->model = "gpt-3.5-turbo";
@@ -228,17 +259,17 @@ class News
             $responseText = trim($responseText);
 
             /*
-            //falls chatgpt die antwort früher abbricht und deshalb kein } ans ende fügt.
-            // Überprüfen, ob das letzte Zeichen ein } ist
-            $lastCharIndex = strlen($responseText) - 1;
-            if (substr($responseText, $lastCharIndex, 1) != "}") {
-                if (substr($responseText, $lastCharIndex, 1) != "'") {
-                    $responseText = $responseText . "'}";
-                } else {
-                    $responseText = $responseText . "}";
+                //falls chatgpt die antwort früher abbricht und deshalb kein } ans ende fügt.
+                // Überprüfen, ob das letzte Zeichen ein } ist
+                $lastCharIndex = strlen($responseText) - 1;
+                if (substr($responseText, $lastCharIndex, 1) != "}") {
+                    if (substr($responseText, $lastCharIndex, 1) != "'") {
+                        $responseText = $responseText . "'}";
+                    } else {
+                        $responseText = $responseText . "}";
+                    }
                 }
-            }
-            */
+                */
 
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
@@ -263,15 +294,39 @@ class News
                 $question3 = "error";
             }
 
+            if (isset($myJson->{"answer1"})) {
+                $answer1 = $myJson->{"answer1"};
+            } else {
+                $answer1 = "error";
+            }
+            if (isset($myJson->{"answer2"})) {
+                $answer2 = $myJson->{"answer2"};
+            } else {
+                $answer2 = "error";
+            }
+            if (isset($myJson->{"answer3"})) {
+                $answer3 = $myJson->{"answer3"};
+            } else {
+                $answer3 = "error";
+            }
+
             $this->newsTranslated[] = array(
                 'title' => $translatedTitle,
                 'text' => $translatedText,
                 'question1' => $question1,
                 'question2' => $question2,
-                'question3' => $question3
+                'question3' => $question3,
+                'answer1' => $answer1,
+                'answer2' => $answer2,
+                'answer3' => $answer3
             );
 
+            Logs::addSuccess("Es wurden $counter neue News geholt und kinderfreundlich übersetzt!");
             $counter++;
+        }
+
+        if ($counter == 1) {
+            Logs::addMessage("Die news sind auf dem neusten Stand.");
         }
 
         curl_close($curl);

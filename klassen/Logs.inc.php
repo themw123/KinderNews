@@ -6,6 +6,7 @@ class Logs
 
     private static $errors = array();
     private static $messages = array();
+    private static $success = array();
 
 
     public static function addError($error)
@@ -17,6 +18,11 @@ class Logs
         self::$messages[] = $message;
     }
 
+    public static function addSuccess($success)
+    {
+        self::$success[] = $success;
+    }
+
     public static function getErrors()
     {
         return self::$errors;
@@ -25,6 +31,11 @@ class Logs
     public static function getMessages()
     {
         return self::$messages;
+    }
+
+    public static function getSuccess()
+    {
+        return self::$success;
     }
 
     public static function jsonLogs()
@@ -44,10 +55,12 @@ class Logs
                 foreach (self::$messages as $message) {
                     $text = $text . $message;
                 }
+            } else if (self::$success != null) {
+                $art = "success";
+                foreach (self::$success as $success) {
+                    $text = $text . $success;
+                }
             }
-        } else {
-            $art = "success";
-            $text = "Es wurden die neusten News geholt und jede kinderfreundlich übersetzt!";
         }
         $response = array(
             "art" => $art,

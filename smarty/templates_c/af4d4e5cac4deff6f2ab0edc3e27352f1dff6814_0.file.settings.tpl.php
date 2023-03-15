@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-13 22:49:41
+/* Smarty version 4.2.0, created on 2023-03-15 21:54:31
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640f9a759f97e6_66746460',
+  'unifunc' => 'content_6412308702c6e0_79741755',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1678744181,
+      1 => 1678913668,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_640f9a759f97e6_66746460 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6412308702c6e0_79741755 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -72,7 +72,8 @@ function content_640f9a759f97e6_66746460 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="card text-bg-light">
                             <div class="card-header">News aktualisieren</div>
                             <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
+                                <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
+                                    geladen und
                                     anschließend
                                     übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann mehrere Minuten
                                     dauern.

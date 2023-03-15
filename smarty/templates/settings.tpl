@@ -44,7 +44,8 @@
                         <div class="card text-bg-light">
                             <div class="card-header">News aktualisieren</div>
                             <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p class="text-center customFontSize">Achtung! Es werden die neusten News geladen und
+                                <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
+                                    geladen und
                                     anschließend
                                     übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann mehrere Minuten
                                     dauern.

@@ -92,17 +92,10 @@ class DbFunctions
 	public static function setNewsDb($link, $news, $newsTranslated)
 	{
 
-		//alte news holen:
-		$stmt = $link->prepare("SELECT id FROM news");
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$ids = $result->fetch_all(MYSQLI_ASSOC);
-
-
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, bild_url)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 		foreach ($news as $key => $value) {
 			$original_title = $value['title'];
@@ -116,24 +109,21 @@ class DbFunctions
 				$question1 = $newsTranslated[$key]['question1'];
 				$question2 = $newsTranslated[$key]['question2'];
 				$question3 = $newsTranslated[$key]['question3'];
+				$answer1 = $newsTranslated[$key]['answer1'];
+				$answer2 = $newsTranslated[$key]['answer2'];
+				$answer3 = $newsTranslated[$key]['answer3'];
 			} else {
 				$translated_title = "error";
 				$translated_text = "error";
 				$question1 = "error";
 				$question2 = "error";
 				$question3 = "error";
+				$answer1 = "error";
+				$answer2 = "error";
+				$answer3 = "error";
 				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
 			}
-			$stmt->bind_param("ssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $image_url);
-			$stmt->execute();
-		}
-
-
-		//alte news löschen
-		if (!empty($ids)) {
-			$idList = array_column($ids, 'id');
-			$idList = implode(',', $idList);
-			$stmt = $link->prepare("DELETE FROM news WHERE id IN ({$idList})");
+			$stmt->bind_param("sssssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url);
 			$stmt->execute();
 		}
 	}
