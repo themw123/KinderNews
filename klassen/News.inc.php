@@ -23,16 +23,17 @@ class News
         $this->news = array(
             array(
                 'title' => "Zollbehörde : Russland erzielt Handelsüberschuss von 300 Milliarden Euro",
-                'text' => "Russland hat im vergangenen Jahr dank hoher Ölpreise einen Handelsüberschuss von 332,4 Milliarden Dollar (gut 311 Milliarden Euro) erzielt. Das Exportvolumen sei um 19,9 Prozent auf 591,5 Milliarden Dollar gestiegen, der Import im gleichen Zeitraum um 11,7 Prozent auf 259,1 Milliarden Dollar geschrumpft, teilte die Zollbehörde am Montag mit. Gegenüber 2021 ist der Handelsüberschuss Russlands damit um 68 Prozent gewachsen. Hauptgrund für die Entwicklung war der Ölpreis . So konnte Russland - ungeachtet seines Kriegs gegen die Ukraine - die Einnahmen aus dem Verkauf von Rohöl und Ölprodukten 2022 noch um 42 Prozent steigern. Gleichzeitig schränkten die gegen Russland wegen seines Angriffskriegs gegen die Ukraine erlassenen Sanktionen den Import ein. Moskau veröffentlicht wegen der Sanktionen seine Statistiken nur teilweise. Die Publikation der Zahlen durch den Zoll soll offenbar verdeutlichen, wie gut das Land damit zurechtkommt. Eine Fortsetzung des Trends dieses Jahr ist allerdings nicht zu erwarte"
-
+                'text' => "Russland hat im vergangenen Jahr dank hoher Ölpreise einen Handelsüberschuss von 332,4 Milliarden Dollar (gut 311 Milliarden Euro) erzielt. Das Exportvolumen sei um 19,9 Prozent auf 591,5 Milliarden Dollar gestiegen, der Import im gleichen Zeitraum um 11,7 Prozent auf 259,1 Milliarden Dollar geschrumpft, teilte die Zollbehörde am Montag mit. Gegenüber 2021 ist der Handelsüberschuss Russlands damit um 68 Prozent gewachsen. Hauptgrund für die Entwicklung war der Ölpreis . So konnte Russland - ungeachtet seines Kriegs gegen die Ukraine - die Einnahmen aus dem Verkauf von Rohöl und Ölprodukten 2022 noch um 42 Prozent steigern. Gleichzeitig schränkten die gegen Russland wegen seines Angriffskriegs gegen die Ukraine erlassenen Sanktionen den Import ein. Moskau veröffentlicht wegen der Sanktionen seine Statistiken nur teilweise. Die Publikation der Zahlen durch den Zoll soll offenbar verdeutlichen, wie gut das Land damit zurechtkommt. Eine Fortsetzung des Trends dieses Jahr ist allerdings nicht zu erwarte",
+                'image' => "https:/......."
             ),
             array(
                 'title' => "Basketball: Nördlinger Eigengewächse wehren sich tapfer in Vilsbiburg",
-                'text' => "Mit dem jüngsten Kader der Liga, mit gerade einmal 19 Jahren im Schnitt, hat sich ein verändertes Nördlinger Basketball-Team gut im ersten Platzierungsspiel in Vilsbiburg präsentiert. Über drei Viertel spielte die Truppe von Trainer Mohammed Hajjar auf Augenhöhe mit dem Tabellenzweiten in Bestbesetzung. Am Ende müssen sich die Gäste den erfahrenen Hausherren trotz aufopferungsvollen Kampfs mit 60:79 geschlagen geben. Center Robin Seeberger und sieben Spieler, die allesamt aus dem eigenen Jugendprogramm stammen, traten zum Spiel um Platz fünf bei den Baskets aus Vilsbiburg an. Statt den drei Topscorern der bisherigen Saison Eichler , Stone und Mateus setzte Hajjar auf die Rieser Eigengewächse, die viele Spielminuten und Verantwortung bekommen sollten. Für den etatmäßigen Aufbauspieler Pascal Schröppel bekamen die Brüder Max und Jakob Scherer ihre ersten Spielminuten in der 1. Regionalliga und auch die beiden Jüngsten, der 16-jährige Lukas Hahn und der 15-jährige Felix Stoll, sollten die fehle"
+                'text' => "Mit dem jüngsten Kader der Liga, mit gerade einmal 19 Jahren im Schnitt, hat sich ein verändertes Nördlinger Basketball-Team gut im ersten Platzierungsspiel in Vilsbiburg präsentiert. Über drei Viertel spielte die Truppe von Trainer Mohammed Hajjar auf Augenhöhe mit dem Tabellenzweiten in Bestbesetzung. Am Ende müssen sich die Gäste den erfahrenen Hausherren trotz aufopferungsvollen Kampfs mit 60:79 geschlagen geben. Center Robin Seeberger und sieben Spieler, die allesamt aus dem eigenen Jugendprogramm stammen, traten zum Spiel um Platz fünf bei den Baskets aus Vilsbiburg an. Statt den drei Topscorern der bisherigen Saison Eichler , Stone und Mateus setzte Hajjar auf die Rieser Eigengewächse, die viele Spielminuten und Verantwortung bekommen sollten. Für den etatmäßigen Aufbauspieler Pascal Schröppel bekamen die Brüder Max und Jakob Scherer ihre ersten Spielminuten in der 1. Regionalliga und auch die beiden Jüngsten, der 16-jährige Lukas Hahn und der 15-jährige Felix Stoll, sollten die fehle",
+                'image' => "https:/......."
             )
         );
 
-
+        
         $this->newsTranslated = array(
             array(
                 'title' => "Russland hat mehr Einkommen als Ausgaben im Handel",
@@ -40,6 +41,8 @@ class News
                 'question1' => "wer?",
                 'question2' => "wie?",
                 'question3' => "was?",
+                'question3' => "was?",
+
             ),
             array(
                 'title' => "Basketball: Junges Nördlinger Team spielt mutig gegen starke Gegner in Vilsbiburg",
@@ -49,15 +52,15 @@ class News
                 'question3' => "was?",
             )
         );
-
+        
         $success = true;
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
         */
 
-        //ganz wichtig die session datei wieder freigeben!sonnst wird session datei geblockt während der heavy task ausgeführt wird
-        //und dabei können dann keine weiteren clients die website abrufen
-        session_write_close();
         if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
+            //ganz wichtig die session datei wieder freigeben!sonnst wird session datei geblockt während der heavy task ausgeführt wird
+            //und dabei können dann keine weiteren clients die website abrufen
+            session_write_close();
             $success = $this->getNews();
             if ($success) {
                 $this->translateNews();
@@ -135,6 +138,9 @@ class News
                 $title = $result->{"title"};
                 $text = $result->{"content"};
                 $image = $result->{"image_url"};
+                if (empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
+                    $image = "error";
+                }
                 $this->news[] = array(
                     'title' => $title,
                     'text' => $text,
@@ -163,7 +169,8 @@ class News
             //quelle https://platform.openai.com/tokenizer
 
             //wenn zu groß, dann kürzen.
-            $maxLength = 7366;
+            //abzüglich ungefähr 1900 für input promt also 7366 - 1900 = 5466
+            $maxLength = 5466;
             if (strlen($text) > $maxLength) {
                 $text = substr($text, 0, $maxLength);
             }
