@@ -1,7 +1,5 @@
 <?php
 
-
-
 class News
 {
 
@@ -17,9 +15,10 @@ class News
         $this->login = $login;
         $this->news = array();
         $this->newsTranslated = array();
+        $this->link = $link;
 
 
-
+        /*
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
         $this->news = array(
             array(
@@ -53,37 +52,20 @@ class News
 
         $success = true;
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
+        */
 
-
-
-
-        $this->link = $link;
+        //ganz wichtig die session datei wieder freigeben!sonnst wird session datei geblockt während der heavy task ausgeführt wird
+        //und dabei können dann keine weiteren clients die website abrufen
+        session_write_close();
         if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
-
-
-
-            $this->backgroundTask();
-
-
-            //$success = $this->getNews();
+            $success = $this->getNews();
             if ($success) {
-                //$this->translateNews();
-                //DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+                $this->translateNews();
+                DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
             }
             Logs::jsonLogs();
         }
     }
-
-
-    private  function backgroundTask()
-    {
-        echo "beginne";
-        for ($i = 0; $i < 50000000; $i++) {
-            $test = "";
-        }
-        echo "fertig";
-    }
-
 
     private function getNews()
     {
