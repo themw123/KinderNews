@@ -89,6 +89,9 @@ class News
             $this->news = array_slice($this->news, 0, 10);
         }
 
+        //umdrehen damit neuste news als letztes in db eingefügt werden
+        $this->news = array_reverse($this->news);
+
         return $success;
     }
 
@@ -134,6 +137,7 @@ class News
 
         $this->page = $json->{"nextPage"};
 
+
         foreach ($json->{"results"} as $result) {
             $content = $result->{"content"};
             //nur news aufnehmen die einen content also text haben
@@ -152,6 +156,7 @@ class News
             }
         }
 
+
         curl_close($curl);
         return true;
     }
@@ -162,6 +167,11 @@ class News
 
         $newsOld = DbFunctions::getNewsDb($this->link);
 
+        if ($newsOld == null) {
+            return;
+        }
+
+
         foreach ($newsOld as $old) {
             $oldTitles[] = $old['originaler_titel'];
         }
@@ -170,7 +180,7 @@ class News
             $newTitles[] = $new['title'];
         }
 
-        $diffTitles = array_diff($oldTitles, $newTitles);
+        $diffTitles = array_diff($newTitles, $oldTitles);
 
         //nur die News wo title noch nicht vorhanden
         $diffNews = array();
@@ -322,6 +332,7 @@ class News
             );
 
             Logs::addSuccess("Es wurden $counter neue News geholt und kinderfreundlich übersetzt!");
+
             $counter++;
         }
 
