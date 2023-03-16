@@ -89,7 +89,7 @@ class News
             $this->news = array_slice($this->news, 0, 10);
         }
 
-        //umdrehen damit neuste news als letztes in db eingefügt werden
+        //umdrehen damit neuste news als letztes in db eingefügt werden. nicht mehr nötig aufgrund von date, aber bleibt erst mal so
         $this->news = array_reverse($this->news);
 
         return $success;
@@ -145,6 +145,7 @@ class News
                 $title = $result->{"title"};
                 $text = $result->{"content"};
                 $image = $result->{"image_url"};
+                $date = $result->{"pubDate"};
                 if (empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
                     $image = "error";
                 }
@@ -152,6 +153,7 @@ class News
                     'title' => $title,
                     'text' => $text,
                     'image' => $image,
+                    'date' => $date,
                 );
             }
         }
@@ -250,19 +252,19 @@ class News
 
             if ($response === false) {
                 Logs::addError("Fehler beim übersetzten der $counter. News. Request nicht erfolgreich.");
-                break;
+                continue;
             }
 
             $json = json_decode($response);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
                 Logs::addError("Fehler beim übersetzten der $counter. News. Response Json enthält Fehler.");
-                break;
+                continue;
             }
 
             if (isset($json->error) && !empty($json->error)) {
                 Logs::addError("Fehler beim übersetzten der $counter. News. Response Json enthält Fehler.");
-                break;
+                continue;
             }
 
             $responseText = $json->{"choices"}[0]->{"message"}->{"content"};
@@ -285,7 +287,6 @@ class News
             if (json_last_error() !== JSON_ERROR_NONE) {
                 Logs::addError("Fehler beim übersetzten der $counter. News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
                 continue;
-                //nicht breaken, nächste kann ja wieder richtig sein
             }
             $translatedTitle = $myJson->{"title"};
             $translatedText = $myJson->{"text"};

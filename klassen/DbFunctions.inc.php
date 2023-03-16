@@ -94,13 +94,14 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 		foreach ($news as $key => $value) {
 			$original_title = $value['title'];
 			$original_text = $value['text'];
 			$image_url = $value['image'];
+			$date = $value['date'];
 
 			//nur wenn chatgpt übersetzt hat
 			if (isset($newsTranslated[$key]['title'])) {
@@ -123,7 +124,7 @@ class DbFunctions
 				$answer3 = "error";
 				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
 			}
-			$stmt->bind_param("sssssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url);
+			$stmt->bind_param("ssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
 			$stmt->execute();
 		}
 	}
@@ -131,7 +132,7 @@ class DbFunctions
 	public static function getNewsDb($link)
 	{
 		$stmt = $link->prepare(
-			"Select * from news;"
+			"Select * from news order by date desc;"
 		);
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
