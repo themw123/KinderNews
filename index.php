@@ -53,7 +53,6 @@ if ($login->isUserLoggedIn()) {
 	if (isset($_GET["news"])) {
 		//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
 		$newsArray = DbFunctions::getNewsDb($link);
-		$newsArray = array_reverse($newsArray);
 		$smarty->assign('news', $newsArray);
 		$template = 'news.tpl';
 	} elseif (isset($_GET["settings"])) {

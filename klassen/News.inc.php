@@ -290,6 +290,8 @@ class News
             }
             $translatedTitle = $myJson->{"title"};
             $translatedText = $myJson->{"text"};
+            $preview = substr($translatedText, 0, 167) . "...";
+
             if (isset($myJson->{"question1"})) {
                 $question1 = $myJson->{"question1"};
             } else {
@@ -325,6 +327,7 @@ class News
             $this->newsTranslated[] = array(
                 'title' => $translatedTitle,
                 'text' => $translatedText,
+                'preview' => $preview,
                 'question1' => $question1,
                 'question2' => $question2,
                 'question3' => $question3,

@@ -17,20 +17,21 @@
 <body>
 
     {include file="navbar.tpl"}
+    <div class="container d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-10 mx-auto mt-5 h-100">
+            {foreach $news as $article}
+                <div class="card mb-5">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
+                        <p class="card-text">{$article["uebersetzte_preview"]}</p>
+                        <p class="card-text"><small class="text-muted">{$article["date"]}</small></p>
+                    </div>
+                </div>
+            {/foreach}
 
-    {foreach $news as $article}
-        <div class="card mb-3">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
         </div>
-        <div>{$article["uebersetzter_titel"]}</div>
-    {/foreach}
-
+    </div>
     </div>
 
 

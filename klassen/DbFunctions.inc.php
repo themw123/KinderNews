@@ -94,8 +94,8 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 		foreach ($news as $key => $value) {
 			$original_title = $value['title'];
@@ -107,6 +107,7 @@ class DbFunctions
 			if (isset($newsTranslated[$key]['title'])) {
 				$translated_title = $newsTranslated[$key]['title'];
 				$translated_text = $newsTranslated[$key]['text'];
+				$translated_preview = $newsTranslated[$key]['preview'];
 				$question1 = $newsTranslated[$key]['question1'];
 				$question2 = $newsTranslated[$key]['question2'];
 				$question3 = $newsTranslated[$key]['question3'];
@@ -124,7 +125,7 @@ class DbFunctions
 				$answer3 = "error";
 				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
 			}
-			$stmt->bind_param("ssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
+			$stmt->bind_param("sssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
 			$stmt->execute();
 		}
 	}
@@ -132,7 +133,7 @@ class DbFunctions
 	public static function getNewsDb($link)
 	{
 		$stmt = $link->prepare(
-			"Select * from news order by date desc;"
+			"Select * from news order by date asc;"
 		);
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
