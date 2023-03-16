@@ -23,7 +23,7 @@
                 <a href="./?news&id={$article["id"]}">
                     <div class="card border-0 h-100 ">
                         <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
-                            onerror="this.onerror=null; this.src='./img/empty.png'; ">
+                            onerror="this.src='./img/empty.png'">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
                             <p class="card-text mt-auto">{$article["uebersetzte_preview"]}</p>
