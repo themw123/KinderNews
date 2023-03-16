@@ -1,0 +1,83 @@
+.custom {
+    width: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+
+@media (min-width: 0px) {
+    .bilder {
+        height: 200px;
+    }
+}
+
+
+@media (min-width: 350px) {
+    .bilder {
+        height: 250px;
+    }
+}
+
+@media (min-width: 500px) {
+    .bilder {
+        height: 400px;
+    }
+}
+
+@media (min-width: 576px) {
+    .bilder {
+        height: 200px;
+    }
+}
+
+@media (min-width: 650px) {
+    .bilder {
+        height: 250px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .bilder {
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .bilder {
+        height: 200px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .bilder {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .bilder {
+        height: 300px;
+    }
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
+
+}
+
+.card {
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.6), 0 0 0px rgba(0, 0, 0, 0.1);
+    transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}

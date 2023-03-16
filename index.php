@@ -51,10 +51,18 @@ if ($login->isUserLoggedIn()) {
 	$login_or_logout_link = "./?logout";
 	$settings = "./?settings";
 	if (isset($_GET["news"])) {
-		//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
-		$newsArray = DbFunctions::getNewsDb($link);
-		$smarty->assign('news', $newsArray);
-		$template = 'news.tpl';
+		if (isset($_GET["id"])) {
+			//einzelne news
+			$newsArticle = DbFunctions::getNewsArticleDb($link);
+			$smarty->assign('newsArticle', $newsArticle);
+			$template = 'newsArticle.tpl';
+		} else {
+			//news feed
+			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
+			$newsArray = DbFunctions::getNewsDb($link);
+			$smarty->assign('news', $newsArray);
+			$template = 'news.tpl';
+		}
 	} elseif (isset($_GET["settings"])) {
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];

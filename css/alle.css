@@ -21,14 +21,6 @@ input:focus {
     border-color: #45423e !important;
 }
 
-a {
-    color: #8f8578;
-}
-
-a:hover {
-    color: #d1c1ab;
-}
-
 
 .dropdown-item:hover {
     background-color: #45423e;

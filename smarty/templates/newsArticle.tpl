@@ -10,29 +10,15 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/news.css" rel="stylesheet" type="text/css">
+    <link href="css/newsArticle.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
     {include file="navbar.tpl"}
-    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-1 mb-4">
-        {foreach $news as $article}
-            <div class="col">
-                <a href="./?news&id={$article["id"]}">
-                    <div class="card border-0 h-100 ">
-                        <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt="..."
-                            onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text='; ">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
-                            <p class="card-text mt-auto">{$article["uebersetzte_preview"]}</p>
-                            <p class="card-text mt-auto"><small class="text-muted">{$article["date"]}</small></p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        {/foreach}
+    <div class="">
+        {$newsArticle["uebersetzter_text"]}
     </div>
 
 
@@ -45,7 +31,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js"></script>
-    <script src="js/news.js"></script>
+    <script src="js/newsArticle.js"></script>
 
 
 </body>

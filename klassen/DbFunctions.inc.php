@@ -133,10 +133,20 @@ class DbFunctions
 	public static function getNewsDb($link)
 	{
 		$stmt = $link->prepare(
-			"Select * from news order by date asc;"
+			"Select * from news order by date desc;"
 		);
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
+	}
+
+	public static function getNewsArticleDb($link)
+	{
+		$stmt = $link->prepare(
+			"Select * from news where id = " . $_GET['id']
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_assoc();
 		return $result;
 	}
 }
