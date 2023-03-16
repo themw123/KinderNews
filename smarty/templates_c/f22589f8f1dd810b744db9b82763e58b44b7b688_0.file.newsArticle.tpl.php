@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-16 17:14:21
+/* Smarty version 4.2.0, created on 2023-03-16 18:05:23
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6413405d159844_77800063',
+  'unifunc' => 'content_64134c53455ac0_50316725',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1678983260,
+      1 => 1678986318,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6413405d159844_77800063 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64134c53455ac0_50316725 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
 <head>
     <title>KinderNews</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2e2c2a" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"

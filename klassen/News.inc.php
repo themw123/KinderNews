@@ -218,7 +218,17 @@ class News
                 $text = substr($text, 0, $maxLength);
             }
 
-            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. Du sollst mir den Titel und den Text kinderfreundlich übersetzten. Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. Diese Fragen sollen Kinder fragen simulieren und sich besonders auf Fragen zu Begriffen aus dem Text beziehen. Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2, question3, answer1, answer2 und answer3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage","answer1":"Hier deine Antwort zur 1. Frage","answer2":"Hier deine Antwort zur 2. Frage","answer3":"Hier deine Antwort zur 3. Frage"} . Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DAFÜR SOFERN ES NICHT DER FALL IST!!!!! ';
+            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
+            Du sollst mir den Titel und den Text kinderfreundlich übersetzten. 
+            Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
+            Außerdem sollst du mir drei Fragen zu dem ursprünglichen Text erstellen. 
+            Diese Fragen sollen sich ausschließlich auf Begriffe beziehen.
+            Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. 
+            WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2, question3, answer1, answer2 und answer3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. 
+            Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage","answer1":"Hier deine Antwort zur 1. Frage","answer2":"Hier deine Antwort zur 2. Frage","answer3":"Hier deine Antwort zur 3. Frage"} . 
+            Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . 
+            GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DAFÜR SOFERN ES NICHT DER FALL IST!!!!! 
+            ';
 
             $data = new stdClass();
             $data->model = "gpt-3.5-turbo";
