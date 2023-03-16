@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-16 12:31:56
+/* Smarty version 4.2.0, created on 2023-03-16 16:08:39
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6412fe2c8d10b3_99863473',
+  'unifunc' => 'content_641330f7dba865_97949723',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1678966316,
+      1 => 1678979319,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6412fe2c8d10b3_99863473 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641330f7dba865_97949723 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -54,8 +54,8 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
 ">
                     <div class="card border-0 h-100 ">
                         <img class="bilder rounded-top" src=<?php echo $_smarty_tpl->tpl_vars['article']->value["bild_url"];?>
- class="card-img-top" alt="..."
-                            onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text='; ">
+ class="card-img-top" alt=""
+                            onerror="this.onerror=null; this.src='./img/empty.png'; ">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzter_titel"];?>
 </h5>

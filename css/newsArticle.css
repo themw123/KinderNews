@@ -1,0 +1,69 @@
+.bild {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+
+
+@media (min-width: 450px) {
+    .bildcontainer {
+        width: 80%;
+    }
+}
+
+@media (min-width: 768px) {
+    .bildcontainer {
+        width: 600px;
+        height: 400px;
+    }
+
+    .backgr {
+        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.4);
+    }
+}
+
+
+@media (min-width: 992px) {
+    .customContainer {
+        width: 900px !important;
+    }
+}
+
+
+.customContainer {
+    background-color: rgba(152, 35, 35, 0.499);
+    border-radius: 50px;
+    width: 95%;
+}
+
+.ptext {
+    color: rgba(255, 255, 255, 0.912);
+    font-size: 20px;
+    text-align: left;
+    padding: 20px;
+
+}
+
+.ptitle {
+    color: rgba(255, 255, 255, 0.912);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.custom-shadow-article {
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.2);
+}
+
+.bildcontainer {
+    margin-top: -27px;
+}
+
+.backgr {
+    width: 97%;
+    background: rgba(210, 64, 64, 0.76);
+    border-radius: 10px;
+    margin-top: 80px;
+    display: none;
+}

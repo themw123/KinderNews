@@ -97,34 +97,23 @@ class DbFunctions
 			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
 			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
-		foreach ($news as $key => $value) {
-			$original_title = $value['title'];
-			$original_text = $value['text'];
-			$image_url = $value['image'];
-			$date = $value['date'];
 
-			//nur wenn chatgpt übersetzt hat
-			if (isset($newsTranslated[$key]['title'])) {
-				$translated_title = $newsTranslated[$key]['title'];
-				$translated_text = $newsTranslated[$key]['text'];
-				$translated_preview = $newsTranslated[$key]['preview'];
-				$question1 = $newsTranslated[$key]['question1'];
-				$question2 = $newsTranslated[$key]['question2'];
-				$question3 = $newsTranslated[$key]['question3'];
-				$answer1 = $newsTranslated[$key]['answer1'];
-				$answer2 = $newsTranslated[$key]['answer2'];
-				$answer3 = $newsTranslated[$key]['answer3'];
-			} else {
-				$translated_title = "error";
-				$translated_text = "error";
-				$question1 = "error";
-				$question2 = "error";
-				$question3 = "error";
-				$answer1 = "error";
-				$answer2 = "error";
-				$answer3 = "error";
-				Logs::addMessage("Es konnten nicht alle News übersetzt werden.");
-			}
+		foreach ($newsTranslated as $key => $value) {
+			$original_title = $news[$key]['title'];
+			$original_text = $news[$key]['text'];
+			$image_url = $news[$key]['image'];
+			$date = $news[$key]['date'];
+
+			$translated_title = $value['title'];
+			$translated_text = $value['text'];
+			$translated_preview = $value['preview'];
+			$question1 = $value['question1'];
+			$question2 = $value['question2'];
+			$question3 = $value['question3'];
+			$answer1 = $value['answer1'];
+			$answer2 = $value['answer2'];
+			$answer3 = $value['answer3'];
+
 			$stmt->bind_param("sssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
 			$stmt->execute();
 		}
@@ -133,7 +122,7 @@ class DbFunctions
 	public static function getNewsDb($link)
 	{
 		$stmt = $link->prepare(
-			"Select * from news order by date desc;"
+			"Select * from news order by date desc LIMIT 100;"
 		);
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

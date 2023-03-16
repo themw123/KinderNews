@@ -17,9 +17,24 @@
 <body>
 
     {include file="navbar.tpl"}
-    <div class="">
-        {$newsArticle["uebersetzter_text"]}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="backgr d-flex flex-column justify-content-center align-items-center">
+            <div class="bildcontainer container-fluid">
+                <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
+                    onerror="this.onerror=null; this.src='./img/empty.png'; ">
+            </div>
+
+            <p class="ptitle">
+                {$newsArticle["uebersetzter_titel"]}
+            </p>
+
+            <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
+                <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
+            </div>
+        </div>
+
     </div>
+
 
 
 

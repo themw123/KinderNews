@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-16 12:43:42
+/* Smarty version 4.2.0, created on 2023-03-16 17:14:21
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_641300eeeaea60_70840863',
+  'unifunc' => 'content_6413405d159844_77800063',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1678967022,
+      1 => 1678983260,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_641300eeeaea60_70840863 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6413405d159844_77800063 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -42,10 +42,27 @@ function content_641300eeeaea60_70840863 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <div class="">
-        <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_text"];?>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="backgr d-flex flex-column justify-content-center align-items-center">
+            <div class="bildcontainer container-fluid">
+                <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
+ class="card-img-top" alt=""
+                    onerror="this.onerror=null; this.src='./img/empty.png'; ">
+            </div>
+
+            <p class="ptitle">
+                <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_titel"];?>
+
+            </p>
+
+            <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
+                <p class="ptext"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_text"];?>
+</p>
+            </div>
+        </div>
 
     </div>
+
 
 
 
