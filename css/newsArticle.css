@@ -51,8 +51,8 @@
 
 @media (min-width: 992px) {
     .bildcontainer {
-        width: 600px;
-        height: 400px;
+        width: 500px;
+        height: 300px;
     }
 
     .customContainer {
@@ -61,11 +61,11 @@
 
     .ptext,
     .ptextOriginal {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .ptitle {
-        font-size: 27px;
+        font-size: 25px;
     }
 }
 
@@ -128,4 +128,16 @@
 
 .hidden {
     display: none;
+}
+
+.pinfo {
+    color: rgba(255, 255, 255, 0.912);
+    margin-top: 28px;
+    background-color: rgb(194, 194, 198, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.infoContainer {
+    width: 90%;
 }

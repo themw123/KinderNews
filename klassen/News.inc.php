@@ -370,15 +370,15 @@ class News
     private function placeholder()
     {
         $this->newsTranslated[] = array(
-            'title' => "",
-            'text' => "",
-            'preview' => "",
-            'question1' => "",
-            'question2' => "",
-            'question3' => "",
-            'answer1' => "",
-            'answer2' => "",
-            'answer3' => ""
+            'title' => "error",
+            'text' => "error",
+            'preview' => "error",
+            'question1' => "error",
+            'question2' => "error",
+            'question3' => "error",
+            'answer1' => "error",
+            'answer2' => "error",
+            'answer3' => "error"
         );
     }
 }

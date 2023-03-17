@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-17 16:13:24
+/* Smarty version 4.2.0, created on 2023-03-17 18:00:08
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64148394be2977_21035099',
+  'unifunc' => 'content_64149c985c7899_19823454',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679065997,
+      1 => 1679072408,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64148394be2977_21035099 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64149c985c7899_19823454 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -58,7 +58,10 @@ function content_64148394be2977_21035099 (Smarty_Internal_Template $_smarty_tpl)
             </p>
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
-                <img id="changeText" src="./img/document.png"></img>
+                <div class="infoContainer d-flex align-items-center">
+                    <img class="me-2" id="changeText" src="./img/document.png"></img>
+                    <p class="pinfo">Klicke, um die originale News anzuzeigen</p>
+                </div>
                 <p class="ptext"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_text"];?>
 </p>
                 <p class="ptextOriginal hidden"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["originaler_text"];?>

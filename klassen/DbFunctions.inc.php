@@ -99,7 +99,8 @@ class DbFunctions
 		);
 
 		foreach ($newsTranslated as $key => $value) {
-			if (empty($news[$key]['title'])) {
+			//nur die übersetzten news in die db schreiben
+			if ($value['title'] == "error") {
 				continue;
 			}
 			$original_title = $news[$key]['title'];
