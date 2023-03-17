@@ -33,7 +33,7 @@
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
                 <div class="infoContainer d-flex align-items-center">
                     <img class="me-2" id="changeText" src="./img/document.png"></img>
-                    <p class="pinfo">Klicke, um die originale News anzuzeigen</p>
+                    <p class="pinfo">ursprüngliche News anzeigen</p>
                 </div>
                 <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
                 <p class="ptextOriginal hidden">{$newsArticle["originaler_text"]}</p>

@@ -116,6 +116,7 @@
 
 #changeText {
     transition: all 0.1s ease-in-out;
+    margin-top: 26px;
 }
 
 #changeText:active {
@@ -132,7 +133,7 @@
 
 .pinfo {
     color: rgba(255, 255, 255, 0.912);
-    margin-top: 28px;
+    margin-top: 45px;
     background-color: rgb(194, 194, 198, 0.2);
     border-radius: 10px;
     padding: 10px;

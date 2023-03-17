@@ -4,7 +4,8 @@
 <head>
     <title>KinderNews</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
+    <meta name="theme-color" content="#2e2c2a" />
     <!-- 4.0.0 zusätzlich nötig, da wir login frontend mit 4.0.0 gemacht haben-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

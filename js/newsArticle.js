@@ -6,7 +6,7 @@ $("#changeText").on('click', function() {
     $(this).toggleClass('clicked');
     $(".ptext").toggleClass("hidden");
     $(".ptextOriginal").toggleClass("hidden");
-    $(".pinfo").css("visibility", "hidden");
+    $(".pinfo").css("display", "none");
 });
 
 
