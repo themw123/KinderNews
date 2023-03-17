@@ -262,6 +262,7 @@ class News
 
             if ($response === false) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Request nicht erfolgreich.");
+                $this->placeholder();
                 $counter++;
                 continue;
             }
@@ -270,12 +271,14 @@ class News
 
             if (json_last_error() !== JSON_ERROR_NONE) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ".  News. Response Json enthält Fehler.");
+                $this->placeholder();
                 $counter++;
                 continue;
             }
 
             if (isset($json->error) && !empty($json->error)) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ".  News. Response Json enthält Fehler.");
+                $this->placeholder();
                 $counter++;
                 continue;
             }
@@ -299,6 +302,7 @@ class News
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
+                $this->placeholder();
                 $counter++;
                 continue;
             }
@@ -360,5 +364,21 @@ class News
         }
 
         curl_close($curl);
+    }
+
+    //falls translate nicht erfolgreich. Damit bei dem einfügen der Daten in die Datenbank nichts durcheinanderkommt.
+    private function placeholder()
+    {
+        $this->newsTranslated[] = array(
+            'title' => "",
+            'text' => "",
+            'preview' => "",
+            'question1' => "",
+            'question2' => "",
+            'question3' => "",
+            'answer1' => "",
+            'answer2' => "",
+            'answer3' => ""
+        );
     }
 }

@@ -99,6 +99,9 @@ class DbFunctions
 		);
 
 		foreach ($newsTranslated as $key => $value) {
+			if (empty($news[$key]['title'])) {
+				continue;
+			}
 			$original_title = $news[$key]['title'];
 			$original_text = $news[$key]['text'];
 			$image_url = $news[$key]['image'];
