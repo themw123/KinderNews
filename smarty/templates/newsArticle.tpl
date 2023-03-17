@@ -31,8 +31,12 @@
             </p>
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
+                <img id="changeText" src="./img/document.png"></img>
                 <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
+                <p class="ptextOriginal hidden">{$newsArticle["originaler_text"]}</p>
             </div>
+
+
         </div>
 
     </div>
