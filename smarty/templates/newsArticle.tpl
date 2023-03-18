@@ -31,9 +31,31 @@
             </p>
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
-                <div class="infoContainer row">
-                    <img class="me-2" id="changeText" src="./img/document.png"></img>
+
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img class="me-2" id="changeText" src="./img/document.png"></img>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-sm-6 text-end mb-3">
+                                    <div class="heart-like-button"></div>
+                                </div>
+                                <div class="col-sm-6 text-end mb-3">
+                                    <div class="likes">14500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+
+
                 <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
                 <p class="ptextOriginal hidden">{$newsArticle["originaler_text"]}</p>
             </div>

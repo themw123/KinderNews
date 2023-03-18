@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-18 17:58:25
+/* Smarty version 4.2.0, created on 2023-03-18 19:04:04
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6415edb18306a7_12373604',
+  'unifunc' => 'content_6415fd1420f840_77182285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679158705,
+      1 => 1679162643,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6415edb18306a7_12373604 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6415fd1420f840_77182285 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -58,9 +58,31 @@ function content_6415edb18306a7_12373604 (Smarty_Internal_Template $_smarty_tpl)
             </p>
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
-                <div class="infoContainer row">
-                    <img class="me-2" id="changeText" src="./img/document.png"></img>
+
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img class="me-2" id="changeText" src="./img/document.png"></img>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-sm-6 text-end mb-3">
+                                    <div class="heart-like-button"></div>
+                                </div>
+                                <div class="col-sm-6 text-end mb-3">
+                                    <div class="likes">14500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+
+
                 <p class="ptext"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_text"];?>
 </p>
                 <p class="ptextOriginal hidden"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["originaler_text"];?>
