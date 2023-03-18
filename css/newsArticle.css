@@ -17,8 +17,12 @@
     }
 
     #changeText {
-        width: 30px;
-        height: 30px;
+        width: 60px;
+    }
+
+    .customContainer {
+        width: 95%;
+
     }
 }
 
@@ -30,33 +34,30 @@
     .ptitle {
         text-align: center;
     }
-
-    #changeText {
-        width: 40px;
-        height: 40px;
-    }
-
 }
 
 @media (min-width: 768px) {
     .bildcontainer {
-        width: 70%;
+        width: 60%;
     }
 
     .backgr {
         box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.4);
+    }
+
+    .customContainer {
+        width: 75% !important;
     }
 }
 
 
 @media (min-width: 992px) {
     .bildcontainer {
-        width: 500px;
-        height: 300px;
+        width: 50%;
     }
 
     .customContainer {
-        width: 900px !important;
+        width: 80% !important;
     }
 
     .ptext,
@@ -69,11 +70,48 @@
     }
 }
 
+@media (min-width: 1500px) {
+    .bildcontainer {
+        width: 45%;
+    }
+
+    .customContainer {
+        width: 70% !important;
+    }
+
+    .ptext,
+    .ptextOriginal {
+        font-size: 25px;
+    }
+
+    .ptitle {
+        font-size: 30px;
+    }
+}
+
+
+@media (min-width: 1600px) {
+    .bildcontainer {
+        width: 40%;
+    }
+
+    .customContainer {
+        width: 60% !important;
+    }
+
+    .ptext,
+    .ptextOriginal {
+        font-size: 30px;
+    }
+
+    .ptitle {
+        font-size: 35px;
+    }
+}
 
 .customContainer {
     background-color: rgba(152, 35, 35, 0.499);
     border-radius: 50px;
-    width: 95%;
 }
 
 .ptext,
@@ -81,7 +119,6 @@
     color: rgba(255, 255, 255, 0.912);
     text-align: left;
     padding: 20px;
-    margin-top: 90px
 }
 
 .ptitle {
@@ -112,11 +149,8 @@
     cursor: pointer;
     margin-left: 24px;
     margin-top: 16px;
-}
-
-#changeText {
     transition: all 0.1s ease-in-out;
-    margin-top: 26px;
+
 }
 
 #changeText:active {
@@ -131,21 +165,6 @@
     display: none;
 }
 
-.pinfo {
-    color: rgba(255, 255, 255, 0.912);
-    background-color: rgb(194, 194, 198, 0.2);
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 35px;
-    max-width: 70%;
-}
-
 .infoContainer {
-    position: absolute;
-    width: 90%;
-}
-
-.pinfoAnimation {
-    transition: opacity 0.5s ease-out;
-    opacity: 0;
+    width: 100%;
 }
