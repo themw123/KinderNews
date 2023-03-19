@@ -9,14 +9,19 @@ $("#changeText").on('click', function() {
     $(".pinfo").addClass("pinfoAnimation");
 });
 
-const button = document.querySelector(".heart-like-button");
-
-button.addEventListener("click", () => {
-  if (button.classList.contains("liked")) {
-    button.classList.remove("liked");
+$(".heart").click(function(){
+  var heartImgSrc = $(this).attr("src");
+  if (heartImgSrc === "./img/heart1.png") {
+      $(this).css("animation", "zoom-in-zoom-out 0.5s ease");
+      setTimeout(function(){
+          $(".heart").css("animation", "");
+      }, 1000);
+      $(this).attr("src", "./img/heart2.png");
   } else {
-    button.classList.add("liked");
+      $(this).attr("src", "./img/heart1.png");
   }
 });
+
+
 
 });

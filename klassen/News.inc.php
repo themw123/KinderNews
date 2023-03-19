@@ -140,21 +140,19 @@ class News
 
         foreach ($json->{"results"} as $result) {
             $content = $result->{"content"};
-            //nur news aufnehmen die einen content also text haben
-            if (!empty($content) && $content != "None" && $content != "none" && $content != "null" && $content != "NULL" && $content != "Null") {
-                $title = $result->{"title"};
-                $text = $result->{"content"};
-                $image = $result->{"image_url"};
-                $date = $result->{"pubDate"};
-                if (empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
-                    $image = "error";
+            $image = $result->{"image_url"};
+            //nur news aufnehmen die einen content also text und ein bild haben
+            if ($content != null && !empty($content) && $content != "None" && $content != "none" && $content != "null" && $content != "NULL" && $content != "Null") {
+                if ($image != null && !empty($image) && $image != "None" && $image != "none" && $image != "null" && $image != "NULL" && $image != "Null") {
+                    $title = $result->{"title"};
+                    $date = $result->{"pubDate"};
+                    $this->news[] = array(
+                        'title' => $title,
+                        'text' => $content,
+                        'image' => $image,
+                        'date' => $date,
+                    );
                 }
-                $this->news[] = array(
-                    'title' => $title,
-                    'text' => $text,
-                    'image' => $image,
-                    'date' => $date,
-                );
             }
         }
 

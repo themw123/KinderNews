@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-18 19:04:04
+/* Smarty version 4.2.0, created on 2023-03-19 19:19:37
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6415fd1420f840_77182285',
+  'unifunc' => 'content_641752396b5338_11177914',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679162643,
+      1 => 1679249977,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6415fd1420f840_77182285 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641752396b5338_11177914 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -59,19 +59,19 @@ function content_6415fd1420f840_77182285 (Smarty_Internal_Template $_smarty_tpl)
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
 
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
+
+
+                <div class="mt-4">
+                    <div class="d-flex align-items-center">
+                        <div class="ml-3">
                             <img class="me-2" id="changeText" src="./img/document.png"></img>
                         </div>
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-sm-6 text-end mb-3">
-                                    <div class="heart-like-button"></div>
-                                </div>
-                                <div class="col-sm-6 text-end mb-3">
-                                    <div class="likes">14500</div>
-                                </div>
+                        <div class="heartandlikes d-flex justify-content-end w-100 mr-4">
+                            <div class="mr-1">
+                                <img class="heart" src="./img/heart1.png"></img>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="likes">14500</div>
                             </div>
                         </div>
                     </div>
