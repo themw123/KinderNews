@@ -3,10 +3,35 @@ $(document).ready(function() {
 $("#changeText").on('click', function() {
     // Hier können Sie den Code ausführen, der auf den Klick reagieren soll
     // Zum Beispiel: eine Funktion aufrufen oder eine Animation starten
+
     $(this).toggleClass('clicked');
-    $(".ptext").toggleClass("hidden");
-    $(".ptextOriginal").toggleClass("hidden");
-    $(".pinfo").addClass("pinfoAnimation");
+
+
+    if(!$(".pinfo").hasClass("pinfoAnimation1") && !$(".pinfo").hasClass("pinfoAnimation2")) {
+      $("#changeText").css("pointer-events", "none");
+      $(".pinfo, .ptext, .ptextOriginal").addClass("pinfoAnimation1");
+      setTimeout(function(){
+        if($(".pinfo").text() === "Erwachsener") {
+          $(".pinfo").text("Kind");
+        }
+        else {
+          $(".pinfo").text("Erwachsener");
+        }
+        $(".pinfo, .ptext, .ptextOriginal").addClass("pinfoAnimation2");
+        $(".ptext, .ptextOriginal").toggleClass("hidden");
+
+      }, 1000);
+      setTimeout(function(){
+        $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation1");
+        $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation2");
+        $("#changeText").css("pointer-events", "auto");
+
+      }, 1000);
+    }
+
+
+
+    
 });
 
 if(parseInt($(".likes").text()) === 0) {

@@ -35,20 +35,20 @@
 
 
                 <div class="mt-4">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
                         <div class="ml-3">
                             <img class="me-2" id="changeText" src="./img/document.png"></img>
                         </div>
-                        <div class="heartandlikes d-flex justify-content-end w-100 mr-4">
-                            {if $liked == true}
-                                <div class="mr-1">
+                        <p class="pinfo">Kind</p>
+                        <div class="heartandlikes d-flex mr-4">
+                            <div class="mr-1">
+                                {if $liked == true}
                                     <img class="heart" src="./img/heart2.png"></img>
-                                </div>
-                            {else}
-                                <div class="mr-1">
+                                {else}
                                     <img class="heart" src="./img/heart1.png"></img>
-                                </div>
-                            {/if}
+                                {/if}
+                            </div>
+
                             <div class="d-flex align-items-center">
                                 {if $likes == 0}
                                     <div class="likes"></div>

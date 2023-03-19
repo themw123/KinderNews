@@ -122,6 +122,24 @@
     padding: 20px;
 }
 
+.pinfo {
+    color: rgba(255, 255, 255, 0.912);
+    font-size: 16px;
+    background-color: rgba(78, 74, 74, 0.311);
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+
+.pinfoAnimation1 {
+    transition: opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.pinfoAnimation2 {
+    transition: opacity 0.5s ease-in;
+    opacity: 1;
+}
 
 .custom-shadow-article {
     box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.2);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-19 21:41:12
+/* Smarty version 4.2.0, created on 2023-03-19 22:44:48
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_641773688aeb98_92903830',
+  'unifunc' => 'content_641782504289f8_68252224',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679258472,
+      1 => 1679262288,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_641773688aeb98_92903830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641782504289f8_68252224 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -62,20 +62,20 @@ function content_641773688aeb98_92903830 (Smarty_Internal_Template $_smarty_tpl)
 
 
                 <div class="mt-4">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-between">
                         <div class="ml-3">
                             <img class="me-2" id="changeText" src="./img/document.png"></img>
                         </div>
-                        <div class="heartandlikes d-flex justify-content-end w-100 mr-4">
-                            <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
-                                <div class="mr-1">
+                        <p class="pinfo">Kind</p>
+                        <div class="heartandlikes d-flex mr-4">
+                            <div class="mr-1">
+                                <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
                                     <img class="heart" src="./img/heart2.png"></img>
-                                </div>
-                            <?php } else { ?>
-                                <div class="mr-1">
+                                <?php } else { ?>
                                     <img class="heart" src="./img/heart1.png"></img>
-                                </div>
-                            <?php }?>
+                                <?php }?>
+                            </div>
+
                             <div class="d-flex align-items-center">
                                 <?php if ($_smarty_tpl->tpl_vars['likes']->value == 0) {?>
                                     <div class="likes"></div>
