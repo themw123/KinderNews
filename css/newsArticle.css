@@ -131,14 +131,9 @@
     margin-bottom: 0px;
 }
 
-.pinfoAnimation1 {
+.pinfoAnimation {
     transition: opacity 0.5s ease-out;
     opacity: 0;
-}
-
-.pinfoAnimation2 {
-    transition: opacity 0.5s ease-in;
-    opacity: 1;
 }
 
 .custom-shadow-article {

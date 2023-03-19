@@ -7,9 +7,9 @@ $("#changeText").on('click', function() {
     $(this).toggleClass('clicked');
 
 
-    if(!$(".pinfo").hasClass("pinfoAnimation1") && !$(".pinfo").hasClass("pinfoAnimation2")) {
+    if(!$(".pinfo").hasClass("pinfoAnimation")) {
       $("#changeText").css("pointer-events", "none");
-      $(".pinfo, .ptext, .ptextOriginal").addClass("pinfoAnimation1");
+      $(".pinfo, .ptext, .ptextOriginal").addClass("pinfoAnimation");
       setTimeout(function(){
         if($(".pinfo").text() === "Erwachsener") {
           $(".pinfo").text("Kind");
@@ -17,13 +17,12 @@ $("#changeText").on('click', function() {
         else {
           $(".pinfo").text("Erwachsener");
         }
-        $(".pinfo, .ptext, .ptextOriginal").addClass("pinfoAnimation2");
         $(".ptext, .ptextOriginal").toggleClass("hidden");
+        $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation");
 
       }, 1000);
       setTimeout(function(){
         $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation1");
-        $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation2");
         $("#changeText").css("pointer-events", "auto");
 
       }, 1000);
@@ -90,15 +89,7 @@ function likeOrRemove(like, id) {
     data: {
       like: like,
       id: id,
-    },
-    success: function (response) {
-    },
-    error: function () {
-    },
-
-    complete: function(response) {
-      
-      }
+    }
   });
 }
 
