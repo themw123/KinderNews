@@ -58,18 +58,23 @@ class News
         $success = true;
         //!!!!!!!!!!!!!!!!Mockdaten!!!!!!!!!!!!!!!!!!!
         */
-
-        if (isset($_GET["getNews"]) && $this->login->isUserAdmin()) {
-            //ganz wichtig die session datei wieder freigeben!sonnst wird session datei geblockt während der heavy task ausgeführt wird
-            //und dabei können dann keine weiteren clients die website abrufen
-            session_write_close();
-            $success = $this->getNews();
-            if ($success) {
-                $this->onlyNewNews();
-                $this->translateNews();
-                DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+        if ($this->login->isUserAdmin()) {
+            if (isset($_GET["getNews"])) {
+                //ganz wichtig die session datei wieder freigeben!sonnst wird session datei geblockt während der heavy task ausgeführt wird
+                //und dabei können dann keine weiteren clients die website abrufen
+                session_write_close();
+                $success = $this->getNews();
+                if ($success) {
+                    $this->onlyNewNews();
+                    $this->translateNews();
+                    DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+                }
+                Logs::jsonLogs();
+            } else if (isset($_GET["like"]) && $_GET["like"] == "like") {
+                DbFunctions::like($link, $_GET["id"]);
+            } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
+                DbFunctions::removeLike($link, $_GET["id"]);
             }
-            Logs::jsonLogs();
         }
     }
 

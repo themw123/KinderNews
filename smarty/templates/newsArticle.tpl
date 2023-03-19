@@ -40,11 +40,21 @@
                             <img class="me-2" id="changeText" src="./img/document.png"></img>
                         </div>
                         <div class="heartandlikes d-flex justify-content-end w-100 mr-4">
-                            <div class="mr-1">
-                                <img class="heart" src="./img/heart1.png"></img>
-                            </div>
+                            {if $liked == true}
+                                <div class="mr-1">
+                                    <img class="heart" src="./img/heart2.png"></img>
+                                </div>
+                            {else}
+                                <div class="mr-1">
+                                    <img class="heart" src="./img/heart1.png"></img>
+                                </div>
+                            {/if}
                             <div class="d-flex align-items-center">
-                                <div class="likes">14500</div>
+                                {if $likes == 0}
+                                    <div class="likes">{$likes}</div>
+                                {else}
+                                    <div class="likes">{$likes}</div>
+                                {/if}
                             </div>
                         </div>
                     </div>

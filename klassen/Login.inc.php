@@ -55,6 +55,7 @@ class Login
 
                         //schreibe benutzerdaten in die session                 
                         unset($_SESSION['loggedOutBefore']);
+                        $_SESSION['id'] = $result_row->id;
                         $_SESSION['name'] = $result_row->name;
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['admin'] = $result_row->admin;

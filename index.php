@@ -54,7 +54,11 @@ if ($login->isUserLoggedIn()) {
 		if (isset($_GET["id"])) {
 			//einzelne news
 			$newsArticle = DbFunctions::getNewsArticleDb($link);
+			$liked = DbFunctions::checkLike($link, $_GET["id"]);
+			$likes = DbFunctions::countLikes($link, $_GET["id"]);
 			$smarty->assign('newsArticle', $newsArticle);
+			$smarty->assign('liked', $liked);
+			$smarty->assign('likes', $likes);
 			$template = 'newsArticle.tpl';
 		} else {
 			//news feed
