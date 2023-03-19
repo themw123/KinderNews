@@ -1,12 +1,14 @@
 <?php
 
+//php version:  
+
 require_once('./vendor/autoload.php');
 require_once("./config.php");
 require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/Logs.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
 require_once("./klassen/Login.inc.php");
-require_once('./libraries/PHPMailer.php');
+
 require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");

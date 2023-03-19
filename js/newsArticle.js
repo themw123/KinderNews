@@ -9,6 +9,14 @@ $("#changeText").on('click', function() {
     $(".pinfo").addClass("pinfoAnimation");
 });
 
+if(parseInt($(".likes").text()) === 0) {
+  $(".likes").css("display", "none");
+}
+else {
+  $(".likes").css("display", "inline-block");
+}
+
+
 $(".heart").click(function(){
   var like;
   var heartImgSrc = $(this).attr("src");
@@ -19,6 +27,9 @@ $(".heart").click(function(){
       }, 1000);
       $(this).attr("src", "./img/heart2.png");
       var likes = parseInt($(".likes").text());
+      if (isNaN(likes)) {
+        likes = 0;
+      }
       likes = likes + 1;
       $(".likes").text(likes);
       $(".likes").css("display", "inline-block");
@@ -26,6 +37,9 @@ $(".heart").click(function(){
   } else {
       $(this).attr("src", "./img/heart1.png");
       var likes = parseInt($(".likes").text());
+      if (isNaN(likes)) {
+        likes = 0;
+      }
       likes = likes - 1;
       $(".likes").text(likes);
       if(likes == 0) {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-19 20:52:36
+/* Smarty version 4.2.0, created on 2023-03-19 21:41:12
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_641768046ef8b3_78950230',
+  'unifunc' => 'content_641773688aeb98_92903830',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679255556,
+      1 => 1679258472,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_641768046ef8b3_78950230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641773688aeb98_92903830 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -78,8 +78,7 @@ function content_641768046ef8b3_78950230 (Smarty_Internal_Template $_smarty_tpl)
                             <?php }?>
                             <div class="d-flex align-items-center">
                                 <?php if ($_smarty_tpl->tpl_vars['likes']->value == 0) {?>
-                                    <div class="likes"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
-</div>
+                                    <div class="likes"></div>
                                 <?php } else { ?>
                                     <div class="likes"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
 </div>

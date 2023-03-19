@@ -51,7 +51,7 @@
                             {/if}
                             <div class="d-flex align-items-center">
                                 {if $likes == 0}
-                                    <div class="likes">{$likes}</div>
+                                    <div class="likes"></div>
                                 {else}
                                     <div class="likes">{$likes}</div>
                                 {/if}
