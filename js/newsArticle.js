@@ -18,6 +18,8 @@ $("#changeText").on('click', function() {
         else {
           $(".pinfo").text("Erwachsener");
           $(".pquestion").css("display", "none");
+          $(".answer").removeClass("show");
+
         }
         $(".ptext, .ptextOriginal").toggleClass("hidden");
         $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation");

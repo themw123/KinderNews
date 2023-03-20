@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-20 11:50:54
+/* Smarty version 4.2.0, created on 2023-03-20 12:27:11
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64183a8e3033a8_65043957',
+  'unifunc' => 'content_6418430f2f71c6_20811904',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679309453,
+      1 => 1679311630,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64183a8e3033a8_65043957 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6418430f2f71c6_20811904 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -98,7 +98,7 @@ function content_64183a8e3033a8_65043957 (Smarty_Internal_Template $_smarty_tpl)
 
             <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage1"];?>
 </p>
-            <div class="collapse mx-2" id="answer1">
+            <div class="answer collapse mx-2" id="answer1">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer1"];?>
 
@@ -106,7 +106,7 @@ function content_64183a8e3033a8_65043957 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage2"];?>
 </p>
-            <div class="collapse mx-2" id="answer2">
+            <div class="answer collapse mx-2" id="answer2">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer2"];?>
 
@@ -114,7 +114,7 @@ function content_64183a8e3033a8_65043957 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage3"];?>
 </p>
-            <div class="collapse mx-2" id="answer3">
+            <div class="answer collapse mx-2" id="answer3">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer3"];?>
 
