@@ -96,5 +96,9 @@ function likeOrRemove(like, id) {
 }
 
 
+$('#answer3').on('shown.bs.collapse', function () {
+  document.getElementById('answer3').scrollIntoView({ behavior: 'smooth' });
+});
+
 
 });
