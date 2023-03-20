@@ -1,1 +1,13 @@
 vendor/phpmailer/phpmailer/
+vendor/brick/math/
+vendor/guzzlehttp/guzzle/
+vendor/guzzlehttp/promises/
+vendor/guzzlehttp/psr7/
+vendor/haozi-team/chatgpt-php/
+vendor/psr/http-client/
+vendor/psr/http-factory/
+vendor/psr/http-message/
+vendor/ralouphie/getallheaders/
+vendor/ramsey/collection/
+vendor/ramsey/uuid/
+vendor/symfony/deprecation-contracts/
