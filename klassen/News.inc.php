@@ -241,7 +241,7 @@ class News
 
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
+                Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ". News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
                 $this->placeholder();
                 $counter++;
                 continue;
