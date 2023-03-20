@@ -13,9 +13,11 @@ $("#changeText").on('click', function() {
       setTimeout(function(){
         if($(".pinfo").text() === "Erwachsener") {
           $(".pinfo").text("Kind");
+          $(".pquestion").css("display", "inline-block");
         }
         else {
           $(".pinfo").text("Erwachsener");
+          $(".pquestion").css("display", "none");
         }
         $(".ptext, .ptextOriginal").toggleClass("hidden");
         $(".pinfo, .ptext, .ptextOriginal").removeClass("pinfoAnimation");
