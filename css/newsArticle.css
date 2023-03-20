@@ -11,10 +11,19 @@
         font-size: 18px;
     }
 
+    .pquestion {
+        font-size: 17px;
+    }
+
+    .card {
+        font-size: 16px;
+    }
+
     .ptitle {
         font-size: 20px;
         text-align: left;
     }
+
 
     .customContainer {
         width: 95%;
@@ -60,6 +69,14 @@
         font-size: 20px;
     }
 
+    .pquestion {
+        font-size: 19px;
+    }
+
+    .card {
+        font-size: 18px;
+    }
+
     .ptitle {
         font-size: 25px;
     }
@@ -79,6 +96,15 @@
         font-size: 23px;
     }
 
+    .pquestion {
+        font-size: 22px;
+    }
+
+    .card {
+        font-size: 21px;
+    }
+
+
     .ptitle {
         font-size: 28px;
     }
@@ -97,6 +123,14 @@
     .ptext,
     .ptextOriginal {
         font-size: 25px;
+    }
+
+    .pquestion {
+        font-size: 24px;
+    }
+
+    .card {
+        font-size: 23px;
     }
 
     .ptitle {
@@ -129,6 +163,19 @@
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 0px;
+}
+
+.pquestion {
+    color: rgba(255, 255, 255, 0.912);
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgba(162, 53, 10, 0.541);
+    padding: 5px;
+    border-radius: 10px;
+    pointer-events: auto;
+    cursor: pointer;
+
 }
 
 .pinfoAnimation {
@@ -188,6 +235,10 @@
     width: 38px;
 }
 
+.card {
+    color: rgba(255, 255, 255, 0.912);
+    background-color: rgba(78, 33, 16, 0.541);
+}
 
 
 

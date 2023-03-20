@@ -61,16 +61,29 @@
                 </div>
 
 
-
-
-
-
-
                 <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
                 <p class="ptextOriginal hidden">{$newsArticle["originaler_text"]}</p>
+
             </div>
 
-
+            <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1">{$newsArticle["frage1"]}</p>
+            <div class="collapse mx-2" id="answer1">
+                <div class="card card-body mb-4">
+                    {$newsArticle["answer1"]}
+                </div>
+            </div>
+            <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2">{$newsArticle["frage2"]}</p>
+            <div class="collapse mx-2" id="answer2">
+                <div class="card card-body mb-4">
+                    {$newsArticle["answer2"]}
+                </div>
+            </div>
+            <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3">{$newsArticle["frage3"]}</p>
+            <div class="collapse mx-2" id="answer3">
+                <div class="card card-body mb-4">
+                    {$newsArticle["answer3"]}
+                </div>
+            </div>
         </div>
 
     </div>
