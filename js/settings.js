@@ -1,6 +1,10 @@
 $(".loadingButton").on("click", function () {
   $(".alert").addClass("alert-hidden");
   $(".alert").removeClass("alert-warning");
+  $(".alert").removeClass("alert-custom");
+  $(".alert").removeClass("alert-success");
+
+
   getNews();
   $(".loadingButton").prop("disabled", true);
   $(".buttonSpinner").css("display", "inline-block");

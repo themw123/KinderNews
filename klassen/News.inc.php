@@ -103,26 +103,7 @@ class News
 
     private function getNews10()
     {
-
-        if ($this->page != null) {
-            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top&page=' . $this->page;
-        } else {
-            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top';
-        }
-
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
+        $response = Request::requestNews($this->page);
 
         if ($response === false) {
             Logs::addError("Fehler beim holen der News. Request nicht erfolgreich.");
@@ -162,8 +143,6 @@ class News
             }
         }
 
-
-        curl_close($curl);
         return true;
     }
 
@@ -202,12 +181,9 @@ class News
     private function translateNews()
     {
 
-        $curl = curl_init();
-
         $counter = 1;
         foreach ($this->news as $article) {
 
-            $apikey = CHATGPTAPIKEY;
             $title = $article['title'];
             $text = $article['text'];
 
@@ -222,47 +198,7 @@ class News
                 $text = substr($text, 0, $maxLength);
             }
 
-            $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
-            Du sollst mir den Titel und den Text kinderfreundlich übersetzten. 
-            Bitte vermeide es, Fachbegriffe oder Fremdwörter zu verwenden. Es ist wichtig, dass der Inhalt altersgerecht ist und kein unangemessenes Material enthält.
-            Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
-            Außerdem sollst du drei Fragen stellen, die sich ausschließlich auf BEDEUTUNG von Wörtern beziehen, lasse alle anderen Aspekte beiseite!!!. Du sollst fragen stellen die ein Wörterbuch beantworten könnte. Die Fragen sollten ungefähr so formuliert werden: was bedeutet das Wort.. 
-            Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. 
-            WICHTIG, du sollst mir auschließlich im json format antworten und dabei für den Inhalt für den von dir ungeschriebenen Titel, Text, question1, question2, question3, answer1, answer2 und answer3 nicht das Zeichen " sondern stattdessen das Zeichen “ nutzten. 
-            Die json antwort soll so aussehen: {"title":"Hier der umgeschriebene Titel von dir","text":"Hier der umgeschriebene Text von dir","question1":"Hier deine 1. Frage","question2":"Hier deine 2. Frage","question3":"Hier deine 3. Frage","answer1":"Hier deine Antwort zur 1. Frage","answer2":"Hier deine Antwort zur 2. Frage","answer3":"Hier deine Antwort zur 3. Frage"} . 
-            Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . 
-            Um den Text kindgerecht zu machen, solltest du dich am Originaltext orientieren und ihn vereinfachen. GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DAFÜR SOFERN ES NICHT DER FALL IST!!!!! 
-            ';
-
-            $data = new stdClass();
-            $data->model = "gpt-3.5-turbo";
-
-            $messages = array();
-            $message1 = new stdClass();
-            $message1->role = "user";
-            $message1->content = $prompt;
-            $messages[] = $message1;
-
-            $data->messages = $messages;
-
-            //$promt = "was geht";
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api.openai.com/v1/chat/completions',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($data),
-                CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json',
-                    "Authorization: Bearer $apikey"
-                ),
-            ));
-
-            $response = curl_exec($curl);
+            $response = Request::requestTranslate($title, $text);
 
             if ($response === false) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Request nicht erfolgreich.");
@@ -366,8 +302,6 @@ class News
         if ($counter == 1) {
             Logs::addMessage("Die news sind auf dem neusten Stand.");
         }
-
-        curl_close($curl);
     }
 
     //falls translate nicht erfolgreich. Damit bei dem einfügen der Daten in die Datenbank nichts durcheinanderkommt.

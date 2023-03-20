@@ -12,6 +12,7 @@ require_once("./klassen/Login.inc.php");
 require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");
+require_once("./klassen/Request.inc.php");
 require_once("./klassen/News.inc.php");
 
 
