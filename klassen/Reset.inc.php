@@ -15,7 +15,9 @@ class Reset
         } else if (isset($_POST["resetPassword"])) {
             $this->resetPassword();
         } else if (isset($_GET["resetPassword"])) {
-            $this->setToken();
+            if (isset($_GET["token"]) && isset($_GET["resetPassword"])) {
+                $this->setToken();
+            }
         }
     }
 
