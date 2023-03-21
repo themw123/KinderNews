@@ -16,7 +16,7 @@ class News
         //Production code!!!!
         if ($this->login->isUserAdmin() && isset($_GET["getNews"])) {
             shell_exec("/usr/local/bin/php /home/index.php &");
-            Logs::jsonLogs();
+            Logs::cloudflare();
         }
     }
 }

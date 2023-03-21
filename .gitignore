@@ -1,4 +1,4 @@
-syncNews/*
+./syncNews/
 
 vendor/phpmailer/phpmailer/
 vendor/brick/math/
