@@ -5,4 +5,5 @@ require_once("/var/www/html/klassen/Request.inc.php");
 require_once("./News.inc.php");
 
 
+
 $news = new News();
