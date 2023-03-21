@@ -22,7 +22,7 @@ $login = new Login($link);
 $register = new Register($link);
 $reset = new Reset($link);
 
-$news = new News($link, $login);
+$news = new News($login);
 
 //csrf validierung
 //loggedOutBefore damit Token neu generiert wird und nicht das alte Token genommen wird.
