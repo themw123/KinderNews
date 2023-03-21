@@ -13,7 +13,7 @@ class Register
         $this->link = $link;
         if (isset($_POST["register"])) {
             $this->registerNewUser();
-        } else if (isset($_GET["confirm"])) {
+        } else if (isset($_GET["token"]) && isset($_GET["confirm"])) {
             $this->confirmNewUser();
         }
     }
