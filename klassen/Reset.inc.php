@@ -24,7 +24,7 @@ class Reset
 
     private function setToken()
     {
-        $this->token = $this->link->real_escape_string(strip_tags($_GET['token'], ENT_QUOTES));
+        $this->token = Dbfunctions::escape($this->link, $_GET['token']);
     }
 
     public function getToken()
@@ -35,9 +35,9 @@ class Reset
 
     private function resetPassword()
     {
-        $token = $this->link->real_escape_string(strip_tags($_POST['token'], ENT_QUOTES));
-        $password = $this->link->real_escape_string(strip_tags($_POST['password'], ENT_QUOTES));
-        $password_repeat = $this->link->real_escape_string(strip_tags($_POST['password_repeat'], ENT_QUOTES));
+        $token = Dbfunctions::escape($this->link, $_POST['token']);
+        $password = Dbfunctions::escape($this->link, $_POST['password']);
+        $password_repeat = Dbfunctions::escape($this->link, $_POST['password_repeat']);
         if ($password == $password_repeat) {
             $password_hash = password_hash($password, PASSWORD_ARGON2ID);
             $erfolg = DbFunctions::resetPassword($this->link, $password_hash, $token);

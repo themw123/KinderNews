@@ -20,7 +20,7 @@ class Register
 
     private function confirmNewUser()
     {
-        $token = $_GET['token'];
+        $token = Dbfunctions::escape($this->link, $_GET['token']);
         $erfolg = DbFunctions::activateAccount($this->link, $token);
         if ($erfolg) {
             Logs::addMessage("Dein Konto wurde erfolgreich aktiviert! Logge dich jetzt ein.");
@@ -67,9 +67,9 @@ class Register
 
             if (!$this->link->connect_errno) {
 
-                $username = $this->link->real_escape_string(strip_tags($_POST['username'], ENT_QUOTES));
-                $email = $this->link->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
-                $password = $this->link->real_escape_string(strip_tags($_POST['password'], ENT_QUOTES));
+                $username = Dbfunctions::escape($this->link, $_POST['username']);
+                $email = Dbfunctions::escape($this->link, $_POST['email']);
+                $password = Dbfunctions::escape($this->link, $_POST['password']);
 
                 $password_hash = password_hash($password, PASSWORD_ARGON2ID);
 
