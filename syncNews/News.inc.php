@@ -4,7 +4,6 @@ set_time_limit(500);
 
 class News
 {
-
     private $link = null;
     private $news = null;
     private $newsTranslated = null;
