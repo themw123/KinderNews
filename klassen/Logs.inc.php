@@ -77,4 +77,17 @@ class Logs
         //wichtig, da sonnst über index.php gegangen wird und der zusätztlich zur response das html drangehangen wird
         die();
     }
+
+    public static function cloudflare()
+    {
+        $response = array(
+            "art" => "message",
+            "text" => "Synchronisation läuft im Hintergrund. Cloudflare lässt keine Rückmeldung zu."
+        );
+        $json_response = json_encode($response);
+
+        echo $json_response;
+
+        die();
+    }
 }

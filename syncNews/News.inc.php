@@ -19,7 +19,6 @@ class News
         $success = $this->getNews();
         if ($success) {
             $this->onlyNewNews();
-
             $this->translateNews();
             DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
         }
