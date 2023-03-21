@@ -91,7 +91,7 @@ if ($login->isUserLoggedIn()) {
 	$login_or_logout = "Login";
 	$login_or_logout_link = "./?login";
 	$settings = "./?settings";
-	$template = 'notloggedIn.tpl';
+	$template = 'notLoggedIn.tpl';
 }
 
 
