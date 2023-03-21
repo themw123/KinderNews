@@ -20,6 +20,11 @@ class DbFunctions
 		return $result;
 	}
 
+	public static function escape($link, $value)
+	{
+		return mysqli_real_escape_string($link, htmlspecialchars(strip_tags(addslashes($value)), ENT_QUOTES));
+	}
+
 	public static function createAccount($link, $username, $email, $password_hash, $token)
 	{
 		$stmt = $link->prepare(
@@ -133,10 +138,10 @@ class DbFunctions
 		return $result;
 	}
 
-	public static function getNewsArticleDb($link)
+	public static function getNewsArticleDb($link, $id)
 	{
 		$stmt = $link->prepare(
-			"Select * from news where id = " . $_GET['id']
+			"Select * from news where id = " . $id
 		);
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_assoc();

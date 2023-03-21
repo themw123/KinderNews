@@ -40,7 +40,7 @@ class Login
 
             if (!$this->link->connect_errno) {
 
-                $email_or_user = $this->link->real_escape_string($_POST['email_or_user']);
+                $email_or_user = Dbfunctions::escape($this->link, $_POST['email_or_user']);
 
                 $result_of_login_check = DbFunctions::exists1($this->link, $email_or_user);
 

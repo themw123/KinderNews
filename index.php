@@ -51,15 +51,21 @@ if ($login->isUserLoggedIn()) {
 	$login_or_logout_link = "./?logout";
 	$settings = "./?settings";
 	if (isset($_GET["news"])) {
-		if (isset($_GET["id"])) {
+		if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
 			//einzelne news
-			$newsArticle = DbFunctions::getNewsArticleDb($link);
-			$liked = DbFunctions::checkLike($link, $_GET["id"]);
-			$likes = DbFunctions::countLikes($link, $_GET["id"]);
-			$smarty->assign('newsArticle', $newsArticle);
-			$smarty->assign('liked', $liked);
-			$smarty->assign('likes', $likes);
-			$template = 'newsArticle.tpl';
+			$newsArticle = DbFunctions::getNewsArticleDb($link, Dbfunctions::escape($link, $_GET["id"]));
+			if ($newsArticle != null) {
+				$liked = DbFunctions::checkLike($link, Dbfunctions::escape($link, $_GET["id"]));
+				$likes = DbFunctions::countLikes($link, Dbfunctions::escape($link, $_GET["id"]));
+				$smarty->assign('newsArticle', $newsArticle);
+				$smarty->assign('liked', $liked);
+				$smarty->assign('likes', $likes);
+				$template = 'newsArticle.tpl';
+			} else {
+				$newsArray = DbFunctions::getNewsDb($link);
+				$smarty->assign('news', $newsArray);
+				$template = 'news.tpl';
+			}
 		} else {
 			//news feed
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
