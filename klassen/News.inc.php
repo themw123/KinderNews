@@ -83,18 +83,20 @@ class News
 
     private function getNews()
     {
-        //hole solange news(pro Request 10) bis es 10 Stück mit content gibt
-        //maximal 10 Runden/Requests
+        //In Production maximal 5, sonnst timeout von Cloudflare!
+
+        //hole solange news(pro Request 5) bis es 5 Stück mit content gibt
+        //maximal 5 Runden/Requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 10) {
+        while ($success && count($this->news) < 5 && $counter < 5) {
             $success = $this->getNews10();
             $counter++;
         }
 
-        //lösche wenn mehr als 10
-        if (count($this->news) > 10) {
-            $this->news = array_slice($this->news, 0, 10);
+        //lösche wenn mehr als 5
+        if (count($this->news) > 5) {
+            $this->news = array_slice($this->news, 0, 5);
         }
 
         //umdrehen damit neuste news als letztes in db eingefügt werden. nicht mehr nötig aufgrund von date, aber bleibt erst mal so
