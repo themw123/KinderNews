@@ -98,7 +98,7 @@ if ($login->isUserLoggedIn()) {
 if (isset($_GET["home"])) {
 	$template = 'home.tpl';
 } elseif (isset($_GET["login"]) && !$login->isUserLoggedIn()) {
-	$template = 'notloggedIn.tpl';
+	$template = 'notLoggedIn.tpl';
 } elseif (empty($_GET)) {
 	$template = 'home.tpl';
 }

@@ -73,8 +73,10 @@ class News
         if ($this->login->isUserLoggedIn()) {
             if (isset($_GET["like"]) && $_GET["like"] == "like") {
                 DbFunctions::like($link, $_GET["id"]);
+                die();
             } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
                 DbFunctions::removeLike($link, $_GET["id"]);
+                die();
             }
         }
     }
