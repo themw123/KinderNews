@@ -66,7 +66,7 @@ class News
             if ($success) {
                 $this->onlyNewNews();
                 $this->translateNews();
-                DbFunctions::setNewsDb($link, $this->news, $this->newsTranslated);
+                DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
             }
             Logs::jsonLogs();
         }
@@ -80,6 +80,7 @@ class News
             }
         }
     }
+
 
     private function getNews()
     {
@@ -201,6 +202,12 @@ class News
             }
 
             $response = Request::requestTranslate($title, $text);
+
+            if ($response === "private_error") {
+                Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Private API Error.");
+                $this->placeholder();
+                $counter++;
+            }
 
             if ($response === false) {
                 Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Request nicht erfolgreich.");
