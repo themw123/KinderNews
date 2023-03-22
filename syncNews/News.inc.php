@@ -30,14 +30,14 @@ class News
         //maximal 10 Runden/Requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 2 && $counter < 2) {
+        while ($success && count($this->news) < 10 && $counter < 10) {
             $success = $this->getNews10();
             $counter++;
         }
 
         //lösche wenn mehr als 10
-        if (count($this->news) > 2) {
-            $this->news = array_slice($this->news, 0, 2);
+        if (count($this->news) > 10) {
+            $this->news = array_slice($this->news, 0, 10);
         }
 
         //umdrehen damit neuste news als letztes in db eingefügt werden. nicht mehr nötig aufgrund von date, aber bleibt erst mal so
