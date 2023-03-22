@@ -1,0 +1,4 @@
+<FilesMatch "(composer.json|composer.lock|README.md)">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
