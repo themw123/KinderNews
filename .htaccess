@@ -1,4 +1,10 @@
-<FilesMatch "(composer.json|composer.lock|README.md)">
+<FilesMatch "(composer.json|composer.lock|README.md|kindernews.sql|.gitignore|.gitattributes)">
 Order Allow,Deny
 Deny from all
 </FilesMatch>
+
+
+ <IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule ^vendor(/|$) - [F,L]
+ </IfModule>
