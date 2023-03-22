@@ -1,4 +1,4 @@
-<FilesMatch "(composer.json|composer.lock|README.md|kindernews.sql|.gitignore|.gitattributes)">
+<FilesMatch "(composer.json|composer.lock|README.md|.gitignore|.gitattributes)">
 Order Allow,Deny
 Deny from all
 </FilesMatch>
