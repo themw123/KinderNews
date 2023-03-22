@@ -2,3 +2,9 @@
 Order Allow,Deny
 Deny from all
 </FilesMatch>
+
+
+ <IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule ^vendor(/|$) - [F,L]
+ </IfModule>
