@@ -1,6 +1,4 @@
-config.php
 syncNews/
-
 
 vendor/phpmailer/phpmailer/
 vendor/brick/math/
