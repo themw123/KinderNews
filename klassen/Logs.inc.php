@@ -88,6 +88,8 @@ class Logs
 
         echo $json_response;
 
+        sleep(2);
+
         die();
     }
 }
