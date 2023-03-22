@@ -4,10 +4,12 @@ set_time_limit(500);
 
 class News
 {
+    private $link = null;
     private $login = null;
 
-    public function __construct($login)
+    public function __construct($link, $login)
     {
+        $this->link = $link;
         $this->login = $login;
 
 
@@ -15,6 +17,15 @@ class News
         if ($this->login->isUserAdmin() && isset($_GET["getNews"])) {
             shell_exec("/usr/local/bin/php /home/index.php > /dev/null 2>/dev/null &");
             Logs::cloudflare();
+        }
+        if ($this->login->isUserLoggedIn()) {
+            if (isset($_GET["like"]) && $_GET["like"] == "like") {
+                DbFunctions::like($link, Dbfunctions::escape($link, $_GET["id"]));
+                die();
+            } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
+                DbFunctions::removeLike($link, Dbfunctions::escape($link, $_GET["id"]));
+                die();
+            }
         }
     }
 }
