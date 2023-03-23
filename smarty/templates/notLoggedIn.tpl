@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="password" minlength="6"
+                                    <input type="password" name="password" id="password" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -107,13 +107,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="passwordRegister1" minlength="6"
+                                    <input type="password" name="password" id="passwordRegister1" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort wiederholen</label>
-                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="6"
+                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -174,13 +174,13 @@
                             <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                             <div class="form-group">
                                 <label>Passwort neu</label>
-                                <input type="password" name="password" id="passwordReset1" minlength="6"
+                                <input type="password" name="password" id="passwordReset1" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort neu" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
-                                <input type="password" name="password_repeat" id="passwordReset2" minlength="6"
+                                <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort erneut" required>
                             </div>

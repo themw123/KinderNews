@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-17 19:56:24
+/* Smarty version 4.2.0, created on 2023-03-23 17:47:13
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6414b7d84cf794_97965017',
+  'unifunc' => 'content_641c82913ae4f8_81407619',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
-      1 => 1679072780,
+      1 => 1679590029,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6414b7d84cf794_97965017 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641c82913ae4f8_81407619 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -100,7 +100,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="password" minlength="6"
+                                    <input type="password" name="password" id="password" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -150,13 +150,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="passwordRegister1" minlength="6"
+                                    <input type="password" name="password" id="passwordRegister1" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort wiederholen</label>
-                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="6"
+                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -220,13 +220,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " />
                             <div class="form-group">
                                 <label>Passwort neu</label>
-                                <input type="password" name="password" id="passwordReset1" minlength="6"
+                                <input type="password" name="password" id="passwordReset1" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort neu" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
-                                <input type="password" name="password_repeat" id="passwordReset2" minlength="6"
+                                <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort erneut" required>
                             </div>
