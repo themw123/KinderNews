@@ -41,12 +41,16 @@ class Reset
         $password = Dbfunctions::escape($this->link, $_POST['password']);
         $password_repeat = Dbfunctions::escape($this->link, $_POST['password_repeat']);
         if ($password == $password_repeat) {
-            $password_hash = password_hash($password, PASSWORD_ARGON2ID);
+            if (strlen($password) < 8) {
+                Logs::addError("Passwort muss mindestens 8 Zeichen lang sein");
+                return;
+            }
 
             if ($token != null && !($this->security->checkTokenTime($token))) {
                 Logs::addError("Dein Token ist abgelaufen, bitte fordere eine neue Mail zum zurücksetzten deines Passwortes an.");
                 return;
             }
+            $password_hash = password_hash($password, PASSWORD_ARGON2ID);
             $erfolg = DbFunctions::resetPassword($this->link, $password_hash, $token);
             if ($erfolg) {
                 Logs::addMessage("Dein Passwort wurde erfolgreich geändert! Logge dich jetzt ein.");
