@@ -13,7 +13,7 @@ class Security
     {
         $this->link = $link;
         $this->timeout = 60;
-        $this->attemps = 2;
+        $this->attemps = 3;
     }
 
     public function checkLoginAttempts()
