@@ -54,7 +54,7 @@ class Security
         }
 
         if ($this->count >= $this->attemps) {
-            Logs::addError("zu viele Login Versuche. Bitte warte $text Sekunden");
+            Logs::addError("Zu viele Login Versuche. Bitte warte $text Sekunden.");
             return false;
         } else {
             return true;
