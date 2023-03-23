@@ -5,11 +5,13 @@ class Reset
 {
 
     private $link = null;
+    private $security;
     private $token = "";
 
-    public function __construct($link)
+    public function __construct($link, $security)
     {
         $this->link = $link;
+        $this->security = $security;
         if (isset($_POST["resetMail"])) {
             $this->sendPasswordResetMail();
         } else if (isset($_POST["resetPassword"])) {
@@ -40,11 +42,16 @@ class Reset
         $password_repeat = Dbfunctions::escape($this->link, $_POST['password_repeat']);
         if ($password == $password_repeat) {
             $password_hash = password_hash($password, PASSWORD_ARGON2ID);
+
+            if ($token != null && !($this->security->checkTokenTime($token))) {
+                Logs::addError("Dein Token ist abgelaufen, bitte fordere eine neue Mail zum zurücksetzten deines Passwortes an.");
+                return;
+            }
             $erfolg = DbFunctions::resetPassword($this->link, $password_hash, $token);
             if ($erfolg) {
                 Logs::addMessage("Dein Passwort wurde erfolgreich geändert! Logge dich jetzt ein.");
             } else {
-                Logs::addError("Dein Passwort konnte nicht geändert werden.");
+                Logs::addError("Dein Passwort konnte nicht geändert werden, der Token ist wahrscheinlich falsch.");
             }
         } else {
             Logs::addError("Deine Passwörter stimmen nicht überein.");
@@ -80,8 +87,10 @@ class Reset
 
                     if ($zustand) {
 
-                        //Token dem Benutzer hinzufügen
-                        DbFunctions::setToken($this->link, $email, $token);
+
+                        $time = time();
+                        //Token und Uhrzeit dem Benutzer hinzufügen
+                        DbFunctions::setToken($this->link, $email, $token, $time);
 
 
                         Logs::addMessage("Es wurde eine Mail zum zurücksetzten deines Passwortes an deine Email Adresse gesendet.");

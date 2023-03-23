@@ -4,8 +4,8 @@ require_once("/home/config.php");
 require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/Logs.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
+require_once("./klassen/Security.inc.php");
 require_once("./klassen/Login.inc.php");
-
 require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");
@@ -18,9 +18,10 @@ $link = DbFunctions::connectWithDatabase();
 
 //session wird in login erzeugt bzw wiederaufgenommen
 //die komplette Login logik inklusive register und password reset wird mittels folgender drei klassen erledigt
-$login = new Login($link);
+$security = new Security($link);
+$login = new Login($link, $security);
 $register = new Register($link);
-$reset = new Reset($link);
+$reset = new Reset($link, $security);
 
 $news = new News($link, $login);
 
