@@ -4,6 +4,7 @@ set_time_limit(500);
 
 class News
 {
+
     private $link = null;
     private $login = null;
 
