@@ -22,7 +22,7 @@ class Security
         $this->ip_address = $this->getIpAddr();
         $text = $this->timeout;
 
-        //wenn mehr als 5
+        //wenn mehr als 3
         $count_all = Dbfunctions::getLoginAttemptsAll($this->link, $this->ip_address);
 
         if ($count_all >= $this->attemps) {
@@ -48,7 +48,7 @@ class Security
         $time = time() - $this->timeout; //wenn in den letzten x sekunden eingeloggt wurde
         $this->count = Dbfunctions::getLoginAttempts($this->link, $time, $this->ip_address);
 
-        //bei mehr als 5 versuchen nur noch 1 versuch bis nächste Stufe
+        //bei mehr als 3 versuchen nur noch 1 versuch bis nächste Stufe
         if ($count_all >= $this->attemps) {
             $this->attemps = 1;
         }
