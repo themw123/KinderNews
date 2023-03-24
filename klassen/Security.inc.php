@@ -74,15 +74,7 @@ class Security
 
     private function getIpAddr()
     {
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            //geteilte internet verbindung
-            $ipAddr = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            //proxy
-            $ipAddr = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
-            $ipAddr = $_SERVER['REMOTE_ADDR'];
-        }
+        $ipAddr = $_SERVER['REMOTE_ADDR'];
         //entfernen von ungewollten leerzeichen und zeichen
         $ipAddr = preg_replace('/[^0-9a-fA-F:\.,]/', '', $ipAddr);
 
