@@ -4,7 +4,11 @@ set_time_limit(500);
 
 class News
 {
+    //von welchen Quellen die News bezogen werden sollen
+    private const SOURCES = array("heise", "sport1", "tagesschau", "bild", "promiflash", "taz", "tagesspiegel", "ndr", "chip", "filmstarts", "eurosport", "sueddeutsche", "techbook", "derwesten", "spiegel", "n-tv", "focus", "futurezone_de", "news_de", "golem", "tagesschau", "finanz-szene", "frankenpost", "faz", "deutschlandfunk", "t-online", "sportschau", "scinexx", "ruhr24", "netzwelt", "computerbase", "zeit", "stern", "swr", "presseportal");
+
     private $link = null;
+    private $login = null;
     private $news = null;
     private $newsTranslated = null;
     private $page = null;
@@ -17,7 +21,6 @@ class News
 
         $success = $this->getNews();
         if ($success) {
-            $this->onlyNewNews();
             $this->translateNews();
             DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
         }
@@ -27,7 +30,7 @@ class News
     private function getNews()
     {
         //hole solange news(pro Request 10) bis es 10 Stück mit content gibt
-        //maximal 10 Runden/Requests
+        //maximal 8 Runden/Requests -> für productiv betrieb. news api erlaubt 200 Reqeusts pro Tag. Es soll jede Stunde aktualisiert werden. 200/24 = 8
         $success = true;
         $counter = 0;
         while ($success && count($this->news) < 10 && $counter < 10) {
@@ -67,21 +70,22 @@ class News
         $this->page = $json->{"nextPage"};
 
 
-        foreach ($json->{"results"} as $result) {
-            $content = $result->{"content"};
-            $image = $result->{"image_url"};
-            //nur news aufnehmen die einen content also text und ein bild haben
-            if ($content != null && !empty($content) && $content != "None" && $content != "none" && $content != "null" && $content != "NULL" && $content != "Null") {
-                if ($image != null && !empty($image) && $image != "None" && $image != "none" && $image != "null" && $image != "NULL" && $image != "Null") {
-                    $title = $result->{"title"};
-                    $date = $result->{"pubDate"};
-                    $this->news[] = array(
-                        'title' => $title,
-                        'text' => $content,
-                        'image' => $image,
-                        'date' => $date,
-                    );
-                }
+        $json = $json->{"results"};
+        foreach ($json as $article) {
+            $filter = $this->filterNews($article);
+            if ($filter) {
+                $title = $article->{"title"};
+                $content = $article->{"content"};
+                $image = $article->{"image_url"};
+                $source = $article->{"source_id"};
+                $date = $article->{"pubDate"};
+                $this->news[] = array(
+                    'title' => $title,
+                    'text' => $content,
+                    'image' => $image,
+                    'date' => $date,
+                    'source' => $source
+                );
             }
         }
 
@@ -89,35 +93,43 @@ class News
     }
 
 
-    private function onlyNewNews()
+    private function filterNews($article)
     {
 
+        //nur wenn content und image vorhanden
+        $content = $article->{"content"};
+        $image = $article->{"image_url"};
+        if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
+            return false;
+        }
+        if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
+            return false;
+        }
+
+        //article ist vom typ obkject und SOURCES vom typ array
+        //deshalb erst in array umwandeln
+        $article = (array) $article;
+
+        //nur bestimmte Quellen. Api erlaubt keine Quellen filterung
+        if (!in_array($article["source_id"], self::SOURCES)) {
+            return false;
+        }
+
+
+
+        //nur die neusten news
         $newsOld = DbFunctions::getNewsDb($this->link);
-
+        //nicht weiter ab hier wenn keine alten vorhanden
         if ($newsOld == null) {
-            return;
+            return true;
         }
-
-
         foreach ($newsOld as $old) {
-            $oldTitles[] = $old['originaler_titel'];
-        }
-
-        foreach ($this->news as $new) {
-            $newTitles[] = $new['title'];
-        }
-
-        $diffTitles = array_diff($newTitles, $oldTitles);
-
-        //nur die News wo title noch nicht vorhanden
-        $diffNews = array();
-        foreach ($this->news as $new) {
-            if (in_array($new['title'], $diffTitles)) {
-                $diffNews[] = $new;
+            if ($old["originaler_titel"] == $article["title"]) {
+                return false;
             }
         }
 
-        $this->news = $diffNews;
+        return true;
     }
 
     private function translateNews()
@@ -169,19 +181,6 @@ class News
 
             $responseText = $json->{"choices"}[0]->{"message"}->{"content"};
             $responseText = trim($responseText);
-
-            /*
-                //falls chatgpt die antwort früher abbricht und deshalb kein } ans ende fügt.
-                // Überprüfen, ob das letzte Zeichen ein } ist
-                $lastCharIndex = strlen($responseText) - 1;
-                if (substr($responseText, $lastCharIndex, 1) != "}") {
-                    if (substr($responseText, $lastCharIndex, 1) != "'") {
-                        $responseText = $responseText . "'}";
-                    } else {
-                        $responseText = $responseText . "}";
-                    }
-                }
-                */
 
             $myJson = json_decode($responseText);
             if (json_last_error() !== JSON_ERROR_NONE) {
