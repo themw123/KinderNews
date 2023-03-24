@@ -6,6 +6,7 @@ class News
 {
     //von welchen Quellen die News bezogen werden sollen
     //private const SOURCES = array("heise", "sport1", "tagesschau", "bild", "promiflash", "taz", "tagesspiegel", "ndr", "chip", "filmstarts", "eurosport", "sueddeutsche", "techbook", "derwesten", "spiegel", "n-tv", "focus", "futurezone_de", "news_de", "golem", "tagesschau", "finanz-szene", "frankenpost", "faz", "deutschlandfunk", "t-online", "sportschau", "scinexx", "ruhr24", "netzwelt", "computerbase", "zeit", "stern", "swr", "presseportal");
+    //vov welchen quellen nicht
     private const SOURCES = array("wort");
 
 
