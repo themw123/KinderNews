@@ -1,5 +1,3 @@
-klassen/News.inc.php
-
 vendor/phpmailer/phpmailer/
 vendor/brick/math/
 vendor/guzzlehttp/guzzle/
@@ -26,3 +24,5 @@ vendor/composer/installed.php
 vendor/composer/InstalledVersions.php
 vendor/composer/LICENSE
 vendor/composer/platform_check.php
+kindernews.sql
+klassen/News.inc.php
