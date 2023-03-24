@@ -9,7 +9,7 @@ class News
     private $login = null;
     private $news = null;
     private $newsTranslated = null;
-
+    private $newsOld = null;
     private $page = null;
 
     public function __construct($link, $login)
@@ -64,6 +64,8 @@ class News
             session_write_close();
             $success = $this->getNews();
             if ($success) {
+                $this->newsOld = DbFunctions::getNewsDb($this->link);
+                $this->onlySpecificSources();
                 $this->onlyNewNews();
                 $this->translateNews();
                 DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
@@ -149,18 +151,33 @@ class News
         return true;
     }
 
+    private function onlySpecificSources()
+    {
+        if ($this->newsOld == null) {
+            return;
+        }
+        $sources = array("heise", "sport1", "tagesschau");
+
+        $temp = array();
+        foreach ($this->news as $article) {
+            if (in_array($article["source_id"], $sources)) {
+                $temp[] = $article;
+            }
+        }
+
+        $this->news = $temp;
+    }
+
 
     private function onlyNewNews()
     {
 
-        $newsOld = DbFunctions::getNewsDb($this->link);
-
-        if ($newsOld == null) {
+        if ($this->newsOld == null) {
             return;
         }
 
 
-        foreach ($newsOld as $old) {
+        foreach ($this->newsOld as $old) {
             $oldTitles[] = $old['originaler_titel'];
         }
 
