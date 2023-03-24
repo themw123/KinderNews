@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-21 16:42:54
+/* Smarty version 4.2.0, created on 2023-03-24 17:18:08
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6419d07e028999_17666780',
+  'unifunc' => 'content_641dcd40c02489_44895627',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1679413370,
+      1 => 1679674684,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6419d07e028999_17666780 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641dcd40c02489_44895627 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -59,6 +59,8 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
  class="card-img-top" alt=""
                             onerror="this.src='./img/empty.png'">
                         <div class="card-body d-flex flex-column">
+                            <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
+</small></p>
                             <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzter_titel"];?>
 </h5>
                             <p class="card-text mt-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>

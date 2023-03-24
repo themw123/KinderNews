@@ -27,6 +27,7 @@
                         <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
                             onerror="this.src='./img/empty.png'">
                         <div class="card-body d-flex flex-column">
+                            <p class="card-text mt-auto"><small class="text-muted">{$article["quelle"]}</small></p>
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
                             <p class="card-text mt-auto">{$article["uebersetzte_preview"]}</p>
                             <p class="card-text mt-auto"><small class="text-muted">{$article["date"]}</small></p>

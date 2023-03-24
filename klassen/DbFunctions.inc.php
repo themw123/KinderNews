@@ -108,8 +108,8 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, quelle, date)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 
 		foreach ($newsTranslated as $key => $value) {
@@ -120,6 +120,7 @@ class DbFunctions
 			$original_title = $news[$key]['title'];
 			$original_text = $news[$key]['text'];
 			$image_url = $news[$key]['image'];
+			$source = $news[$key]['source'];
 			$date = $news[$key]['date'];
 
 			$translated_title = $value['title'];
@@ -132,7 +133,7 @@ class DbFunctions
 			$answer2 = $value['answer2'];
 			$answer3 = $value['answer3'];
 
-			$stmt->bind_param("sssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
+			$stmt->bind_param("ssssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $source, $date);
 			$stmt->execute();
 		}
 	}
