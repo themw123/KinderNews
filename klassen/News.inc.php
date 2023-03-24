@@ -5,7 +5,9 @@ set_time_limit(500);
 class News
 {
     //von welchen Quellen die News bezogen werden sollen
-    private const SOURCES = array("heise", "sport1", "tagesschau", "bild", "promiflash", "taz", "tagesspiegel", "ndr", "chip", "filmstarts", "eurosport", "sueddeutsche", "techbook", "derwesten", "spiegel", "n-tv", "focus", "futurezone_de", "news_de", "golem", "tagesschau", "finanz-szene", "frankenpost", "faz", "deutschlandfunk", "t-online", "sportschau", "scinexx", "ruhr24", "netzwelt", "computerbase", "zeit", "stern", "swr", "presseportal");
+    //private const SOURCES = array("heise", "sport1", "tagesschau", "bild", "promiflash", "taz", "tagesspiegel", "ndr", "chip", "filmstarts", "eurosport", "sueddeutsche", "techbook", "derwesten", "spiegel", "n-tv", "focus", "futurezone_de", "news_de", "golem", "tagesschau", "finanz-szene", "frankenpost", "faz", "deutschlandfunk", "t-online", "sportschau", "scinexx", "ruhr24", "netzwelt", "computerbase", "zeit", "stern", "swr", "presseportal");
+    private const SOURCES = array("wort");
+
 
     private $link = null;
     private $login = null;
@@ -159,18 +161,19 @@ class News
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
-        /*
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
-        */
+
 
         //article ist vom typ obkject und SOURCES vom typ array
         //deshalb erst in array umwandeln
         $article = (array) $article;
 
         //nur bestimmte Quellen. Api erlaubt keine Quellen filterung
-        if (!in_array($article["source_id"], self::SOURCES)) {
+
+        ///!!!wenn nicht im array dann weiter!!!!!! also hier werden quellen aussortiert
+        if (in_array($article["source_id"], self::SOURCES)) {
             return false;
         }
 
