@@ -11,7 +11,6 @@ class News
 
 
     private $link = null;
-    private $login = null;
     private $news = null;
     private $newsTranslated = null;
     private $page = null;
