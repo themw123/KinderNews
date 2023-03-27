@@ -35,7 +35,7 @@ class News
         //maximal 8 Runden/Requests -> für productiv betrieb. news api erlaubt 200 Reqeusts pro Tag. Es soll jede Stunde aktualisiert werden. 200/24 = 8
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 5) {
+        while ($success && count($this->news) < 10 && $counter < 10) {
             $success = $this->getNews10();
             $counter++;
         }
