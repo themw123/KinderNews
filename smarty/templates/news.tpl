@@ -24,8 +24,14 @@
             <div class="col">
                 <a href="./?news&id={$article["id"]}">
                     <div class="card border-0 h-100 ">
-                        <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
-                            onerror="this.src='./img/empty.png'">
+                        {if $article["bild_url"] == "error"}
+                            <img class="bilder rounded-top"
+                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                        {else}
+                            <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
+                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                        {/if}
                         <div class="card-body d-flex flex-column">
                             <p class="card-text mt-auto"><small class="text-muted">{$article["quelle"]}</small></p>
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>

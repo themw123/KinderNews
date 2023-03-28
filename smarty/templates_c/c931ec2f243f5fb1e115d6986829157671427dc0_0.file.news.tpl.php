@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-24 17:18:08
+/* Smarty version 4.2.0, created on 2023-03-28 21:01:04
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_641dcd40c02489_44895627',
+  'unifunc' => 'content_64233970a38836_64185579',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1679674684,
+      1 => 1680030051,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_641dcd40c02489_44895627 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64233970a38836_64185579 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -55,9 +55,15 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
                 <a href="./?news&id=<?php echo $_smarty_tpl->tpl_vars['article']->value["id"];?>
 ">
                     <div class="card border-0 h-100 ">
-                        <img class="bilder rounded-top" src=<?php echo $_smarty_tpl->tpl_vars['article']->value["bild_url"];?>
+                        <?php if ($_smarty_tpl->tpl_vars['article']->value["bild_url"] == "error") {?>
+                            <img class="bilder rounded-top"
+                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                        <?php } else { ?>
+                            <img class="bilder rounded-top" src=<?php echo $_smarty_tpl->tpl_vars['article']->value["bild_url"];?>
  class="card-img-top" alt=""
-                            onerror="this.src='./img/empty.png'">
+                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                        <?php }?>
                         <div class="card-body d-flex flex-column">
                             <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
 </small></p>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-20 12:27:11
+/* Smarty version 4.2.0, created on 2023-03-28 21:01:14
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6418430f2f71c6_20811904',
+  'unifunc' => 'content_6423397a359d58_38735081',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1679311630,
+      1 => 1680030061,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6418430f2f71c6_20811904 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6423397a359d58_38735081 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -47,9 +47,16 @@ function content_6418430f2f71c6_20811904 (Smarty_Internal_Template $_smarty_tpl)
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
             <div class="bildcontainer container-fluid">
-                <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
+
+                <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"] == null) {?>
+                    <img class="bild custom-shadow"
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                        class="card-img-top" alt="">
+                <?php } else { ?>
+                    <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
  class="card-img-top" alt=""
-                    onerror="this.onerror=null; this.src='./img/empty.png'; ">
+                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; ">
+                <?php }?>
             </div>
 
             <p class="ptitle">

@@ -5,6 +5,9 @@
 }
 
 @media (min-width: 0px) {
+    .bildcontainer {
+        width: 90%;
+    }
 
     .ptext,
     .ptextOriginal {
@@ -32,7 +35,7 @@
 
 @media (min-width: 450px) {
     .bildcontainer {
-        width: 80%;
+        width: 50%;
     }
 
     .ptitle {
@@ -42,7 +45,7 @@
 
 @media (min-width: 768px) {
     .bildcontainer {
-        width: 60%;
+        width: 40%;
     }
 
     .backgr {
@@ -57,7 +60,7 @@
 
 @media (min-width: 992px) {
     .bildcontainer {
-        width: 50%;
+        width: 30%;
     }
 
     .customContainer {
@@ -84,7 +87,7 @@
 
 @media (min-width: 1500px) {
     .bildcontainer {
-        width: 40%;
+        width: 25%;
     }
 
     .customContainer {
@@ -113,7 +116,7 @@
 
 @media (min-width: 1600px) {
     .bildcontainer {
-        width: 40%;
+        width: 20%;
     }
 
     .customContainer {
