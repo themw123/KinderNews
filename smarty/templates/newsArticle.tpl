@@ -21,17 +21,22 @@
     {include file="navbar.tpl"}
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
-            <div class="bildcontainer container-fluid">
+            {if $newsArticle["bild_url"] == null}
+                <div class="bildcontainerError container-fluid">
 
-                {if $newsArticle["bild_url"] == null}
                     <img class="bild custom-shadow"
                         src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                         class="card-img-top" alt="">
-                {else}
+                </div>
+
+            {else}
+                <div class="bildcontainer container-fluid">
+
                     <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
                         onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; ">
-                {/if}
-            </div>
+                </div>
+
+            {/if}
 
             <p class="ptitle">
                 {$newsArticle["uebersetzter_titel"]}
