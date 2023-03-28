@@ -91,7 +91,7 @@ class News
         //maximal 8 Runden/Requests -> für productiv betrieb. news api erlaubt 200 Reqeusts pro Tag. Es soll jede Stunde aktualisiert werden. 200/24 = 8
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 5) {
+        while ($success && count($this->news) < 10 && $counter < 10) {
             $success = $this->getNews10();
             $counter++;
         }
@@ -162,9 +162,11 @@ class News
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
+        /*
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
+        */
 
 
         //article ist vom typ obkject und SOURCES vom typ array
