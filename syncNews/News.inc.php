@@ -104,9 +104,11 @@ class News
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
+        /*
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
+        */
 
 
         //article ist vom typ obkject und SOURCES vom typ array
