@@ -23,17 +23,15 @@
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
             {if $newsArticle["bild_url"] == null}
                 <div class="bildcontainerError container-fluid">
-
                     <img class="bild custom-shadow"
                         src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                         class="card-img-top" alt="">
                 </div>
 
             {else}
-                <div class="bildcontainer container-fluid">
-
+                <div class="bc bildcontainer container-fluid">
                     <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
-                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; ">
+                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
                 </div>
 
             {/if}
