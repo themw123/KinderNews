@@ -1,8 +1,7 @@
 const cacheName = 'meine-pwa-cache';
 const filesToCache = [
     '/css/*',
-    '/js/*',
-    '/img/*',
+    '/js/*'
 ];
 
 self.addEventListener('install', function(event) {
