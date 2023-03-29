@@ -14,7 +14,6 @@
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/news.css" rel="stylesheet" type="text/css">
-    <script src="/service-worker.js"></script>
 
 </head>
 
