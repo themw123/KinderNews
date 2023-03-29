@@ -123,7 +123,7 @@ $smarty->display($template);
 //ab hier folgt service worker bzw. für PWA
 ?>
 
-
+<script src="/pwa/service-worker.js"></script>
 
 <script>
 	if ('serviceWorker' in navigator) {
@@ -135,5 +135,5 @@ $smarty->display($template);
 					console.log('Service Worker registration failed:', err);
 				});
 		});
-	}
-</script>
+	} <
+	/>

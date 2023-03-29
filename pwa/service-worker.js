@@ -50,7 +50,7 @@ function requestNotificationPermission() {
 // Zeitplan für das Senden der Push-Benachrichtigung jeden Abend um 19 Uhr
 function scheduleNotification() {
   const now = new Date();
-  const notificationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 23, 0);
+  const notificationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 28, 0);
   const timeUntilNotification = notificationTime.getTime() - now.getTime();
 
   if (timeUntilNotification < 0) {
