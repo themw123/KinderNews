@@ -124,7 +124,6 @@ $smarty->display($template);
 ?>
 
 
-
 <script>
 	if ('serviceWorker' in navigator) {
 		window.addEventListener('load', function() {
