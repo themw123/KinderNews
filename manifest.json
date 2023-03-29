@@ -1,21 +1,16 @@
 {
-    "name": "Meine PWA",
-    "short_name": "Meine PWA",
-    "description": "Eine beschreibende Beschreibung für meine PWA",
+    "name": "KinderNews",
+    "short_name": "KinderNews",
+    "description": "Erhalte die neusten Nachrichten für Kinder.",
     "icons": [
         {
-            "src": "document.png",
+            "src": "./img/app.png",
             "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "heart1.png",
-            "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#f7f7f7",
-    "theme_color": "#000000"
+    "background_color": "#2e2c2a",
+    "theme_color": "#2e2c2a"
 }
