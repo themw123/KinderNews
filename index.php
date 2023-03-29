@@ -135,5 +135,5 @@ $smarty->display($template);
 					console.log('Service Worker registration failed:', err);
 				});
 		});
-	} <
-	/>
+	}
+</script>
