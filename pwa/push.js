@@ -10,7 +10,7 @@ function requestNotificationPermission() {
     }
   });
 }
-
+/*
 // Zeitplan für das Senden der Push-Benachrichtigung jeden Abend um 19 Uhr
 function scheduleNotification() {
   const now = new Date();
@@ -28,6 +28,10 @@ function scheduleNotification() {
     scheduleNotification();
   }, timeUntilNotification);
 }
+*/
+
+setInterval(sendNotification, 60000);
+
 
 // Funktion zum Senden der Push-Benachrichtigung
 function sendNotification() {
