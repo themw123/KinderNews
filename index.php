@@ -126,7 +126,7 @@ $smarty->display($template);
 <script>
 	if ('serviceWorker' in navigator) {
 		window.addEventListener('load', function() {
-			navigator.serviceWorker.register('/pwa/service-worker.js')
+			navigator.serviceWorker.register('service-worker.js')
 				.then(function(registration) {
 					console.log('Service Worker registered with scope:', registration.scope);
 				}, function(err) {
@@ -136,4 +136,4 @@ $smarty->display($template);
 	}
 </script>
 
-<script src="/pwa/push.js"></script>
+<script src="/push.js"></script>
