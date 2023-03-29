@@ -1,16 +1,11 @@
 {
-    "name": "Meine PWA",
-    "short_name": "Meine PWA",
-    "description": "Eine beschreibende Beschreibung für meine PWA",
+    "name": "KinderNews",
+    "short_name": "KinderNews",
+    "description": "Erhalte die neusten Nachrichten für Kinder.",
     "icons": [
         {
-            "src": "document.png",
+            "src": "app.png",
             "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "heart1.png",
-            "sizes": "512x512",
             "type": "image/png"
         }
     ],
