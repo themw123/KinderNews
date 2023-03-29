@@ -14,6 +14,7 @@
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/newsArticle.css" rel="stylesheet" type="text/css">
+    <script src="/service-worker.js"></script>
 
 </head>
 
@@ -111,7 +112,7 @@
     </script>
     <script src="js/navbar.js"></script>
     <script src="js/newsArticle.js"></script>
-
+    <script src="push.js"></script>
 
 </body>
 

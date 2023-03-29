@@ -123,8 +123,6 @@ $smarty->display($template);
 //ab hier folgt service worker bzw. für PWA
 ?>
 
-<script src="push.js"></script>
-
 <script>
 	if ('serviceWorker' in navigator) {
 		window.addEventListener('load', function() {
@@ -137,3 +135,5 @@ $smarty->display($template);
 		});
 	}
 </script>
+
+<script src="push.js"></script>

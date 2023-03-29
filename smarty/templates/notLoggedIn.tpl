@@ -12,10 +12,11 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/notLoggedIn.css" rel="stylesheet" type="text/css">
+    <script src="/service-worker.js"></script>
+
 </head>
 
 <body>
@@ -215,7 +216,7 @@
     </script>
     <script src="js/navbar.js"></script>
     <script src="js/notLoggedIn.js"></script>
-
+    <script src="push.js"></script>
 
 </body>
 
