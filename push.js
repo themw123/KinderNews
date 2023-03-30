@@ -1,5 +1,5 @@
 //Benachrichtigung
-
+let notiRunning = false;
 
 // Funktion zum Anfordern der Benachrichtigungsberechtigung
 function requestNotificationPermission() {
@@ -25,9 +25,12 @@ function handleNotificationPermission() {
       console.log('Benachrichtigungsberechtigung erteilt');
     } else {
       // Anfordern der Benachrichtigungsberechtigung
-      requestNotificationPermission();
+      sendNotification();
     }
-    setInterval(randomNotification(), 30000);
+    if(!notiRunning) {
+      setInterval(randomNotification(), 30000);
+      notiRunning = true;
+    }
   }
 }
 /*
@@ -52,28 +55,15 @@ function scheduleNotification() {
 
 
 
-
-// Funktion zum Senden der Push-Benachrichtigung
 function sendNotification() {
-  const notificationTitle = 'Zeit für KinderNews!';
-  const notificationOptions = {
+  const title = 'Zeit für KinderNews!';
+  const options = {
     body: 'Es reich mit TikTok! Zeit für die neusten KinderNews!',
     icon: '/img/app.png',
     vibrate: [200, 100, 200, 100, 200, 100, 200]
   };
-  self.registration.showNotification(notificationTitle, notificationOptions);
-}
-
-function randomNotification() {
-  const notifTitle = "moin";
-  const notifBody = "body";
-  const notifImg = "/img/app.png";
-  const options = {
-    body: notifBody,
-    icon: notifImg,
-  };
-  new Notification(notifTitle, options);
-  setTimeout(randomNotification, 30000);
+  new Notification(title, options);
+  setTimeout(sendNotification, 30000);
 }
 
 

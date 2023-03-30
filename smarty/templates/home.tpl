@@ -14,7 +14,7 @@
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/home.css" rel="stylesheet" type="text/css">
-    <script src="service-worker.js?version=3cd4x54fd56sef"> </script>
+    <script src="service-worker.js?version=3cd4x54xfd56sef"> </script>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     </script>
     <script src="js/navbar.js"></script>
     <script src="js/home.js"></script>
-    <script src="push.js?version=2wefdx23fx53dcds45345"></script>
+    <script src="push.js?version=2wefdx23fx53dxcds45345"></script>
 
 </body>
 
