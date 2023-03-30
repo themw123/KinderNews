@@ -1,15 +1,35 @@
 //Benachrichtigung
 
 // Anforderung der Push-Benachrichtigungsberechtigung
+
+// Funktion zum Anfordern der Benachrichtigungsberechtigung
 function requestNotificationPermission() {
-  Notification.requestPermission().then(permission => {
-    if (permission === 'granted') {
+  // Überprüfen, ob die Browser-Plattform die Notification-API unterstützt
+  if ('Notification' in window) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        console.log('Benachrichtigungsberechtigung erteilt');
+      } else {
+        console.warn('Benachrichtigungsberechtigung nicht erteilt');
+      }
+    });
+  }
+}
+
+// Ereignis-Handler-Funktion, die auf eine Benutzeraktion reagiert und die Funktion zum Anfordern der Benachrichtigungsberechtigung aufruft
+function handleNotificationPermission() {
+  // Überprüfen, ob der Browser die Notification-API unterstützt
+  if ('Notification' in window) {
+    // Überprüfen, ob der Benutzer bereits die Benachrichtigungsberechtigung erteilt hat
+    if (Notification.permission === 'granted') {
       console.log('Benachrichtigungsberechtigung erteilt');
     } else {
-      console.warn('Benachrichtigungsberechtigung nicht erteilt');
+      // Anfordern der Benachrichtigungsberechtigung
+      requestNotificationPermission();
     }
-  });
+  }
 }
+document.querySelector('.navbar-brand').addEventListener('click', handleNotificationPermission);
 /*
 // Zeitplan für das Senden der Push-Benachrichtigung jeden Abend um 19 Uhr
 function scheduleNotification() {
