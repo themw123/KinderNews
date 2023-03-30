@@ -89,10 +89,12 @@ function sendNotification() {
 setInterval(sendNotification, 60000);
 
 
-
+//wait for doc to load
+$(document).ready(function() {
+  document.querySelector('.navbar-toggler-icon').addEventListener('click', handleNotificationPermission);
+});
 // Aufruf der Funktionen zum Anfordern der Benachrichtigungsberechtigung und zum Planen der Push-Benachrichtigung
 //requestNotificationPermission();
-document.querySelector('.navbar-toggler-icon').addEventListener('click', handleNotificationPermission);
 //scheduleNotification();
 
 
