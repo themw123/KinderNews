@@ -1,7 +1,5 @@
 //Benachrichtigung
 
-// Anforderung der Push-Benachrichtigungsberechtigung
-
 // Funktion zum Anfordern der Benachrichtigungsberechtigung
 function requestNotificationPermission() {
   // Überprüfen, ob die Browser-Plattform die Notification-API unterstützt
@@ -23,13 +21,13 @@ function handleNotificationPermission() {
     // Überprüfen, ob der Benutzer bereits die Benachrichtigungsberechtigung erteilt hat
     if (Notification.permission === 'granted') {
       console.log('Benachrichtigungsberechtigung erteilt');
+      sendNotification(); // Hier wird die Push-Benachrichtigung geplant
     } else {
       // Anfordern der Benachrichtigungsberechtigung
       requestNotificationPermission();
     }
   }
 }
-document.querySelector('.navbar-brand').addEventListener('click', handleNotificationPermission);
 /*
 // Zeitplan für das Senden der Push-Benachrichtigung jeden Abend um 19 Uhr
 function scheduleNotification() {
@@ -65,5 +63,6 @@ function sendNotification() {
 }
 
 // Aufruf der Funktionen zum Anfordern der Benachrichtigungsberechtigung und zum Planen der Push-Benachrichtigung
-requestNotificationPermission();
-scheduleNotification();
+//requestNotificationPermission();
+document.querySelector('.navbar-toggler-icon').addEventListener('click', handleNotificationPermission);
+//scheduleNotification();
