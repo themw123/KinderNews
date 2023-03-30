@@ -1,18 +1,6 @@
 //Benachrichtigung
 
 
-self.addEventListener('push', function(event) {
-  const notificationTitle = 'Zeit für KinderNews!';
-  const notificationOptions = {
-    body: 'Es reich mit TikTok! Zeit für die neusten KinderNews!',
-    icon: '/img/app.png',
-    vibrate: [200, 100, 200, 100, 200, 100, 200]
-  };
-  event.waitUntil(self.registration.showNotification(notificationTitle, notificationOptions));
-});
-
-
-
 // Funktion zum Anfordern der Benachrichtigungsberechtigung
 function requestNotificationPermission() {
   // Überprüfen, ob die Browser-Plattform die Notification-API unterstützt
@@ -35,7 +23,6 @@ function handleNotificationPermission() {
     // Überprüfen, ob der Benutzer bereits die Benachrichtigungsberechtigung erteilt hat
     if (Notification.permission === 'granted') {
       console.log('Benachrichtigungsberechtigung erteilt');
-      sendNotification(); // Hier wird die Push-Benachrichtigung geplant
     } else {
       // Anfordern der Benachrichtigungsberechtigung
       requestNotificationPermission();
