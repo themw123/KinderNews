@@ -25,10 +25,10 @@ function handleNotificationPermission() {
       console.log('Benachrichtigungsberechtigung erteilt');
     } else {
       // Anfordern der Benachrichtigungsberechtigung
-      sendNotification();
+      requestNotificationPermission();
     }
     if(!notiRunning) {
-      setInterval(randomNotification(), 30000);
+      setInterval(sendNotification, 30000);
       notiRunning = true;
     }
   }
