@@ -14,7 +14,7 @@
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/home.css" rel="stylesheet" type="text/css">
-    <script src="service-worker.js?version=er4t4"> </script>
+    <script src="service-worker.js?version=er4st4"> </script>
 
 </head>
 
