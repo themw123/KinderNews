@@ -27,7 +27,7 @@ function handleNotificationPermission() {
       // Anfordern der Benachrichtigungsberechtigung
       requestNotificationPermission();
     }
-    setInterval(sendNotification, 60000);
+    setInterval(randomNotification(), 30000);
   }
 }
 /*
@@ -63,6 +63,20 @@ function sendNotification() {
   };
   self.registration.showNotification(notificationTitle, notificationOptions);
 }
+
+function randomNotification() {
+  const randomItem = Math.floor(Math.random() * games.length);
+  const notifTitle = games[randomItem].name;
+  const notifBody = `Created by ${games[randomItem].author}.`;
+  const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+  const options = {
+    body: notifBody,
+    icon: notifImg,
+  };
+  new Notification(notifTitle, options);
+  setTimeout(randomNotification, 30000);
+}
+
 
 // Aufruf der Funktionen zum Anfordern der Benachrichtigungsberechtigung und zum Planen der Push-Benachrichtigung
 //requestNotificationPermission();
