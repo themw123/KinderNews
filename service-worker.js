@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
 }
 
 
+
 const cacheName = 'meine-pwa-cache';
 const filesToCache = [
 

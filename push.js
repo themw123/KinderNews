@@ -51,6 +51,7 @@ function scheduleNotification() {
 setInterval(sendNotification, 60000);
 
 
+
 // Funktion zum Senden der Push-Benachrichtigung
 function sendNotification() {
   const notificationTitle = 'Zeit für KinderNews!';
