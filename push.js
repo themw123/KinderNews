@@ -65,10 +65,9 @@ function sendNotification() {
 }
 
 function randomNotification() {
-  const randomItem = Math.floor(Math.random() * games.length);
-  const notifTitle = games[randomItem].name;
-  const notifBody = `Created by ${games[randomItem].author}.`;
-  const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+  const notifTitle = "moin";
+  const notifBody = "body";
+  const notifImg = "/img/app.png";
   const options = {
     body: notifBody,
     icon: notifImg,

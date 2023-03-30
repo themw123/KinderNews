@@ -33,7 +33,7 @@
     </script>
     <script src="js/navbar.js"></script>
     <script src="js/home.js"></script>
-    <script src="push.js?version=2wefdx23f53dcds45345"></script>
+    <script src="push.js?version=2wefdx23fx53dcds45345"></script>
 
 </body>
 
