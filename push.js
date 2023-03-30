@@ -63,7 +63,6 @@ function sendNotification() {
     vibrate: [200, 100, 200, 100, 200, 100, 200]
   };
   new Notification(title, options);
-  setTimeout(sendNotification, 30000);
 }
 
 
