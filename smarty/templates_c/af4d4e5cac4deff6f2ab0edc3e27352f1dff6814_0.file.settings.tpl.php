@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-17 18:38:43
+/* Smarty version 4.2.0, created on 2023-04-01 21:08:46
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_6414a5a3990471_61065312',
+  'unifunc' => 'content_6428813e1fa063_06333894',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1679072785,
+      1 => 1680376113,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_6414a5a3990471_61065312 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6428813e1fa063_06333894 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -30,6 +30,7 @@ function content_6414a5a3990471_61065312 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
