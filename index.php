@@ -1,4 +1,7 @@
 <?php
+
+session_cache_limiter(false);
+
 require_once('./vendor/autoload.php');
 require_once("/home/config.php");
 require_once("./includes/startTemplate.inc.php");
