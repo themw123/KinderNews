@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-28 22:02:28
+/* Smarty version 4.2.0, created on 2023-04-13 16:27:05
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_642347d4eb3957_35117336',
+  'unifunc' => 'content_643811399cdf45_13088735',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1680033739,
+      1 => 1681396023,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_642347d4eb3957_35117336 (Smarty_Internal_Template $_smarty_tpl) {
+function content_643811399cdf45_13088735 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -30,6 +30,7 @@ function content_642347d4eb3957_35117336 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -71,29 +72,19 @@ function content_642347d4eb3957_35117336 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-                <div class="mt-4">
+                <div class="mt-4 ml-4 mr-4">
                     <div class="d-flex align-items-center justify-content-between">
-                        <div class="ml-3">
-                            <img class="me-2" id="changeText" src="./img/document.png"></img>
-                        </div>
-                        <p class="pinfo">Kind</p>
-                        <div class="heartandlikes d-flex mr-4">
-                            <div class="mr-1">
-                                <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
-                                    <img class="heart" src="./img/heart2.png"></img>
-                                <?php } else { ?>
-                                    <img class="heart" src="./img/heart1.png"></img>
-                                <?php }?>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <?php if ($_smarty_tpl->tpl_vars['likes']->value == 0) {?>
-                                    <div class="likes"></div>
-                                <?php } else { ?>
-                                    <div class="likes"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
+                        <p class="pinfo" id="changeText">Kind</p>
+                        <div class="heartandlikes d-flex">
+                            <div class="d-flex align-items-center mr-1">
+                                <div class="likes"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
 </div>
-                                <?php }?>
                             </div>
+                            <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
+                                <img class="heart" src="./img/heart2.png"></img>
+                            <?php } else { ?>
+                                <img class="heart" src="./img/heart1.png"></img>
+                            <?php }?>
                         </div>
                     </div>
                 </div>

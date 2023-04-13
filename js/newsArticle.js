@@ -38,10 +38,10 @@ $("#changeText").on('click', function() {
 });
 
 if(parseInt($(".likes").text()) === 0) {
-  $(".likes").css("display", "none");
+  $(".likes").css("visibility", "hidden");
 }
 else {
-  $(".likes").css("display", "inline-block");
+  $(".likes").css("visibility", "visible");
 }
 
 
@@ -60,7 +60,7 @@ $(".heart").click(function(){
       }
       likes = likes + 1;
       $(".likes").text(likes);
-      $(".likes").css("display", "inline-block");
+      $(".likes").css("visibility", "visible");
       like = "like";
   } else {
       $(this).attr("src", "./img/heart1.png");
@@ -71,7 +71,7 @@ $(".heart").click(function(){
       likes = likes - 1;
       $(".likes").text(likes);
       if(likes == 0) {
-        $(".likes").css("display", "none");
+        $(".likes").css("visibility", "hidden");
       }
       like = "removeLike";
   }
