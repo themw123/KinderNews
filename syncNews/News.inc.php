@@ -145,6 +145,10 @@ class News
         $counter = 1;
         foreach ($this->news as $article) {
 
+
+            try {
+
+                
             $title = $article['title'];
             $text = $article['text'];
 
