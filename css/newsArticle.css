@@ -13,8 +13,13 @@
         width: 70%;
     }
 
+    .heart {
+        width: 38px;
+    }
+
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 18px;
     }
 
@@ -83,8 +88,13 @@
         width: 80% !important;
     }
 
+    .heart {
+        width: 48px;
+    }
+
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 20px;
     }
 
@@ -115,7 +125,8 @@
     }
 
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 23px;
     }
 
@@ -148,7 +159,8 @@
     }
 
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 25px;
     }
 
@@ -185,7 +197,6 @@
 
 .pinfo {
     color: rgba(255, 255, 255, 0.912);
-    font-size: 16px;
     background-color: rgba(78, 74, 74, 0.311);
     padding: 5px;
     border-radius: 10px;
@@ -237,9 +248,6 @@
     pointer-events: auto;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-    width: 35px;
-    height: 35px;
-
 }
 
 #changeText:active {
@@ -261,12 +269,12 @@
 .likes {
     color: #ffffff;
     font-size: 16px;
+    visibility: hidden;
 }
 
 .heart {
     pointer-events: auto;
     cursor: pointer;
-    width: 38px;
 }
 
 
