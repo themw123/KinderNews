@@ -1,5 +1,4 @@
-test
-<?php
+﻿<?php
 
 session_cache_limiter(false);
 
