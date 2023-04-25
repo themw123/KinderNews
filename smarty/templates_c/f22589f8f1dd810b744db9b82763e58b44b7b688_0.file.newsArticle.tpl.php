@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-04-13 16:27:05
+/* Smarty version 4.2.0, created on 2023-04-25 15:43:00
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsArticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_643811399cdf45_13088735',
+  'unifunc' => 'content_6447d8e4b37880_23504029',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f22589f8f1dd810b744db9b82763e58b44b7b688' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsArticle.tpl',
-      1 => 1681396023,
+      1 => 1682426699,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_643811399cdf45_13088735 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6447d8e4b37880_23504029 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -37,7 +37,7 @@ function content_643811399cdf45_13088735 (Smarty_Internal_Template $_smarty_tpl)
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/newsArticle.css" rel="stylesheet" type="text/css">
+    <link href="css/newsArticle.css?v=1.0" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -77,7 +77,7 @@ function content_643811399cdf45_13088735 (Smarty_Internal_Template $_smarty_tpl)
                         <p class="pinfo" id="changeText">Kind</p>
                         <div class="heartandlikes d-flex">
                             <div class="d-flex align-items-center mr-1">
-                                <div class="likes"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
+                                <div class="likes fs-4"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
 </div>
                             </div>
                             <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
@@ -143,7 +143,7 @@ function content_643811399cdf45_13088735 (Smarty_Internal_Template $_smarty_tpl)
  src="js/navbar.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="js/newsArticle.js"><?php echo '</script'; ?>
+ src="js/newsArticle.js?v=1.0"><?php echo '</script'; ?>
 >
 
 
