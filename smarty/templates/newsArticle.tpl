@@ -51,7 +51,7 @@
                         <p class="pinfo" id="changeText">Kind</p>
                         <div class="heartandlikes d-flex">
                             <div class="d-flex align-items-center mr-1">
-                                <div class="likes">{$likes}</div>
+                                <div class="likes fs-4">{$likes}</div>
                             </div>
                             {if $liked == true}
                                 <img class="heart" src="./img/heart2.png"></img>
