@@ -4,11 +4,12 @@ class Login
 {
 
     private $link = null;
+    private $security = null;
 
-
-    public function __construct($link)
+    public function __construct($link, $security)
     {
         $this->link = $link;
+        $this->security = $security;
 
         //erstelle die session
         session_start();
@@ -20,7 +21,9 @@ class Login
         if (isset($_GET["logout"]) && !isset($_SESSION["loggedOutBefore"])) {
             $this->doLogout();
         } elseif (isset($_POST["login"])) {
-            $this->doLogin();
+            if ($this->security->checkLoginAttempts()) {
+                $this->doLogin();
+            }
         }
     }
 
@@ -53,6 +56,9 @@ class Login
                     //password_verify() um zu gucken ob passwort passt
                     if (!empty($_POST['password']) && password_verify($_POST['password'], $result_row->passwort_hash)) {
 
+                        //login versuche zurücksetzten
+                        $this->security->deleteLoginAttempts();
+
                         //schreibe benutzerdaten in die session                 
                         unset($_SESSION['loggedOutBefore']);
                         $_SESSION['id'] = $result_row->id;
@@ -61,6 +67,8 @@ class Login
                         $_SESSION['admin'] = $result_row->admin;
                         $_SESSION['user_login_status'] = 1;
                     } else {
+                        //login versuche hochzählen
+                        $this->security->setLoginAttempts();
                         Logs::addError("falsches Passwort");
                     }
                 } else {

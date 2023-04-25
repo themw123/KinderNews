@@ -49,20 +49,29 @@ class DbFunctions
 		}
 	}
 
-	public static function setToken($link, $email, $token)
+	public static function setToken($link, $email, $token, $token_uhrzeit)
 	{
 		$stmt = $link->prepare(
-			"UPDATE benutzer set token=? where email=?;"
+			"UPDATE benutzer set token=?, token_uhrzeit=? where email=?;"
 		);
-		$stmt->bind_param("ss", $token, $email);
+		$stmt->bind_param("sss", $token, $token_uhrzeit, $email);
 		$stmt->execute();
+	}
+
+	public static function getTokenTime($link, $token)
+	{
+		$stmt = $link->prepare(
+			"SELECT token_uhrzeit FROM benutzer WHERE token = ?;"
+		);
+		$stmt->bind_param("s", $token);
+		$stmt->execute();
+		return $stmt->get_result()->fetch_assoc()["token_uhrzeit"];;
 	}
 
 	public static function resetPassword($link, $password_hash, $token)
 	{
-
 		$stmt = $link->prepare(
-			"UPDATE benutzer set passwort_hash=? , token='0' where token=?;"
+			"UPDATE benutzer set passwort_hash=? , token='0', token_uhrzeit=null where token=?;"
 		);
 		$stmt->bind_param("ss", $password_hash, $token);
 		$stmt->execute();
@@ -99,8 +108,8 @@ class DbFunctions
 
 		//neue news setzten
 		$stmt = $link->prepare(
-			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, date)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+			"INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, quelle, date)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 		);
 
 		foreach ($newsTranslated as $key => $value) {
@@ -111,6 +120,7 @@ class DbFunctions
 			$original_title = $news[$key]['title'];
 			$original_text = $news[$key]['text'];
 			$image_url = $news[$key]['image'];
+			$source = $news[$key]['source'];
 			$date = $news[$key]['date'];
 
 			$translated_title = $value['title'];
@@ -123,7 +133,7 @@ class DbFunctions
 			$answer2 = $value['answer2'];
 			$answer3 = $value['answer3'];
 
-			$stmt->bind_param("sssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $date);
+			$stmt->bind_param("ssssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $source, $date);
 			$stmt->execute();
 		}
 	}
@@ -194,5 +204,50 @@ class DbFunctions
 		$stmt->execute();
 		$count = $stmt->get_result()->fetch_assoc()["count"];
 		return $count;
+	}
+
+
+	public static function getLoginAttemptsAll($link, $ip_address)
+	{
+		$stmt = $link->prepare(
+			"select count(*) as count from loginlogs where ipadresse= ?"
+		);
+		$stmt->bind_param("s", $ip_address);
+		$stmt->execute();
+		$count = $stmt->get_result()->fetch_assoc()["count"];
+		return $count;
+	}
+
+	public static function getLoginAttempts($link, $time, $ip_address)
+	{
+		$stmt = $link->prepare(
+			"select count(*) as count from loginlogs where uhrzeit > ? and ipadresse= ?"
+		);
+		$stmt->bind_param("ss", $time, $ip_address);
+		$stmt->execute();
+		$count = $stmt->get_result()->fetch_assoc()["count"];
+		return $count;
+	}
+
+	public static function setLoginAttempts($link, $time, $ip_address)
+	{
+		$stmt = $link->prepare(
+			"insert into loginlogs(ipadresse,uhrzeit) values(?,?)"
+		);
+		$stmt->bind_param("ss", $ip_address, $time);
+		$stmt->execute();
+		//$count = $stmt->get_result()->fetch_assoc()[""];
+		//return $count;
+	}
+
+	public static function deleteLoginAttempts($link, $ip_address)
+	{
+		$stmt = $link->prepare(
+			"delete from loginlogs where ipadresse=?"
+		);
+		$stmt->bind_param("s", $ip_address);
+		$stmt->execute();
+		//$count = $stmt->get_result()->fetch_assoc()[""];
+		//return $count;
 	}
 }

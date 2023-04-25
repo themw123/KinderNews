@@ -6,13 +6,14 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/newsArticle.css" rel="stylesheet" type="text/css">
+    <link href="css/newsArticle.css?v=1.0" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -21,10 +22,20 @@
     {include file="navbar.tpl"}
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
-            <div class="bildcontainer container-fluid">
-                <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
-                    onerror="this.onerror=null; this.src='./img/empty.png'; ">
-            </div>
+            {if $newsArticle["bild_url"] == null}
+                <div class="bildcontainerError container-fluid">
+                    <img class="bild custom-shadow"
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                        class="card-img-top" alt="">
+                </div>
+
+            {else}
+                <div class="bc bildcontainer container-fluid">
+                    <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
+                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                </div>
+
+            {/if}
 
             <p class="ptitle">
                 {$newsArticle["uebersetzter_titel"]}
@@ -34,28 +45,18 @@
 
 
 
-                <div class="mt-4">
+                <div class="mt-4 ml-4 mr-4">
                     <div class="d-flex align-items-center justify-content-between">
-                        <div class="ml-3">
-                            <img class="me-2" id="changeText" src="./img/document.png"></img>
-                        </div>
-                        <p class="pinfo">Kind</p>
-                        <div class="heartandlikes d-flex mr-4">
-                            <div class="mr-1">
-                                {if $liked == true}
-                                    <img class="heart" src="./img/heart2.png"></img>
-                                {else}
-                                    <img class="heart" src="./img/heart1.png"></img>
-                                {/if}
+                        <p class="pinfo" id="changeText">Kind</p>
+                        <div class="heartandlikes d-flex">
+                            <div class="d-flex align-items-center mr-1">
+                                <div class="likes">{$likes}</div>
                             </div>
-
-                            <div class="d-flex align-items-center">
-                                {if $likes == 0}
-                                    <div class="likes"></div>
-                                {else}
-                                    <div class="likes">{$likes}</div>
-                                {/if}
-                            </div>
+                            {if $liked == true}
+                                <img class="heart" src="./img/heart2.png"></img>
+                            {else}
+                                <img class="heart" src="./img/heart1.png"></img>
+                            {/if}
                         </div>
                     </div>
                 </div>
@@ -99,7 +100,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js"></script>
-    <script src="js/newsArticle.js"></script>
+    <script src="js/newsArticle.js?v=1.0"></script>
 
 
 </body>

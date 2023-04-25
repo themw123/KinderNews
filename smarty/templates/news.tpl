@@ -6,6 +6,7 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,9 +25,16 @@
             <div class="col">
                 <a href="./?news&id={$article["id"]}">
                     <div class="card border-0 h-100 ">
-                        <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
-                            onerror="this.src='./img/empty.png'">
+                        {if $article["bild_url"] == "error"}
+                            <img class="bilder rounded-top"
+                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                        {else}
+                            <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
+                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                        {/if}
                         <div class="card-body d-flex flex-column">
+                            <p class="card-text mt-auto"><small class="text-muted">{$article["quelle"]}</small></p>
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
                             <p class="card-text mt-auto">{$article["uebersetzte_preview"]}</p>
                             <p class="card-text mt-auto"><small class="text-muted">{$article["date"]}</small></p>

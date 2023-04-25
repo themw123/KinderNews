@@ -1,4 +1,28 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 4.2.0, created on 2023-03-23 12:16:38
+  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notLoggedIn.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.0',
+  'unifunc' => 'content_641c35169d90d0_05459749',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6a43ef6116aae69827125d2def4cce6b3b69ff2b' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notLoggedIn.tpl',
+      1 => 1679072780,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:navbar.tpl' => 1,
+  ),
+),false)) {
+function content_641c35169d90d0_05459749 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <html>
 
 <head>
@@ -6,7 +30,6 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
-    <link rel="manifest" href="/manifest.json">
     <!-- 4.0.0 zusätzlich nötig, da wir login frontend mit 4.0.0 gemacht haben-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,25 +43,42 @@
 
 <body>
 
-    {include file="navbar.tpl"}
+    <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
     <div class="container d-flex justify-content-center align-items-center h-100">
         <div class="col-md-5 mx-auto mt-5">
-            {if !isset($errors) &&!isset($messages)}
+            <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
                 <div class="alert alert-hidden">leer</div>
-            {/if}
+            <?php }?>
 
-            {if (isset($errors))}
-                {foreach item=error from=$errors}
-                    {if ($error != false)}
-                        <div class="alert alert-warning">{$error}</div>
-                    {/if}
-                {/foreach}
-            {/if}
-            {if (isset($messages))}
-                {foreach item=message from=$messages}
-                    <div class="alert alert-custom">{$message}</div>
-                {/foreach}
-            {/if}
+            <?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
+$_smarty_tpl->tpl_vars['error']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) {
+$_smarty_tpl->tpl_vars['error']->do_else = false;
+?>
+                    <?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
+                        <div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</div>
+                    <?php }?>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            <?php }?>
+            <?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value, 'message');
+$_smarty_tpl->tpl_vars['message']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
+$_smarty_tpl->tpl_vars['message']->do_else = false;
+?>
+                    <div class="alert alert-custom"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
+</div>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            <?php }?>
 
             <div class="mb-4">
                 <div id="ohneFourth">
@@ -50,7 +90,8 @@
                                 </div>
                             </div>
                             <form action="" method="post" name="login">
-                                <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                 <div class="form-group">
                                     <label>Email oder Benutzer</label>
                                     <input type="text" name="email_or_user" class="form-control" id="email_or_user"
@@ -59,7 +100,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="password" minlength="8"
+                                    <input type="password" name="password" id="password" minlength="6"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -95,7 +136,8 @@
                                 </div>
                             </div>
                             <form action="" method="post" name="registration">
-                                <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                 <div class="form-group">
                                     <label>Benutzername</label>
                                     <input type="text" name="username" class="form-control" id="username"
@@ -108,13 +150,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="passwordRegister1" minlength="8"
+                                    <input type="password" name="password" id="passwordRegister1" minlength="6"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort wiederholen</label>
-                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
+                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="6"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -140,7 +182,8 @@
                                 </div>
                             </div>
                             <form action="" method="post" name="resetMail">
-                                <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                                <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" id="email"
@@ -171,17 +214,19 @@
                             </div>
                         </div>
                         <form action="?backToLogin" method="post" name="resetPassword">
-                            <input type="hidden" name="token" value="{$token}" />
-                            <input type="hidden" name="csrfToken" value="{$csrfToken}" />
+                            <input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
+" />
+                            <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
+" />
                             <div class="form-group">
                                 <label>Passwort neu</label>
-                                <input type="password" name="password" id="passwordReset1" minlength="8"
+                                <input type="password" name="password" id="passwordReset1" minlength="6"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort neu" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
-                                <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
+                                <input type="password" name="password_repeat" id="passwordReset2" minlength="6"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort erneut" required>
                             </div>
@@ -208,13 +253,21 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-    <script src="js/navbar.js"></script>
-    <script src="js/notLoggedIn.js"></script>
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/navbar.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/notLoggedIn.js"><?php echo '</script'; ?>
+>
 
 
 </body>
@@ -222,4 +275,5 @@
 
 
 
-</html>
+</html><?php }
+}

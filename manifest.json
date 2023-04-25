@@ -1,0 +1,16 @@
+{
+    "name": "KinderNews",
+    "short_name": "KinderNews",
+    "description": "Erhalte die neusten Nachrichten für Kinder.",
+    "icons": [
+        {
+            "src": "./img/app.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#2e2c2a",
+    "theme_color": "#2e2c2a"
+}

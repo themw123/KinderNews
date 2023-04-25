@@ -37,8 +37,8 @@ class Register
             Logs::addError("Beide Passwörter müssen ausgefüllt werden");
         } elseif ($_POST['password'] !== $_POST['password_repeat']) {
             Logs::addError("Die Passwörter stimmen nicht überein");
-        } elseif (strlen($_POST['password']) < 6) {
-            Logs::addError("Passwort muss mindestens 6 Zeichen lang sein");
+        } elseif (strlen($_POST['password']) < 8) {
+            Logs::addError("Passwort muss mindestens 8 Zeichen lang sein");
         } elseif (strlen($_POST['username']) > 64 || strlen($_POST['username']) < 2) {
             Logs::addError("Benutzername muss zwischen 2 und 62 Zeichen lang sein");
         } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['username'])) {

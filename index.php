@@ -1,11 +1,14 @@
 <?php
+
+session_cache_limiter(false);
+
 require_once('./vendor/autoload.php');
 require_once("./config.php");
 require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/Logs.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
+require_once("./klassen/Security.inc.php");
 require_once("./klassen/Login.inc.php");
-
 require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");
@@ -18,9 +21,10 @@ $link = DbFunctions::connectWithDatabase();
 
 //session wird in login erzeugt bzw wiederaufgenommen
 //die komplette Login logik inklusive register und password reset wird mittels folgender drei klassen erledigt
-$login = new Login($link);
+$security = new Security($link);
+$login = new Login($link, $security);
 $register = new Register($link);
-$reset = new Reset($link);
+$reset = new Reset($link, $security);
 
 $news = new News($link, $login);
 
@@ -118,3 +122,21 @@ $smarty->assign("settings", $settings);
 
 
 $smarty->display($template);
+
+//ab hier folgt service worker bzw. für PWA
+?>
+
+
+
+<script>
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('/service-worker.js')
+				.then(function(registration) {
+					console.log('Service Worker registered with scope:', registration.scope);
+				}, function(err) {
+					console.log('Service Worker registration failed:', err);
+				});
+		});
+	}
+</script>

@@ -5,9 +5,21 @@
 }
 
 @media (min-width: 0px) {
+    .bildcontainer {
+        width: 90%;
+    }
+
+    .bildcontainerError {
+        width: 70%;
+    }
+
+    .heart {
+        width: 38px;
+    }
 
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 18px;
     }
 
@@ -35,6 +47,10 @@
         width: 80%;
     }
 
+    .bildcontainerError {
+        width: 50%;
+    }
+
     .ptitle {
         text-align: center;
     }
@@ -42,7 +58,11 @@
 
 @media (min-width: 768px) {
     .bildcontainer {
-        width: 60%;
+        width: 50%;
+    }
+
+    .bildcontainerError {
+        width: 40%;
     }
 
     .backgr {
@@ -60,12 +80,21 @@
         width: 50%;
     }
 
+    .bildcontainerError {
+        width: 30%;
+    }
+
     .customContainer {
         width: 80% !important;
     }
 
+    .heart {
+        width: 48px;
+    }
+
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 20px;
     }
 
@@ -87,12 +116,17 @@
         width: 40%;
     }
 
+    .bildcontainerError {
+        width: 25%;
+    }
+
     .customContainer {
         width: 65% !important;
     }
 
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 23px;
     }
 
@@ -116,12 +150,17 @@
         width: 40%;
     }
 
+    .bildcontainerError {
+        width: 20%;
+    }
+
     .customContainer {
         width: 60% !important;
     }
 
     .ptext,
-    .ptextOriginal {
+    .ptextOriginal,
+    .pinfo {
         font-size: 25px;
     }
 
@@ -158,7 +197,6 @@
 
 .pinfo {
     color: rgba(255, 255, 255, 0.912);
-    font-size: 16px;
     background-color: rgba(78, 74, 74, 0.311);
     padding: 5px;
     border-radius: 10px;
@@ -193,7 +231,8 @@
     box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.2);
 }
 
-.bildcontainer {
+.bildcontainer,
+.bildcontainerError {
     margin-top: -27px;
 }
 
@@ -209,9 +248,6 @@
     pointer-events: auto;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-    width: 35px;
-    height: 35px;
-
 }
 
 #changeText:active {
@@ -233,12 +269,12 @@
 .likes {
     color: #ffffff;
     font-size: 16px;
+    visibility: hidden;
 }
 
 .heart {
     pointer-events: auto;
     cursor: pointer;
-    width: 38px;
 }
 
 
