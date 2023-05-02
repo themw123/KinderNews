@@ -1,6 +1,6 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.8",
-        "haozi-team/chatgpt-php": "^1.7"
+        "haozi-team/chatgpt-php": "*"
     }
 }
