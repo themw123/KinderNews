@@ -26,6 +26,7 @@ $security = new Security($link);
 $login = new Login($link, $security);
 $register = new Register($link);
 $reset = new Reset($link, $security);
+$settings = new Settings($link, $login);
 
 $news = new News($link, $login);
 
