@@ -226,6 +226,7 @@ class News
                     Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. $response API Error.");
                     $this->placeholder();
                     $counter++;
+                    continue;
                 }
 
                 if ($response === false) {
