@@ -211,13 +211,8 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js"></script>
-    <<<<<<< HEAD <script src="js/notLoggedIn.js">
-        </script>
-        =======
-        <script src="js/notloggedin.js"></script>
+    <script src="js/notloggedin.js"></script>
 
-
-        >>>>>>> master
 </body>
 
 
