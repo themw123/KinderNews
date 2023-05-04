@@ -106,4 +106,11 @@ class Login
         }
         return false;
     }
+    public function isUserKindernews()
+    {
+        if (isset($_SESSION['name']) && $_SESSION['name'] == "kindernews") {
+            return true;
+        }
+        return false;
+    }
 }

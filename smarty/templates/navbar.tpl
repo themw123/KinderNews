@@ -1,4 +1,3 @@
-<div class="mb-customNav">
     <nav class="navbar navbar-dark bg-custom fixed-top">
         <div class="container-fluid ">
             <div class="row">
@@ -81,5 +80,4 @@
                 </div>
             </div>
         </div>
-    </nav>
-</div>
+</nav>

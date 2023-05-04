@@ -1,3 +1,7 @@
+.container {
+    padding-top: 55px;
+}
+
 a {
     text-decoration: none !important;
 }

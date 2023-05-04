@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-05-04 23:57:21
-  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedIn.tpl' */
+/* Smarty version 4.2.0, created on 2023-05-05 00:15:32
+  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64542a41289a35_13931141',
+  'unifunc' => 'content_64542e8405bff2_53527535',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c306afa4b67c172aeb7acac322dfe6c5c66fa3f9' => 
+    'ba521b96d8fe827b2ae70787f6d00f924c7da95a' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedIn.tpl',
-      1 => 1683237440,
+      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedin.tpl',
+      1 => 1683238501,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64542a41289a35_13931141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64542e8405bff2_53527535 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -39,7 +39,7 @@ function content_64542a41289a35_13931141 (Smarty_Internal_Template $_smarty_tpl)
 
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/notLoggedIn.css" rel="stylesheet" type="text/css">
+    <link href="css/notloggedin.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -264,7 +264,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
  src="js/navbar.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="js/notLoggedIn.js"><?php echo '</script'; ?>
+ src="js/notloggedin.js"><?php echo '</script'; ?>
 >
 
 

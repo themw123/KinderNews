@@ -21,7 +21,8 @@
 <body>
 
     {include file="navbar.tpl"}
-    <p>Home!!!!!!</p>
+    <div class="mt-5">
+        <p>Home!!!!!!</p>
     </div>
 
 

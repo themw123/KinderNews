@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-23 12:16:38
+/* Smarty version 4.2.0, created on 2023-05-04 23:46:18
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notLoggedIn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_641c35169d90d0_05459749',
+  'unifunc' => 'content_645427aa757f03_91060042',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6a43ef6116aae69827125d2def4cce6b3b69ff2b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notLoggedIn.tpl',
-      1 => 1679072780,
+      1 => 1683236616,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_641c35169d90d0_05459749 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645427aa757f03_91060042 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -30,6 +30,7 @@ function content_641c35169d90d0_05459749 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
+    <link rel="manifest" href="/manifest.json">
     <!-- 4.0.0 zusätzlich nötig, da wir login frontend mit 4.0.0 gemacht haben-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,8 +46,8 @@ function content_641c35169d90d0_05459749 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <div class="container d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-5 mx-auto mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mt-5 mb-5 ">
             <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
                 <div class="alert alert-hidden">leer</div>
             <?php }?>
@@ -100,7 +101,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="password" minlength="6"
+                                    <input type="password" name="password" id="password" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -150,13 +151,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort</label>
-                                    <input type="password" name="password" id="passwordRegister1" minlength="6"
+                                    <input type="password" name="password" id="passwordRegister1" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Passwort wiederholen</label>
-                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="6"
+                                    <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
                                         class="form-control" aria-describedby="passwordHelp"
                                         placeholder="Eingabe Passwort" required>
                                 </div>
@@ -220,13 +221,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " />
                             <div class="form-group">
                                 <label>Passwort neu</label>
-                                <input type="password" name="password" id="passwordReset1" minlength="6"
+                                <input type="password" name="password" id="passwordReset1" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort neu" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
-                                <input type="password" name="password_repeat" id="passwordReset2" minlength="6"
+                                <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
                                     class="form-control" aria-describedby="passwordHelp"
                                     placeholder="Eingabe Passwort erneut" required>
                             </div>

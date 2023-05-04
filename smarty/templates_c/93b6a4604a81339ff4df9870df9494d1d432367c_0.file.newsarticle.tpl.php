@@ -1,4 +1,28 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 4.2.0, created on 2023-05-04 15:55:46
+  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsarticle.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.0',
+  'unifunc' => 'content_6453b96230dc69_25733865',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '93b6a4604a81339ff4df9870df9494d1d432367c' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsarticle.tpl',
+      1 => 1683208521,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:navbar.tpl' => 1,
+  ),
+),false)) {
+function content_6453b96230dc69_25733865 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <html>
 
 <head>
@@ -14,32 +38,34 @@
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/newsarticle.css?v=1.0" rel="stylesheet" type="text/css">
-    <script src="service-worker.js?version=er4t4"> </script>
 
 </head>
 
 <body>
 
-    {include file="navbar.tpl"}
+    <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
-            {if $newsArticle["bild_url"] == null}
+            <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"] == null) {?>
                 <div class="bildcontainerError container-fluid">
                     <img class="bild custom-shadow"
                         src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                         class="card-img-top" alt="">
                 </div>
 
-            {else}
+            <?php } else { ?>
                 <div class="bc bildcontainer container-fluid">
-                    <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
+                    <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
+ class="card-img-top" alt=""
                         onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
                 </div>
 
-            {/if}
+            <?php }?>
 
             <p class="ptitle">
-                {$newsArticle["uebersetzter_titel"]}
+                <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_titel"];?>
+
             </p>
 
             <div class="customContainer custom-shadow-article mx-5 mt-4 mb-4">
@@ -51,39 +77,48 @@
                         <p class="pinfo" id="changeText">Kind</p>
                         <div class="heartandlikes d-flex">
                             <div class="d-flex align-items-center mr-1">
-                                <div class="likes fs-4">{$likes}</div>
+                                <div class="likes fs-4"><?php echo $_smarty_tpl->tpl_vars['likes']->value;?>
+</div>
                             </div>
-                            {if $liked == true}
+                            <?php if ($_smarty_tpl->tpl_vars['liked']->value == true) {?>
                                 <img class="heart" src="./img/heart2.png"></img>
-                            {else}
+                            <?php } else { ?>
                                 <img class="heart" src="./img/heart1.png"></img>
-                            {/if}
+                            <?php }?>
                         </div>
                     </div>
                 </div>
 
 
-                <p class="ptext">{$newsArticle["uebersetzter_text"]}</p>
-                <p class="ptextOriginal hidden">{$newsArticle["originaler_text"]}</p>
+                <p class="ptext"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_text"];?>
+</p>
+                <p class="ptextOriginal hidden"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["originaler_text"];?>
+</p>
 
             </div>
 
-            <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1">{$newsArticle["frage1"]}</p>
+            <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage1"];?>
+</p>
             <div class="answer collapse mx-2" id="answer1">
                 <div class="card card-body mb-4">
-                    {$newsArticle["answer1"]}
+                    <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer1"];?>
+
                 </div>
             </div>
-            <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2">{$newsArticle["frage2"]}</p>
+            <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage2"];?>
+</p>
             <div class="answer collapse mx-2" id="answer2">
                 <div class="card card-body mb-4">
-                    {$newsArticle["answer2"]}
+                    <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer2"];?>
+
                 </div>
             </div>
-            <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3">{$newsArticle["frage3"]}</p>
+            <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage3"];?>
+</p>
             <div class="answer collapse mx-2" id="answer3">
                 <div class="card card-body mb-4">
-                    {$newsArticle["answer3"]}
+                    <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer3"];?>
+
                 </div>
             </div>
         </div>
@@ -95,17 +130,27 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-    <script src="js/navbar.js"></script>
-    <script src="js/newsarticle.js?v=1.0"></script>
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/navbar.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/newsarticle.js?v=1.0"><?php echo '</script'; ?>
+>
+
 
 </body>
 
 
 
 
-</html>
+</html><?php }
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-05-02 16:31:37
+/* Smarty version 4.2.0, created on 2023-05-05 00:28:35
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64511ec94a9764_74877989',
+  'unifunc' => 'content_64543193a4c0b4_00402072',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1683037723,
+      1 => 1683239315,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64511ec94a9764_74877989 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64543193a4c0b4_00402072 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -45,13 +45,11 @@ function content_64511ec94a9764_74877989 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <div class="container d-flex justify-content-center align-items-center h-100">
-
-
-        <div class="col-md-5 mx-auto mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 mt-5 mb-5">
             <div class="alert alert-hidden">leer</div>
 
-            <div class="card text-bg-light custom-shadow rounded-4 mb-4">
+            <div class="card text-bg-light custom-shadow rounded-4">
                 <div class="card-header fs-5 fw-bold">Einstellungen</div>
                 <div class="card-body d-flex flex-column">
                     <div>
@@ -71,24 +69,96 @@ function content_64511ec94a9764_74877989 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                         </div>
 
+                        <?php if ($_smarty_tpl->tpl_vars['admin']->value == "Administrator") {?>
 
-                        <div class="card text-bg-light">
-                            <div class="card-header">News aktualisieren</div>
-                            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
-                                    geladen und
-                                    anschließend
-                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann mehrere Minuten
-                                    dauern.
-                                </p>
-                                <button class="btn btn-dark loadingButton" type="button" <?php echo $_smarty_tpl->tpl_vars['buttonState']->value;?>
+                            <div class="card text-bg-light mb-3">
+                                <div class="card-header">Berechtigung bearbeiten</div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <p class="text-center customFontSize">Nur der Benutzter kindernews kann die Berechtigung
+                                        ändern.
+                                    </p>
+                                    <div class="table">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Benutzter</th>
+                                                    <th>Admin</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['alleBenutzer']->value, 'benutzer');
+$_smarty_tpl->tpl_vars['benutzer']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['benutzer']->value) {
+$_smarty_tpl->tpl_vars['benutzer']->do_else = false;
+?>
+                                                    <?php if ($_smarty_tpl->tpl_vars['benutzer']->value["name"] != "kindernews") {?>
+                                                        <tr>
+                                                            <td><?php echo $_smarty_tpl->tpl_vars['benutzer']->value["name"];?>
+</td>
+                                                            <td>
+                                                                <div class="form-check form-switch">
+                                                                    <?php if ($_smarty_tpl->tpl_vars['benutzer']->value["admin"] == 1) {?>
+                                                                        <?php if ($_smarty_tpl->tpl_vars['name']->value != "kindernews") {?>
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id=<?php echo $_smarty_tpl->tpl_vars['benutzer']->value["id"];?>
+ checked disabled>
+                                                                        <?php } else { ?>
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id=<?php echo $_smarty_tpl->tpl_vars['benutzer']->value["id"];?>
+ checked>
+                                                                        <?php }?>
+
+                                                                    <?php } else { ?>
+                                                                        <?php if ($_smarty_tpl->tpl_vars['name']->value != "kindernews") {?>
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id=<?php echo $_smarty_tpl->tpl_vars['benutzer']->value["id"];?>
+ disabled>
+                                                                        <?php } else { ?>
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id=<?php echo $_smarty_tpl->tpl_vars['benutzer']->value["id"];?>
 >
-                                    <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
-                                        aria-hidden="true"></span>
-                                    <div class="buttonText">aktualisieren</div>
-                                </button>
+                                                                        <?php }?>
+
+                                                                    <?php }?>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php }?>
+
+                                                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="card text-bg-light">
+                                <div class="card-header">News aktualisieren</div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
+                                        geladen und
+                                        anschließend
+                                        übersetzt. Dieser Vorgang kann mehrere Minuten
+                                        dauern.
+                                    </p>
+                                    <button class="btn btn-dark loadingButton" type="button" <?php echo $_smarty_tpl->tpl_vars['buttonState']->value;?>
+>
+                                        <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
+                                            aria-hidden="true"></span>
+                                        <div class="buttonText">aktualisieren</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                        <?php }?>
 
 
 
