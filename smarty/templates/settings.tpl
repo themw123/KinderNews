@@ -20,13 +20,11 @@
 <body>
 
     {include file="navbar.tpl"}
-    <div class="container d-flex justify-content-center align-items-center h-100">
-
-
-        <div class="col-md-5 mx-auto mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 mt-5 mb-5">
             <div class="alert alert-hidden">leer</div>
 
-            <div class="card text-bg-light custom-shadow rounded-4 mb-4">
+            <div class="card text-bg-light custom-shadow rounded-4">
                 <div class="card-header fs-5 fw-bold">Einstellungen</div>
                 <div class="card-body d-flex flex-column">
                     <div>
@@ -43,23 +41,102 @@
                             <p class="customFontSize">{$admin}</p>
                         </div>
 
+                        {if $admin == "Administrator"}
 
-                        <div class="card text-bg-light">
-                            <div class="card-header">News aktualisieren</div>
-                            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
-                                    geladen und
-                                    anschließend
-                                    übersetzt. Nur Administratoren sind berechtigt. Dieser Vorgang kann mehrere Minuten
-                                    dauern.
-                                </p>
-                                <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
-                                    <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
-                                        aria-hidden="true"></span>
-                                    <div class="buttonText">aktualisieren</div>
-                                </button>
+                            <div class="card text-bg-light mb-3">
+                                <div class="card-header">Berechtigung bearbeiten</div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <p class="text-center customFontSize">Nur der Benutzter kindernews kann die Berechtigung
+                                        ändern.
+                                    </p>
+                                    <div class="table">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Benutzter</th>
+                                                    <th>Admin</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {foreach $alleBenutzer as $benutzer}
+                                                    {if $benutzer["name"] != "kindernews"}
+                                                        <tr>
+                                                            <td>{$benutzer["name"]}</td>
+                                                            <td>
+                                                                <div class="form-check form-switch">
+                                                                    {if $benutzer["admin"] == 1}
+                                                                        {if $name != "kindernews"}
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id={$benutzer["id"]} checked disabled>
+                                                                        {else}
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id={$benutzer["id"]} checked>
+                                                                        {/if}
+
+                                                                    {else}
+                                                                        {if $name != "kindernews"}
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id={$benutzer["id"]} disabled>
+                                                                        {else}
+                                                                            <input class="form-check-input switch" type="checkbox"
+                                                                                id={$benutzer["id"]}>
+                                                                        {/if}
+
+                                                                    {/if}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    {/if}
+
+                                                {/foreach}
+
+                                                <tr>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="card text-bg-light">
+                                <div class="card-header">News aktualisieren</div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <p class="text-center customFontSize">Achtung! Es werden die neusten News (maximal 10)
+                                        geladen und
+                                        anschließend
+                                        übersetzt. Dieser Vorgang kann mehrere Minuten
+                                        dauern.
+                                    </p>
+                                    <button class="btn btn-dark loadingButton" type="button" {$buttonState}>
+                                        <span class="spinner-border spinner-border-sm buttonSpinner" role="status"
+                                            aria-hidden="true"></span>
+                                        <div class="buttonText">aktualisieren</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                        {/if}
 
 
 

@@ -13,6 +13,7 @@ require_once('./klassen/Mail.inc.php');
 require_once("./klassen/Register.inc.php");
 require_once("./klassen/Reset.inc.php");
 require_once("./klassen/Request.inc.php");
+require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
 
@@ -25,6 +26,7 @@ $security = new Security($link);
 $login = new Login($link, $security);
 $register = new Register($link);
 $reset = new Reset($link, $security);
+$settings = new Settings($link, $login);
 
 $news = new News($link, $login);
 
@@ -78,6 +80,8 @@ if ($login->isUserLoggedIn()) {
 			$template = 'news.tpl';
 		}
 	} elseif (isset($_GET["settings"])) {
+		$alleBenutzer = DbFunctions::getUsers($link);
+
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];
 		$admin = $_SESSION["admin"];
@@ -92,6 +96,7 @@ if ($login->isUserLoggedIn()) {
 		$smarty->assign('email', $email);
 		$smarty->assign("admin", $admin);
 		$smarty->assign("buttonState", $buttonState);
+		$smarty->assign("alleBenutzer", $alleBenutzer);
 		$template = 'settings.tpl';
 	} else {
 		$template = 'home.tpl';

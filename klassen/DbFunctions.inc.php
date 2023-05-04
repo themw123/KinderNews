@@ -250,4 +250,39 @@ class DbFunctions
 		//$count = $stmt->get_result()->fetch_assoc()[""];
 		//return $count;
 	}
+
+	public static function getUsers($link)
+	{
+		$stmt = $link->prepare(
+			"Select * from benutzer"
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
+	}
+
+	public static function changeRole($link, $id, $admin)
+	{
+		$stmt = $link->prepare(
+			"UPDATE benutzer set admin=? where id=?;"
+		);
+		$stmt->bind_param("ii", $admin, $id);
+		$stmt->execute();
+		if ($stmt->affected_rows > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static function getNameById($link, $id)
+	{
+		$stmt = $link->prepare(
+			"SELECT name FROM benutzer WHERE id = ?;"
+		);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$name = $stmt->get_result()->fetch_assoc()["name"];
+		return $name;
+	}
 }

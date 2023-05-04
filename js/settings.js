@@ -53,3 +53,41 @@ function getNews() {
       }
   });
 }
+
+
+$('.switch').change(function() {
+  var isChecked = $(this).is(':checked'); 
+  var id = $(this).attr('id');
+
+  var admin;
+  if(isChecked) {
+    admin = 1;
+  }
+  else {
+    admin = 0;
+  }
+  changeRole(id, admin);
+
+});
+
+
+function changeRole(id, admin) {
+  $.ajax({
+    url: "index.php",
+    method: "POST",
+    dataType: "json",
+    data: {
+      changeRole: "changeRole",
+      id: id,
+      admin: admin,
+    },
+    success: function (response) {
+    },
+    error: function () {
+    },
+
+    complete: function(response) {
+
+    }
+  });
+}
