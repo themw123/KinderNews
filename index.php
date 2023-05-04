@@ -96,6 +96,7 @@ if ($login->isUserLoggedIn()) {
 		$smarty->assign('email', $email);
 		$smarty->assign("admin", $admin);
 		$smarty->assign("buttonState", $buttonState);
+		$smarty->assign("alleBenutzer", $alleBenutzer);
 		$template = 'settings.tpl';
 	} else {
 		$template = 'home.tpl';
