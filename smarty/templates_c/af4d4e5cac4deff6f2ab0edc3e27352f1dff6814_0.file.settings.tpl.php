@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-05-04 23:06:59
+/* Smarty version 4.2.0, created on 2023-05-05 00:28:35
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64541e7381ce44_84231357',
+  'unifunc' => 'content_64543193a4c0b4_00402072',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1683234419,
+      1 => 1683239315,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64541e7381ce44_84231357 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64543193a4c0b4_00402072 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -130,26 +130,7 @@ $_smarty_tpl->tpl_vars['benutzer']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
+
 
                                             </tbody>
 

@@ -90,26 +90,7 @@
 
                                                 {/foreach}
 
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td></td>
-                                                </tr>
+
 
                                             </tbody>
 
