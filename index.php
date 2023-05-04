@@ -80,6 +80,8 @@ if ($login->isUserLoggedIn()) {
 			$template = 'news.tpl';
 		}
 	} elseif (isset($_GET["settings"])) {
+		$alleBenutzer = DbFunctions::getUsers($link);
+
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];
 		$admin = $_SESSION["admin"];
