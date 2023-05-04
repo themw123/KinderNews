@@ -64,7 +64,7 @@ if ($login->isUserLoggedIn()) {
 				$smarty->assign('newsArticle', $newsArticle);
 				$smarty->assign('liked', $liked);
 				$smarty->assign('likes', $likes);
-				$template = 'newsArticle.tpl';
+				$template = 'newsarticle.tpl';
 			} else {
 				$newsArray = DbFunctions::getNewsDb($link);
 				$smarty->assign('news', $newsArray);
@@ -101,14 +101,14 @@ if ($login->isUserLoggedIn()) {
 	$login_or_logout = "Login";
 	$login_or_logout_link = "./?login";
 	$settings = "./?settings";
-	$template = 'notloggedIn.tpl';
+	$template = 'notloggedin.tpl';
 }
 
 
 if (isset($_GET["home"])) {
 	$template = 'home.tpl';
 } elseif (isset($_GET["login"]) && !$login->isUserLoggedIn()) {
-	$template = 'notLoggedIn.tpl';
+	$template = 'notloggedin.tpl';
 } elseif (empty($_GET)) {
 	$template = 'home.tpl';
 }

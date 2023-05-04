@@ -15,7 +15,7 @@
 
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/notLoggedIn.css" rel="stylesheet" type="text/css">
+    <link href="css/notloggedin.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -214,7 +214,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js"></script>
-    <script src="js/notLoggedIn.js"></script>
+    <script src="js/notloggedin.js"></script>
 
 
 </body>
