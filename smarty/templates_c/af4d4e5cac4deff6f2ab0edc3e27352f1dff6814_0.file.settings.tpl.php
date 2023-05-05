@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-05-05 00:28:35
+/* Smarty version 4.2.0, created on 2023-05-05 15:48:34
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64543193a4c0b4_00402072',
+  'unifunc' => 'content_64550932325e32_28399162',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af4d4e5cac4deff6f2ab0edc3e27352f1dff6814' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\settings.tpl',
-      1 => 1683239315,
+      1 => 1683294514,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64543193a4c0b4_00402072 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64550932325e32_28399162 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -77,8 +77,8 @@ function content_64543193a4c0b4_00402072 (Smarty_Internal_Template $_smarty_tpl)
                                     <p class="text-center customFontSize">Nur der Benutzter kindernews kann die Berechtigung
                                         ändern.
                                     </p>
-                                    <div class="table">
-                                        <table class="table table-striped">
+                                    <div class="table ">
+                                        <table class="table table-striped ">
                                             <thead>
                                                 <tr>
                                                     <th>Benutzter</th>
@@ -129,7 +129,6 @@ $_smarty_tpl->tpl_vars['benutzer']->do_else = false;
                                                 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
 
 
                                             </tbody>

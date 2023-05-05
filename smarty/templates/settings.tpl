@@ -49,8 +49,8 @@
                                     <p class="text-center customFontSize">Nur der Benutzter kindernews kann die Berechtigung
                                         ändern.
                                     </p>
-                                    <div class="table">
-                                        <table class="table table-striped">
+                                    <div class="table ">
+                                        <table class="table table-striped ">
                                             <thead>
                                                 <tr>
                                                     <th>Benutzter</th>
@@ -89,7 +89,6 @@
                                                     {/if}
 
                                                 {/foreach}
-
 
 
                                             </tbody>
