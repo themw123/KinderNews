@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '7a1eb2b9da7e2a7dc9234fff035754e2724370bd',
+        'reference' => 'a50ed920bcadc50f4edba32051f98e9af2b0e9d2',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '7a1eb2b9da7e2a7dc9234fff035754e2724370bd',
+            'reference' => 'a50ed920bcadc50f4edba32051f98e9af2b0e9d2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -150,6 +150,15 @@
             'replaced' => array(
                 0 => '4.7.4',
             ),
+        ),
+        'smarty/smarty' => array(
+            'pretty_version' => 'v4.3.1',
+            'version' => '4.3.1.0',
+            'reference' => 'e28cb0915b4e3749bf57d4ebae2984e25395cfe5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../smarty/smarty',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(
             'pretty_version' => 'v3.2.1',
