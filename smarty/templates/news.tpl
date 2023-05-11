@@ -27,12 +27,10 @@
                 <a href="./?news&id={$article["id"]}">
                     <div class="card border-0 h-100 ">
                         {if $article["bild_url"] == "error"}
-                            <img class="bilder rounded-top"
-                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
-                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                            <img class="bilder rounded-top" src='img/empty.svg' class="card-img-top" alt="">
                         {else}
                             <img class="bilder rounded-top" src={$article["bild_url"]} class="card-img-top" alt=""
-                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                                onerror="this.src='img/empty.svg'">
                         {/if}
                         <div class="card-body d-flex flex-column">
                             <div class="card-title d-flex justify-content-between">

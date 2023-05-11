@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-11 12:03:10
+/* Smarty version 4.3.1, created on 2023-05-11 12:24:07
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645cbd5eacd7c1_13806376',
+  'unifunc' => 'content_645cc247acc171_57896792',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1683799387,
+      1 => 1683800637,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_645cbd5eacd7c1_13806376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645cc247acc171_57896792 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -58,13 +58,11 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
 ">
                     <div class="card border-0 h-100 ">
                         <?php if ($_smarty_tpl->tpl_vars['article']->value["bild_url"] == "error") {?>
-                            <img class="bilder rounded-top"
-                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
-                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                            <img class="bilder rounded-top" src='img/empty.svg' class="card-img-top" alt="">
                         <?php } else { ?>
                             <img class="bilder rounded-top" src=<?php echo $_smarty_tpl->tpl_vars['article']->value["bild_url"];?>
  class="card-img-top" alt=""
-                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                                onerror="this.src='img/empty.svg'">
                         <?php }?>
                         <div class="card-body d-flex flex-column">
                             <div class="card-title d-flex justify-content-between">
