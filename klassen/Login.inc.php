@@ -25,8 +25,13 @@ class Login
                 $this->doLogin();
                 //auf index.php umleiten, damit index.php erneut geladen wird nur diesmal als get und nicht post.
                 //sonnst wird beim ersten mal neuladen von index.php bzw der news template ein fehler angezeigt
-                //header("Location: index.php?news");
-                $ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                //falls zuvor logout gemacht wurde url umschreiben sonnst direkt nach login logout
+                $ziel = $_SERVER['REQUEST_URI'];
+                if ($ziel == "/KinderNews/?logout") {
+                    $ziel = "/KinderNews/?news";
+                }
+
+                $ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $ziel;
                 header("Location: " . $ziel_url);
             }
         }
