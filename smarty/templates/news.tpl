@@ -40,7 +40,11 @@
                                 {if {$article["likes"]} > 0}
                                     <div class="heartandlikes d-flex align-items-center">
                                         <div class="likes fs-4">{$article["likes"]}</div>
-                                        <img class="heart" src="./img/heart2.png"></img>
+                                        {if {$article["liked"]} == true}
+                                            <img class="heart1" src="./img/heart2.png"></img>
+                                        {else}
+                                            <img class="heart3" src="./img/heart3.png"></img>
+                                        {/if}
                                     </div>
                                 {/if}
                             </div>

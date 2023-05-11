@@ -78,14 +78,23 @@ if ($login->isUserLoggedIn()) {
 			$newsArray = DbFunctions::getNewsDb($link);
 			$allLikes = DbFunctions::getAllLikesDb($link);
 			//anzahl an likes für jede news hinzufügen
+			//und
+			//
+			//gucken ob aktueller user news geliked hat
+			$user_id = DbFunctions::getIdByName($link, $name);
 			foreach ($newsArray as $key => $news) {
 				$newsArray[$key]["likes"] = 0;
+				$newsArray[$key]["liked"] = false;
 				foreach ($allLikes as $like) {
 					if ($news["id"] == $like["news_id"]) {
 						$newsArray[$key]["likes"]++;
 					}
+					if ($newsArray[$key]["liked"] == false && $news["id"] == $like["news_id"] && $like["benutzter_id"] == $user_id) {
+						$newsArray[$key]["liked"] = true;
+					}
 				}
 			}
+
 			$smarty->assign('news', $newsArray);
 			$template = 'news.tpl';
 		}

@@ -295,4 +295,14 @@ class DbFunctions
 		$name = $stmt->get_result()->fetch_assoc()["name"];
 		return $name;
 	}
+	public static function getIdByName($link, $name)
+	{
+		$stmt = $link->prepare(
+			"SELECT id FROM benutzer WHERE name = ?;"
+		);
+		$stmt->bind_param("s", $name);
+		$stmt->execute();
+		$name = $stmt->get_result()->fetch_assoc()["id"];
+		return $name;
+	}
 }
