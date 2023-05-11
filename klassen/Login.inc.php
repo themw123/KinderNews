@@ -23,6 +23,11 @@ class Login
         } elseif (isset($_POST["login"])) {
             if ($this->security->checkLoginAttempts()) {
                 $this->doLogin();
+                //auf index.php umleiten, damit index.php erneut geladen wird nur diesmal als get und nicht post.
+                //sonnst wird beim ersten mal neuladen von index.php bzw der news template ein fehler angezeigt
+                //header("Location: index.php?news");
+                $ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                header("Location: " . $ziel_url);
             }
         }
     }
