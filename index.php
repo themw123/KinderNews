@@ -76,6 +76,35 @@ if ($login->isUserLoggedIn()) {
 			//news feed
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
 			$newsArray = DbFunctions::getNewsDb($link);
+			$allLikes = DbFunctions::getAllLikesDb($link);
+			//anzahl an likes für jede news hinzufügen
+			//und
+			//
+			//gucken ob aktueller user news geliked hat
+			$user_id = DbFunctions::getIdByName($link, $name);
+			foreach ($newsArray as $key => $news) {
+				$newsArray[$key]["likes"] = 0;
+				$newsArray[$key]["liked"] = false;
+				foreach ($allLikes as $like) {
+					if ($news["id"] == $like["news_id"]) {
+						$newsArray[$key]["likes"]++;
+					}
+					if ($newsArray[$key]["liked"] == false && $news["id"] == $like["news_id"] && $like["benutzter_id"] == $user_id) {
+						$newsArray[$key]["liked"] = true;
+					}
+				}
+			}
+			//folgendes damit newsfeed immer neu geladen wird. Wenn man beispielsweise bei einem artikel auf den zurück button klickt, wird newsfeed nicht aus cash genommen sondern neu geladen.
+			//nötig, damit like aktualisiert wird
+			// any valid date in the past
+			header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+			// always modified right now
+			header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+			// HTTP/1.1
+			header("Cache-Control: private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0");
+			// HTTP/1.0
+			header("Pragma: no-cache");
+
 			$smarty->assign('news', $newsArray);
 			$template = 'news.tpl';
 		}

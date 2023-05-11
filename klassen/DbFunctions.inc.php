@@ -148,6 +148,16 @@ class DbFunctions
 		return $result;
 	}
 
+	public static function getAllLikesDb($link)
+	{
+		$stmt = $link->prepare(
+			"Select * from bewertung;"
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
+	}
+
 	public static function getNewsArticleDb($link, $id)
 	{
 		$stmt = $link->prepare(
@@ -283,6 +293,16 @@ class DbFunctions
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$name = $stmt->get_result()->fetch_assoc()["name"];
+		return $name;
+	}
+	public static function getIdByName($link, $name)
+	{
+		$stmt = $link->prepare(
+			"SELECT id FROM benutzer WHERE name = ?;"
+		);
+		$stmt->bind_param("s", $name);
+		$stmt->execute();
+		$name = $stmt->get_result()->fetch_assoc()["id"];
 		return $name;
 	}
 }

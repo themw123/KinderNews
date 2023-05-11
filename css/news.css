@@ -27,3 +27,28 @@ a:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
+
+.heart1 {
+    width: 23px;
+    height: 23px;
+}
+
+.heart3 {
+    width: 18px;
+    height: 18px;
+    margin-left: 3px;
+    margin-right: 2px;
+    margin-top: 1px;
+}
+
+.likes {
+    font-size: 12px !important;
+}
+
+.source {
+    margin-bottom: 0px !important;
+}
+
+.card-preview {
+    font-size: 14px;
+}

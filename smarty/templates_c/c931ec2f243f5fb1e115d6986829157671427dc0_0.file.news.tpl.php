@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-06 14:11:23
+/* Smarty version 4.3.1, created on 2023-05-11 15:50:33
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645643eb866fd3_62903741',
+  'unifunc' => 'content_645cf2a92a1303_04405714',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1683295348,
+      1 => 1683812960,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_645643eb866fd3_62903741 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645cf2a92a1303_04405714 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -58,22 +58,41 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
 ">
                     <div class="card border-0 h-100 ">
                         <?php if ($_smarty_tpl->tpl_vars['article']->value["bild_url"] == "error") {?>
-                            <img class="bilder rounded-top"
-                                src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
-                                class="card-img-top" alt="" onerror="this.src='./img/empty.png'">
+                            <img class="bilder rounded-top" src='img/empty.svg' class="card-img-top" alt="">
                         <?php } else { ?>
                             <img class="bilder rounded-top" src=<?php echo $_smarty_tpl->tpl_vars['article']->value["bild_url"];?>
  class="card-img-top" alt=""
-                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+                                onerror="this.src='img/empty.svg'">
                         <?php }?>
                         <div class="card-body d-flex flex-column">
-                            <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
-</small></p>
+                            <div class="card-title d-flex justify-content-between">
+                                <p class="source">
+                                    <small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
+</small>
+                                </p>
+                                <?php ob_start();
+echo $_smarty_tpl->tpl_vars['article']->value["likes"];
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 > 0) {?>
+                                    <div class="heartandlikes d-flex align-items-center">
+                                        <div class="likes fs-4"><?php echo $_smarty_tpl->tpl_vars['article']->value["likes"];?>
+</div>
+                                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['article']->value["liked"];
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2 == true) {?>
+                                            <img class="heart1" src="./img/heart2.png"></img>
+                                        <?php } else { ?>
+                                            <img class="heart3" src="./img/heart3.png"></img>
+                                        <?php }?>
+                                    </div>
+                                <?php }?>
+                            </div>
                             <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzter_titel"];?>
 </h5>
-                            <p class="card-text mt-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
+                            <p class="card-preview mt-auto mb-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
 </p>
-                            <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
+                            <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
 </small></p>
                         </div>
                     </div>
