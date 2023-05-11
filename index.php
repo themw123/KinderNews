@@ -76,6 +76,16 @@ if ($login->isUserLoggedIn()) {
 			//news feed
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
 			$newsArray = DbFunctions::getNewsDb($link);
+			$allLikes = DbFunctions::getAllLikesDb($link);
+			//anzahl an likes für jede news hinzufügen
+			foreach ($newsArray as $key => $news) {
+				$newsArray[$key]["likes"] = 0;
+				foreach ($allLikes as $like) {
+					if ($news["id"] == $like["news_id"]) {
+						$newsArray[$key]["likes"]++;
+					}
+				}
+			}
 			$smarty->assign('news', $newsArray);
 			$template = 'news.tpl';
 		}

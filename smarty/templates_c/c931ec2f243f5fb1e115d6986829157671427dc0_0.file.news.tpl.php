@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-11 09:57:39
+/* Smarty version 4.3.1, created on 2023-05-11 12:03:10
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645c9ff3707f90_47068931',
+  'unifunc' => 'content_645cbd5eacd7c1_13806376',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1683400959,
+      1 => 1683799387,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_645c9ff3707f90_47068931 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645cbd5eacd7c1_13806376 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -67,13 +67,27 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
                                 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
                         <?php }?>
                         <div class="card-body d-flex flex-column">
-                            <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
-</small></p>
+                            <div class="card-title d-flex justify-content-between">
+                                <p class="source">
+                                    <small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
+</small>
+                                </p>
+                                <?php ob_start();
+echo $_smarty_tpl->tpl_vars['article']->value["likes"];
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 > 0) {?>
+                                    <div class="heartandlikes d-flex align-items-center">
+                                        <div class="likes fs-4"><?php echo $_smarty_tpl->tpl_vars['article']->value["likes"];?>
+</div>
+                                        <img class="heart" src="./img/heart2.png"></img>
+                                    </div>
+                                <?php }?>
+                            </div>
                             <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzter_titel"];?>
 </h5>
-                            <p class="card-text mt-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
+                            <p class="card-preview mt-auto mb-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
 </p>
-                            <p class="card-text mt-auto"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
+                            <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
 </small></p>
                         </div>
                     </div>

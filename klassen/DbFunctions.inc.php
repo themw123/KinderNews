@@ -148,6 +148,16 @@ class DbFunctions
 		return $result;
 	}
 
+	public static function getAllLikesDb($link)
+	{
+		$stmt = $link->prepare(
+			"Select * from bewertung;"
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
+	}
+
 	public static function getNewsArticleDb($link, $id)
 	{
 		$stmt = $link->prepare(

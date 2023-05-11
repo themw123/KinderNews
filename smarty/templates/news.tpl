@@ -35,10 +35,20 @@
                                 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
                         {/if}
                         <div class="card-body d-flex flex-column">
-                            <p class="card-text mt-auto"><small class="text-muted">{$article["quelle"]}</small></p>
+                            <div class="card-title d-flex justify-content-between">
+                                <p class="source">
+                                    <small class="text-muted">{$article["quelle"]}</small>
+                                </p>
+                                {if {$article["likes"]} > 0}
+                                    <div class="heartandlikes d-flex align-items-center">
+                                        <div class="likes fs-4">{$article["likes"]}</div>
+                                        <img class="heart" src="./img/heart2.png"></img>
+                                    </div>
+                                {/if}
+                            </div>
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
-                            <p class="card-text mt-auto">{$article["uebersetzte_preview"]}</p>
-                            <p class="card-text mt-auto"><small class="text-muted">{$article["date"]}</small></p>
+                            <p class="card-preview mt-auto mb-auto">{$article["uebersetzte_preview"]}</p>
+                            <p class="card-text"><small class="text-muted">{$article["date"]}</small></p>
                         </div>
                     </div>
                 </a>
