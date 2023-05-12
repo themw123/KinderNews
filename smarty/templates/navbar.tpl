@@ -52,6 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="nav-news" href="./?news">News</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-favourites" href="./?favourites">Favourites</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="d-sm-none d-block pl-2 pr-4 pb-4 pt-2 ">

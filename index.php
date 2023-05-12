@@ -128,7 +128,57 @@ if ($login->isUserLoggedIn()) {
 		$smarty->assign("buttonState", $buttonState);
 		$smarty->assign("alleBenutzer", $alleBenutzer);
 		$template = 'settings.tpl';
-	} else {
+	} 
+	//Für den Aufruf die favorisierten News
+	elseif (isset($_GET["favourites"])){
+	    
+	    $favoritenArray = DbFunctions::getFavourites($link);
+	    if ($favoritenArray != null) {
+	        $allLikes = DbFunctions::getAllLikesDb($link);
+	        $user_id = DbFunctions::getIdByName($link, $name);
+	        //anzahl an likes für jede news hinzufügen
+	        //und
+	        //
+	        //gucken ob aktueller user news geliked hat
+	        foreach ($favoritenArray as $key => $news) {
+	            $favoritenArray[$key]["likes"] = 0;
+	            $favoritenArray[$key]["liked"] = false;
+	            foreach ($allLikes as $like) {
+	                if ($news["id"] == $like["news_id"]) {
+	                    $favoritenArray[$key]["likes"]++;
+	                }
+	                if ($favoritenArray[$key]["liked"] == false && $news["id"] == $like["news_id"] && $like["benutzter_id"] == $user_id) {
+	                    $favoritenArray[$key]["liked"] = true;
+	                }
+	            }
+	        }
+	        //folgendes damit newsfeed immer neu geladen wird. Wenn man beispielsweise bei einem artikel auf den zurück button klickt, wird newsfeed nicht aus cash genommen sondern neu geladen.
+	        //nötig, damit like aktualisiert wird
+	        // any valid date in the past
+	        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+	        // always modified right now
+	        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+	        // HTTP/1.1
+	        header("Cache-Control: private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0");
+	        // HTTP/1.0
+	        header("Pragma: no-cache");
+	        
+	        $smarty->assign('news', $favoritenArray);
+	        $template = 'favourites.tpl';
+	    } else {
+	        $newsArray = DbFunctions::getNewsDb($link);
+	        $smarty->assign('news', $newsArray);
+	        $template = 'news.tpl';
+	    }
+	    
+	    
+	}
+	
+	
+	
+	
+	
+	else {
 		$template = 'home.tpl';
 	}
 } else {
@@ -147,6 +197,7 @@ if (isset($_GET["home"])) {
 } elseif (empty($_GET)) {
 	$template = 'home.tpl';
 }
+
 
 $smarty->assign("token", $reset->getToken());
 $smarty->assign('csrfToken', $_SESSION["csrfToken"]);

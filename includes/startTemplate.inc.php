@@ -1,6 +1,6 @@
 <?php
 //startTemplate.inc.php
-$ROOT_DIR = 'C:\xampp\htdocs\Projekte\KinderNews';
+$ROOT_DIR = '/var/www/html/iksy05/KinderNews';
 $smarty = new Smarty();
 $smarty->setTemplateDir("$ROOT_DIR/smarty/templates/");
 $smarty->setCompileDir("$ROOT_DIR/smarty/templates_c/");

@@ -6,7 +6,7 @@ class DbFunctions
 	public static function connectWithDatabase()
 	{
 		$link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-		$query = "use kindernews";
+		$query = "use wiInf_kindernews";
 		self::executeQuery($link, $query);
 		return $link;
 	}
@@ -166,6 +166,19 @@ class DbFunctions
 		$stmt->execute();
 		$result = $stmt->get_result()->fetch_assoc();
 		return $result;
+	}
+	
+	public static function getFavourites($link){
+	    $user_id = $_SESSION['id'];
+	    $stmt = $link->prepare(
+	        "SELECT n.*
+            FROM news n
+            JOIN bewertung b ON n.id = b.news_id
+            WHERE b.benutzter_id = ".$user_id
+	        );
+	    $stmt->execute();
+	    $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+	    return $result;
 	}
 
 	public static function like($link, $news_id)
