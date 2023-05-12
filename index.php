@@ -16,6 +16,7 @@ require_once("./klassen/Request.inc.php");
 require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
+//Moin oder wad
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $link = DbFunctions::connectWithDatabase();
