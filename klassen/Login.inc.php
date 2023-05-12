@@ -27,12 +27,11 @@ class Login
                 //sonnst wird beim ersten mal neuladen von index.php bzw der news template ein fehler angezeigt
                 //falls zuvor logout gemacht wurde url umschreiben sonnst direkt nach login logout
                 $ziel = $_SERVER['REQUEST_URI'];
-                if ($ziel == "/KinderNews/?logout") {
-                    $ziel = "/KinderNews/?news";
+                if (strstr($ziel, '?logout')) {
+                    $ziel = ROOT_DOMAIN . "/?news";
                 }
-
-                $ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $ziel;
-                header("Location: " . $ziel_url);
+                //$ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $ziel;
+                header("Location: " . $ziel);
             }
         }
     }
