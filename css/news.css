@@ -56,3 +56,8 @@ a:hover {
 .likes {
     font-size: 14px !important;
 }
+
+.alert {
+    margin-top: 80px;
+    border-radius: 0px;
+}
