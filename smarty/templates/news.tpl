@@ -21,7 +21,25 @@
 
 
     {include file="navbar.tpl"}
-    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-5">
+
+    {if !isset($errors) &&!isset($messages)}
+        <div class="alert alert-hidden">leer</div>
+    {/if}
+
+    {if (isset($errors))}
+        {foreach item=error from=$errors}
+            {if ($error != false)}
+                <div class="alert alert-warning">{$error}</div>
+            {/if}
+        {/foreach}
+    {/if}
+    {if (isset($messages))}
+        {foreach item=message from=$messages}
+            <div class="alert alert-custom">{$message}</div>
+        {/foreach}
+    {/if}
+
+    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-4">
         {foreach $news as $article}
             <div class="col">
                 <a href="./?news&id={$article["id"]}">
@@ -67,7 +85,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="js/navbar.js"></script>
+    <script src="js/navbar.js?v=1.0"></script>
     <script src="js/news.js"></script>
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-11 15:50:33
+/* Smarty version 4.3.1, created on 2023-05-14 19:14:09
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645cf2a92a1303_04405714',
+  'unifunc' => 'content_646116e1ca3da9_26071835',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1683812960,
+      1 => 1684084445,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_645cf2a92a1303_04405714 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646116e1ca3da9_26071835 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -37,7 +37,7 @@ function content_645cf2a92a1303_04405714 (Smarty_Internal_Template $_smarty_tpl)
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/news.css" rel="stylesheet" type="text/css">
+    <link href="css/news.css?v=1.1" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -46,7 +46,41 @@ function content_645cf2a92a1303_04405714 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-5">
+
+    <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
+        <div class="alert alert-hidden">leer</div>
+    <?php }?>
+
+    <?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
+$_smarty_tpl->tpl_vars['error']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) {
+$_smarty_tpl->tpl_vars['error']->do_else = false;
+?>
+            <?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
+                <div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</div>
+            <?php }?>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    <?php }?>
+    <?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value, 'message');
+$_smarty_tpl->tpl_vars['message']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
+$_smarty_tpl->tpl_vars['message']->do_else = false;
+?>
+            <div class="alert alert-custom"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
+</div>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    <?php }?>
+
+    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-4">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['news']->value, 'article');
 $_smarty_tpl->tpl_vars['article']->do_else = true;
@@ -117,7 +151,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="js/navbar.js"><?php echo '</script'; ?>
+ src="js/navbar.js?v=1.0"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="js/news.js"><?php echo '</script'; ?>
