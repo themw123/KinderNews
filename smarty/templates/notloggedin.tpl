@@ -23,7 +23,7 @@
     {include file="navbar.tpl"}
     <div class="container d-flex justify-content-center align-items-center">
         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mt-5 mb-5 ">
-            {if !isset($errors) &&!isset($messages)}
+            {if !isset($errors) && !isset($messages)}
                 <div class="alert alert-hidden">leer</div>
             {/if}
 
@@ -210,7 +210,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="js/navbar.js"></script>
+    <script src="js/navbar.js?v=1.0"></script>
     <script src="js/notloggedin.js"></script>
 
 </body>

@@ -25,15 +25,13 @@
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
             {if $newsArticle["bild_url"] == null}
                 <div class="bildcontainerError container-fluid">
-                    <img class="bild custom-shadow"
-                        src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                        class="card-img-top" alt="">
+                    <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
                 </div>
 
             {else}
                 <div class="bc bildcontainer container-fluid">
                     <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
-                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                        onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
                 </div>
 
             {/if}
@@ -100,7 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="js/navbar.js"></script>
+    <script src="js/navbar.js?v=1.0"></script>
     <script src="js/newsarticle.js?v=1.0"></script>
 
 </body>

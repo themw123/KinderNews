@@ -168,6 +168,7 @@ class DbFunctions
 		return $result;
 	}
 
+
 	public static function like($link, $news_id)
 	{
 		$user_id = $_SESSION['id'];

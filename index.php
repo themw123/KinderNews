@@ -16,6 +16,7 @@ require_once("./klassen/Request.inc.php");
 require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
+//Moin oder wad
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $link = DbFunctions::connectWithDatabase();
@@ -43,20 +44,13 @@ if ($REQUEST_METHOD == "GET") {
 	}
 }
 
-//error bzw messages anzeigen
-if (Logs::getErrors() != null) {
-	$smarty->assign('errors', Logs::getErrors());
-} else if (Logs::getMessages() != null) {
-	$smarty->assign('messages', Logs::getMessages());
-}
-
 //route logik
 if ($login->isUserLoggedIn()) {
 	$name = $_SESSION["name"];
 	$login_or_logout = "Logout";
 	$login_or_logout_link = "./?logout";
 	$settings = "./?settings";
-	if (isset($_GET["news"])) {
+	if (isset($_GET["news"]) || isset($_GET["favoriten"])) {
 		if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
 			//einzelne news
 			$newsArticle = DbFunctions::getNewsArticleDb($link, Dbfunctions::escape($link, $_GET["id"]));
@@ -73,7 +67,8 @@ if ($login->isUserLoggedIn()) {
 				$template = 'news.tpl';
 			}
 		} else {
-			//news feed
+			//news feed bzw favoriten
+
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
 			$newsArray = DbFunctions::getNewsDb($link);
 			$allLikes = DbFunctions::getAllLikesDb($link);
@@ -82,6 +77,7 @@ if ($login->isUserLoggedIn()) {
 			//
 			//gucken ob aktueller user news geliked hat
 			$user_id = DbFunctions::getIdByName($link, $name);
+
 			foreach ($newsArray as $key => $news) {
 				$newsArray[$key]["likes"] = 0;
 				$newsArray[$key]["liked"] = false;
@@ -93,7 +89,21 @@ if ($login->isUserLoggedIn()) {
 						$newsArray[$key]["liked"] = true;
 					}
 				}
+				//wenn favoriten seite, nur die geliketen anzeigen
+				if (isset($_GET["favoriten"]) && $newsArray[$key]["liked"] == false) {
+					unset($newsArray[$key]);
+				}
 			}
+
+			if (empty($newsArray)) {
+				if (isset($_GET["news"])) {
+					Logs::addMessage("Keine News vorhanden.");
+				} else if (isset($_GET["favoriten"])) {
+					Logs::addMessage("Du hast keine Favoriten, da du noch nichts geliked hast.");
+				}
+			}
+
+
 			//folgendes damit newsfeed immer neu geladen wird. Wenn man beispielsweise bei einem artikel auf den zurück button klickt, wird newsfeed nicht aus cash genommen sondern neu geladen.
 			//nötig, damit like aktualisiert wird
 			// any valid date in the past
@@ -146,6 +156,15 @@ if (isset($_GET["home"])) {
 } elseif (empty($_GET)) {
 	$template = 'home.tpl';
 }
+
+
+//error bzw messages anzeigen
+if (Logs::getErrors() != null) {
+	$smarty->assign('errors', Logs::getErrors());
+} else if (Logs::getMessages() != null) {
+	$smarty->assign('messages', Logs::getMessages());
+}
+
 
 $smarty->assign("token", $reset->getToken());
 $smarty->assign('csrfToken', $_SESSION["csrfToken"]);
