@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-14 18:33:38
+/* Smarty version 4.3.1, created on 2023-05-14 23:11:59
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsarticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64610d62d504e9_49090813',
+  'unifunc' => 'content_64614e9f9060c4_25108373',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93b6a4604a81339ff4df9870df9494d1d432367c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsarticle.tpl',
-      1 => 1684081932,
+      1 => 1684098719,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64610d62d504e9_49090813 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64614e9f9060c4_25108373 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -49,16 +49,14 @@ function content_64610d62d504e9_49090813 (Smarty_Internal_Template $_smarty_tpl)
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
             <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"] == null) {?>
                 <div class="bildcontainerError container-fluid">
-                    <img class="bild custom-shadow"
-                        src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
-                        class="card-img-top" alt="">
+                    <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
                 </div>
 
             <?php } else { ?>
                 <div class="bc bildcontainer container-fluid">
                     <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
  class="card-img-top" alt=""
-                        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                        onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
                 </div>
 
             <?php }?>
