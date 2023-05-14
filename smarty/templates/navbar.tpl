@@ -53,7 +53,7 @@
                             <a class="nav-link" id="nav-news" href="./?news">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-favourites" href="./?favourites">Favourites</a>
+                            <a class="nav-link" id="nav-favoriten" href="./?favoriten">Favoriten</a>
                         </li>
                     </ul>
                 </div>

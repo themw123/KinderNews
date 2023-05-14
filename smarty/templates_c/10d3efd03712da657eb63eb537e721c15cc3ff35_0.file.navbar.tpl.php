@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-06 14:11:16
+/* Smarty version 4.3.1, created on 2023-05-14 18:28:27
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645643e4025da1_92488511',
+  'unifunc' => 'content_64610c2b0357b2_98228580',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d3efd03712da657eb63eb537e721c15cc3ff35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\navbar.tpl',
-      1 => 1683291455,
+      1 => 1684081696,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_645643e4025da1_92488511 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64610c2b0357b2_98228580 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <nav class="navbar navbar-dark bg-custom fixed-top">
         <div class="container-fluid ">
             <div class="row">
@@ -78,6 +78,9 @@ function content_645643e4025da1_92488511 (Smarty_Internal_Template $_smarty_tpl)
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="nav-news" href="./?news">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-favoriten" href="./?favoriten">Favoriten</a>
                         </li>
                     </ul>
                 </div>
