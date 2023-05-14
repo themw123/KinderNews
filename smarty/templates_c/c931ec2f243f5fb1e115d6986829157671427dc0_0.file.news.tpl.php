@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-14 19:14:09
+/* Smarty version 4.3.1, created on 2023-05-15 00:50:14
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_646116e1ca3da9_26071835',
+  'unifunc' => 'content_646165a643ed51_60389533',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c931ec2f243f5fb1e115d6986829157671427dc0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1684084445,
+      1 => 1684104614,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_646116e1ca3da9_26071835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646165a643ed51_60389533 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -88,7 +88,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['article']->value
 $_smarty_tpl->tpl_vars['article']->do_else = false;
 ?>
             <div class="col">
-                <a href="./?news&id=<?php echo $_smarty_tpl->tpl_vars['article']->value["id"];?>
+                <a href=" ./?news&id=<?php echo $_smarty_tpl->tpl_vars['article']->value["id"];?>
 ">
                     <div class="card border-0 h-100 ">
                         <?php if ($_smarty_tpl->tpl_vars['article']->value["bild_url"] == "error") {?>
@@ -100,9 +100,9 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
                         <?php }?>
                         <div class="card-body d-flex flex-column">
                             <div class="card-title d-flex justify-content-between">
-                                <p class="source">
-                                    <small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
-</small>
+                                <p class="card-head">
+                                    <?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
+
                                 </p>
                                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['article']->value["likes"];
@@ -126,8 +126,8 @@ if ($_prefixVariable2 == true) {?>
 </h5>
                             <p class="card-preview mt-auto mb-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
 </p>
-                            <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
-</small></p>
+                            <p class="card-foot"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
+</p>
                         </div>
                     </div>
                 </a>

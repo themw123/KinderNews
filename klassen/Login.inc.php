@@ -22,16 +22,18 @@ class Login
             $this->doLogout();
         } elseif (isset($_POST["login"])) {
             if ($this->security->checkLoginAttempts()) {
-                $this->doLogin();
-                //auf index.php umleiten, damit index.php erneut geladen wird nur diesmal als get und nicht post.
-                //sonnst wird beim ersten mal neuladen von index.php bzw der news template ein fehler angezeigt
-                //falls zuvor logout gemacht wurde url umschreiben sonnst direkt nach login logout
-                $ziel = $_SERVER['REQUEST_URI'];
-                if (strstr($ziel, '?logout')) {
-                    $ziel = ROOT_DOMAIN . "/?news";
+                $success = $this->doLogin();
+                if ($success) {
+                    //auf index.php umleiten, damit index.php erneut geladen wird nur diesmal als get und nicht post.
+                    //sonnst wird beim ersten mal neuladen von index.php bzw der news template ein fehler angezeigt
+                    //falls zuvor logout gemacht wurde url umschreiben sonnst direkt nach login logout
+                    $ziel = $_SERVER['REQUEST_URI'];
+                    if (strstr($ziel, '?logout')) {
+                        $ziel = ROOT_DOMAIN . "/?news";
+                    }
+                    //$ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $ziel;
+                    header("Location: " . $ziel);
                 }
-                //$ziel_url = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $ziel;
-                header("Location: " . $ziel);
             }
         }
     }
@@ -75,6 +77,7 @@ class Login
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['admin'] = $result_row->admin;
                         $_SESSION['user_login_status'] = 1;
+                        return true;
                     } else {
                         //login versuche hochzählen
                         $this->security->setLoginAttempts();
@@ -82,9 +85,11 @@ class Login
                     }
                 } else {
                     Logs::addError("Die Email bzw. der Benutztername existiert nicht");
+                    return false;
                 }
             } else {
                 Logs::addError("Problem bei der Verbindung mit der Datenbank");
+                return false;
             }
         }
     }
