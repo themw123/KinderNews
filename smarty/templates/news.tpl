@@ -42,7 +42,7 @@
     <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-4">
         {foreach $news as $article}
             <div class="col">
-                <a href="./?news&id={$article["id"]}">
+                <a href=" ./?news&id={$article["id"]}">
                     <div class="card border-0 h-100 ">
                         {if $article["bild_url"] == "error"}
                             <img class="bilder rounded-top" src='img/empty.svg' class="card-img-top" alt="">
@@ -52,8 +52,8 @@
                         {/if}
                         <div class="card-body d-flex flex-column">
                             <div class="card-title d-flex justify-content-between">
-                                <p class="source">
-                                    <small class="text-muted">{$article["quelle"]}</small>
+                                <p class="card-head">
+                                    {$article["quelle"]}
                                 </p>
                                 {if {$article["likes"]} > 0}
                                     <div class="heartandlikes d-flex align-items-center">
@@ -68,7 +68,7 @@
                             </div>
                             <h5 class="card-title">{$article["uebersetzter_titel"]}</h5>
                             <p class="card-preview mt-auto mb-auto">{$article["uebersetzte_preview"]}</p>
-                            <p class="card-text"><small class="text-muted">{$article["date"]}</small></p>
+                            <p class="card-foot">{$article["date"]}</p>
                         </div>
                     </div>
                 </a>
