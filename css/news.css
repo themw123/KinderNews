@@ -65,6 +65,7 @@ a:hover {
 
 .card-body {
     background: linear-gradient(to bottom, #ffffff, #e1e0e0, #d2d1d1);
+    border-radius: 6px;
 }
 
 
