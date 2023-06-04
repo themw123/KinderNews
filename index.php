@@ -10,6 +10,7 @@ require_once("./klassen/db/DBHelper.inc.php");
 require_once("./klassen/db/DBUser.inc.php");
 require_once("./klassen/db/DBNews.inc.php");
 require_once("./klassen/db/DBBewertung.inc.php");
+require_once("./klassen/db/DBLoginlogs.inc.php");
 
 require_once("./klassen/Security.inc.php");
 require_once("./klassen/Login.inc.php");
