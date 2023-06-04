@@ -48,7 +48,10 @@
                                 <h1>Anmelden</h1>
                             </div>
                         </div>
-                        <form action="" method="post" name="login">
+                        <!--action="index.php" wichtig, damit bei account activation login funktioniert also der token wird aus url hiermit ersetzt-->
+                        <form {if strpos($smarty.server.REQUEST_URI, "confirm") !== false} action="index.php" {/if}
+                            method="post" name="login">
+
                             <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                             <div class="form-group">
                                 <label>Email oder Benutzer</label>
@@ -107,14 +110,16 @@
                             <div class="form-group">
                                 <label>Passwort</label>
                                 <input type="password" name="password" id="passwordRegister1" minlength="8"
-                                    class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort"
-                                    required>
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                    title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                    aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
                                 <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
-                                    class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort"
-                                    required>
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                    title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                    aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
                             </div>
                             <div class="col-md-12 text-center mb-3">
                                 <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"
@@ -174,14 +179,16 @@
                         <div class="form-group">
                             <label>Passwort neu</label>
                             <input type="password" name="password" id="passwordReset1" minlength="8"
-                                class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort neu"
-                                required>
+                                pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                aria-describedby="passwordHelp" placeholder="Eingabe Passwort neu" required>
                         </div>
                         <div class="form-group">
                             <label>Passwort wiederholen</label>
                             <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
-                                class="form-control" aria-describedby="passwordHelp"
-                                placeholder="Eingabe Passwort erneut" required>
+                                pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                aria-describedby="passwordHelp" placeholder="Eingabe Passwort erneut" required>
                         </div>
                         <div class="col-md-12 text-center mb-3">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"

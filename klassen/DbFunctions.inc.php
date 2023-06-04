@@ -95,7 +95,8 @@ class DbFunctions
 	public static function exists2($link, $username, $email)
 	{
 		$stmt = $link->prepare(
-			"SELECT * FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
+			//"SELECT * FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
+			"SELECT * FROM benutzer WHERE (email = ? or name = ?);"
 		);
 		$stmt->bind_param("ss", $email, $username);
 		$stmt->execute();
@@ -136,6 +137,16 @@ class DbFunctions
 			$stmt->bind_param("ssssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $source, $date);
 			$stmt->execute();
 		}
+	}
+
+	public static function getAllNewsDb($link)
+	{
+		$stmt = $link->prepare(
+			"Select * from news order by date desc"
+		);
+		$stmt->execute();
+		$result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+		return $result;
 	}
 
 	public static function getNewsDb($link)

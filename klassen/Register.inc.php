@@ -31,14 +31,30 @@ class Register
 
     private function registerNewUser()
     {
-        if (empty($_POST['username'])) {
-            Logs::addError("Benutztername ist leer");
+        if (strlen($_POST['password']) < 8) {
+            Logs::addError("Passwort muss mindestens 8 Zeichen lang sein");
+        }
+        // Überprüfe auf Großbuchstaben
+        elseif (!preg_match('/[A-Z]/', $_POST['password'])) {
+            Logs::addError("Password enthält keine Großbuchstaben");
+        }
+        // Überprüfe auf Kleinbuchstaben
+        elseif (!preg_match('/[a-z]/', $_POST['password'])) {
+            Logs::addError("Password enthält keine Kleinbuchstaben");
+        }
+        // Überprüfe auf Zahlen
+        elseif (!preg_match('/[0-9]/', $_POST['password'])) {
+            Logs::addError("Password enthält keine Zahlen");
+        }
+        // Überprüfe auf Sonderzeichen
+        elseif (!preg_match('/.*\W+/', $_POST['password'])) {
+            Logs::addError("Password enthält keine Sonderzeichen");
         } elseif (empty($_POST['password']) || empty($_POST['password_repeat'])) {
             Logs::addError("Beide Passwörter müssen ausgefüllt werden");
         } elseif ($_POST['password'] !== $_POST['password_repeat']) {
             Logs::addError("Die Passwörter stimmen nicht überein");
-        } elseif (strlen($_POST['password']) < 8) {
-            Logs::addError("Passwort muss mindestens 8 Zeichen lang sein");
+        } elseif (empty($_POST['username'])) {
+            Logs::addError("Benutztername ist leer");
         } elseif (strlen($_POST['username']) > 64 || strlen($_POST['username']) < 2) {
             Logs::addError("Benutzername muss zwischen 2 und 62 Zeichen lang sein");
         } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['username'])) {
@@ -49,18 +65,7 @@ class Register
             Logs::addError("Email-Adresse darf nicht mehr als 62 Zeichen beinhalten");
         } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             Logs::addError("Deine E-Mail-Adresse entspricht nicht den erlaubten Zeichen");
-        } elseif (
-            !empty($_POST['username'])
-            && strlen($_POST['username']) <= 64
-            && strlen($_POST['username']) >= 2
-            && preg_match('/^[a-z\d]{2,64}$/i', $_POST['username'])
-            && !empty($_POST['email'])
-            && strlen($_POST['email']) <= 64
-            && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
-            && !empty($_POST['password'])
-            && !empty($_POST['password_repeat'])
-            && ($_POST['password'] === $_POST['password_repeat'])
-        ) {
+        } else {
             if (!$this->link->set_charset("utf8")) {
                 Logs::addError($this->link->error);
             }
@@ -94,8 +99,6 @@ class Register
             } else {
                 Logs::addError("Es besteht keine Verbindung zur Datenbank");
             }
-        } else {
-            Logs::addError("Ein unbekannter Fehler ist aufgetreten.");
         }
     }
 }

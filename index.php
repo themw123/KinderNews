@@ -4,7 +4,6 @@ session_cache_limiter(false);
 
 require_once('./vendor/autoload.php');
 require_once("./config.php");
-require_once("./includes/startTemplate.inc.php");
 require_once("./klassen/Logs.inc.php");
 require_once("./klassen/DbFunctions.inc.php");
 require_once("./klassen/Security.inc.php");
@@ -70,7 +69,12 @@ if ($login->isUserLoggedIn()) {
 			//news feed bzw favoriten
 
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
-			$newsArray = DbFunctions::getNewsDb($link);
+
+			if (isset($_GET["favoriten"])) {
+				$newsArray = DbFunctions::getAllNewsDb($link);
+			} else {
+				$newsArray = DbFunctions::getNewsDb($link);
+			}
 			$allLikes = DbFunctions::getAllLikesDb($link);
 			//anzahl an likes für jede news hinzufügen
 			//und
