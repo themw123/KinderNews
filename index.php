@@ -4,7 +4,7 @@ session_cache_limiter(false);
 
 require_once('./vendor/autoload.php');
 require_once("./config.php");
-require_once("./klassen/db/Logs.inc.php");
+require_once("./klassen/Logs.inc.php");
 
 require_once("./klassen/db/DBHelper.inc.php");
 require_once("./klassen/db/DBUser.inc.php");
