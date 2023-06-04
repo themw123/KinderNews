@@ -21,10 +21,10 @@ class News
         }
         if ($this->login->isUserLoggedIn()) {
             if (isset($_GET["like"]) && $_GET["like"] == "like") {
-                DbFunctions::like($link, Dbfunctions::escape($link, $_GET["id"]));
+                DBBewertung::like($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
-                DbFunctions::removeLike($link, Dbfunctions::escape($link, $_GET["id"]));
+                DBBewertung::removeLike($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             }
         }
