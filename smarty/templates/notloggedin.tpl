@@ -217,7 +217,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="js/navbar.js?v=1.0"></script>
-    <script src="js/notloggedin.js"></script>
+    <script src="js/notloggedin.js?v=1.0"></script>
 
 
 </body>
