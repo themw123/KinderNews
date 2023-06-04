@@ -48,9 +48,8 @@
                                 <h1>Anmelden</h1>
                             </div>
                         </div>
-                        <!--action="index.php" wichtig, damit bei account activation login funktioniert also der token wird aus url hiermit ersetzt-->
-                        <form {if strpos($smarty.server.REQUEST_URI, "confirm") !== false} action="index.php" {/if}
-                            method="post" name="login">
+
+                        <form action="" method="post" name="login">
 
                             <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                             <div class="form-group">

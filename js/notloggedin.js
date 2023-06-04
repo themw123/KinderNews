@@ -1,10 +1,16 @@
+//# sourceURL=formEditor.js
+
+$(document).ready(function() {
+  scannePasswoerter();
+});
+
+
 $("#signup").click(function () {
   $("#first").fadeOut("fast", function () {
     $("#second").fadeIn("fast");
-    //Passwort Elemente erneut einlesen
-    scannePasswoerter();
   });
 });
+
 
 $("#signin").click(function () {
   $("#second").fadeOut("fast", function () {
@@ -18,7 +24,7 @@ $("#signinMail_reset").click(function () {
 });
 $("#signinPassword_reset").click(function () {
   $("#fourth").fadeOut("fast", function () {
-    $("#first").fadeIn("fast");
+    $("#ohneFourth").fadeIn("fast");
   });
 });
 
@@ -57,7 +63,6 @@ function scannePasswoerter() {
   password2.onkeyup = validatePassword;
 }
 
-scannePasswoerter();
 
 function validatePassword() {
   if (password1.value != password2.value) {
