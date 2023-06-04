@@ -19,12 +19,12 @@ class News
     {
         $this->news = array();
         $this->newsTranslated = array();
-        $this->link = DbFunctions::connectWithDatabase();
+        $this->link = DBHelper::connectWithDatabase();
 
         $success = $this->getNews();
         if ($success) {
             $this->translateNews();
-            DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
+            DBNews::setNewsDb($this->link, $this->news, $this->newsTranslated);
         }
     }
 
@@ -125,7 +125,7 @@ class News
 
 
         //nur die neusten news
-        $newsOld = DbFunctions::getNewsDb($this->link);
+        $newsOld = DBNews::getNewsDb($this->link);
         //nicht weiter ab hier wenn keine alten vorhanden
         if ($newsOld == null) {
             return true;
