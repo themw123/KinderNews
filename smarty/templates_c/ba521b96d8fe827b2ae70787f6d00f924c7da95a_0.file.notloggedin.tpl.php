@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-04 19:54:17
+/* Smarty version 4.3.1, created on 2023-06-04 20:32:31
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_647ccfc9b61615_58288080',
+  'unifunc' => 'content_647cd8bf461f89_90232130',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba521b96d8fe827b2ae70787f6d00f924c7da95a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedin.tpl',
-      1 => 1685901232,
+      1 => 1685903545,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_647ccfc9b61615_58288080 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647cd8bf461f89_90232130 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -90,7 +90,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
 
-                        <form action="" method="post" name="login">
+                        <form action="?news" method="post" name="login">
 
                             <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
@@ -216,7 +216,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <h1>Passwort zurücksetzen</h1>
                         </div>
                     </div>
-                    <form action="?backToLogin" method="post" name="resetPassword">
+                    <form action="?news" method="post" name="resetPassword">
                         <input type="hidden" name="token" value="<?php echo $_smarty_tpl->tpl_vars['token']->value;?>
 " />
                         <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
@@ -270,7 +270,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
  src="js/navbar.js?v=1.0"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="js/notloggedin.js"><?php echo '</script'; ?>
+ src="js/notloggedin.js?v=1.0"><?php echo '</script'; ?>
 >
 
 
