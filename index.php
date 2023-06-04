@@ -4,8 +4,13 @@ session_cache_limiter(false);
 
 require_once('./vendor/autoload.php');
 require_once("/home/config.php");
-require_once("./klassen/Logs.inc.php");
-require_once("./klassen/DbFunctions.inc.php");
+require_once("./klassen/db/Logs.inc.php");
+
+require_once("./klassen/db/DBHelper.inc.php");
+require_once("./klassen/db/DBUser.inc.php");
+require_once("./klassen/db/DBNews.inc.php");
+require_once("./klassen/db/DBBewertung.inc.php");
+
 require_once("./klassen/Security.inc.php");
 require_once("./klassen/Login.inc.php");
 require_once('./klassen/Mail.inc.php');
@@ -15,10 +20,9 @@ require_once("./klassen/Request.inc.php");
 require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
-//Moin oder wad
 
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
-$link = DbFunctions::connectWithDatabase();
+$link = DBHelper::connectWithDatabase();
 
 //session wird in login erzeugt bzw wiederaufgenommen
 //die komplette Login logik inklusive register und password reset wird mittels folgender drei klassen erledigt
@@ -52,16 +56,16 @@ if ($login->isUserLoggedIn()) {
 	if (isset($_GET["news"]) || isset($_GET["favoriten"])) {
 		if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
 			//einzelne news
-			$newsArticle = DbFunctions::getNewsArticleDb($link, Dbfunctions::escape($link, $_GET["id"]));
+			$newsArticle = DBNews::getNewsArticleDb($link, DBHelper::escape($link, $_GET["id"]));
 			if ($newsArticle != null) {
-				$liked = DbFunctions::checkLike($link, Dbfunctions::escape($link, $_GET["id"]));
-				$likes = DbFunctions::countLikes($link, Dbfunctions::escape($link, $_GET["id"]));
+				$liked = DBBewertung::checkLike($link, DBHelper::escape($link, $_GET["id"]));
+				$likes = DBBewertung::countLikes($link, DBHelper::escape($link, $_GET["id"]));
 				$smarty->assign('newsArticle', $newsArticle);
 				$smarty->assign('liked', $liked);
 				$smarty->assign('likes', $likes);
 				$template = 'newsarticle.tpl';
 			} else {
-				$newsArray = DbFunctions::getNewsDb($link);
+				$newsArray = DBNews::getNewsDb($link);
 				$smarty->assign('news', $newsArray);
 				$template = 'news.tpl';
 			}
@@ -69,13 +73,18 @@ if ($login->isUserLoggedIn()) {
 			//news feed bzw favoriten
 
 			//Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
-			$newsArray = DbFunctions::getNewsDb($link);
-			$allLikes = DbFunctions::getAllLikesDb($link);
+
+			if (isset($_GET["favoriten"])) {
+				$newsArray = DBNews::getAllNewsDb($link);
+			} else {
+				$newsArray = DBNews::getNewsDb($link);
+			}
+			$allLikes = DBNews::getAllLikesDb($link);
 			//anzahl an likes für jede news hinzufügen
 			//und
 			//
 			//gucken ob aktueller user news geliked hat
-			$user_id = DbFunctions::getIdByName($link, $name);
+			$user_id = DbUser::getIdByName($link, $name);
 
 			foreach ($newsArray as $key => $news) {
 				$newsArray[$key]["likes"] = 0;
@@ -118,7 +127,7 @@ if ($login->isUserLoggedIn()) {
 			$template = 'news.tpl';
 		}
 	} elseif (isset($_GET["settings"])) {
-		$alleBenutzer = DbFunctions::getUsers($link);
+		$alleBenutzer = DBUser::getUsers($link);
 
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];

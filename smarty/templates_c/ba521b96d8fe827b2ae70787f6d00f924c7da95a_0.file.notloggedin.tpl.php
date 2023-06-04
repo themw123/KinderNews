@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-15 12:49:57
+/* Smarty version 4.3.1, created on 2023-06-04 15:58:01
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\notloggedin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64620e55cd4072_75577630',
+  'unifunc' => 'content_647c986991ed07_36758596',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba521b96d8fe827b2ae70787f6d00f924c7da95a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\notloggedin.tpl',
-      1 => 1684109148,
+      1 => 1685887053,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64620e55cd4072_75577630 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647c986991ed07_36758596 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -89,7 +89,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <h1>Anmelden</h1>
                             </div>
                         </div>
-                        <form action="" method="post" name="login">
+                        <!--action="index.php" wichtig, damit bei account activation login funktioniert also der token wird aus url hiermit ersetzt-->
+                        <form <?php if (strpos($_SERVER['REQUEST_URI'],"confirm") !== false) {?> action="index.php" <?php }?>
+                            method="post" name="login">
+
                             <input type="hidden" name="csrfToken" value="<?php echo $_smarty_tpl->tpl_vars['csrfToken']->value;?>
 " />
                             <div class="form-group">
@@ -150,14 +153,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="form-group">
                                 <label>Passwort</label>
                                 <input type="password" name="password" id="passwordRegister1" minlength="8"
-                                    class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort"
-                                    required>
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                    title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                    aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
                             </div>
                             <div class="form-group">
                                 <label>Passwort wiederholen</label>
                                 <input type="password" name="password_repeat" id="passwordRegister2" minlength="8"
-                                    class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort"
-                                    required>
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                    title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                    aria-describedby="passwordHelp" placeholder="Eingabe Passwort" required>
                             </div>
                             <div class="col-md-12 text-center mb-3">
                                 <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"
@@ -220,14 +225,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <div class="form-group">
                             <label>Passwort neu</label>
                             <input type="password" name="password" id="passwordReset1" minlength="8"
-                                class="form-control" aria-describedby="passwordHelp" placeholder="Eingabe Passwort neu"
-                                required>
+                                pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                aria-describedby="passwordHelp" placeholder="Eingabe Passwort neu" required>
                         </div>
                         <div class="form-group">
                             <label>Passwort wiederholen</label>
                             <input type="password" name="password_repeat" id="passwordReset2" minlength="8"
-                                class="form-control" aria-describedby="passwordHelp"
-                                placeholder="Eingabe Passwort erneut" required>
+                                pattern="(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z]).*"
+                                title="Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen" class="form-control"
+                                aria-describedby="passwordHelp" placeholder="Eingabe Passwort erneut" required>
                         </div>
                         <div class="col-md-12 text-center mb-3">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"

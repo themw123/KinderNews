@@ -23,7 +23,7 @@ class Security
         $text = $this->timeout;
 
         //wenn mehr als 3
-        $count_all = Dbfunctions::getLoginAttemptsAll($this->link, $this->ip_address);
+        $count_all = DBLoginLogs::getLoginAttemptsAll($this->link, $this->ip_address);
 
         if ($count_all >= $this->attemps) {
             //wenn mehr als ein über erlaubte versuche
@@ -46,7 +46,7 @@ class Security
         }
 
         $time = time() - $this->timeout; //wenn in den letzten x sekunden eingeloggt wurde
-        $this->count = Dbfunctions::getLoginAttempts($this->link, $time, $this->ip_address);
+        $this->count = DBLoginLogs::getLoginAttempts($this->link, $time, $this->ip_address);
 
         //bei mehr als 3 versuchen nur noch 1 versuch bis nächste Stufe
         if ($count_all >= $this->attemps) {
@@ -64,12 +64,12 @@ class Security
     public function setLoginAttempts()
     {
         $time = time();
-        DbFunctions::setLoginAttempts($this->link, $time, $this->ip_address);
+        DBLoginLogs::setLoginAttempts($this->link, $time, $this->ip_address);
     }
 
     public function deleteLoginAttempts()
     {
-        Dbfunctions::deleteLoginAttempts($this->link, $this->ip_address);
+        DBLoginLogs::deleteLoginAttempts($this->link, $this->ip_address);
     }
 
     private function getIpAddr()
@@ -84,7 +84,7 @@ class Security
     public function checkTokenTime($token)
     {
         $now = time();
-        $stored_time = DbFunctions::getTokenTime($this->link, $token);
+        $stored_time = DBUser::getTokenTime($this->link, $token);
         if ($stored_time == null) {
             return false;
         }
