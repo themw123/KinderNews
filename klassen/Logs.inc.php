@@ -23,20 +23,29 @@ class Logs
         self::$success[] = $success;
     }
 
-    public static function getErrors()
+    public static function getFirstError()
     {
-        return self::$errors;
+        if (!empty(self::$errors)) {
+            return self::$errors[0];
+        } else {
+            return null;
+        }
     }
 
-    public static function getMessages()
+    public static function getFirstMessage()
     {
-        return self::$messages;
+        if (!empty(self::$messages)) {
+            return self::$messages[0];
+        } else {
+            return null;
+        }
     }
 
     public static function getSuccess()
     {
         return self::$success;
     }
+
 
     public static function jsonLogs()
     {

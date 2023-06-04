@@ -162,17 +162,18 @@ if (isset($_GET["home"])) {
 	$template = 'home.tpl';
 } elseif (isset($_GET["login"]) && !$login->isUserLoggedIn()) {
 	$template = 'notloggedin.tpl';
-} elseif (empty($_GET)) {
+} elseif (empty($_GET) || isset($_GET["login"])) {
 	$ziel = ROOT_DOMAIN . "/?news";
 	header("Location: " . $ziel);
 }
 
 
 //error bzw messages anzeigen
-if (Logs::getErrors() != null) {
-	$smarty->assign('errors', Logs::getErrors());
-} else if (Logs::getMessages() != null) {
-	$smarty->assign('messages', Logs::getMessages());
+if (Logs::getFirstError() != null) {
+	$smarty->assign('errors', Logs::getFirstError());
+}
+if (Logs::getFirstMessage() != null) {
+	$smarty->assign('messages', Logs::getFirstMessage());
 }
 
 
@@ -185,5 +186,3 @@ $smarty->assign("settings", $settings);
 
 
 $smarty->display($template);
-
-//ab hier folgt service worker bzw. für PWA
