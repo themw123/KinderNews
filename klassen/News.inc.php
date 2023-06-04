@@ -69,16 +69,16 @@ class News
             $success = $this->getNews();
             if ($success) {
                 $this->translateNews();
-                DbFunctions::setNewsDb($this->link, $this->news, $this->newsTranslated);
+                DBNews::setNewsDb($this->link, $this->news, $this->newsTranslated);
             }
             Logs::jsonLogs();
         }
         if ($this->login->isUserLoggedIn()) {
             if (isset($_GET["like"]) && $_GET["like"] == "like") {
-                DbFunctions::like($link, Dbfunctions::escape($link, $_GET["id"]));
+                DBBewertung::like($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
-                DbFunctions::removeLike($link, Dbfunctions::escape($link, $_GET["id"]));
+                DBBewertung::removeLike($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             }
         }
@@ -190,7 +190,7 @@ class News
 
 
         //nur die neusten news
-        $newsOld = DbFunctions::getNewsDb($this->link);
+        $newsOld = DBNews::getNewsDb($this->link);
         //nicht weiter ab hier wenn keine alten vorhanden
         if ($newsOld == null) {
             return true;

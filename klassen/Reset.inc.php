@@ -26,7 +26,7 @@ class Reset
 
     private function setToken()
     {
-        $this->token = Dbfunctions::escape($this->link, $_GET['token']);
+        $this->token = DBHelper::escape($this->link, $_GET['token']);
     }
 
     public function getToken()
@@ -37,9 +37,9 @@ class Reset
 
     private function resetPassword()
     {
-        $token = Dbfunctions::escape($this->link, $_POST['token']);
-        $password = Dbfunctions::escape($this->link, $_POST['password']);
-        $password_repeat = Dbfunctions::escape($this->link, $_POST['password_repeat']);
+        $token = DBHelper::escape($this->link, $_POST['token']);
+        $password = DBHelper::escape($this->link, $_POST['password']);
+        $password_repeat = DBHelper::escape($this->link, $_POST['password_repeat']);
         if ($password != $password_repeat) {
             Logs::addError("Deine Passwörter stimmen nicht überein.");
         } else if (strlen($_POST['password']) < 8) {
@@ -65,7 +65,7 @@ class Reset
             return;
         } else {
             $password_hash = password_hash($password, PASSWORD_ARGON2ID);
-            $erfolg = DbFunctions::resetPassword($this->link, $password_hash, $token);
+            $erfolg = DBUser::resetPassword($this->link, $password_hash, $token);
             if ($erfolg) {
                 Logs::addMessage("Dein Passwort wurde erfolgreich geändert! Logge dich jetzt ein.");
             } else {
@@ -89,7 +89,7 @@ class Reset
 
                 $email = $this->link->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
 
-                $result_of_login_check = DbFunctions::exists1($this->link, $email);
+                $result_of_login_check = DBUser::exists1($this->link, $email);
 
 
 
@@ -106,7 +106,7 @@ class Reset
 
                         $time = time();
                         //Token und Uhrzeit dem Benutzer hinzufügen
-                        DbFunctions::setToken($this->link, $email, $token, $time);
+                        DBUser::setToken($this->link, $email, $token, $time);
 
 
                         Logs::addMessage("Es wurde eine Mail zum zurücksetzten deines Passwortes an deine Email Adresse gesendet.");

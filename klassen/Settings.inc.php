@@ -12,8 +12,8 @@ class Settings
         $this->login = $login;
 
         if (isset($_POST["id"]) && isset($_POST["admin"])) {
-            if ($this->login->isUserKindernews() && DbFunctions::getNameById($link, Dbfunctions::escape($link, $_POST["id"])) != "kindernews") {
-                DbFunctions::changeRole($link, Dbfunctions::escape($link, $_POST["id"]), Dbfunctions::escape($link, $_POST["admin"]));
+            if ($this->login->isUserKindernews() && DBUser::getNameById($link, DBHelper::escape($link, $_POST["id"])) != "kindernews") {
+                DBUser::changeRole($link, DBHelper::escape($link, $_POST["id"]), DBHelper::escape($link, $_POST["admin"]));
                 die();
             }
         }

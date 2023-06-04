@@ -54,9 +54,9 @@ class Login
 
             if (!$this->link->connect_errno) {
 
-                $email_or_user = Dbfunctions::escape($this->link, $_POST['email_or_user']);
+                $email_or_user = DBHelper::escape($this->link, $_POST['email_or_user']);
 
-                $result_of_login_check = DbFunctions::exists1($this->link, $email_or_user);
+                $result_of_login_check = DBUser::exists1($this->link, $email_or_user);
 
 
                 //wenn email existiert

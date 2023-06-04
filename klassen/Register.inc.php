@@ -20,8 +20,8 @@ class Register
 
     private function confirmNewUser()
     {
-        $token = Dbfunctions::escape($this->link, $_GET['token']);
-        $erfolg = DbFunctions::activateAccount($this->link, $token);
+        $token = DBHelper::escape($this->link, $_GET['token']);
+        $erfolg = DBUser::activateAccount($this->link, $token);
         if ($erfolg) {
             Logs::addMessage("Dein Konto wurde erfolgreich aktiviert! Logge dich jetzt ein.");
         } else {
@@ -72,13 +72,13 @@ class Register
 
             if (!$this->link->connect_errno) {
 
-                $username = Dbfunctions::escape($this->link, $_POST['username']);
-                $email = Dbfunctions::escape($this->link, $_POST['email']);
-                $password = Dbfunctions::escape($this->link, $_POST['password']);
+                $username = DBHelper::escape($this->link, $_POST['username']);
+                $email = DBHelper::escape($this->link, $_POST['email']);
+                $password = DBHelper::escape($this->link, $_POST['password']);
 
                 $password_hash = password_hash($password, PASSWORD_ARGON2ID);
 
-                $result_of_login_check = DbFunctions::exists2($this->link, $username, $email);
+                $result_of_login_check = DBUser::exists2($this->link, $username, $email);
 
                 if ($result_of_login_check->num_rows == 1) {
                     Logs::addError("Der Benutzername/E-Mail-Adresse ist bereits vergeben");
@@ -90,7 +90,7 @@ class Register
 
                     if ($zustand) {
                         //deaktivierten account anlegen
-                        DbFunctions::createAccount($this->link, $username, $email, $password_hash, $token);
+                        DBUser::createAccount($this->link, $username, $email, $password_hash, $token);
                         Logs::addMessage("Es wurde eine Bestätigungsmail an deine Email Adresse gesendet. Bitte aktiviere mit dieser Mail deinen Account.");
                     } else {
                         Logs::addMessage("Registrierung fehlgeschlagen (Es konnte keine Mail an deine Mailadresse gesendet werden.)");
