@@ -160,8 +160,6 @@ if ($login->isUserLoggedIn()) {
 
 if (isset($_GET["home"])) {
 	$template = 'home.tpl';
-} elseif (isset($_GET["login"]) && !$login->isUserLoggedIn()) {
-	$template = 'notloggedin.tpl';
 } elseif (empty($_GET) || isset($_GET["login"])) {
 	$ziel = ROOT_DOMAIN . "/?news";
 	header("Location: " . $ziel);
