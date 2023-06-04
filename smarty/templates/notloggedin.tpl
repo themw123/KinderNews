@@ -49,7 +49,7 @@
                             </div>
                         </div>
 
-                        <form action="" method="post" name="login">
+                        <form action="?news" method="post" name="login">
 
                             <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                             <div class="form-group">
@@ -172,7 +172,7 @@
                             <h1>Passwort zurücksetzen</h1>
                         </div>
                     </div>
-                    <form action="?backToLogin" method="post" name="resetPassword">
+                    <form action="?news" method="post" name="resetPassword">
                         <input type="hidden" name="token" value="{$token}" />
                         <input type="hidden" name="csrfToken" value="{$csrfToken}" />
                         <div class="form-group">
