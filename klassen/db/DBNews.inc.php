@@ -44,6 +44,7 @@ class DBNews
         );
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $result = self::changeToGerman($result);
         return $result;
     }
 
@@ -54,6 +55,7 @@ class DBNews
         );
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $result = self::changeToGerman($result);
         return $result;
     }
 
@@ -75,5 +77,15 @@ class DBNews
         $stmt->execute();
         $result = $stmt->get_result()->fetch_assoc();
         return $result;
+    }
+
+    private static function changeToGerman($array)
+    {
+        // Das Datum für jede Zeile umwandeln
+        foreach ($array as &$row) {
+            $timestamp = strtotime($row['date']);
+            $row['date'] = date('d.m.Y H:i:s', $timestamp);
+        }
+        return $array;
     }
 }
