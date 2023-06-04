@@ -138,12 +138,19 @@ class News
                 $content = $article->{"content"};
                 $image = $article->{"image_url"};
                 $source = $article->{"source_id"};
+
                 $date = $article->{"pubDate"};
+                // Datum in UNIX-Zeitstempel umwandeln
+                $timestamp = strtotime($date);
+                // Datum im deutschen Format anzeigen
+                $deutschesDatum = date('d.m.Y H:i:s', $timestamp);
+
+
                 $this->news[] = array(
                     'title' => $title,
                     'text' => $content,
                     'image' => $image,
-                    'date' => $date,
+                    'date' => $deutschesDatum,
                     'source' => $source
                 );
             }
