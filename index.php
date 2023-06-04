@@ -161,8 +161,7 @@ if ($login->isUserLoggedIn()) {
 if (isset($_GET["home"])) {
 	$template = 'home.tpl';
 } elseif (empty($_GET)) {
-	$ziel = ROOT_DOMAIN . "/?news";
-	header("Location: " . $ziel);
+	header("Location: " . "?news");
 }
 
 

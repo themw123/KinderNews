@@ -13,7 +13,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/news.css?v=1.3" rel="stylesheet" type="text/css">
+    <link href="css/news.css?v=1.4" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -39,7 +39,7 @@
         {/foreach}
     {/if}
 
-    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-4">
+    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 pb-4">
         {foreach $news as $article}
             <div class="col">
                 <a href=" ./?news&id={$article["id"]}">
