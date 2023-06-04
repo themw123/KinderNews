@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-04 21:21:41
+/* Smarty version 4.3.1, created on 2023-06-05 01:17:03
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsarticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_647ce4455d3ca3_04069138',
+  'unifunc' => 'content_647d1b6f5ac466_20864628',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93b6a4604a81339ff4df9870df9494d1d432367c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsarticle.tpl',
-      1 => 1685903995,
+      1 => 1685919502,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_647ce4455d3ca3_04069138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647d1b6f5ac466_20864628 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
