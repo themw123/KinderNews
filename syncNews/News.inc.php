@@ -31,18 +31,17 @@ class News
 
     private function getNews()
     {
-        //hole solange news(pro Request 10) bis es 10 Stück mit content gibt
-        //maximal 8 Runden/Requests -> für productiv betrieb. news api erlaubt 200 Reqeusts pro Tag. Es soll jede Stunde aktualisiert werden. 200/24 = 8
+        //hole solange news(pro Request 5) bis es 5 Stück mit content gibt
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 10) {
-            $success = $this->getNews10();
+        while ($success && count($this->news) < 5 && $counter < 5) {
+            $success = $this->getNews5();
             $counter++;
         }
 
-        //lösche wenn mehr als 10
-        if (count($this->news) > 10) {
-            $this->news = array_slice($this->news, 0, 10);
+        //lösche wenn mehr als 5
+        if (count($this->news) > 5) {
+            $this->news = array_slice($this->news, 0, 5);
         }
 
         //umdrehen damit neuste news als letztes in db eingefügt werden. nicht mehr nötig aufgrund von date, aber bleibt erst mal so
@@ -51,7 +50,7 @@ class News
         return $success;
     }
 
-    private function getNews10()
+    private function getNews5()
     {
         $response = Request::requestNews($this->page);
 
