@@ -1,4 +1,28 @@
+<?php
+/* Smarty version 4.3.1, created on 2023-06-15 16:54:32
+  from '/var/www/html/iksy05/KinderNews/smarty/templates/home.tpl' */
 
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.1',
+  'unifunc' => 'content_648b2628d03c74_35960944',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'b7b917f64b6f45f2454ac99b2cde8a5a7b8ef42a' => 
+    array (
+      0 => '/var/www/html/iksy05/KinderNews/smarty/templates/home.tpl',
+      1 => 1686840870,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:navbar.tpl' => 1,
+  ),
+),false)) {
+function content_648b2628d03c74_35960944 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,14 +46,17 @@
     
   </head>
   <body>
-  {include file="navbar.tpl"}
+  <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
     <section class="above-the-fold">
       <div class="container">
         <h1>Kleine Schlagzeilen!</h1>
         <p>Holen Sie sich die neuesten Nachrichten auf unterhaltsame und leicht verständliche Weise!</p>
-        <a href="{$login_or_logout_link}#signup" id="register-link" class="cta-btn">Registrieren</a>
-        <a href="{$login_or_logout_link}" class="cta-btn">Log-In</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['login_or_logout_link']->value;?>
+#signup" id="register-link" class="cta-btn">Registrieren</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['login_or_logout_link']->value;?>
+" class="cta-btn">Log-In</a>
 
       </div>
     </section>
@@ -98,12 +125,21 @@
     <div class="back-button-box">
       <a href="#top" class="back-to-top-btn">Zurück zum Anfang</a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script> 
-    <script src="js/notloggedin.js?v=1.0"></script>
-    <script src="js/navbar.js?v=1.0"></script>
+    <?php echo '</script'; ?>
+> 
+    <?php echo '<script'; ?>
+ src="js/notloggedin.js?v=1.0"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="js/navbar.js?v=1.0"><?php echo '</script'; ?>
+>
   </body>
-</html>
+</html><?php }
+}

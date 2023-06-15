@@ -11,6 +11,15 @@ $("#signup").click(function () {
   });
 });
 
+if (window.location.href.indexOf('signup') > -1) {
+  $(document).ready(function() {
+    // Fade out the first element and fade in the second element
+    $("#first").fadeOut("fast", function () {
+      $("#second").fadeIn("fast");
+    });
+  });
+}
+
 
 $("#signin").click(function () {
   $("#second").fadeOut("fast", function () {

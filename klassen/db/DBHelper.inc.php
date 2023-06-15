@@ -6,7 +6,7 @@ class DBHelper
 	public static function connectWithDatabase()
 	{
 		$link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-		$query = "use kindernews";
+		$query = "use wiInf_kindernews";
 		self::executeQuery($link, $query);
 		return $link;
 	}

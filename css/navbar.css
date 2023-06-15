@@ -35,3 +35,6 @@ button:focus:not(:focus-visible) {
 .offcanvas-title {
     color: #fff;
 }
+.nav{
+  z-index: 2;
+}
