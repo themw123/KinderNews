@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-13 16:48:25
+/* Smarty version 4.3.1, created on 2023-06-17 13:25:57
   from '/var/www/html/iksy05/KinderNews/smarty/templates/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_648881b90bd489_58693557',
+  'unifunc' => 'content_648d9845480483_55852883',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '78a49f56e50d312f55a23da26d13fac1cf0cfbd5' => 
     array (
       0 => '/var/www/html/iksy05/KinderNews/smarty/templates/navbar.tpl',
-      1 => 1686666182,
+      1 => 1687001034,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_648881b90bd489_58693557 (Smarty_Internal_Template $_smarty_tpl) {
+function content_648d9845480483_55852883 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <nav class="navbar navbar-dark bg-custom fixed-top">
         <div class="container-fluid ">
             <div class="row">
@@ -82,9 +82,7 @@ function content_648881b90bd489_58693557 (Smarty_Internal_Template $_smarty_tpl)
                         <li class="nav-item">
                             <a class="nav-link" id="nav-favoriten" href="./?favoriten">Favoriten</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-gameoflife" href="./?gameoflife">Game of Life</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="d-sm-none d-block pl-2 pr-4 pb-4 pt-2 ">

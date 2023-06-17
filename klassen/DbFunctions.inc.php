@@ -319,37 +319,5 @@ class DbFunctions
 		return $name;
 	}
 	
-	public static function startGameOfLife() {
-	    $numRows = 30;
-	    $numCols = 30;
-	    $gridData = [];
-	    
-	    for ($i = 0; $i < $numRows; $i++) {
-	        $row = [];
-	        for ($j = 0; $j < $numCols; $j++) {
-	            $cellState = (rand(1, 10) <= 1) ? 1 : 0; // 10% chance for the cell to be alive
-	            $row[] = $cellState;
-	        }
-	        $gridData[] = $row;
-	    }
-	    
-	    return $gridData;
-	}
-	public static function saveGridToDatabase($link, $gridData)
-	{
-	    $clearTableQuery = "TRUNCATE TABLE grid_table";
-	    $link->query($clearTableQuery);
-	    
-	    $insertQuery = "INSERT INTO grid_table (row_index, col_index, is_alive) VALUES (?, ?, ?)";
-	    $stmt = $link->prepare($insertQuery);
-	    
-	    foreach ($gridData as $rowIndex => $row) {
-	        foreach ($row as $colIndex => $cellState) {
-	            $stmt->bind_param("iii", $rowIndex, $colIndex, $cellState);
-	            $stmt->execute();
-	        }
-	    }
-	    
-	    $stmt->close();
-	}
+	
 }

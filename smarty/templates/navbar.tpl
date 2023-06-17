@@ -55,9 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link" id="nav-favoriten" href="./?favoriten">Favoriten</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-gameoflife" href="./?gameoflife">Game of Life</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="d-sm-none d-block pl-2 pr-4 pb-4 pt-2 ">
