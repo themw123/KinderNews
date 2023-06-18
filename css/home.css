@@ -49,7 +49,7 @@ body {
 }
 
 .above-the-fold p {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 2rem;
 }
 
@@ -85,10 +85,9 @@ a:hover {
 
 
 h1 {
-  font-size: 3rem;
+  font-size: 40px;
   margin-bottom: 2rem;
 }
-
 
 
 .above-the-fold .cta-btn {
