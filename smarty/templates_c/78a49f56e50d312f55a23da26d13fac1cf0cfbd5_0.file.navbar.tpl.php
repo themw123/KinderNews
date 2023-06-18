@@ -1,4 +1,27 @@
-    <nav class="navbar navbar-dark bg-custom fixed-top">
+<?php
+/* Smarty version 4.3.1, created on 2023-06-17 13:25:57
+  from '/var/www/html/iksy05/KinderNews/smarty/templates/navbar.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.1',
+  'unifunc' => 'content_648d9845480483_55852883',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '78a49f56e50d312f55a23da26d13fac1cf0cfbd5' => 
+    array (
+      0 => '/var/www/html/iksy05/KinderNews/smarty/templates/navbar.tpl',
+      1 => 1687001034,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_648d9845480483_55852883 (Smarty_Internal_Template $_smarty_tpl) {
+?>    <nav class="navbar navbar-dark bg-custom fixed-top">
         <div class="container-fluid ">
             <div class="row">
                 <div class="col-auto">
@@ -21,17 +44,21 @@
                                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                         </svg>
 
-                        <strong>{$name}</strong>
+                        <strong><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</strong>
 
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                         style="position: absolute; inset: auto auto auto -30px; margin: 0px;"
                         data-popper-placement="bottom-start">
-                        <li><a class="dropdown-item" href="{$settings}">Einstellungen</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['settings']->value;?>
+">Einstellungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{$login_or_logout_link}">{$login_or_logout}</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['login_or_logout_link']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['login_or_logout']->value;?>
+</a></li>
                     </ul>
                 </div>
 
@@ -69,19 +96,24 @@
                                 <path fill-rule="evenodd"
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                             </svg>
-                            <strong>{$name}</strong>
+                            <strong><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                             style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -33.6px, 0px);"
                             data-popper-placement="top-end">
-                            <li><a class="dropdown-item" href="{$settings}">Einstellungen</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['settings']->value;?>
+">Einstellungen</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href={$login_or_logout_link}>{$login_or_logout}</a></li>
+                            <li><a class="dropdown-item" href=<?php echo $_smarty_tpl->tpl_vars['login_or_logout_link']->value;?>
+><?php echo $_smarty_tpl->tpl_vars['login_or_logout']->value;?>
+</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-</nav>
+</nav><?php }
+}
