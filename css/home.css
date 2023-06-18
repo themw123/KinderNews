@@ -125,11 +125,11 @@ h1 {
   margin-bottom: 100px;
 }
 
-li:last-child {
+#about li:last-child {
   margin-bottom: 0 !important;
 }
 
-li {
+#about li {
   background-color: #2e2c2ad6;
   padding: 20px;
   padding-top: 30px;
