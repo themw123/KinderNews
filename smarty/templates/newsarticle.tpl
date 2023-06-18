@@ -13,7 +13,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/newsarticle.css?v=1.1" rel="stylesheet" type="text/css">
+    <link href="css/newsarticle.css?v=1.2" rel="stylesheet" type="text/css">
     <script src="service-worker.js?version=er4t4"> </script>
 
 </head>
