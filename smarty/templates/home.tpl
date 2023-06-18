@@ -26,9 +26,10 @@
 
     <section class="above-the-fold">
       <div class="container d-flex flex-column justify-content-center align-items-center">
-        <h1 class="text-center">Kleine Schlagzeilen!</h1>
-        <p class="text-center h1sub">Hole dir die neuesten Nachrichten auf unterhaltsame und leicht verständliche
-          Weise!
+        <h1 class="text-center">Einfache Schlagzeilen!</h1>
+        <p class="text-center h1sub">Willkommen auf unserer Website. Wir übsersetzen komplexe Erwachsenen-News in
+          kinderfreundliche News. Dabei wird der Inhalt zusammengefasst, sodass ihr auch ohne mühseliges durchlesen von
+          zu langen News up to date bleibt!</p>
         </p>
         <a href="?news" id="news-link" class="cta-btn">zu den News</a>
       </div>
@@ -44,30 +45,44 @@
               <h3>Unser Anliegen</h3>
               <p>Bei uns können Kinder Nachrichten lesen, ohne dass sie von Inhalten überwältigt oder überfordert
                 werden.
-                Unsere Website nutzt modernste Technologie, um Nachrichten aus der API zu beziehen und sie mithilfe von
+                Unsere Website nutzt modernste Technologien, um Nachrichten aus einer News-API zu beziehen und sie
+                mithilfe von
                 ChatGPT kinderfreundlich aufzubereiten. Uns ist es wichtig, dass die Informationen des Artikels
-                weiterhin
-                transportiert werden, sie jedoch auf eine nicht verstörende Weise in einfacherem Sprachgebrauch
-                wiedergegeben
-                werden.</p>
+                weiterhin vermittelt, sie jedoch auf eine nicht verstörende Weise in einem einfachen
+                Sprachgebrauch
+                wiedergegeben werden. Das heißt, man bekommt erwachsene News, die auch von Kindern verstanden werden
+                können!</p>
             </li>
             <li>
-              <h3>Unser Ziel</h3>
-              <p>Unser Ziel ist es, Kindern die Möglichkeit zu geben, Nachrichten zu lesen und diese auch zu verstehen.
-                Außerdem regen wir mit Fragen unterhalb des Artikels dazu an, noch einmal über das Gelesene nachzudenken
+              <h3>Features</h3>
+              <p>Wir wollen mittels Fragen unterhalb des Artikels dazu ermutigen, noch einmal über das Gelesene
+                nachzudenken
                 und
-                somit die Information noch besser zu verankern.</p>
+                somit die Information noch besser zu verankern. Zudem wird durch ein Klicken auf die Frage, die Antwort
+                ersichtlich. Dies soll Verständnisproblemen entgegen wirken. Des Weiteren gibt es die Möglichkeit, eine
+                News zu liken. Dadurch ist die News jederzeit in den Favoriten einsehbar, auch wenn diese nicht mehr
+                unter den News aufgelistet ist.</p>
             </li>
             <li>
-              <h3>Unsere Quellen</h3>
-              <p>Unsere News-Beiträge beziehen wir automatisiert über die API von <a href="https://newsdata.io/"
-                  class="cta-btn">newsdata.io</a>. In kinderfreundliche Sprache werden sie dann mithilfe einer Abfrage
-                an
-                <a href="https://platform.openai.com/docs/guides/gpt" class="cta-btn">ChatGPT</a> übersetzt. Zudem
-                generieren
-                wir automatisch Fragen zum Artikel mithilfe von ChatGPT. Die verwendete ChatGPT-Version ist
-                "gpt-3.5-turbo"
+              <h3>Unsere Ressourcen</h3>
+              <p>Die News-Beiträge beziehen wir automatisiert über die API von <a href="https://newsdata.io/"
+                  class="cta-btn">newsdata.io</a>. Dies wird alle 30 Minuten durchgeführt um die 5 neusten News zu
+                beziehen. Anschließend werden die News dann
+                in Kinderfreundliche Sprache mithilfe von
+                <a href="https://platform.openai.com/docs/guides/gpt" class="cta-btn">ChatGPT</a> übersetzt.
+                Die Fragen und Antworten zu der News werden ebenfalls von ChatGPT generiert. Die verwendete
+                ChatGPT-Version ist
+                gpt-3.5-turbo
                 aus dem Jahr 2023.
+              </p>
+            </li>
+
+            <li>
+              <h3>Herrausforderungen</h3>
+              <p>Es kann vorkommen, dass eine News Wörter und Sätze enthält, die nicht kindergerecht sind. Dem liegt
+                zugrunde, dass gpt-3.5-turbo noch nicht so ausgereift wie gpt-4.0 ist. Aus Kostengründen ist es leider
+                nicht möglich gpt-4.0 zu verwenden. Wir arbeiten jedoch an dem Problem, indem wir das Modell Fine-tunen.
+                Das braucht jedoch Zeit und Ressourcen.
               </p>
             </li>
           </ul>
