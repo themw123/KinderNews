@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-17 18:10:41
-  from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\news.tpl' */
+/* Smarty version 4.3.1, created on 2023-05-12 17:44:26
+  from '/var/www/html/iksy05/KinderNews/smarty/templates/gespeichert.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_648ddb0110d245_87737329',
+  'unifunc' => 'content_645e5eda6e45a0_77490264',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c931ec2f243f5fb1e115d6986829157671427dc0' => 
+    '1efb27f7c9cb6761a22a231cfc6b71cb40dfb141' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\news.tpl',
-      1 => 1687017321,
+      0 => '/var/www/html/iksy05/KinderNews/smarty/templates/gespeichert.tpl',
+      1 => 1683901869,
       2 => 'file',
     ),
   ),
@@ -21,12 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_648ddb0110d245_87737329 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645e5eda6e45a0_77490264 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>KinderNews</title>
+    <title>Gespeicherte News</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Für iphones. Sonnst ist über der Navbar der Hintergrund Rot. -->
     <meta name="theme-color" content="#2e2c2a" />
@@ -37,7 +37,7 @@ function content_648ddb0110d245_87737329 (Smarty_Internal_Template $_smarty_tpl)
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/news.css?v=1.4" rel="stylesheet" type="text/css">
+    <link href="css/news.css?v=1.1" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -46,41 +46,7 @@ function content_648ddb0110d245_87737329 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
-    <?php if (!(isset($_smarty_tpl->tpl_vars['errors']->value)) && !(isset($_smarty_tpl->tpl_vars['messages']->value))) {?>
-        <div class="alert alert-hidden">leer</div>
-    <?php }?>
-
-    <?php if (((isset($_smarty_tpl->tpl_vars['errors']->value)))) {?>
-        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
-$_smarty_tpl->tpl_vars['error']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['error']->value) {
-$_smarty_tpl->tpl_vars['error']->do_else = false;
-?>
-            <?php if (($_smarty_tpl->tpl_vars['error']->value != false)) {?>
-                <div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-</div>
-            <?php }?>
-        <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-    <?php }?>
-    <?php if (((isset($_smarty_tpl->tpl_vars['messages']->value)))) {?>
-        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value, 'message');
-$_smarty_tpl->tpl_vars['message']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
-$_smarty_tpl->tpl_vars['message']->do_else = false;
-?>
-            <div class="alert alert-custom"><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
-</div>
-        <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-    <?php }?>
-
-    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 pb-4">
+    <div class="custom row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4 mt-1 mb-5">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['news']->value, 'article');
 $_smarty_tpl->tpl_vars['article']->do_else = true;
@@ -88,7 +54,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['article']->value
 $_smarty_tpl->tpl_vars['article']->do_else = false;
 ?>
             <div class="col">
-                <a href=" ./?news&id=<?php echo $_smarty_tpl->tpl_vars['article']->value["id"];?>
+                <a href="./?news&id=<?php echo $_smarty_tpl->tpl_vars['article']->value["id"];?>
 ">
                     <div class="card border-0 h-100 ">
                         <?php if ($_smarty_tpl->tpl_vars['article']->value["bild_url"] == "error") {?>
@@ -100,9 +66,9 @@ $_smarty_tpl->tpl_vars['article']->do_else = false;
                         <?php }?>
                         <div class="card-body d-flex flex-column">
                             <div class="card-title d-flex justify-content-between">
-                                <p class="card-head">
-                                    <?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
-
+                                <p class="source">
+                                    <small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["quelle"];?>
+</small>
                                 </p>
                                 <?php ob_start();
 echo $_smarty_tpl->tpl_vars['article']->value["likes"];
@@ -126,8 +92,8 @@ if ($_prefixVariable2 == true) {?>
 </h5>
                             <p class="card-preview mt-auto mb-auto"><?php echo $_smarty_tpl->tpl_vars['article']->value["uebersetzte_preview"];?>
 </p>
-                            <p class="card-foot"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
-</p>
+                            <p class="card-text"><small class="text-muted"><?php echo $_smarty_tpl->tpl_vars['article']->value["date"];?>
+</small></p>
                         </div>
                     </div>
                 </a>
@@ -151,7 +117,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="js/navbar.js?v=1.0"><?php echo '</script'; ?>
+ src="js/navbar.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="js/news.js"><?php echo '</script'; ?>
