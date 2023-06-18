@@ -14,7 +14,7 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="css/alle.css" rel="stylesheet" type="text/css">
   <link href="css/navbar.css" rel="stylesheet" type="text/css">
-  <link href="css/home.css?v=1.2" rel="stylesheet" type="text/css">
+  <link href="css/home.css?v=1.4" rel="stylesheet" type="text/css">
 
 
 

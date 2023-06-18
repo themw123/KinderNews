@@ -5,7 +5,7 @@ body {
 
 .above-the-fold {
   padding-top: 100px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
 }
 
 @media (min-width: 576px) {
