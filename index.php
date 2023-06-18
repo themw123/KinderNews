@@ -72,9 +72,9 @@ if ($login->isUserLoggedIn()) {
             }
         } else {
             //news feed bzw favoriten
-            
+
             //Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
-            
+
             if (isset($_GET["favoriten"])) {
                 $newsArray = DBNews::getAllNewsDb($link);
             } else {
@@ -86,7 +86,7 @@ if ($login->isUserLoggedIn()) {
             //
             //gucken ob aktueller user news geliked hat
             $user_id = DbUser::getIdByName($link, $name);
-            
+
             foreach ($newsArray as $key => $news) {
                 $newsArray[$key]["likes"] = 0;
                 $newsArray[$key]["liked"] = false;
@@ -103,7 +103,7 @@ if ($login->isUserLoggedIn()) {
                     unset($newsArray[$key]);
                 }
             }
-            
+
             if (empty($newsArray)) {
                 if (isset($_GET["news"])) {
                     Logs::addMessage("Keine News vorhanden.");
@@ -111,8 +111,8 @@ if ($login->isUserLoggedIn()) {
                     Logs::addMessage("Du hast keine Favoriten, da du noch nichts geliked hast.");
                 }
             }
-            
-            
+
+
             //folgendes damit newsfeed immer neu geladen wird. Wenn man beispielsweise bei einem artikel auf den zurück button klickt, wird newsfeed nicht aus cash genommen sondern neu geladen.
             //nötig, damit like aktualisiert wird
             // any valid date in the past
@@ -123,13 +123,13 @@ if ($login->isUserLoggedIn()) {
             header("Cache-Control: private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0");
             // HTTP/1.0
             header("Pragma: no-cache");
-            
+
             $smarty->assign('news', $newsArray);
             $template = 'news.tpl';
         }
     } elseif (isset($_GET["settings"])) {
         $alleBenutzer = DBUser::getUsers($link);
-        
+
         $name = $_SESSION["name"];
         $email = $_SESSION["email"];
         $admin = $_SESSION["admin"];
@@ -161,7 +161,7 @@ if ($login->isUserLoggedIn()) {
 if (isset($_GET["home"])) {
     $template = 'home.tpl';
 } elseif (empty($_GET)) {
-    header("Location: " . "?home");
+    header("Location: " . "?news");
 }
 
 
