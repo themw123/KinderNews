@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-06-18 22:20:51
+/* Smarty version 4.3.1, created on 2023-06-18 22:29:05
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_648f67235dc643_59955266',
+  'unifunc' => 'content_648f6911615602_24829037',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e9ca37f772a7c9ef0f093b18e6023fdc88994221' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\home.tpl',
-      1 => 1687119651,
+      1 => 1687120145,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_648f67235dc643_59955266 (Smarty_Internal_Template $_smarty_tpl) {
+function content_648f6911615602_24829037 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <head>
@@ -38,7 +38,7 @@ function content_648f67235dc643_59955266 (Smarty_Internal_Template $_smarty_tpl)
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="css/alle.css" rel="stylesheet" type="text/css">
   <link href="css/navbar.css" rel="stylesheet" type="text/css">
-  <link href="css/home.css?v=1.5" rel="stylesheet" type="text/css">
+  <link href="css/home.css?v=1.6" rel="stylesheet" type="text/css">
 
 
 
