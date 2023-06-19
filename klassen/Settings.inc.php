@@ -10,7 +10,7 @@ class Settings
     {
         $this->link = $link;
         $this->login = $login;
-
+        // benutzer rolle ändern, nur admins dürfen das
         if (isset($_POST["id"]) && isset($_POST["admin"])) {
             if ($this->login->isUserKindernews() && DBUser::getNameById($link, DBHelper::escape($link, $_POST["id"])) != "kindernews") {
                 DBUser::changeRole($link, DBHelper::escape($link, $_POST["id"]), DBHelper::escape($link, $_POST["admin"]));

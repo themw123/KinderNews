@@ -21,18 +21,23 @@ require_once("./klassen/Request.inc.php");
 require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
-
+//POST oder GET ?
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
+//Datenbank verbindung herstellen
 $link = DBHelper::connectWithDatabase();
 
-//session wird in login erzeugt bzw wiederaufgenommen
-//die komplette Login logik inklusive register und password reset wird mittels folgender drei klassen erledigt
-$security = new Security($link);
-$login = new Login($link, $security);
-$register = new Register($link);
-$reset = new Reset($link, $security);
-$settings = new Settings($link, $login);
 
+//überprüft ob zu viele Loginversuche stattgefunden haben pro ip
+$security = new Security($link);
+//session wird in login erzeugt bzw wiederaufgenommen falls vorhanden
+$login = new Login($link, $security);
+//registrierungs logik
+$register = new Register($link);
+//password reset logik
+$reset = new Reset($link, $security);
+//Benutzer Rolle ändern
+$settings = new Settings($link, $login);
+//News holen, mit chat übersetzen und in db abspeichern
 $news = new News($link, $login);
 
 //csrf validierung
@@ -54,9 +59,10 @@ if ($login->isUserLoggedIn()) {
     $login_or_logout = "Logout";
     $login_or_logout_link = "./?logout";
     $settings = "./?settings";
+    //news bzw favoriten seite vorbereiten
     if (isset($_GET["news"]) || isset($_GET["favoriten"])) {
+        //news Artikel
         if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
-            //einzelne news
             $newsArticle = DBNews::getNewsArticleDb($link, DBHelper::escape($link, $_GET["id"]));
             if ($newsArticle != null) {
                 $liked = DBBewertung::checkLike($link, DBHelper::escape($link, $_GET["id"]));
@@ -66,20 +72,25 @@ if ($login->isUserLoggedIn()) {
                 $smarty->assign('likes', $likes);
                 $template = 'newsarticle.tpl';
             } else {
+                //wenn es abgefragte news nicht gibt, weil beispiel falsche id manuel in browser eingegeben wird,
+                //dann news Feed anzeigen, neuste 100 holen
                 $newsArray = DBNews::getNewsDb($link);
                 $smarty->assign('news', $newsArray);
                 $template = 'news.tpl';
             }
         } else {
-            //news feed bzw favoriten
+            //news feed bzw favoriten feed
 
             //Bei langen Ladezeiten kann Anfrage über js bzw js->php->db->js erfolgen, damit loading circle solange angezeigt wird, bis die Daten da sind.
 
             if (isset($_GET["favoriten"])) {
+                //alle damit dann gleich nach gelikten gefiltert werden kann
                 $newsArray = DBNews::getAllNewsDb($link);
             } else {
+                //news Feed anzeigen, neuste 100 holen
                 $newsArray = DBNews::getNewsDb($link);
             }
+            //likes <-> benutzter abhängigkeiten holen
             $allLikes = DBNews::getAllLikesDb($link);
             //anzahl an likes für jede news hinzufügen
             //und
@@ -91,9 +102,11 @@ if ($login->isUserLoggedIn()) {
                 $newsArray[$key]["likes"] = 0;
                 $newsArray[$key]["liked"] = false;
                 foreach ($allLikes as $like) {
+                    //Anzahl an likes für jede news hinzufügen 
                     if ($news["id"] == $like["news_id"]) {
                         $newsArray[$key]["likes"]++;
                     }
+                    //gucken ob aktueller user news geliked hat
                     if ($newsArray[$key]["liked"] == false && $news["id"] == $like["news_id"] && $like["benutzter_id"] == $user_id) {
                         $newsArray[$key]["liked"] = true;
                     }
@@ -115,9 +128,9 @@ if ($login->isUserLoggedIn()) {
 
             //folgendes damit newsfeed immer neu geladen wird. Wenn man beispielsweise bei einem artikel auf den zurück button klickt, wird newsfeed nicht aus cash genommen sondern neu geladen.
             //nötig, damit like aktualisiert wird
-            // any valid date in the past
+            // irgendein datum in der vergangenheit
             header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-            // always modified right now
+            // last modified header auf aktuelles datum und uhrzeit setzen
             header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
             // HTTP/1.1
             header("Cache-Control: private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0");
@@ -128,6 +141,7 @@ if ($login->isUserLoggedIn()) {
             $template = 'news.tpl';
         }
     } elseif (isset($_GET["settings"])) {
+        //damit bei einstellungen alle benutzer angezeigt werden für die admins
         $alleBenutzer = DBUser::getUsers($link);
 
         $name = $_SESSION["name"];

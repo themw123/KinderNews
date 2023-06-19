@@ -13,7 +13,9 @@ class Register
         $this->link = $link;
         if (isset($_POST["register"])) {
             $this->registerNewUser();
-        } else if (isset($_GET["token"]) && isset($_GET["confirm"])) {
+        }
+        //Benutzer aktivieren
+        else if (isset($_GET["token"]) && isset($_GET["confirm"])) {
             $this->confirmNewUser();
         }
     }
@@ -31,6 +33,8 @@ class Register
 
     private function registerNewUser()
     {
+        //neuen Benutzer in db anlegen
+
         if (strlen($_POST['password']) < 8) {
             Logs::addError("Passwort muss mindestens 8 Zeichen lang sein");
         }
@@ -76,18 +80,23 @@ class Register
                 $email = DBHelper::escape($this->link, $_POST['email']);
                 $password = DBHelper::escape($this->link, $_POST['password']);
 
+                //passwort verschlüsseln
                 $password_hash = password_hash($password, PASSWORD_ARGON2ID);
 
+                //gucken ob benutzer bereits existiert
                 $result_of_login_check = DBUser::exists2($this->link, $username, $email);
 
                 if ($result_of_login_check->num_rows == 1) {
                     Logs::addError("Der Benutzername/E-Mail-Adresse ist bereits vergeben");
                 } else {
 
+                    //Neuen token erstellen damit benutzer anschließend aktiviert werden kann
                     $token = bin2hex(openssl_random_pseudo_bytes(32));
 
+                    //mail versenden zum aktivieren des accounts
                     $zustand = Mail::sendMailRegister($username, $email, $token);
 
+                    //wenn mail gesendet wurde
                     if ($zustand) {
                         //deaktivierten account anlegen
                         DBUser::createAccount($this->link, $username, $email, $password_hash, $token);

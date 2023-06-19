@@ -8,6 +8,7 @@ class Mail
 
     private static function basic()
     {
+        //Mailer initialisieren
         self::$mail = new PHPMailer();
         //damit Umlaute richtig angezeigt werden
         self::$mail->CharSet = 'utf-8';
@@ -54,7 +55,6 @@ class Mail
 
     public static function sendMailReset($email, $token)
     {
-
 
         self::basic();
 
