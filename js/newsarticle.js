@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-$("#changeText").on('click', function() {
-    // Hier können Sie den Code ausführen, der auf den Klick reagieren soll
-    // Zum Beispiel: eine Funktion aufrufen oder eine Animation starten
+//wenn auf "Kind" bzw "Erwachsener" geklickt wird den jeweiligen anderen Text anzeigen
+  $("#changeText").on('click', function() {
 
     $(this).toggleClass('clicked');
 
@@ -37,6 +36,7 @@ $("#changeText").on('click', function() {
     
 });
 
+//wenn keine likes vorhanden soll anzahl verschwinden
 if(parseInt($(".likes").text()) === 0) {
   $(".likes").css("visibility", "hidden");
 }
@@ -44,7 +44,7 @@ else {
   $(".likes").css("visibility", "visible");
 }
 
-
+//wenn liken gedrückt wird
 $(".heart").click(function(){
   var like;
   var heartImgSrc = $(this).attr("src");
@@ -79,6 +79,7 @@ $(".heart").click(function(){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   var id = urlParams.get('id');
+  //liken oder entliken indem anfrage über php mittels ajax
   likeOrRemove(like, id);
 
 });
@@ -97,7 +98,7 @@ function likeOrRemove(like, id) {
   });
 }
 
-
+// wenn auf die dritte Frage geklickt wird, soll nach unten gescrollt werden
 $('#answer3').on('shown.bs.collapse', function () {
   document.getElementById('answer3').scrollIntoView({ behavior: 'smooth' });
 });
