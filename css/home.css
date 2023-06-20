@@ -3,25 +3,34 @@ body {
   background: rgba(157, 29, 29, 0.797) !important;
 }
 
+
 .above-the-fold {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-top: 20vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
+
+#about {
+  margin-top: 100vh;
+}
+
+
 
 @media (min-width: 576px) {
   .above-the-fold {
-    padding-top: 130px;
-    padding-bottom: 200px;
+    margin-top: 30vh;
   }
 
-  #about-us {
-    padding-top: 200px !important;
+  #about {
+    margin-top: 100vh;
   }
 
   .above-the-fold p {
     font-size: 30px !important;
   }
-
 
   h1 {
     font-size: 4rem;
@@ -41,11 +50,7 @@ body {
 
 }
 
-@media (min-width: 768px) {
-  .above-the-fold {
-    padding-top: 220px;
-  }
-}
+@media (min-width: 768px) {}
 
 .above-the-fold p {
   font-size: 20px;
