@@ -1,3 +1,4 @@
+//damit in navbar die aktuelle seite weiß angezeigt wird also als aktiv
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 if(urlParams.has('home') || urlParams.toString().trim().length === 0) {

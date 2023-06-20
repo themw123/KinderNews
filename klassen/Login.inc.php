@@ -19,9 +19,12 @@ class Login
         setcookie(session_name(), session_id(), time() + $cookie_lifetime);*/
 
         if (isset($_GET["logout"]) && !isset($_SESSION["loggedOutBefore"])) {
+            //wenn logout in der url steht und noch nicht ausgeloggt wurde
             $this->doLogout();
         } elseif (isset($_POST["login"])) {
+            //erst gucken ob nicht zu viele versuche
             if ($this->security->checkLoginAttempts()) {
+                //einloggen
                 $success = $this->doLogin();
                 if ($success) {
                     //auf index.php umleiten, damit index.php erneut geladen wird nur diesmal als get und nicht post.
@@ -59,7 +62,7 @@ class Login
                 $result_of_login_check = DBUser::exists1($this->link, $email_or_user);
 
 
-                //wenn email existiert
+                //wenn email oder name existiert
                 if ($result_of_login_check->num_rows == 1) {
 
                     $result_row = $result_of_login_check->fetch_object();
@@ -67,7 +70,7 @@ class Login
                     //password_verify() um zu gucken ob passwort passt
                     if (!empty($_POST['password']) && password_verify($_POST['password'], $result_row->passwort_hash)) {
 
-                        //login versuche zurücksetzten
+                        //login versuche zurücksetzten, weil war ja erfolgreich
                         $this->security->deleteLoginAttempts();
 
                         //schreibe benutzerdaten in die session                 
@@ -79,7 +82,7 @@ class Login
                         $_SESSION['user_login_status'] = 1;
                         return true;
                     } else {
-                        //login versuche hochzählen
+                        //login versuche hochzählen, weil fehlversuch
                         $this->security->setLoginAttempts();
                         Logs::addError("falsches Passwort");
                     }
@@ -96,18 +99,19 @@ class Login
 
     public function doLogout()
     {
-        // delete the session of the user
+        //werte der session des benutzers werden gelöscht, session bleibt aber aktiv sodass werte neu gesetzt werden können
         session_unset();
+        //löscht session id und alle damit verbundenen daten
         //session_destroy();
         $_SESSION["loggedOutBefore"] = true;
 
-        // return a little feeedback message
         Logs::addMessage("Du wurdest ausgeloggt");
     }
 
 
     public function isUserLoggedIn()
     {
+        //gucken ob benutzer eingeloggt ist
         if (isset($_SESSION['user_login_status']) && $_SESSION['user_login_status'] == 1) {
             return true;
         }
@@ -115,6 +119,7 @@ class Login
     }
     public function isUserAdmin()
     {
+        //gucken ob benutzer admin ist
         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
             return true;
         }
@@ -122,6 +127,7 @@ class Login
     }
     public function isUserKindernews()
     {
+        //gucken ob benutzer kindernews ist
         if (isset($_SESSION['name']) && $_SESSION['name'] == "kindernews") {
             return true;
         }
