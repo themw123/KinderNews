@@ -18,22 +18,23 @@ class Security
 
     public function checkLoginAttempts()
     {
-
+        //ip adresse holen
         $this->ip_address = $this->getIpAddr();
         $text = $this->timeout;
 
-        //wenn mehr als 3
+        //wenn mehr als 3 fehlversuche
         $count_all = DBLoginLogs::getLoginAttemptsAll($this->link, $this->ip_address);
 
+        //Zu viele fehlversuche
         if ($count_all >= $this->attemps) {
             //wenn mehr als ein über erlaubte versuche
             if ($count_all == $this->attemps + 1) {
-                //2 Minuten
+                //2 Minuten warten
                 $this->timeout = $this->timeout * 2;
             } else if ($count_all == $this->attemps + 2) {
-                //5 Minuten
+                //5 Minuten warten
                 $this->timeout = $this->timeout * 5;
-            } else if ($count_all == $this->attemps + 2) {
+            } else if ($count_all == $this->attemps + 3) {
                 //1 Tag
                 //ab hier an immer nur 1 Versuch pro Tag bis Passwort richtig eingegeben wurde
                 //selbst bei einem 6 stelligen lowercase passwort ohne Zahlen und Sonderzeichen würde es 846344 Jahre dauern alle Kombinationen durchzuprobieren.
@@ -46,6 +47,7 @@ class Security
         }
 
         $time = time() - $this->timeout; //wenn in den letzten x sekunden eingeloggt wurde
+        //wie viele fehlversuche bezüglich des logins wurden von einer ip innerhalb der gegebenen Zeit getätigt?
         $this->count = DBLoginLogs::getLoginAttempts($this->link, $time, $this->ip_address);
 
         //bei mehr als 3 versuchen nur noch 1 versuch bis nächste Stufe
@@ -63,6 +65,7 @@ class Security
 
     public function setLoginAttempts()
     {
+        //aktuelle Zeit
         $time = time();
         DBLoginLogs::setLoginAttempts($this->link, $time, $this->ip_address);
     }

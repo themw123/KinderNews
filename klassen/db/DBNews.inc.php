@@ -39,6 +39,7 @@ class DBNews
 
     public static function getAllNewsDb($link)
     {
+        //alle news aus der db holen, neuste zuerst
         $stmt = $link->prepare(
             "Select * from news order by date desc"
         );
@@ -50,6 +51,7 @@ class DBNews
 
     public static function getNewsDb($link)
     {
+        //alle news aus der db holen, neuste zuerst, nur neuste 100
         $stmt = $link->prepare(
             "Select * from news order by date desc LIMIT 100;"
         );
@@ -61,6 +63,7 @@ class DBNews
 
     public static function getAllLikesDb($link)
     {
+        //alle like <-> benutzer relationen holen
         $stmt = $link->prepare(
             "Select * from bewertung;"
         );
@@ -71,6 +74,7 @@ class DBNews
 
     public static function getNewsArticleDb($link, $id)
     {
+        //eine bestimmte news aus der db holen
         $stmt = $link->prepare(
             "Select * from news where id = " . $id
         );

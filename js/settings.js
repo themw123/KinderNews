@@ -1,10 +1,12 @@
+
+// wenn auf aktualisieren geklickt wird
 $(".loadingButton").on("click", function () {
   $(".alert").addClass("alert-hidden");
   $(".alert").removeClass("alert-warning");
   $(".alert").removeClass("alert-custom");
   $(".alert").removeClass("alert-success");
 
-
+  // news aktualisieren mit php über ajax
   getNews();
   $(".loadingButton").prop("disabled", true);
   $(".buttonSpinner").css("display", "inline-block");
@@ -32,6 +34,7 @@ function getNews() {
       $(".buttonText").text("aktualisieren");
 
       response = response.responseJSON;
+      
       if (response.art == "error") {
         $(".alert").removeClass("alert-hidden");
         $(".alert").addClass("alert-warning");
@@ -54,7 +57,7 @@ function getNews() {
   });
 }
 
-
+//wenn ein switch umgelegt wird, dann über php mittels ajax rolle des benutzers ändern
 $('.switch').change(function() {
   var isChecked = $(this).is(':checked'); 
   var id = $(this).attr('id');

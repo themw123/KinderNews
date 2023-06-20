@@ -49,6 +49,7 @@ class Logs
 
     public static function jsonLogs()
     {
+        //fehler bzw messages von news holen bzw übersetzen an json übergeben
         $art = null;
         $text = null;
         $json_response = null;

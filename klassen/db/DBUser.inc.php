@@ -6,6 +6,7 @@ class DBUser
 
     public static function getUsers($link)
     {
+        //alle benutzer aus der db holen
         $stmt = $link->prepare(
             "Select * from benutzer"
         );
@@ -16,6 +17,7 @@ class DBUser
 
     public static function changeRole($link, $id, $admin)
     {
+        //rolle eines benutzers ändern
         $stmt = $link->prepare(
             "UPDATE benutzer set admin=? where id=?;"
         );
@@ -30,6 +32,7 @@ class DBUser
 
     public static function getNameById($link, $id)
     {
+        //name eines benutzers anhand der id holen
         $stmt = $link->prepare(
             "SELECT name FROM benutzer WHERE id = ?;"
         );
@@ -40,6 +43,7 @@ class DBUser
     }
     public static function getIdByName($link, $name)
     {
+        //id eines benutzers anhand des namens holen
         $stmt = $link->prepare(
             "SELECT id FROM benutzer WHERE name = ?;"
         );
@@ -51,6 +55,8 @@ class DBUser
 
     public static function createAccount($link, $username, $email, $password_hash, $token)
     {
+        //neuen benutzer in die db eintragen
+        //standardmäßig kein admin und nicht aktiviert
         $stmt = $link->prepare(
             "INSERT INTO benutzer (name, email, passwort_hash, admin, activated, token)
 			VALUES(?, ?, ?, 0, 0, ?);"
@@ -61,6 +67,7 @@ class DBUser
 
     public static function activateAccount($link, $token)
     {
+        //benutzer aktivieren mittels token
         $stmt = $link->prepare(
             "UPDATE benutzer set activated=1, token='0' where token=?;"
         );
@@ -75,6 +82,7 @@ class DBUser
 
     public static function setToken($link, $email, $token, $token_uhrzeit)
     {
+        //token setzen wenn password reset angefordert wurde
         $stmt = $link->prepare(
             "UPDATE benutzer set token=?, token_uhrzeit=? where email=?;"
         );
@@ -84,6 +92,7 @@ class DBUser
 
     public static function getTokenTime($link, $token)
     {
+        //zeitpunkt des tokens holen
         $stmt = $link->prepare(
             "SELECT token_uhrzeit FROM benutzer WHERE token = ?;"
         );
@@ -94,6 +103,7 @@ class DBUser
 
     public static function resetPassword($link, $password_hash, $token)
     {
+        //passwort zurücksetzen
         $stmt = $link->prepare(
             "UPDATE benutzer set passwort_hash=? , token='0', token_uhrzeit=null where token=?;"
         );
@@ -108,6 +118,7 @@ class DBUser
 
     public static function exists1($link, $email_or_user)
     {
+        //prüfen ob benutzer mit namen x bzw email x existiert und auch aktiviert ist
         $stmt = $link->prepare(
             "SELECT * FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
         );
@@ -118,8 +129,8 @@ class DBUser
 
     public static function exists2($link, $username, $email)
     {
+        //prüfen ob benutzer mit namen x bzw email x existiert
         $stmt = $link->prepare(
-            //"SELECT * FROM benutzer WHERE (email = ? or name = ?) and activated = 1;"
             "SELECT * FROM benutzer WHERE (email = ? or name = ?);"
         );
         $stmt->bind_param("ss", $email, $username);

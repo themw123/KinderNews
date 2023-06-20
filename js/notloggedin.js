@@ -4,6 +4,8 @@ $(document).ready(function() {
   scannePasswoerter();
 });
 
+//zwischen den login, reset und register forms wechseln
+
 $("#signup").click(function () {
   $("#first").fadeOut("fast", function () {
     $("#second").fadeIn("fast");
@@ -15,11 +17,13 @@ $("#signin").click(function () {
     $("#first").fadeIn("fast");
   });
 });
+
 $("#signinMail_reset").click(function () {
   $("#third").fadeOut("fast", function () {
     $("#first").fadeIn("fast");
   });
 });
+
 $("#signinPassword_reset").click(function () {
   $("#fourth").fadeOut("fast", function () {
     $("#ohneFourth").fadeIn("fast");
@@ -61,7 +65,7 @@ function scannePasswoerter() {
   password2.onkeyup = validatePassword;
 }
 
-
+//gucken ob passwörter gleich sind 
 function validatePassword() {
   if (password1.value != password2.value) {
     password2.setCustomValidity("Passwörter stimmen nicht überein!");

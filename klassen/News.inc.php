@@ -67,17 +67,21 @@ class News
             //und dabei können dann keine weiteren clients die website abrufen
             session_write_close();
             $success = $this->getNews();
+            //wenn news erfolgreich geholt wurden, dann übersetze sie und speichere sie in der db
             if ($success) {
                 $this->translateNews();
                 DBNews::setNewsDb($this->link, $this->news, $this->newsTranslated);
             }
+            //zeige fehler an falls vorhanden, also bei welchen news es nicht geklapt hat und warum
             Logs::jsonLogs();
         }
         if ($this->login->isUserLoggedIn()) {
+            //like speichern
             if (isset($_GET["like"]) && $_GET["like"] == "like") {
                 DBBewertung::like($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             } else if (isset($_GET["like"]) && $_GET["like"] == "removeLike") {
+                //like entfernen
                 DBBewertung::removeLike($link, DBHelper::escape($link, $_GET["id"]));
                 die();
             }
@@ -88,6 +92,7 @@ class News
     private function getNews()
     {
         //hole solange news(pro Request 5) bis es 5 Stück mit content gibt
+        //höchstens aber 5 requests
         $success = true;
         $counter = 0;
         while ($success && count($this->news) < 5 && $counter < 5) {
@@ -115,6 +120,7 @@ class News
             return false;
         }
 
+        //json in php array umwandeln
         $json = json_decode($response);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -126,7 +132,7 @@ class News
             Logs::addError("Fehler beim holen der News. Response Json status != success.");
             return false;
         }
-
+        //für nächste request
         $this->page = $json->{"nextPage"};
 
         $json = $json->{"results"};
@@ -156,12 +162,13 @@ class News
     private function filterNews($article)
     {
 
-        //nur wenn content und image vorhanden
+        //nur wenn content vorhanden
         $content = $article->{"content"};
         $image = $article->{"image_url"};
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
+        //nur wenn bild vorhanden
         /*
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
@@ -189,6 +196,7 @@ class News
             return true;
         }
         foreach ($newsOld as $old) {
+            //news bereits vorhanden
             if ($old["originaler_titel"] == $article["title"]) {
                 return false;
             }
@@ -220,6 +228,7 @@ class News
                     $text = substr($text, 0, $maxLength);
                 }
 
+                //chatgpt übersetzen lassen
                 $response = Request::requestTranslate($title, $text);
 
                 if ($response === "private" || $response === "public") {
@@ -236,6 +245,7 @@ class News
                     continue;
                 }
 
+                //json in php array umwandeln
                 $json = json_decode($response);
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
@@ -252,11 +262,13 @@ class News
                     continue;
                 }
 
-
+                //output von chatgpt holen
                 $responseText = $json->{"choices"}[0]->{"message"}->{"content"};
+                //führende und nachstehende leerzeichen entfernen
                 $responseText = trim($responseText);
 
 
+                //da chat als antwort auch json liefert, wieder json in php array umwandeln
                 $myJson = json_decode($responseText);
                 if (json_last_error() !== JSON_ERROR_NONE) {
                     Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ". News. Response erfolgreich, aber ChatGPT hat kein valides JSON geliefert.");
