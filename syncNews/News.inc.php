@@ -31,18 +31,21 @@ class News
 
     private function getNews()
     {
-        //hole solange news(pro Request 5) bis es 5 Stück mit content gibt
+        //hole solange news(pro Request 10) bis es mind. 10 Stück mit content gibt
+        //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 5 && $counter < 5) {
-            $success = $this->getNews5();
+        while ($success && count($this->news) < 10 && $counter < 2) {
+            $success = $this->getNews10();
             $counter++;
         }
 
+        /*
         //lösche wenn mehr als 5
-        if (count($this->news) > 5) {
-            $this->news = array_slice($this->news, 0, 5);
+        if (count($this->news) > 10) {
+            $this->news = array_slice($this->news, 0, 10);
         }
+        */
 
         //umdrehen damit neuste news als letztes in db eingefügt werden. nicht mehr nötig aufgrund von date, aber bleibt erst mal so
         $this->news = array_reverse($this->news);
@@ -50,7 +53,7 @@ class News
         return $success;
     }
 
-    private function getNews5()
+    private function getNews10()
     {
         $response = Request::requestNews($this->page);
 
