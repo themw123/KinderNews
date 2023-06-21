@@ -171,11 +171,11 @@ class News
             return false;
         }
         //nur wenn bild vorhanden
-        /*
+
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
-        */
+
 
 
         //article ist vom typ obkject und SOURCES vom typ array
