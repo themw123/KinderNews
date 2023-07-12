@@ -13,61 +13,13 @@ body {
   z-index: 1;
 }
 
+.above-the-fold p {
+  font-size: 19px;
+}
+
 #about {
   margin-top: 100vh;
 }
-
-
-
-@media (min-width: 576px) {
-  .above-the-fold {
-    margin-top: 30vh;
-  }
-
-  #about {
-    margin-top: 100vh;
-  }
-
-  .above-the-fold p {
-    font-size: 30px !important;
-  }
-
-  h1 {
-    font-size: 4rem;
-  }
-
-  .h1sub {
-    font-size: 35px;
-  }
-
-  #about li p {
-    font-size: 25px;
-  }
-
-  #about li h3 {
-    text-align: center !important;
-  }
-
-}
-
-@media (min-width: 768px) {}
-
-.above-the-fold p {
-  font-size: 20px;
-  margin-bottom: 2rem;
-}
-
-.above-the-fold .cta-btn:hover {
-  transform: translateY(-10px);
-}
-
-.pad {
-  padding: 10px;
-}
-
-
-
-
 
 
 a {
@@ -84,8 +36,7 @@ a:hover {
 
 
 h1 {
-  font-size: 40px;
-  margin-bottom: 2rem;
+  font-size: 30px;
 }
 
 
@@ -106,8 +57,9 @@ h1 {
 }
 
 
-#about p {
+#about li p {
   text-align: left;
+  font-size: 17px;
 }
 
 
@@ -164,9 +116,10 @@ h1 {
 }
 
 #about li h3 {
-  font-size: 28px;
+  font-size: 23px;
   margin-bottom: 15px;
   text-align: left;
+  word-wrap: break-word;
 }
 
 #about-us {
@@ -184,9 +137,12 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .team-member {
+  max-width: 300px;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -203,18 +159,7 @@ h1 {
 
 }
 
-@media (min-width: 768px) {
-  .team-member {
-    width: 50%;
-    padding: 5 15px;
-  }
-}
 
-@media (min-width: 992px) {
-  .team-member {
-    width: 25%;
-  }
-}
 
 .team-member:hover {
   transform: translateY(-10px);
@@ -247,10 +192,6 @@ h1 {
   color: #6c757d;
 }
 
-.back-button-box {
-  display: flex;
-  justify-content: center;
-}
 
 .back-to-top-btn {
   display: inline-block;
@@ -263,8 +204,64 @@ h1 {
   transition: all 0.3s ease-in-out;
 }
 
+.back-button-box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  padding-top: 60px;
+
+}
+
 .back-button-box .back-to-top-btn:hover {
   transform: translateY(-10px);
   background-color: #2e2c2a;
   color: #ffffff;
+}
+
+
+.above-the-fold .cta-btn:hover {
+  transform: translateY(-10px);
+}
+
+.pad {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 576px) {
+
+
+  h1 {
+    font-size: 40px;
+  }
+
+
+  .above-the-fold p {
+    font-size: 23px !important;
+  }
+
+
+  #about li h3 {
+    text-align: center !important;
+    font-size: 24px;
+  }
+
+  #about li p {
+    font-size: 21px;
+  }
+
+
 }
