@@ -26,3 +26,4 @@ vendor/composer/LICENSE
 vendor/composer/platform_check.php
 vendor/composer/smarty/
 vendor/smarty/smarty/
+config.php
