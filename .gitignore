@@ -27,3 +27,4 @@ vendor/composer/platform_check.php
 vendor/composer/smarty/
 vendor/smarty/smarty/
 kindernews.sql
+config.php
