@@ -14,7 +14,7 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="css/alle.css" rel="stylesheet" type="text/css">
   <link href="css/navbar.css" rel="stylesheet" type="text/css">
-  <link href="css/home.css?v=1.7" rel="stylesheet" type="text/css">
+  <link href="css/home.css?v=1.8" rel="stylesheet" type="text/css">
 
 
 
@@ -28,12 +28,11 @@
 
 
     <section class="above-the-fold">
-      <div class="container d-flex flex-column justify-content-center align-items-center">
+      <div class="container d-flex flex-column justify-content-center align-items-center gap-5">
         <h1 class="text-center">Einfache Schlagzeilen!</h1>
-        <p class="text-center h1sub">Willkommen auf unserer Website. Wir übsersetzen komplexe Erwachsenen-News in
-          kinderfreundliche News. Dabei wird der Inhalt zusammengefasst, sodass ihr auch ohne mühseliges durchlesen von
-          zu langen News up to date bleibt!</p>
-        </p>
+        <p class="text-center">Willkommen auf KinderNews! Hier werden komplexe Erwachsenen-News in
+          kinderfreundliche News übsersetzen. Dabei wird der Inhalt zusammengefasst, sodass ihr auch ohne mühseliges
+          durchlesen von zu langen News up to date bleibt!</p>
         <a href="?news" id="news-link" class="cta-btn">zu den News</a>
       </div>
     </section>
@@ -45,15 +44,15 @@
         <ul>
           <div class="inhalt">
             <li class="inhalt1">
-              <h3>Unser Anliegen</h3>
-              <p>Bei uns können Kinder Nachrichten lesen, ohne dass sie von Inhalten überwältigt oder überfordert
-                werden.
-                Unsere Website nutzt modernste Technologien, um Nachrichten aus einer News-API zu beziehen und sie
+              <h3>Mein Anliegen</h3>
+              <p>Mit KinderNews können Kinder Nachrichten lesen, ohne dass sie von den Inhalten überwältigt oder
+                überfordert werden.
+                KinderNews nutzt modernste Technologien, um Nachrichten aus einer News-API zu beziehen und sie
                 mithilfe von
-                ChatGPT kinderfreundlich aufzubereiten. Uns ist es wichtig, dass die Informationen des Artikels
-                weiterhin vermittelt, sie jedoch auf eine nicht verstörende Weise in einem einfachen
-                Sprachgebrauch
-                wiedergegeben werden. Das heißt, man bekommt erwachsene News, die auch von Kindern verstanden werden
+                ChatGPT kinderfreundlich aufzubereiten. Ziel ist es, dass die Informationen des Artikels
+                weiterhin vermittelt werden, allerdings soll dies auf eine nicht verstörende Weise und mittels einfacher
+                Sprache erfolgen. Das heißt, man bekommt erwachsene News, die auch von
+                Kindern verstanden werden
                 können!</p>
             </li>
           </div>
@@ -61,7 +60,7 @@
 
             <li>
               <h3>Features</h3>
-              <p>Wir wollen mittels Fragen unterhalb des Artikels dazu ermutigen, noch einmal über das Gelesene
+              <p>Es soll mittels Fragen unterhalb des Artikels dazu ermutigt werden, noch einmal über das Gelesene
                 nachzudenken
                 und
                 somit die Information noch besser zu verankern. Zudem wird durch ein Klicken auf die Frage, die Antwort
@@ -74,10 +73,10 @@
           <div class="inhalt inhalt3">
 
             <li>
-              <h3>Unsere Ressourcen</h3>
-              <p>Die News-Beiträge beziehen wir automatisiert über die API von <a href="https://newsdata.io/"
-                  class="cta-btn">newsdata.io</a>. Dies wird alle 30 Minuten durchgeführt um die 5 neusten News zu
-                beziehen. Anschließend werden die News dann
+              <h3>Ressourcen</h3>
+              <p>Die News-Beiträge werden automatisiert über die API von <a href="https://newsdata.io/"
+                  class="cta-btn">newsdata.io</a> bezogen. Dies wird alle 30 Minuten durchgeführt um die 5 neusten News
+                zu holen. Anschließend werden die News dann
                 in Kinderfreundliche Sprache mithilfe von
                 <a href="https://platform.openai.com/docs/guides/gpt" class="cta-btn">ChatGPT</a> übersetzt.
                 Die Fragen und Antworten zu der News werden ebenfalls von ChatGPT generiert. Die verwendete
@@ -93,7 +92,9 @@
               <h3>Herausforderungen</h3>
               <p>Es kann vorkommen, dass eine News Wörter und Sätze enthält, die nicht kindergerecht sind. Dem liegt
                 zugrunde, dass gpt-3.5-turbo noch nicht so ausgereift wie gpt-4.0 ist. Aus Kostengründen ist es leider
-                nicht möglich gpt-4.0 zu verwenden. Wir arbeiten jedoch an dem Problem, indem wir das Modell Fine-tunen.
+                nicht möglich gpt-4.0 zu verwenden.
+                Es wird jedoch aktiv daran gearbeitet, das Modell durch Fine-tunen zu verbessern, um das Problem
+                anzugehen.
                 Das braucht jedoch Zeit und Ressourcen.
               </p>
             </li>
@@ -108,39 +109,28 @@
       <div class="container">
         <h2>Das sind wir</h2>
 
-        <div class="team-members">
+        <div class="team-members ">
 
-          <a href="https://github.com/EnnoSessler" class="team-member">
-            <img src="img/image2.jpg" alt="Bild von Gründungsmitglied 2">
-            <div class="member-details">
-              <h4>Enno Sessler</h4>
-              <p>Student Bachelor Wirtschaftsinformatik</p>
-            </div>
-          </a>
 
           <a href="https://github.com/themw123" class="team-member">
             <img src="img/image1.jpg" alt="Bild von Gründungsmitglied 1">
             <div class="member-details">
               <h4>Marvin Walczak</h4>
-              <p>Student Bachelor Wirtschaftsinformatik</p>
+              <p class="mb-3">Ausbildung IT und Bachelor Wirtschaftsinformatik</p>
+              <p>Umsetzung</p>
             </div>
           </a>
 
-          <div class="team-member">
-            <img src="img/image4.jpeg" alt="Bild von Gründungsmitglied 3">
+          <a href="#" class="team-member">
+            <img src="img/image2.png" alt="Bild von Gründungsmitglied 2">
             <div class="member-details">
-              <h4>Luke Eßkuchen</h4>
-              <p>Student Bachelor Wirtschaftsinformatik</p>
-            </div>
-          </div>
+              <h4>Arantza Rodriguez</h4>
+              <p class="mb-3">Bachelor Management & Economics</p>
+              <p>Design Ideen und Konzepte</p>
 
-          <div class="team-member">
-            <img src="img/image3.jpg" alt="Bild von Gründungsmitglied 4">
-            <div class="member-details">
-              <h4>Dennis Sadovoi</h4>
-              <p>Student Bachelor Wirtschaftsinformatik</p>
             </div>
-          </div>
+          </a>
+
         </div>
       </div>
 
