@@ -27,5 +27,3 @@ vendor/composer/platform_check.php
 vendor/composer/smarty/
 vendor/smarty/smarty/
 config.php
-kindernews.sql
-rename_to_config.php
