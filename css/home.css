@@ -5,7 +5,7 @@ body {
 
 
 .above-the-fold {
-  margin-top: 30vh;
+  margin-top: 20vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -243,6 +243,9 @@ h1 {
 
 @media (min-width: 576px) {
 
+  .above-the-fold {
+    margin-top: 30vh;
+  }
 
   h1 {
     font-size: 40px;
