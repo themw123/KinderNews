@@ -6,7 +6,7 @@ use HaoZiTeam\ChatGPT\V1 as ChatGPTV1;
 class Request
 {
 
-    private static $use_official_chatgpt_api = true;
+    private static $use_official_chatgpt_api = false;
     private static $chatGPT;
 
     public static function requestNews($page)
