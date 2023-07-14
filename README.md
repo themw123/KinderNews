@@ -8,8 +8,10 @@ Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es i
 <img src="/img/article.png">
 
 
-<img src="/img/smartphone_article.jpg" width="300"><img src="/img/smartphone_feed.jpg" width="300">
-
+<p">
+  <img src="/img/smartphone_feed.jpg" width="300" alt="Smartphone Feed" style="margin-right: 30px;">
+  <img src="/img/smartphone_article.jpg" width="300" alt="Smartphone Article">
+</p>
 
 libraries:
 
