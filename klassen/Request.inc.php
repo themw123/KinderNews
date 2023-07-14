@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Response;
 use HaoZiTeam\ChatGPT\V1 as ChatGPTV1;
 
 class Request
@@ -38,7 +37,7 @@ class Request
     public static function requestTranslate($title, $text)
     {
         //chatgpt promt
-        $prompt = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
+        $context = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
         Du sollst mir den Titel und den Text kinderfreundlich übersetzten. 
         Bitte vermeide es, Fachbegriffe oder Fremdwörter zu verwenden. Es ist wichtig, dass der Inhalt altersgerecht ist und keine unangebrachten Wörter wie Beispielsweise Porno oder Sex enthält. Auch Wörter wie Mord, Totschlag und ähnliche sind nicht erlaubt.
         Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
@@ -46,9 +45,12 @@ class Request
         Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. Die Fragen sollen sich auf den von dir übersetzten Text beziehen, nicht auf den ursprünglichen Text.
         WICHTIG, du sollst mir auschließlich im json format antworten und dabei für die von dir produzierten Inhalte das Zeichen " maskieren indem du ein Backslash vorsetzt. Bei der Json Strucktur soll die maskierung nicht erfolgen, nur dessen Inhalte also Values sollen maskiert werden.
         Die json antwort von dir soll folgende keys haben: title, text, question1, question2, question3, answer1, answer2 und answer3.
-        Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest. Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| . 
-        GANZ WICHTIG: ÜBERPRÜFE AM ENDE OB DER VON DIR ERZEUGTE TEXT AUCH WIRKLICH IM JSON FORMAT IST UND SORGE DAFÜR SOFERN ES NICHT DER FALL IST!!!!! 
+        Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest.
         ';
+
+        $prompt = 'Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| ';
+
+
 
         if (self::$use_official_chatgpt_api) {
 
@@ -67,10 +69,16 @@ class Request
                 $data->model = "gpt-3.5-turbo";
 
                 $messages = array();
+
                 $message1 = new stdClass();
-                $message1->role = "user";
-                $message1->content = $prompt;
+                $message1->role = "system";
+                $message1->content = $context;
                 $messages[] = $message1;
+
+                $message2 = new stdClass();
+                $message2->role = "user";
+                $message2->content = $prompt;
+                $messages[] = $message2;
 
                 $data->messages = $messages;
 
@@ -106,7 +114,7 @@ class Request
                     self::$chatGPT = new ChatGPTV1();
                 }
                 self::$chatGPT->addAccount($apikey);
-                $answers = self::$chatGPT->ask($prompt);
+                $answers = self::$chatGPT->ask($context . $prompt);
                 foreach ($answers as $item) {
                     $answer = $item;
                 }
