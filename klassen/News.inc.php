@@ -95,7 +95,7 @@ class News
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 2) {
+        while ($success && count($this->news) < 10 && $counter < 5) {
             $success = $this->getNews10();
             $counter++;
         }
@@ -161,6 +161,9 @@ class News
         //doppelte news entfernen falls api doppelte liefert
         //ind filterNews werden ja nur doppelte aus datenbank berücksichtigt
         $this->news = array_unique($this->news, SORT_REGULAR);
+
+        //zum testen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //$this->news = array_slice($this->news, 0, 1);
 
 
         return true;
@@ -240,14 +243,14 @@ class News
                 $response = Request::requestTranslate($title, $text);
 
                 if ($response === "private" || $response === "public") {
-                    Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. $response API Error.");
+                    Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ". News. $response API Error. ");
                     $this->placeholder();
                     $counter++;
                     continue;
                 }
 
                 if ($response === false) {
-                    Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ". News. Request nicht erfolgreich.");
+                    Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ". News. Request nicht erfolgreich.");
                     $this->placeholder();
                     $counter++;
                     continue;
@@ -257,14 +260,14 @@ class News
                 $json = json_decode($response);
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
-                    Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ".  News. Response Json enthält Fehler.");
+                    Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ".  News. Response Json enthält Fehler.");
                     $this->placeholder();
                     $counter++;
                     continue;
                 }
 
                 if (isset($json->error) && !empty($json->error)) {
-                    Logs::addError("Fehler beim übersetzten der $counter. von " . (count($this->news) + 1) . ".  News. Response Json enthält Fehler.");
+                    Logs::addError("Fehler beim übersetzten der $counter. von " . count($this->news) . ".  News. Response Json enthält Fehler.");
                     $this->placeholder();
                     $counter++;
                     continue;
