@@ -9,7 +9,7 @@ Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es i
 
 
 <div>
-  <img src="/img/smartphone_feed.jpg" width="300" alt="Smartphone Feed" style="margin-right: 100px;">
+  <img src="/img/smartphone_feed.jpg" width="300" alt="Smartphone Feed">
   <img src="/img/smartphone_article.jpg" width="300" alt="Smartphone Article">
 </div>
 
