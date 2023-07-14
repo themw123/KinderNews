@@ -95,8 +95,8 @@ class News
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 5) {
-            $success = $this->getNews10();
+        while ($success && count($this->news) < 5 && $counter < 5) {
+            $success = $this->getNews5();
             $counter++;
         }
 
@@ -113,7 +113,7 @@ class News
         return $success;
     }
 
-    private function getNews10()
+    private function getNews5()
     {
         $response = Request::requestNews($this->page);
 
