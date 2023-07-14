@@ -126,7 +126,7 @@
             <div class="member-details">
               <h4>Arantza Rodriguez</h4>
               <p class="mb-3">Bachelor Management & Economics</p>
-              <p>Design Ideen und Konzepte</p>
+              <p>Design Ideen und Features</p>
 
             </div>
           </a>
