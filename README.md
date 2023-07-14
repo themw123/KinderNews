@@ -8,7 +8,7 @@ Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es i
 <img src="/img/article.png">
 
 
-<p">
+<p>
   <img src="/img/smartphone_feed.jpg" width="300" alt="Smartphone Feed" style="margin-right: 100px;">
   <img src="/img/smartphone_article.jpg" width="300" alt="Smartphone Article">
 </p>
