@@ -121,8 +121,8 @@
             </div>
           </a>
 
-          <a href="#" class="team-member">
-            <img src="img/image2.png" alt="Bild von Gründungsmitglied 2">
+          <a href="https://www.linkedin.com/in/arantza-rodriguez-53745b256" class="team-member">
+            <img src="img/image3.jpg" alt="Bild von Gründungsmitglied 2">
             <div class="member-details">
               <h4>Arantza Rodriguez</h4>
               <p class="mb-3">Bachelor Management & Economics</p>
