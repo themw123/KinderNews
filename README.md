@@ -1,9 +1,14 @@
 # KinderNews
 
-Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es im Fach Informations- und Kommunikationsysteme eine Website mit Backend Logik zu erstellen. Das Thema stand frei zur Auswahl. Da viele von der Idee begeistert waren, ist die Seite nun online verfügbar.
-[KinderNews](https://kindernews.marvwal.uk/?news)
+Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es im Fach Informations- und Kommunikationsysteme eine Website mit Backend Logik zu erstellen. Das Thema stand frei zur Auswahl. Da viele von der Idee begeistert waren, ist die [KinderNews](https://kindernews.marvwal.uk/) nun online verfügbar.
+
+![Alt text](/img/feed.png)
 
 
+![Alt text](/img/article.png)
+
+
+![Alt text](/img/smartphone_article.jpg)
 
 
 libraries:
