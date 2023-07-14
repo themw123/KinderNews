@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-07-13 21:04:48
+/* Smarty version 4.3.1, created on 2023-07-14 13:19:39
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64b04ad03d3115_68053690',
+  'unifunc' => 'content_64b12f4bcbead3_89251305',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e9ca37f772a7c9ef0f093b18e6023fdc88994221' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\home.tpl',
-      1 => 1689275043,
+      1 => 1689333575,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64b04ad03d3115_68053690 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64b12f4bcbead3_89251305 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <head>
@@ -38,7 +38,7 @@ function content_64b04ad03d3115_68053690 (Smarty_Internal_Template $_smarty_tpl)
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="css/alle.css" rel="stylesheet" type="text/css">
   <link href="css/navbar.css" rel="stylesheet" type="text/css">
-  <link href="css/home.css?v=1.9" rel="stylesheet" type="text/css">
+  <link href="css/home.css?v=2.1" rel="stylesheet" type="text/css">
 
 
 
@@ -146,8 +146,8 @@ function content_64b04ad03d3115_68053690 (Smarty_Internal_Template $_smarty_tpl)
             </div>
           </a>
 
-          <a href="#" class="team-member">
-            <img src="img/image2.png" alt="Bild von Gründungsmitglied 2">
+          <a href="https://www.linkedin.com/in/arantza-rodriguez-53745b256" class="team-member">
+            <img src="img/image3.jpg" alt="Bild von Gründungsmitglied 2">
             <div class="member-details">
               <h4>Arantza Rodriguez</h4>
               <p class="mb-3">Bachelor Management & Economics</p>
