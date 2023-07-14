@@ -138,6 +138,7 @@ class News
         $this->page = $json->{"nextPage"};
 
         $json = $json->{"results"};
+
         foreach ($json as $article) {
             $filter = $this->filterNews($article);
             if ($filter) {
@@ -156,6 +157,11 @@ class News
                 );
             }
         }
+
+        //doppelte news entfernen falls api doppelte liefert
+        //ind filterNews werden ja nur doppelte aus datenbank berücksichtigt
+        $this->news = array_unique($this->news, SORT_REGULAR);
+
 
         return true;
     }
