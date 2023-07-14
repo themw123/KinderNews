@@ -31,12 +31,12 @@ class News
 
     private function getNews()
     {
-        //hole solange news(pro Request 10) bis es mind. 10 Stück mit content gibt
+        //hole solange news(pro Request 5) bis es mind. 5 Stück mit content gibt
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 10 && $counter < 2) {
-            $success = $this->getNews10();
+        while ($success && count($this->news) < 5 && $counter < 2) {
+            $success = $this->getNews5();
             $counter++;
         }
 
@@ -53,7 +53,7 @@ class News
         return $success;
     }
 
-    private function getNews10()
+    private function getNews5()
     {
         $response = Request::requestNews($this->page);
 
@@ -93,6 +93,10 @@ class News
                 );
             }
         }
+
+        //doppelte news entfernen falls api doppelte liefert
+        //ind filterNews werden ja nur doppelte aus datenbank berücksichtigt
+        $this->news = array_unique($this->news, SORT_REGULAR);
 
         return true;
     }
