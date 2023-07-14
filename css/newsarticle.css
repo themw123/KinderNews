@@ -4,195 +4,36 @@
     border-radius: 20px;
 }
 
-@media (min-width: 0px) {
-    .bildcontainer {
-        width: 90%;
-    }
 
-    .bildcontainerError {
-        width: 70%;
-    }
-
-    .heart {
-        width: 38px;
-    }
-
-    .ptext,
-    .ptextOriginal,
-    .pinfo {
-        font-size: 18px;
-    }
-
-    .pquestion {
-        font-size: 17px;
-    }
-
-    .card {
-        font-size: 16px;
-    }
-
-    .ptitle {
-        font-size: 20px;
-        text-align: left;
-    }
-
-
-    .customContainer {
-        width: 95%;
-    }
-}
-
-@media (min-width: 450px) {
-    .bildcontainer {
-        width: 80%;
-    }
-
-    .bildcontainerError {
-        width: 50%;
-    }
-
-    .ptitle {
-        text-align: center;
-    }
-}
-
-@media (min-width: 768px) {
-    .bildcontainer {
-        width: 50%;
-    }
-
-    .bildcontainerError {
-        width: 40%;
-    }
-
-    .backgr {
-        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.4);
-    }
-
-    .customContainer {
-        width: 75% !important;
-    }
-}
-
-
-@media (min-width: 992px) {
-    .bildcontainer {
-        width: 50%;
-    }
-
-    .bildcontainerError {
-        width: 30%;
-    }
-
-    .customContainer {
-        width: 80% !important;
-    }
-
-    .heart {
-        width: 48px;
-    }
-
-    .ptext,
-    .ptextOriginal,
-    .pinfo {
-        font-size: 20px;
-    }
-
-    .pquestion {
-        font-size: 19px;
-    }
-
-    .card {
-        font-size: 18px;
-    }
-
-    .ptitle {
-        font-size: 25px;
-    }
-}
-
-@media (min-width: 1500px) {
-    .bildcontainer {
-        width: 40%;
-    }
-
-    .bildcontainerError {
-        width: 25%;
-    }
-
-    .customContainer {
-        width: 65% !important;
-    }
-
-    .ptext,
-    .ptextOriginal,
-    .pinfo {
-        font-size: 23px;
-    }
-
-    .pquestion {
-        font-size: 22px;
-    }
-
-    .card {
-        font-size: 21px;
-    }
-
-
-    .ptitle {
-        font-size: 28px;
-    }
-}
-
-
-@media (min-width: 1600px) {
-    .bildcontainer {
-        width: 40%;
-    }
-
-    .bildcontainerError {
-        width: 20%;
-    }
-
-    .customContainer {
-        width: 60% !important;
-    }
-
-    .ptext,
-    .ptextOriginal,
-    .pinfo {
-        font-size: 25px;
-    }
-
-    .pquestion {
-        font-size: 24px;
-    }
-
-    .card {
-        font-size: 23px;
-    }
-
-    .ptitle {
-        font-size: 30px;
-    }
-}
-
-.customContainer {
-    background-color: rgb(147, 54, 54);
-    border-radius: 50px;
-}
-
-.ptext,
-.ptextOriginal {
-    color: rgba(255, 255, 255, 0.912);
-    text-align: left;
-    padding: 20px;
+.bildcontainer,
+.bildcontainerError {
+    margin-top: -27px;
+    width: 90%;
 }
 
 .ptitle {
     color: rgba(255, 255, 255, 0.912);
     font-weight: bold;
     padding: 20px;
+    font-size: 20px;
+}
+
+.customContainer {
+    background-color: rgb(147, 54, 54);
+    border-radius: 50px;
+    min-width: 95%;
+}
+
+.likes {
+    color: #ffffff;
+    font-size: 16px;
+    visibility: hidden;
+}
+
+.heart {
+    pointer-events: auto;
+    cursor: pointer;
+    width: 38px;
 }
 
 .pinfo {
@@ -201,6 +42,16 @@
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 0px;
+    font-size: 18px;
+}
+
+
+.ptext,
+.ptextOriginal {
+    color: rgba(255, 255, 255, 0.912);
+    text-align: left;
+    padding: 20px;
+    font-size: 18px;
 }
 
 .pquestion {
@@ -215,7 +66,60 @@
     pointer-events: auto;
     cursor: pointer;
 
+    font-size: 17px;
+
 }
+
+
+
+@media (min-width: 768px) {
+    .backgr {
+        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.4);
+    }
+
+    .bildcontainer,
+    .bildcontainerError {
+        width: 60%;
+    }
+
+    .ptitle {
+        font-size: 23px;
+    }
+
+    .pinfo {
+        font-size: 20px;
+    }
+
+    .heart {
+        width: 43px;
+    }
+
+    .ptext,
+    .ptextOriginal {
+        font-size: 20px;
+    }
+
+    .pquestion {
+        font-size: 19px;
+    }
+}
+
+
+@media (min-width: 1536px) {
+
+    .bildcontainer,
+    .bildcontainerError {
+        width: 40%;
+    }
+}
+
+
+
+
+
+
+
+
 
 .card {
     color: rgba(255, 255, 255, 0.912);
@@ -232,10 +136,6 @@
     box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.2);
 }
 
-.bildcontainer,
-.bildcontainerError {
-    margin-top: -27px;
-}
 
 .backgr {
     width: 97%;
@@ -267,16 +167,7 @@
     width: 100%;
 }
 
-.likes {
-    color: #ffffff;
-    font-size: 16px;
-    visibility: hidden;
-}
 
-.heart {
-    pointer-events: auto;
-    cursor: pointer;
-}
 
 
 
