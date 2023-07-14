@@ -255,7 +255,6 @@ class News
 
                 $counter++;
             } catch (Exception $e) {
-                Logs::addError("Unbekannter Fehler beim übersetzten der $counter. von " . count($this->news) . ".");
                 $this->placeholder();
                 $counter++;
                 continue;
