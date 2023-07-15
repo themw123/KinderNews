@@ -111,11 +111,22 @@ class News
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
-
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
 
+        //Nur wenn bild gute qualität bzw groß genug ist
+        // Größe des Bildes abrufen
+        $size = getimagesize($image);
+        if ($size) {
+            $width = $size[0];
+            $height = $size[1];
+            if ($width < 300) {
+                return false;
+            }
+        } else {
+            return false;
+        }
 
 
         //article ist vom typ obkject und SOURCES vom typ array
