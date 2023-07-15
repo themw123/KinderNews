@@ -48,7 +48,7 @@ class Request
         Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest.
         ';
 
-        $prompt = 'Das ist der Titel den du umschreiben sollst: ||' . $title . '||  Das ist der Text den du umschreiben sollst: ||' . $text . '|| ';
+        $prompt = 'Das ist der Titel den du umschreiben sollst: ' . $title . '  Das ist der Text den du umschreiben sollst: ' . $text . ' ';
 
 
 
