@@ -44,7 +44,7 @@
         <ul>
           <div class="inhalt">
             <li class="inhalt1">
-              <h3>Mein Anliegen</h3>
+              <h3>Unser Anliegen</h3>
               <p>Mit KinderNews können Kinder Nachrichten lesen, ohne dass sie von den Inhalten überwältigt oder
                 überfordert werden.
                 KinderNews nutzt modernste Technologien, um Nachrichten aus einer News-API zu beziehen und sie
@@ -117,7 +117,14 @@
             <div class="member-details">
               <h4>Marvin Walczak</h4>
               <p class="mb-3">Ausbildung IT und Bachelor Wirtschaftsinformatik</p>
-              <p>Umsetzung</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/EnnoSessler" class="team-member">
+            <img src="img/image2.jpg" alt="Bild von Gründungsmitglied 2">
+            <div class="member-details">
+              <h4>Enno Sessler</h4>
+              <p>Student Bachelor Wirtschaftsinformatik</p>
             </div>
           </a>
 
@@ -126,8 +133,6 @@
             <div class="member-details">
               <h4>Arantza Rodriguez</h4>
               <p class="mb-3">Bachelor Management & Economics</p>
-              <p>Design Ideen und Features</p>
-
             </div>
           </a>
 
