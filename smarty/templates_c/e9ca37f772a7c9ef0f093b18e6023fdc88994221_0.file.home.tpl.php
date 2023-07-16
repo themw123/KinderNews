@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-07-15 23:47:03
+/* Smarty version 4.3.1, created on 2023-07-16 16:54:22
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64b313d70760d7_24769596',
+  'unifunc' => 'content_64b4049e1d12f9_42693224',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e9ca37f772a7c9ef0f093b18e6023fdc88994221' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\home.tpl',
-      1 => 1689455391,
+      1 => 1689519147,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64b313d70760d7_24769596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64b4049e1d12f9_42693224 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 
 <head>
@@ -69,7 +69,7 @@ function content_64b313d70760d7_24769596 (Smarty_Internal_Template $_smarty_tpl)
         <ul>
           <div class="inhalt">
             <li class="inhalt1">
-              <h3>Mein Anliegen</h3>
+              <h3>Unser Anliegen</h3>
               <p>Mit KinderNews können Kinder Nachrichten lesen, ohne dass sie von den Inhalten überwältigt oder
                 überfordert werden.
                 KinderNews nutzt modernste Technologien, um Nachrichten aus einer News-API zu beziehen und sie
@@ -142,7 +142,14 @@ function content_64b313d70760d7_24769596 (Smarty_Internal_Template $_smarty_tpl)
             <div class="member-details">
               <h4>Marvin Walczak</h4>
               <p class="mb-3">Ausbildung IT und Bachelor Wirtschaftsinformatik</p>
-              <p>Umsetzung</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/EnnoSessler" class="team-member">
+            <img src="img/image4.jpeg" alt="Bild von Gründungsmitglied 2">
+            <div class="member-details">
+              <h4>Enno Sessler</h4>
+              <p>Student Bachelor Wirtschaftsinformatik</p>
             </div>
           </a>
 
@@ -151,8 +158,6 @@ function content_64b313d70760d7_24769596 (Smarty_Internal_Template $_smarty_tpl)
             <div class="member-details">
               <h4>Arantza Rodriguez</h4>
               <p class="mb-3">Bachelor Management & Economics</p>
-              <p>Design Ideen und Features</p>
-
             </div>
           </a>
 
