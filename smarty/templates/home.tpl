@@ -121,7 +121,7 @@
           </a>
 
           <a href="https://github.com/EnnoSessler" class="team-member">
-            <img src="img/image2.jpg" alt="Bild von Gründungsmitglied 2">
+            <img src="img/image4.jpeg" alt="Bild von Gründungsmitglied 2">
             <div class="member-details">
               <h4>Enno Sessler</h4>
               <p>Student Bachelor Wirtschaftsinformatik</p>
