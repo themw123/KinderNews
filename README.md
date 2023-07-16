@@ -2,16 +2,16 @@
 
 Dieses Projekt habe ich im Rahmen meines Studiengangs erstellt. Aufgabe war es im Fach Informations- und Kommunikationsysteme eine Website mit Backend Logik zu erstellen. Das Thema stand frei zur Auswahl. Da viele von der Idee begeistert waren, ist [KinderNews](https://kindernews.marvwal.uk/) nun online verfügbar. Zudem ist KinderNews als PWA nutzbar, damit man die Möglichkeit hat die Seite als App zu installieren.
 
-<img src="/img/feed.png">
+<img src="/img/feed1.png">
 
 
-<img src="/img/article.png">
+<img src="/img/article1.png">
 
 
-<img src="/img/smartphone_feed.jpg" width="300" alt="Smartphone Feed">
+<img src="/img/smartphone_feed1.jpg" width="300" alt="Smartphone Feed">
 
 
-<img src="/img/smartphone_article.jpg" width="300" alt="Smartphone Article">
+<img src="/img/smartphone_article1.jpg" width="300" alt="Smartphone Article">
 
 
 
