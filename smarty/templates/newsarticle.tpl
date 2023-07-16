@@ -13,7 +13,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/alle.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
-    <link href="css/newsarticle.css?v=1.2" rel="stylesheet" type="text/css">
+    <link href="css/newsarticle.css?v=1.3" rel="stylesheet" type="text/css">
     <script src="service-worker.js?version=er4t4"> </script>
 
 </head>
@@ -23,18 +23,34 @@
     {include file="navbar.tpl"}
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
+
             {if $newsArticle["bild_url"] == null}
                 <div class="bildcontainerError container-fluid">
-                    <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                    {if $newsArticle["link"] != null}
+                        <a href={$newsArticle["link"]}>
+                            <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                        </a>
+                    {else}
+                        <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                    {/if}
                 </div>
-
             {else}
                 <div class="bc bildcontainer container-fluid">
-                    <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
-                        onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                    {if $newsArticle["link"] != null}
+                        <a href={$newsArticle["link"]}>
+                            <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
+                                onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                        </a>
+                    {else}
+                        <img class="bild custom-shadow" src={$newsArticle["bild_url"]} class="card-img-top" alt=""
+                            onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                    {/if}
                 </div>
-
             {/if}
+
+            <p class="card-head">
+                {$newsArticle["quelle"]}
+            </p>
 
             <p class="ptitle">
                 {$newsArticle["uebersetzter_titel"]}
@@ -66,19 +82,22 @@
 
             </div>
 
-            <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1">{$newsArticle["frage1"]}</p>
+            <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1">{$newsArticle["frage1"]}
+            </p>
             <div class="answer collapse mx-2" id="answer1">
                 <div class="card card-body mb-4">
                     {$newsArticle["answer1"]}
                 </div>
             </div>
-            <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2">{$newsArticle["frage2"]}</p>
+            <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2">{$newsArticle["frage2"]}
+            </p>
             <div class="answer collapse mx-2" id="answer2">
                 <div class="card card-body mb-4">
                     {$newsArticle["answer2"]}
                 </div>
             </div>
-            <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3">{$newsArticle["frage3"]}</p>
+            <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3">{$newsArticle["frage3"]}
+            </p>
             <div class="answer collapse mx-2" id="answer3">
                 <div class="card card-body mb-4">
                     {$newsArticle["answer3"]}
