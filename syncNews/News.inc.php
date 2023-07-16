@@ -82,6 +82,7 @@ class News
                 $content = $article->{"content"};
                 $image = $article->{"image_url"};
                 $source = $article->{"source_id"};
+                $link = $article->{"link"};
                 $date = $article->{"pubDate"};
 
                 $this->news[] = array(
@@ -89,6 +90,7 @@ class News
                     'text' => $content,
                     'image' => $image,
                     'date' => $date,
+                    'link' => $link,
                     'source' => $source
                 );
             }
@@ -220,17 +222,17 @@ class News
                 $preview = substr($translatedText, 0, 167) . "...";
 
                 if (isset($myJson->{"question1"})) {
-                    $question1 = $myJson->{"question1"};
+                    $question1 = str_replace("'", '"', $myJson->{"question1"});
                 } else {
                     $question1 = "error";
                 }
                 if (isset($myJson->{"question2"})) {
-                    $question2 = $myJson->{"question2"};
+                    $question2 = str_replace("'", '"', $myJson->{"question2"});
                 } else {
                     $question2 = "error";
                 }
                 if (isset($myJson->{"question3"})) {
-                    $question3 = $myJson->{"question3"};
+                    $question3 = str_replace("'", '"', $myJson->{"question3"});
                 } else {
                     $question3 = "error";
                 }
