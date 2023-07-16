@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-07-14 16:57:48
+/* Smarty version 4.3.1, created on 2023-07-16 21:34:20
   from 'C:\xampp\htdocs\Projekte\KinderNews\smarty\templates\newsarticle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64b1626c186143_55942965',
+  'unifunc' => 'content_64b4463c3dca31_02979283',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93b6a4604a81339ff4df9870df9494d1d432367c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Projekte\\KinderNews\\smarty\\templates\\newsarticle.tpl',
-      1 => 1689346079,
+      1 => 1689536057,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_64b1626c186143_55942965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64b4463c3dca31_02979283 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html>
 
@@ -47,19 +47,39 @@ function content_64b1626c186143_55942965 (Smarty_Internal_Template $_smarty_tpl)
 ?>
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="backgr d-flex flex-column justify-content-center align-items-center">
+
             <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"] == null) {?>
                 <div class="bildcontainerError container-fluid">
-                    <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                    <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["link"] != null) {?>
+                        <a href=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["link"];?>
+>
+                            <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                        </a>
+                    <?php } else { ?>
+                        <img class="bild custom-shadow" src="img/empty2.svg" class="card-img-top" alt="">
+                    <?php }?>
                 </div>
-
             <?php } else { ?>
                 <div class="bc bildcontainer container-fluid">
-                    <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
+                    <?php if ($_smarty_tpl->tpl_vars['newsArticle']->value["link"] != null) {?>
+                        <a href=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["link"];?>
+>
+                            <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
  class="card-img-top" alt=""
-                        onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                                onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                        </a>
+                    <?php } else { ?>
+                        <img class="bild custom-shadow" src=<?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["bild_url"];?>
+ class="card-img-top" alt=""
+                            onerror="this.onerror=null; this.src='img/empty2.svg'; document.querySelector('.bc').classList.remove('bildcontainer'); document.querySelector('.bc').classList.add('bildcontainerError');">
+                    <?php }?>
                 </div>
-
             <?php }?>
+
+            <p class="card-head">
+                <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["quelle"];?>
+
+            </p>
 
             <p class="ptitle">
                 <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["uebersetzter_titel"];?>
@@ -96,7 +116,8 @@ function content_64b1626c186143_55942965 (Smarty_Internal_Template $_smarty_tpl)
             </div>
 
             <p class="pquestion pquestion1" data-bs-toggle="collapse" href="#answer1"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage1"];?>
-</p>
+
+            </p>
             <div class="answer collapse mx-2" id="answer1">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer1"];?>
@@ -104,7 +125,8 @@ function content_64b1626c186143_55942965 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </div>
             <p class="pquestion pquestion2" data-bs-toggle="collapse" href="#answer2"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage2"];?>
-</p>
+
+            </p>
             <div class="answer collapse mx-2" id="answer2">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer2"];?>
@@ -112,7 +134,8 @@ function content_64b1626c186143_55942965 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </div>
             <p class="pquestion pquestion3" data-bs-toggle="collapse" href="#answer3"><?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["frage3"];?>
-</p>
+
+            </p>
             <div class="answer collapse mx-2" id="answer3">
                 <div class="card card-body mb-4">
                     <?php echo $_smarty_tpl->tpl_vars['newsArticle']->value["answer3"];?>

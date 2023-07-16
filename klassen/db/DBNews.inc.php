@@ -7,8 +7,8 @@ class DBNews
 
         //neue news setzten
         $stmt = $link->prepare(
-            "INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, quelle, date)
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+            "INSERT INTO news (originaler_titel , originaler_text, uebersetzter_titel , uebersetzter_text, uebersetzte_preview, frage1, frage2, frage3, answer1 , answer2, answer3, bild_url, quelle, link, date)
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
         );
 
         foreach ($newsTranslated as $key => $value) {
@@ -20,6 +20,7 @@ class DBNews
             $original_text = $news[$key]['text'];
             $image_url = $news[$key]['image'];
             $source = $news[$key]['source'];
+            $link = $news[$key]['link'];
             $date = $news[$key]['date'];
 
             $translated_title = $value['title'];
@@ -32,7 +33,7 @@ class DBNews
             $answer2 = $value['answer2'];
             $answer3 = $value['answer3'];
 
-            $stmt->bind_param("ssssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $source, $date);
+            $stmt->bind_param("sssssssssssssss", $original_title, $original_text, $translated_title, $translated_text, $translated_preview, $question1, $question2, $question3, $answer1, $answer2, $answer3, $image_url, $source, $link, $date);
             $stmt->execute();
         }
     }
