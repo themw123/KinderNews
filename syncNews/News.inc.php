@@ -35,7 +35,8 @@ class News
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 5 && $counter < 2) {
+        //pro halbe Stunde bei 24 = 48 mal pro Tag. pro 30 min werden aber maximal 4 requests gemacht. 48 * 4 = 192 < 200
+        while ($success && count($this->news) < 5 && $counter < 5) {
             $success = $this->getNews5();
             $counter++;
         }
@@ -222,17 +223,17 @@ class News
                 $preview = substr($translatedText, 0, 167) . "...";
 
                 if (isset($myJson->{"question1"})) {
-                    $question1 = str_replace("'", '"', $myJson->{"question1"});
+                    $question1 = $myJson->{"question1"};
                 } else {
                     $question1 = "error";
                 }
                 if (isset($myJson->{"question2"})) {
-                    $question2 = str_replace("'", '"', $myJson->{"question2"});
+                    $question2 = $myJson->{"question2"};
                 } else {
                     $question2 = "error";
                 }
                 if (isset($myJson->{"question3"})) {
-                    $question3 = str_replace("'", '"', $myJson->{"question3"});
+                    $question3 = $myJson->{"question3"};
                 } else {
                     $question3 = "error";
                 }
@@ -271,6 +272,12 @@ class News
                 $this->placeholder();
                 $counter++;
                 continue;
+            }
+        }
+
+        foreach ($this->newsTranslated as &$news) {
+            foreach ($news as $key => &$value) {
+                $value = str_replace("'", '"', $value);
             }
         }
 
