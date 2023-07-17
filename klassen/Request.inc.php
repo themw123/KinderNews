@@ -43,8 +43,7 @@ class Request
         Außerdem sollst du drei Fragen stellen, die sich ausschließlich auf BEDEUTUNG von Wörtern beziehen. Die Fragen sollten immer wie folgt formuliert werden: was bedeutet das Wort .. 
         Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. Die Fragen sollen sich auf den von dir übersetzten Text beziehen, nicht auf den ursprünglichen Text.
         Die json antwort von dir soll folgende keys haben: title, text, question1, question2, question3, answer1, answer2 und answer3.
-        Nachdem du das json erstellt hast, maskiere innerhalb der values alle Anführungszeichen indem du ein Backslash vorsetzt.
-        Zuletzt überprüfe dich selber erneut, indem du darauf achtest das das Json format eingehalten wurde!
+        Nachdem du das json erstellt hast, maskiere innerhalb der values alle folgenden Zeichen " indem du ein Backslash vorsetzt. Zudem überprüfe dich selbst, ob du immer ein Komma nach jedem key-value paar gesetzt hast!!!!!!!!
         ';
 
         $prompt = 'Das ist der Titel den du umschreiben sollst: ' . $title . '  Das ist der Text den du umschreiben sollst: ' . $text . ' ';
