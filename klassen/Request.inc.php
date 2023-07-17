@@ -12,9 +12,9 @@ class Request
     {
         //entweder neuste news holen, oder wenn erneut geschiet weil noch nicht genug news, dann die nächste seite holen
         if ($page != null) {
-            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&page=' . $page;
+            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top&page=' . $page;
         } else {
-            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de';
+            $url = 'https://newsdata.io/api/1/news?apikey=' . NEWSAPIKEY . '&country=de&language=de&category=top';
         }
 
         $curl = curl_init();
