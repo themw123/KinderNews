@@ -35,9 +35,8 @@ class News
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        //pro halbe Stunde bei 24 = 48 mal pro Tag. pro 30 min werden aber maximal 4 requests gemacht. 48 * 4 = 192 < 200
-        while ($success && count($this->news) < 5 && $counter < 5) {
-            $success = $this->getNews5();
+        while ($success && count($this->news) < 10 && $counter < 5) {
+            $success = $this->getNews10();
             $counter++;
         }
 
@@ -54,7 +53,7 @@ class News
         return $success;
     }
 
-    private function getNews5()
+    private function getNews10()
     {
         $response = Request::requestNews($this->page);
 
