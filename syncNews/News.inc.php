@@ -107,15 +107,20 @@ class News
     private function filterNews($article)
     {
 
-        //nur wenn content und image vorhanden
         $content = $article->{"content"};
-        $image = $article->{"image_url"};
         if ($content == null || empty($content) || $content == "None" || $content == "none" || $content == "null" || $content == "NULL" || $content == "Null") {
             return false;
         }
+        $minChars = 700;
+        if (strlen($content) < $minChars) {
+            return false;
+        }
+
+        $image = $article->{"image_url"};
         if ($image == null || empty($image) || $image == "None" || $image == "none" || $image == "null" || $image == "NULL" || $image == "Null") {
             return false;
         }
+
 
         //Nur wenn bild gute qualität bzw groß genug ist
         // Größe des Bildes abrufen
