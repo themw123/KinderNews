@@ -39,13 +39,12 @@ class Request
         //chatgpt promt
         $context = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
         Du sollst mir den Titel und den Text kinderfreundlich übersetzten. 
-        Bitte vermeide es, Fachbegriffe oder Fremdwörter zu verwenden. Es ist wichtig, dass der Inhalt altersgerecht ist und keine unangebrachten Wörter wie Beispielsweise Porno oder Sex enthält. Auch Wörter wie Mord, Totschlag und ähnliche sind nicht erlaubt.
-        Das heißt, der Titel und der Text sollen in leichten verständlichen deutsch lesbar und nachvollziehbar sein. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
-        Außerdem sollst du drei Fragen stellen, die sich ausschließlich auf BEDEUTUNG von Wörtern beziehen, lasse alle anderen Aspekte beiseite!!!. Die Fragen sollten immer wie folgt formuliert werden: was bedeutet das Wort .. 
-        Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten oder mittels der Information des Textes beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. Die Fragen sollen sich auf den von dir übersetzten Text beziehen, nicht auf den ursprünglichen Text.
-        WICHTIG, du sollst mir auschließlich im json format antworten und dabei für die von dir produzierten Inhalte das Zeichen " maskieren indem du ein Backslash vorsetzt. Bei der Json Strucktur soll die maskierung nicht erfolgen, nur dessen Inhalte also Values sollen maskiert werden.
+        Bitte vermeide es, Fachbegriffe oder Fremdwörter zu verwenden. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
+        Außerdem sollst du drei Fragen stellen, die sich ausschließlich auf BEDEUTUNG von Wörtern beziehen. Die Fragen sollten immer wie folgt formuliert werden: was bedeutet das Wort .. 
+        Die Fragen müssen von dir mittels deiner vorhandenen Trainingsdaten beantwortbar sein und diese Antworten sollst du mir ebenfalls liefern. Die Fragen sollen sich auf den von dir übersetzten Text beziehen, nicht auf den ursprünglichen Text.
         Die json antwort von dir soll folgende keys haben: title, text, question1, question2, question3, answer1, answer2 und answer3.
-        Beachte unbedingt, dass du nur in vom mir gezeigten json format antwortest.
+        Nachdem du das json erstellt hast, maskiere innerhalb der values alle Anführungszeichen indem du ein Backslash vorsetzt.
+        Zuletzt überprüfe dich selber erneut, indem du darauf achtest das das Json format eingehalten wurde!
         ';
 
         $prompt = 'Das ist der Titel den du umschreiben sollst: ' . $title . '  Das ist der Text den du umschreiben sollst: ' . $text . ' ';
