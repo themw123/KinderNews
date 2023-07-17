@@ -388,16 +388,16 @@
         },
         {
             "name": "haozi-team/chatgpt-php",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HaoZi-Team/ChatGPT-PHP.git",
-                "reference": "cad67a7496df545536c8caafecc893ff68584f77"
+                "reference": "10212044532cd653413c19e2d1819bc0ae3f0389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HaoZi-Team/ChatGPT-PHP/zipball/cad67a7496df545536c8caafecc893ff68584f77",
-                "reference": "cad67a7496df545536c8caafecc893ff68584f77",
+                "url": "https://api.github.com/repos/HaoZi-Team/ChatGPT-PHP/zipball/10212044532cd653413c19e2d1819bc0ae3f0389",
+                "reference": "10212044532cd653413c19e2d1819bc0ae3f0389",
                 "shasum": ""
             },
             "require": {
@@ -432,9 +432,9 @@
             ],
             "support": {
                 "issues": "https://github.com/HaoZi-Team/ChatGPT-PHP/issues",
-                "source": "https://github.com/HaoZi-Team/ChatGPT-PHP/tree/2.1.0"
+                "source": "https://github.com/HaoZi-Team/ChatGPT-PHP/tree/2.1.1"
             },
-            "time": "2023-07-06T18:57:19+00:00"
+            "time": "2023-07-17T05:24:55+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
