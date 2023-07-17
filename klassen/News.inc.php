@@ -95,7 +95,7 @@ class News
         //höchstens aber 2 requests
         $success = true;
         $counter = 0;
-        while ($success && count($this->news) < 1 && $counter < 5) {
+        while ($success && count($this->news) < 10 && $counter < 5) {
             $success = $this->getNews5();
             $counter++;
         }
