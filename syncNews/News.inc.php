@@ -124,15 +124,19 @@ class News
 
         //Nur wenn bild gute qualität bzw groß genug ist
         // Größe des Bildes abrufen
-        $size = getimagesize($image);
-        if ($size) {
-            $width = $size[0];
-            $height = $size[1];
-            if ($width < 300) {
+        try {
+            $size = getimagesize($image);
+            if ($size) {
+                $width = $size[0];
+                $height = $size[1];
+                if ($width < 300) {
+                    return false;
+                }
+            } else {
                 return false;
             }
-        } else {
-            return false;
+        } catch (Exception $e) {
+            //echo 'Ein Fehler ist aufgetreten: ' . $e->getMessage();
         }
 
 
