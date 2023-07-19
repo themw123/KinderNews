@@ -388,16 +388,16 @@
         },
         {
             "name": "haozi-team/chatgpt-php",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HaoZi-Team/ChatGPT-PHP.git",
-                "reference": "10212044532cd653413c19e2d1819bc0ae3f0389"
+                "reference": "b6ceff8ae51eab93a70dd8c84234f4c079456fed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HaoZi-Team/ChatGPT-PHP/zipball/10212044532cd653413c19e2d1819bc0ae3f0389",
-                "reference": "10212044532cd653413c19e2d1819bc0ae3f0389",
+                "url": "https://api.github.com/repos/HaoZi-Team/ChatGPT-PHP/zipball/b6ceff8ae51eab93a70dd8c84234f4c079456fed",
+                "reference": "b6ceff8ae51eab93a70dd8c84234f4c079456fed",
                 "shasum": ""
             },
             "require": {
@@ -432,9 +432,9 @@
             ],
             "support": {
                 "issues": "https://github.com/HaoZi-Team/ChatGPT-PHP/issues",
-                "source": "https://github.com/HaoZi-Team/ChatGPT-PHP/tree/2.1.1"
+                "source": "https://github.com/HaoZi-Team/ChatGPT-PHP/tree/2.1.2"
             },
-            "time": "2023-07-17T05:24:55+00:00"
+            "time": "2023-07-17T13:32:23+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -903,16 +903,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "e28cb0915b4e3749bf57d4ebae2984e25395cfe5"
+                "reference": "1d9cda2be34fd6edb74924684260636fd0b89288"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e28cb0915b4e3749bf57d4ebae2984e25395cfe5",
-                "reference": "e28cb0915b4e3749bf57d4ebae2984e25395cfe5",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/1d9cda2be34fd6edb74924684260636fd0b89288",
+                "reference": "1d9cda2be34fd6edb74924684260636fd0b89288",
                 "shasum": ""
             },
             "require": {
@@ -963,9 +963,9 @@
             "support": {
                 "forum": "https://github.com/smarty-php/smarty/discussions",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v4.3.1"
+                "source": "https://github.com/smarty-php/smarty/tree/v4.3.2"
             },
-            "time": "2023-03-28T19:47:03+00:00"
+            "time": "2023-07-19T10:27:36+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
