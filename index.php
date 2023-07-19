@@ -21,6 +21,11 @@ require_once("./klassen/Request.inc.php");
 require_once("./klassen/Settings.inc.php");
 require_once("./klassen/News.inc.php");
 
+set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+    throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+});
+
+
 //POST oder GET ?
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 //Datenbank verbindung herstellen
