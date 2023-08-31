@@ -11,8 +11,8 @@ class DBHelper
 			self::executeQuery($link, $query);
 			return $link;
 		} catch (mysqli_sql_exception $e) {
-			#echo "Verbindungsfehler: " . $e->getMessage();
-			echo "Verbindungsfehler mit Datenbank";
+			echo "Verbindungsfehler: " . $e->getMessage();
+			#echo "Verbindungsfehler mit Datenbank";
 		}
 	}
 
