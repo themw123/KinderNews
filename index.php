@@ -1,5 +1,6 @@
 <?php
 
+ini_set('display_errors', 'Off');
 session_cache_limiter(false);
 
 require_once('./vendor/autoload.php');
