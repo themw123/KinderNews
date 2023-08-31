@@ -5,15 +5,14 @@ class DBHelper
 
 	public static function connectWithDatabase()
 	{
-		try {
-			$link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-			$query = "use " . DB_NAME;
-			self::executeQuery($link, $query);
-			return $link;
-		} catch (mysqli_sql_exception $e) {
-			echo "Verbindungsfehler: " . $e->getMessage();
-			#echo "Verbindungsfehler mit Datenbank";
-		}
+		#try {
+		$link = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		$query = "use " . DB_NAME;
+		self::executeQuery($link, $query);
+		return $link;
+		#} catch (mysqli_sql_exception $e) {
+		#echo "Verbindungsfehler: " . $e->getMessage();
+		#}
 	}
 
 	public static function executeQuery($link, $query)
