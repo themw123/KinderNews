@@ -42,27 +42,32 @@ class DBNews
     {
         //alle news aus der db holen, neuste zuerst, nur neuste 100
         //durch subquery etwas bessere performance
+        // in subquery nach news.id desc sortieren weil das viel schneller als date ist. liefert fast selbest ergebnis nur letzte 5 oder so könnten dadurch anders sein weils ja auf 100 limitiert ist.
+        // der rest wird korrekt sortiert weil am ende noch mal news.date DESC angewendet wird
         $stmt = $link->prepare(
             "
             SELECT
                 COUNT(bewertung.news_id) AS likes,
                 MAX(
-                CASE
-                    WHEN bewertung.benutzter_id = $user_id THEN TRUE
-                    ELSE FALSE
-                END
+                    CASE
+                        WHEN bewertung.benutzter_id = $user_id THEN TRUE
+                        ELSE FALSE
+                    END
                 ) AS liked,
                 news.*
             FROM
                 (
                     SELECT * FROM news
-                    ORDER BY date DESC
+                    ORDER by
+                    news.id DESC
                     LIMIT 100
                 ) AS news
             LEFT JOIN
                 bewertung ON bewertung.news_id = news.id
             GROUP BY
                 news.id
+            ORDER by
+                news.date DESC
             ;"
         );
         $stmt->execute();
