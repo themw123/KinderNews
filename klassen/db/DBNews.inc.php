@@ -48,7 +48,7 @@ class DBNews
                 COUNT(bewertung.news_id) AS likes,
                 MAX(
                 CASE
-                    WHEN bewertung.benutzter_id = 2 THEN TRUE
+                    WHEN bewertung.benutzter_id = $user_id THEN TRUE
                     ELSE FALSE
                 END
                 ) AS liked,
