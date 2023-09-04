@@ -79,7 +79,7 @@ if ($login->isUserLoggedIn()) {
             } else {
                 //wenn es abgefragte news nicht gibt, weil beispiel falsche id manuel in browser eingegeben wird,
                 //dann news Feed anzeigen, neuste 100 holen
-                $newsArray = DBNews::getNewsDb($link);
+                $newsArray = DBNews::getNewsWithLikesCount($link, $user_id);
                 $smarty->assign('news', $newsArray);
                 $template = 'news.tpl';
             }
@@ -90,36 +90,12 @@ if ($login->isUserLoggedIn()) {
 
             if (isset($_GET["favoriten"])) {
                 //alle damit dann gleich nach gelikten gefiltert werden kann
-                $newsArray = DBNews::getAllNewsDb($link);
+                #$newsArray = DBNews::getAllNewsDb($link);
+                $newsArray = DBNews::getLikedNewsByUserAndItsLikesCount($link, $name);
             } else {
+                $user_id = DbUser::getIdByName($link, $name);
                 //news Feed anzeigen, neuste 100 holen
-                $newsArray = DBNews::getNewsDb($link);
-            }
-            //likes <-> benutzter abhängigkeiten holen
-            $allLikes = DBNews::getAllLikesDb($link);
-            //anzahl an likes für jede news hinzufügen
-            //und
-            //
-            //gucken ob aktueller user news geliked hat
-            $user_id = DbUser::getIdByName($link, $name);
-
-            foreach ($newsArray as $key => $news) {
-                $newsArray[$key]["likes"] = 0;
-                $newsArray[$key]["liked"] = false;
-                foreach ($allLikes as $like) {
-                    //Anzahl an likes für jede news hinzufügen 
-                    if ($news["id"] == $like["news_id"]) {
-                        $newsArray[$key]["likes"]++;
-                    }
-                    //gucken ob aktueller user news geliked hat
-                    if ($newsArray[$key]["liked"] == false && $news["id"] == $like["news_id"] && $like["benutzter_id"] == $user_id) {
-                        $newsArray[$key]["liked"] = true;
-                    }
-                }
-                //wenn favoriten seite, nur die geliketen anzeigen
-                if (isset($_GET["favoriten"]) && $newsArray[$key]["liked"] == false) {
-                    unset($newsArray[$key]);
-                }
+                $newsArray = DBNews::getNewsWithLikesCount($link, $user_id);
             }
 
             if (empty($newsArray)) {

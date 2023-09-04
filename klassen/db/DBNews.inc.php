@@ -38,17 +38,70 @@ class DBNews
         }
     }
 
-    public static function getAllNewsDb($link)
+    public static function getNewsWithLikesCount($link, $user_id)
     {
-        //alle news aus der db holen, neuste zuerst
+        //alle news aus der db holen, neuste zuerst, nur neuste 100
         $stmt = $link->prepare(
-            "Select * from news order by date desc"
+            "
+            SELECT
+                COUNT(bewertung.news_id) AS likes,
+                    MAX(CASE
+                    WHEN bewertung.benutzter_id = $user_id THEN TRUE
+                    ELSE FALSE
+                END) AS liked,
+                news.*
+            FROM
+                news
+            LEFT JOIN
+                bewertung ON bewertung.news_id = news.id
+            GROUP BY
+                news.id
+            ORDER BY
+                news.date DESC
+            LIMIT 100;
+            ;"
         );
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         $result = self::changeToGerman($result);
         return $result;
     }
+
+    public static function getLikedNewsByUserAndItsLikesCount($link, $name)
+    {
+        //alle news die ein user geliked hat
+        $stmt = $link->prepare(
+            "
+            SELECT
+                benutzer.name,
+                COUNT(bewertung1.id) AS likes,
+                true AS liked,
+                news.*
+            FROM
+                bewertung AS bewertung1
+            INNER JOIN
+                news ON bewertung1.news_id = news.id
+            INNER JOIN
+                benutzer ON bewertung1.benutzter_id = benutzer.id
+            LEFT JOIN
+                bewertung AS bewertung2 ON news.id = bewertung2.news_id
+            WHERE
+                benutzer.name = '$name'
+            GROUP BY
+                bewertung1.id,
+                bewertung1.news_id,
+                bewertung1.benutzter_id,
+                benutzer.name
+            ORDER BY
+                news.date DESC
+                    
+            ;"
+        );
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+    }
+
 
     public static function getNewsDb($link)
     {
@@ -62,16 +115,6 @@ class DBNews
         return $result;
     }
 
-    public static function getAllLikesDb($link)
-    {
-        //alle like <-> benutzer relationen holen
-        $stmt = $link->prepare(
-            "Select * from bewertung;"
-        );
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $result;
-    }
 
     public static function getNewsArticleDb($link, $id)
     {
