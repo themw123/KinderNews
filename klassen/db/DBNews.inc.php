@@ -42,7 +42,7 @@ class DBNews
     {
         //alle news aus der db holen, neuste zuerst, nur neuste 100
         //durch subquery etwas bessere performance
-        // in subquery nach news.id desc sortieren weil das viel schneller als date ist. liefert fast selbest ergebnis nur letzte 5 oder so könnten dadurch anders sein weils ja auf 100 limitiert ist.
+        // in subquery nach news.id desc sortieren weil das viel schneller als date ist. liefert fast selbest ergebnis nur letzte 5 oder so könnten dadurch anders sein weils ja auf 100 limitiert ist. Fix dafür: einmal limit 110 und einmal 100
         // der rest wird korrekt sortiert weil am ende noch mal news.date DESC angewendet wird
         $stmt = $link->prepare(
             "
@@ -60,7 +60,7 @@ class DBNews
                     SELECT * FROM news
                     ORDER by
                     news.id DESC
-                    LIMIT 100
+                    LIMIT 110
                 ) AS news
             LEFT JOIN
                 bewertung ON bewertung.news_id = news.id
@@ -68,6 +68,7 @@ class DBNews
                 news.id
             ORDER by
                 news.date DESC
+            LIMIT 100
             ;"
         );
         $stmt->execute();
