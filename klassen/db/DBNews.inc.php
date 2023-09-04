@@ -41,24 +41,28 @@ class DBNews
     public static function getNewsWithLikesCount($link, $user_id)
     {
         //alle news aus der db holen, neuste zuerst, nur neuste 100
+        //durch subquery etwas bessere performance
         $stmt = $link->prepare(
             "
             SELECT
                 COUNT(bewertung.news_id) AS likes,
-                    MAX(CASE
-                    WHEN bewertung.benutzter_id = $user_id THEN TRUE
+                MAX(
+                CASE
+                    WHEN bewertung.benutzter_id = 2 THEN TRUE
                     ELSE FALSE
-                END) AS liked,
+                END
+                ) AS liked,
                 news.*
             FROM
-                news
+                (
+                    SELECT * FROM news
+                    ORDER BY date DESC
+                    LIMIT 100
+                ) AS news
             LEFT JOIN
                 bewertung ON bewertung.news_id = news.id
             GROUP BY
                 news.id
-            ORDER BY
-                news.date DESC
-            LIMIT 100;
             ;"
         );
         $stmt->execute();
