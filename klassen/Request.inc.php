@@ -37,6 +37,7 @@ class Request
     public static function requestTranslate($title, $text)
     {
         //chatgpt promt
+        /*
         $context = 'Ich werde dir gleich einen Titel einer news und einen Text dieser news geben. 
         Du sollst mir den Titel und den Text kinderfreundlich übersetzten. 
         Bitte vermeide es, Fachbegriffe oder Fremdwörter zu verwenden. Vermeide Fremdwörter und verwende möglichst einfache Wörter.
@@ -45,9 +46,10 @@ class Request
         Die json antwort von dir soll folgende keys haben: title, text, question1, question2, question3, answer1, answer2 und answer3.
         Nachdem du das json erstellt hast, maskiere innerhalb der values alle folgenden Zeichen " indem du ein Backslash vorsetzt. Zudem überprüfe dich selbst, ob du immer ein Komma nach jedem key-value paar gesetzt hast!!!!!!!!
         ';
-
-        $prompt = 'Das ist der Titel den du umschreiben sollst: ' . $title . '  Das ist der Text den du umschreiben sollst: ' . $text . ' ';
-
+        */
+        $context = "";
+        //$prompt = 'Das ist der Titel den du umschreiben sollst: ' . $title . '  Das ist der Text den du umschreiben sollst: ' . $text . ' ';
+        $prompt = "Titel: ' . $title . ' Text: ' . $text . ' ";
 
 
         if (self::$use_official_chatgpt_api) {
