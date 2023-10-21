@@ -14,7 +14,7 @@ class News
         $this->login = $login;
 
 
-        //Production code!!!!
+        //Production code!!!! 
         if ($this->login->isUserAdmin() && isset($_GET["getNews"])) {
             shell_exec("/usr/local/bin/php /backend/index.php > /dev/null 2>/dev/null &");
             Logs::cloudflare();
