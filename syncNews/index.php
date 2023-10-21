@@ -5,8 +5,8 @@ require_once("/var/www/html/klassen/db/DBHelper.inc.php");
 require_once("/var/www/html/klassen/db/DBNews.inc.php");
 require_once("/var/www/html/klassen/Request.inc.php");
 
-require_once("/home/config.php");
-require_once("/home/News.inc.php");
+require_once("/backend/config.php");
+require_once("/backend/News.inc.php");
 
 
 
