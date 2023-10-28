@@ -1,5 +1,5 @@
 <?php
-#header('Content-Type: text/html; charset=ISO-8859-1');
+header('Content-Type: text/html; charset=ISO');
 
 #ini_set('display_errors', 'Off');
 session_cache_limiter(false);
