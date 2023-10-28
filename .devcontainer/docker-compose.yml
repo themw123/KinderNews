@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: ../
-      dockerfile: .devcontainer/php/Dockerfile
+      dockerfile: .devcontainer/Dockerfile
 
     environment:
       - COMPOSER_ALLOW_SUPERUSER=1
