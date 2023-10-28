@@ -1,0 +1,42 @@
+version: '3.8'
+
+services: 
+  app:
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile
+
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+
+    #ordner synchronisieren  
+    volumes:
+      - ../:/var/www/html:cached
+
+    ports:
+      - 80:80
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  db:
+    image: mariadb:10.4
+    restart: unless-stopped
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ../db/kindernews.sql:/docker-entrypoint-initdb.d/kindernews.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kindernews
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 81:80
+
+
+    # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+volumes:
+  mariadb-data:
