@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 header('Content-Type: text/html; charset=ISO-8859-1');
->>>>>>> feature
 
 #ini_set('display_errors', 'Off');
 session_cache_limiter(false);
