@@ -2,7 +2,7 @@
 header('Content-Type: text/html; charset=ISO-8859-1');
 
 #ini_set('display_errors', 'Off');
-session_cache_limiter(false);
+#session_cache_limiter(false);
 
 require_once('./vendor/autoload.php');
 require_once("/backend/config.php");
